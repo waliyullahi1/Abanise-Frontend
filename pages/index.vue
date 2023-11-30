@@ -540,12 +540,7 @@
         }
     }
 
-    .images{
-        background-image: url(@/assets/image/hero12.jpg);
-        background-position:right;
-        background-repeat: no-repeat;
-        background-size:cover;
-    }
+  
     .image{
        
         background-color: #164b3b;
