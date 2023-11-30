@@ -202,28 +202,24 @@
 
   import { useHead } from '@vueuse/head'
   import { useRouter } from 'vue-router'
+ 
 
-  import { definePageMeta } from '#app'
 
-definePageMeta({
-  middleware: ['auth']
-})
+
 
 
 export default {
-  middleware: [auth], 
+
   setup() {
+   
     const router = useRouter() 
     onMounted(async () => {
-      const token = localStorage.getItem('token') // Retrieve the token from localStorage
+  
 
       try {
-        const response = await fetch('https://your-backend-api.com/valid', {
-          method: "POST",
+        const response = await fetch('https://api-abanise-five.vercel.app/refreshtoken', {
+          method: "GET",
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            token: token
-          })
         })
 
         if (!response.ok) {
@@ -237,7 +233,7 @@ export default {
         router.push('/login') // Redirect to the login page
       }
     })
-
+ 
     useHead({
       // Can be static or computed
       title: 'Airtime, MTN, GLO, 9MOBILE, AIRTEL - abanise.com | Buy WAEC Scratch cards, NECO Scratch cards and NABTEB cards online, Buy Data, Airtime to cash,',

@@ -50,7 +50,7 @@
 import { findDir } from '@vue/compiler-core';
 import { format } from 'date-fns'
  import { ref } from 'vue'
-import html2pdf from 'html2pdf.js'
+
 
    export default {
       setup() {
@@ -140,7 +140,7 @@ this.item[2].details = `₦${this.form.quantity * this.form.price}`;
 
      methods: {
     generatePdf() {
-      html2pdf().from(this.$refs.content).save()
+    
     }
   }
 

@@ -18,7 +18,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
  
   plugins: [
-    '~/plugins/html2pdf.js'
+   
   ],
   modules: [
     '@nuxtjs/tailwindcss'

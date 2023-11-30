@@ -282,6 +282,7 @@ export default {
     },
 
    async logout(){
+   console.log('fffffffffffffffff');
        this.$emit("logout")
          try {
     const response = await fetch('https://api-abanise-5a3s.vercel.app/logout',{
@@ -299,11 +300,11 @@ export default {
     
   }
    
-  
+  console.log(response);
   
 
- 
-        this.$router.push({name: 'login'})
+  this.$router.push('/login')
+
    
   } catch (error) {
     console.log(error)
