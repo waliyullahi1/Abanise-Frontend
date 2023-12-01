@@ -140,64 +140,62 @@ export default {
     this.resetErrors();
   },
   
- // async
-
- submit() {
-  this.loadingState = true ;
- 
-     if (!this.form.email) {
-    this.erroremail = true;
-    this.loadingState = false;
-    return false;
-  } else if (!this.form.password) {
-    this.errorpassword = true;
-    this.loadingState = false;
-    return false;
-  } else {
-
-  //     try {
-  //   const response = await fetch('https://api-abanise-five.vercel.app/login',{
-  //     method : "POST",
-  //     headers: {'Content-Type':'application/json'},
-  //     credentials:'include',
-  //     body:JSON.stringify({
-  //               email: this.form.email,
-  //               pwd: this.form.password,
-  //     })
-      
-  //   })
+  async submit() {
   
-  // if (!response.ok) {
-  //   this.loadingState = false
-  //   const errorData = await response.json();
-  //  this.erromessage = errorData.message;
-  //   throw new Error(errorData.message);
-    
-  // }
-  //  this.loadingState = true
-  // const data = await response.json();
-  // this.message = data.success
-  // console.log('Success:', data);
-  //  setTimeout(() => {
-  //   this.$router.push('/user/Dashboard')
-        
-  //       this.loadingState = false
-  //     }, 2);
-  // } catch (error) {
-  //   console.log(error)
-  // }
-  }
 },
+
+// async submit() {
+//   this.loadingState = true ;
+ 
+//      if (!this.form.email) {
+//     this.erroremail = true;
+//     this.loadingState = false;
+//     return false;
+//   } else if (!this.form.password) {
+//     this.errorpassword = true;
+//     this.loadingState = false;
+//     return false;
+//   } else {
+
+//       try {
+//     const response = await fetch('https://api-abanise-five.vercel.app/login',{
+//       method : "POST",
+//       headers: {'Content-Type':'application/json'},
+//       credentials:'include',
+//       body:JSON.stringify({
+//                 email: this.form.email,
+//                 pwd: this.form.password,
+//       })
+      
+//     })
+  
+//   if (!response.ok) {
+//     this.loadingState = false
+//     const errorData = await response.json();
+//    this.erromessage = errorData.message;
+//     throw new Error(errorData.message);
+    
+//   }
+//    this.loadingState = true
+//   const data = await response.json();
+//   this.message = data.success
+//   console.log('Success:', data);
+//    setTimeout(() => {
+//     this.$router.push('/user/Dashboard')
+        
+//         this.loadingState = false
+//       }, 2);
+//   } catch (error) {
+//     console.log(error)
+//   }
+//   }
+// },
 
 
 
   },
 
- watch: {
-  email(value) {
-    this.submit();
-  }
-}
+
 
 }
 </script>
