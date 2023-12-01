@@ -137,6 +137,7 @@ export default {
 
   data(){
     return{
+      disabled:'',
       message:'',
       errorphone:'',
       erromessage:'',
