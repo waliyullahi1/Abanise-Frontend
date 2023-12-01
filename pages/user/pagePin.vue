@@ -62,7 +62,7 @@ import { format } from 'date-fns'
   },
     data(){
             return{
-              items : JSON.parse(localStorage.getItem("card")),
+              items: [],
 
             form:'',
 
@@ -119,11 +119,10 @@ import { format } from 'date-fns'
 
      created(){
        
-        window.onbeforeunload = function () {
-        localStorage.removeItem("result"); 
-        };
-            this.form = JSON.parse(localStorage.getItem('recelpt'));
-       this.form = JSON.parse(localStorage.getItem('recelpt'));
+      if (typeof window !== 'undefined') {
+      this.items = JSON.parse(localStorage.getItem("recelpt"));
+
+    }
 
 // Convert price to a number
 this.form.price = Number(this.form.price);

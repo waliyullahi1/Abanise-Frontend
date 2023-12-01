@@ -3,6 +3,7 @@ require('dotenv').config()
 export default defineNuxtConfig({
   nitro: {
     static: true,
+    preset: 'vercel-edge'
   },
   routeRules: {
     // prerender index route by default
