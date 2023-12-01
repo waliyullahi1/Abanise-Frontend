@@ -119,11 +119,9 @@ import { format } from 'date-fns'
 
      created(){
        
-      if (typeof window !== 'undefined') {
+      if (typeof window !== 'undefined' && localStorage.getItem("recelpt")) {
       this.items = JSON.parse(localStorage.getItem("recelpt"));
-
     }
-
 // Convert price to a number
 this.form.price = Number(this.form.price);
 
