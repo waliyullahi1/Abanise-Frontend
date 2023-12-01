@@ -1,8 +1,8 @@
 
 require('dotenv').config()
 export default defineNuxtConfig({
-  nitro: {
-    static: true,
+  routeRules: {
+    '/blog/**': { isr: 3000 },
   },
 
   
