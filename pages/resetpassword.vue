@@ -52,10 +52,13 @@
 <script>
 import { ref, onMounted } from 'vue'
 import axios from 'axios'
-
- const locationName = window.location.href
+if (typeof window !== 'undefined') {
+      const locationName = window.location.href
  const splitloc = locationName.split('/');
 const token =  (splitloc[4])
+
+    }
+ 
 
 export default {
 
@@ -75,7 +78,7 @@ export default {
     message:'',
       loadingState:false,
       form:{
-        password:'3333333333333', 
+        password:'', 
       },
 
   
