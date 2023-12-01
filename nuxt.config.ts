@@ -4,7 +4,9 @@ export default defineNuxtConfig({
   routeRules: {
     '/blog/**': { isr: 3000 },
   },
-
+  nitro: {
+    static: true,
+  },
   
   runtimeConfig: {
     public: {
