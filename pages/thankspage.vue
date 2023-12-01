@@ -111,9 +111,8 @@ export default {
   },
 
   created() {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== 'undefined' && localStorage.getItem("recelpt")) {
       this.items = JSON.parse(localStorage.getItem("recelpt"));
-
     }
 
 
