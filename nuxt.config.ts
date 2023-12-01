@@ -3,15 +3,9 @@ require('dotenv').config()
 export default defineNuxtConfig({
   nitro: {
     static: true,
-    preset: 'vercel-edge'
   },
-  routeRules: {
-    // prerender index route by default
-    '/': { prerender: true },
-    // prerender this route and all child routes
-    '/prerender-multiple/**': { prerender: true },
-  },
- 
+
+  
   runtimeConfig: {
     public: {
       PAYSTACK_SECRETY_CODE:' pk_test_6e7188c6a08247d1027aef4d5bd5eb2312c801fd',
