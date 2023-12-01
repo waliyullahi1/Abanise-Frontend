@@ -75,7 +75,7 @@
                     </div>
                     <p class="flex justify-between font-font-[17px] ">Availability(status) <span class="tex text-green-600 ">{{ item.status }}</span></p>
                 </div>
-                 <NuxtLink  :class="item.itIsAvalable? 'block':'hidden'" target="_blank" :to="`/${item.id}`"><Primary class="w-full text-center font-[14px] font-sembold">Buy now</Primary></NuxtLink >
+                 <NuxtLink  :class="item.itIsAvalable? 'block':'hidden'" target="_blank" :to="`/${item.id}/${item.card}/${item.condition}`"><Primary class="w-full text-center font-[14px] font-sembold">Buy now</Primary></NuxtLink >
                  <NuxtLink  :class="item.itIsAvalable? 'hidden':'block'" target="_blank" :to="`/`"><Primary class="w-full text-center font-[14px]  font-sembold">Not Available</Primary></NuxtLink >
                   <!-- /${item.card}/${item.condition} -->
             </div>
