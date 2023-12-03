@@ -69,12 +69,7 @@
                 loadingText="please wait...">Previews</Button>
             </form>
 
-            <div class="flex gap-1">
-              copy
-              <small class="font-semibold text- text-sm gap-1 flex text-gray-800">abaniseedu.com
-              copy2023
-              </small>
-            </div>
+            <Copywrite></Copywrite>
           </div>
         </div>
       </div>
@@ -141,7 +136,30 @@ export default {
   middleware: 'auth',
   setup() {
     
+    onMounted(async () => {
   
+
+  try {
+    const response = await fetch('https://api-abanise-five.vercel.app/refreshtoken',{
+  method : "GET",
+  headers: {'Content-Type':'application/json'},
+  credentials:'include',
+  
+})
+
+if (!response.ok) {
+const errorData = await response.json();
+this.erromessage = errorData.message;
+throw new Error(errorData.message);
+
+}
+
+  
+  } catch (error) {
+    console.error('There has been a problem with your fetch operation:', error)
+    router.push('/login') // Redirect to the login page
+  }
+})
 
     useHead({
       // Can be static or computed

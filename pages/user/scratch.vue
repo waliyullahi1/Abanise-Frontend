@@ -222,7 +222,30 @@ import { useHead } from '@vueuse/head'
 export default {
   middleware: 'auth',
   setup() {
-    
+    onMounted(async () => {
+  
+
+  try {
+    const response = await fetch('https://api-abanise-five.vercel.app/refreshtoken',{
+  method : "GET",
+  headers: {'Content-Type':'application/json'},
+  credentials:'include',
+  
+})
+
+if (!response.ok) {
+const errorData = await response.json();
+this.erromessage = errorData.message;
+throw new Error(errorData.message);
+
+}
+
+  
+  } catch (error) {
+    console.error('There has been a problem with your fetch operation:', error)
+    router.push('/login') // Redirect to the login page
+  }
+})
   
 
     useHead({
@@ -332,7 +355,7 @@ export default {
                        
                         image:waecImg ,
                         price:'4000.00',
-                        card:'Waec',
+                        card:'WAEC',
                         header:'Scratch card ',
                         condition:'result checker',
                         itIsAvalable:true,
@@ -343,7 +366,7 @@ export default {
                         id: 2,
                         image: neco,
                         price:'1200.00',
-                        card:'Neco',
+                        card:'NECO',
                         header:'Scratch card ',
                         condition:'result checker',
                         itIsAvalable:true,
@@ -354,7 +377,7 @@ export default {
                         id: 3,
                         image: nabteb,
                         price:'1000.00',
-                        card:'Nabteb',
+                        card:'NABTEB',
                         header:'Scratch card ',
                         condition:'result checker',
                         itIsAvalable:true,
@@ -366,7 +389,7 @@ export default {
                         id: 4,
                         image: gcewaec,
                         price:'19,000.00',
-                        card:'GCEWaec',
+                        card:'GCEWAEC',
                         header:'Pin card ',
                         condition:'For registration',
                         itIsAvalable:false,
@@ -377,7 +400,7 @@ export default {
                         id: 5,
                         image: neco,
                         price:'12,500.00',
-                        card:'GCENeco',
+                        card:'GCENECO',
                         header:'Pin card ',
                         condition:'For registration',
                         itIsAvalable:false,
@@ -389,7 +412,7 @@ export default {
                         id: 6,
                         image: nabtebgce,
                         price:'16,500.00',
-                        card:'GCENabteb',
+                        card:'GCENABTEB',
                         header:'pin ',
                         condition:'For registration',
                         itIsAvalable:false,
@@ -470,7 +493,9 @@ export default {
         this.loadingState2 = true;
         try {
          this.loadingState2 = true
-          const response = await fetch("https://api-abanise-five.vercel.app//card/sell", {
+        
+         //sub/airtimecard/sell
+          const response = await fetch("https://api-abanise-five.vercel.app/card/sell", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             credentials: "include",
@@ -495,12 +520,15 @@ export default {
           const data = await response.json();
           console.log(response);
           // this.message = data.success;
-          this.pin = data[0];
-          console.log("Success:", data);
+         
+          this.message = data.success
+          console.log('Success:', data);
+          localStorage.setItem('cards', JSON.stringify(data))
+        
          
           //information  to receipt
 
-            localStorage.setItem("recelpt", JSON.stringify(this.form))
+            localStorage.setItem("recelptlist", JSON.stringify(this.form))
         
 
         

@@ -101,14 +101,7 @@
                 Previews
               </Button>
             </form>
-            <div class="flex gap-1">
-            copy
-              <small
-                class="font-semibold text- text-sm gap-1 flex text-gray-800"
-                >abaniseedu.com
-              copy2023
-              </small>
-            </div>
+            <Copywrite></Copywrite>
           </div>
         </div>
       </div>
@@ -217,17 +210,21 @@ export default {
   
 
       try {
-        const response = await fetch('https://api-abanise-five.vercel.app/refreshtoken', {
-          method: "GET",
-          headers: { 'Content-Type': 'application/json' },
-        })
+        const response = await fetch('https://api-abanise-five.vercel.app/refreshtoken',{
+      method : "GET",
+      headers: {'Content-Type':'application/json'},
+      credentials:'include',
+      
+    })
+  
+  if (!response.ok) {
+    const errorData = await response.json();
+   this.erromessage = errorData.message;
+    throw new Error(errorData.message);
+    
+  }
 
-        if (!response.ok) {
-          throw new Error('Network response was not ok')
-        }
-
-        const data = await response.json()
-        console.log(data.message)
+      
       } catch (error) {
         console.error('There has been a problem with your fetch operation:', error)
         router.push('/login') // Redirect to the login page

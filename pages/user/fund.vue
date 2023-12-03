@@ -27,8 +27,74 @@
 
 
 export default {
-  middleware: 'auth',
 
+  setup() {
+   
+   const router = useRouter() 
+   onMounted(async () => {
+ 
+
+     try {
+       const response = await fetch('https://api-abanise-five.vercel.app/refreshtoken',{
+     method : "GET",
+     headers: {'Content-Type':'application/json'},
+     credentials:'include',
+     
+   })
+ 
+ if (!response.ok) {
+   const errorData = await response.json();
+  this.erromessage = errorData.message;
+   throw new Error(errorData.message);
+   
+ }
+
+     
+     } catch (error) {
+       console.error('There has been a problem with your fetch operation:', error)
+       router.push('/login') // Redirect to the login page
+     }
+   })
+
+   useHead({
+     // Can be static or computed
+     title: 'Airtime, MTN, GLO, 9MOBILE, AIRTEL - abanise.com | Buy WAEC Scratch cards, NECO Scratch cards and NABTEB cards online, Buy Data, Airtime to cash,',
+     meta: [
+       {
+         name: `description`,
+         content: 'Data Bundle - Cheapest Data Bundle Plan in 2023 – MTN | Airtel | Glo | 9Mobile | NairaData Nigeria',
+       },
+       // {
+       //   itemprop: `name,
+       //   content: 'Buy WAEC scratch cards online at WWW.abaniseedu.COM. Buy WAEC Scratch cards, NECO Scratch cards and NABTEB cards online, Buy Cheap Internet Data Plan and Airtime Recharge for Airtel, 9mobile, GLO, MTN. at the best price in Nigeria. Order now at WWW.abaniseedu.COM and get it delivered to you instantly using your prefered method.',
+       // },
+       {
+         name: 'site_name',
+         content: 'abaniseedu.com',
+       },
+       {
+         name: 'type',
+         content: 'website ',
+       },
+       {
+         name: 'site_name',
+         content: 'abaniseedu.com',
+       },
+       {
+         name: 'type',
+         content: 'website ',
+       },
+
+       {
+         name: 'url',
+         content: 'abaniseedu.com',
+       },
+     
+       ],
+    
+   })
+   return { };
+ },
   data(){
 
     return{

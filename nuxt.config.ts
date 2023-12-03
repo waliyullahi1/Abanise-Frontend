@@ -96,6 +96,7 @@ export default defineNuxtConfig({
   routeRules: {
     '/blog/**': { isr: 3000 },
   },
+  
   ssr: true,
   hooks: {
     async 'nitro:config'(nitroConfig) {
@@ -114,6 +115,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   plugins: [],
   modules: [
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss', '@sidebase/nuxt-pdf'
   ],
 })

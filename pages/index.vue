@@ -151,12 +151,7 @@
             </div>
         </div>
     </section>
-    <section class="container hidden my-20 mx-auto py-5 ">
-     <div class="flex flex-col gap-5 justify-center images h-96 items-center">
-     <h2 class="text-3xl justify-center font-semibold text-white  ">ABOUT US</h2>
-     <p class="md:w-2/3 w-full px-2  font-normal text-center text-white"> We are the best source. With a platform that is trusted by Paystack , you can shop online with complete confidence and no worries. Our pleasure is in seeing you happy. We take great pride in providing top-notch service, and we have no doubt that after utilizing our service for the first time, you'll make our website your homepage. </p>
-     </div>
-    </section>
+    
    
     <section>
         <div :class=" track ? 'translate-x-0 ' : 'translate-x-[250rem]'" class=" duration-700 ease-in-out w-full transform top-0 fixed z-50  blurr h-[50rem]">
