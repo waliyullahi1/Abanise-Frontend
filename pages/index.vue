@@ -10,9 +10,9 @@
         <slide v-for="slide in hero" :key="slide.id" class="w-full  ">
             <div :style="{backgroundImage:'url('+ slide.image +')'}" class=" image sticky top-0 w-full h-[30rem] md:h-[40rem]  overflow-hidden ">
          <div  class="container pt-8  flex flex-col md:gap-4 gap-0 px-4 justify-center h-full mx-auto "> 
-            <div class=" overflow-hidden  h-fit"> <h1 class= " heropa animate-bounce  font-medium  text-5xl px-1 text-[1.5rem] sm:text-[2rem]  md:text-[3rem] text-white  ">{{slide.heroSection}}</h1></div>
+            <div class=" overflow-hidden  h-fit"> <h1 class= " heropa  font-medium  text-5xl px-1 text-[1.5rem] sm:text-[2rem]  md:text-[3rem] text-white  ">{{slide.heroSection}}</h1></div>
             <div class=" w-full flex justify-center items-center overflow-hidden">
-                   <div class="md:w-1/2 herop animate-bounce w-full flex justify-center mx-2 items-center"> <h2 class="sm:text-2xl text-[15px] text-[white] pt-0 ">{{slide.heroParagraph}}</h2></div>
+                   <div class="md:w-1/2 herop  w-full flex justify-center mx-2 items-center"> <h2 class="sm:text-2xl text-[15px] text-[white] pt-0 ">{{slide.heroParagraph}}</h2></div>
 
             </div>
                           <div class="flex gap-5 mt-2 sm:mt-8 justify-center items-center">
@@ -480,14 +480,14 @@
  
 }
 .carousel__slide--active .heropa{
-   /* animation: p 3s ;
-   animation-iteration-count: 1;   */
+   animation: p 3s ;
+   animation-iteration-count: 1;  
 }
 
 
 .carousel__slide--active .herop{
-   /* animation: pa 3s ;
-   animation-iteration-count: 1;   */
+   animation: pa 3s ;
+   animation-iteration-count: 1;  
 }
 
 
