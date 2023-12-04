@@ -470,7 +470,8 @@
 </script>
 
 <style scoped>
-.carousel__item {
+  @import '~/assets/main.css';
+/* .carousel__item {
    width: 200%;
   
 }
@@ -482,10 +483,10 @@
 .carousel__slide--active .heropa{
    animation: p 3s ;
    animation-iteration-count: 1;  
-}
+} */
 
 
-.carousel__slide--active .herop{
+/* .carousel__slide--active .herop{
    animation: pa 3s ;
    animation-iteration-count: 1;  
 }
@@ -533,7 +534,7 @@
          transform: translateY(0px);
          color: black;
         }
-    }
+    } */
 
   
     .image{

@@ -93,6 +93,7 @@ const getPostRoutes = async () => {
   return item.map((items) => `/${items.id}/${items.card}/${items.condition}`)
 }
 export default defineNuxtConfig({
+  css: ['~/assets/main.css'],
   routeRules: {
     '/blog/**': { isr: 3000 },
   },
