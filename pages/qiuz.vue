@@ -10,7 +10,7 @@
           </div>
           <div class=" py-3 px-5">
 
-            <label class="container" v-for="(option, index) in questions[questionIndex].choices" :key="index">
+            <label class="containerss" v-for="(option, index) in questions[questionIndex].choices" :key="index">
               {{ option }}
               <input type="radio" v-model="this.selectedOption" :value="option"  name="radio">
               <span class="checkmark"></span>
@@ -21,36 +21,13 @@
 
         </div>
         <div class=" flex px-4 justify-between ">
-          <div @click="previous" class=" sm:w-10 w-6 text-primary hover:text-secondary ease-in-out  duration-500">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-              viewBox="0 0 256 256" xml:space="preserve">
-              <defs>
-              </defs>
-              <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;"
-                transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
-                <path
-                  d="M 45 0 c 24.813 0 45 20.187 45 45 c 0 24.813 -20.187 45 -45 45 C 20.186 90 0 69.813 0 45 C 0 20.187 20.186 0 45 0 z M 51.263 73.4 l 8.6 -8.6 L 40.064 45 l 19.799 -19.799 l -8.6 -8.6 L 22.864 45 L 51.263 73.4 z"
-                  style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: currentColor; fill-rule: nonzero; opacity: 1;"
-                  transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-              </g>
-            </svg>
+          <button @click="previous" class=" py-2 px-4 t text-white bg-primary hover:bg-green-800 ease-in-out  duration-500">
+            Previous 
+          </button>
+          <button @click="next" class=" py-2 px-4 t text-white bg-primary hover:bg-green-800 ease-in-out  duration-500">
+          Next
 
-          </div>
-          <div @click="next" class=" sm:w-10 w-6 rotate-180 text-primary hover:text-secondary ease-in-out  duration-500">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-              viewBox="0 0 256 256" xml:space="preserve">
-              <defs>
-              </defs>
-              <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;"
-                transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
-                <path
-                  d="M 45 0 c 24.813 0 45 20.187 45 45 c 0 24.813 -20.187 45 -45 45 C 20.186 90 0 69.813 0 45 C 0 20.187 20.186 0 45 0 z M 51.263 73.4 l 8.6 -8.6 L 40.064 45 l 19.799 -19.799 l -8.6 -8.6 L 22.864 45 L 51.263 73.4 z"
-                  style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: currentColor; fill-rule: nonzero; opacity: 1;"
-                  transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-              </g>
-            </svg>
-
-          </div>
+          </button>
         </div>
 
         <div class="mt-7 py-3 px-5 flex justify-center w-full gap-3">
@@ -205,58 +182,44 @@ export default {
 }
 
 /* Hide the browser's default radio button */
-.containers input {
+.containerss {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.containerss input {
   position: absolute;
   opacity: 0;
-  margin: 10;
   cursor: pointer;
-  box-shadow: -1px 3px 49px -10px rgba(0, 0, 0, 0.29);
-  -webkit-box-shadow: -1px 3px 49px -10px rgba(0, 0, 0, 0.29);
-  -moz-box-shadow: -1px 3px 49px -10px rgba(0, 0, 0, 0.29);
-  border:#000000 12px solid;
-}
-
-.bg-red {
-  color: #00c489;
-
-  border: #00c489 2px solid;
-}
-
-.bg-yellow {
-  color: black;
-  border-radius: 100%;
-  border: #000000 2px solid;
-
 }
 
 /* Create a custom radio button */
 .checkmark {
   position: absolute;
-  top: 6px;
+  top: 0;
   left: 0;
   height: 25px;
   width: 25px;
   background-color: #eee;
   border-radius: 50%;
-  box-shadow: -1px 3px 49px -10px rgba(0, 0, 0, 0.29);
-  -webkit-box-shadow: -1px 3px 49px -10px rgba(0, 0, 0, 0.29);
-  -moz-box-shadow: -1px 3px 49px -10px rgba(0, 0, 0, 0.29);
-  
 }
 
 /* On mouse-over, add a grey background color */
-.containers:hover input~.checkmark {
+.containerss:hover input ~ .checkmark {
   background-color: #ccc;
-  box-shadow: -1px 3px 49px -10px rgba(0, 0, 0, 0.29);
-  -webkit-box-shadow: -1px 3px 49px -10px rgba(0, 0, 0, 0.29);
-  -moz-box-shadow: -1px 3px 49px -10px rgba(0, 0, 0, 0.29);
-  border:#000000 1px solid;
 }
 
-
-
 /* When the radio button is checked, add a blue background */
-.containers input:checked~.checkmark {
+.containerss input:checked ~ .checkmark {
   background-color: #2196F3;
 }
 
@@ -268,9 +231,19 @@ export default {
 }
 
 /* Show the indicator (dot/circle) when checked */
-.containers input:checked~.checkmark:after {
+.containerss input:checked ~ .checkmark:after {
   display: block;
 }
+
+/* Style the indicator (dot/circle) */
+.containerss .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;}
+
 .shadows {
   box-shadow: -1px 3px 49px -10px rgba(0, 0, 0, 0.29);
   -webkit-box-shadow: -1px 3px 49px -10px rgba(0, 0, 0, 0.29);

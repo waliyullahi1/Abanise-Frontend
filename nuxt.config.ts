@@ -116,6 +116,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   plugins: [],
   modules: [
-    '@nuxtjs/tailwindcss', '@sidebase/nuxt-pdf','vue3-carousel-nuxt'
+    '@nuxtjs/tailwindcss', '@sidebase/nuxt-pdf','vue3-carousel-nuxt', 'nuxt3-notifications'
   ],
 })
