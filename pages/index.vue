@@ -151,7 +151,11 @@
             </div>
         </div>
     </section>
+    <div class="w-full flex justify-center items-center">
+        <button  class= "bg-primary justify-center flex hover:bg-secondary ease-in-out duration-700 text-white rounded-xl text-xl py-2 px-4 "> Click here to collect your year gift</button>
     
+    </div>
+     
    
     <section>
         <div :class=" track ? 'translate-x-0 ' : 'translate-x-[250rem]'" class=" duration-700 ease-in-out w-full transform top-0 fixed z-50  blurr h-[50rem]">
@@ -470,7 +474,7 @@
 </script>
 
 <style scoped>
-  @import '~/assets/main.css';
+  /* @import '~/assets/main.css'; */
 /* .carousel__item {
    width: 200%;
   

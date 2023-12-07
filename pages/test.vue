@@ -1,17 +1,32 @@
 <template>
+  <div>
+    <h1></h1>
+    <label class="container" v-for="(option, index) in questions[questionIndex].choices" :key="index">
+        {{ option }}
+        <input type="radio" v-model="this.selectedOption" :value="option" name="radio">
+        <span class="checkmark"></span>
+    </label>
+    <button @click="next()">next</button> <button @click="previous()" >previous</button> <button @click="submite()" >submite</button>
+  </div>
+  
     <!-- ... -->
-    <div v-for="(q, index) in questions" :key="index">
-      <h1>{{ q.question }}</h1>
-      <ul v-for="c of q.choices" :key="c">
-        <label>
-          {{ c }}
-          <input type="radio" :checked="answers[index] === c" :name="'question' + index" :disabled="index > questionIndex" @change="answerQuestion(index, c)">
-        </label>
-      </ul>
-    </div>
-    <button @click="next" :disabled="questionIndex >= questions.length - 1 || !answers[questionIndex]">Next</button>
-    <button @click="submit" :disabled="!allQuestionsAnswered">Submit</button>
-    <!-- ... -->
+    
+<!-- <label class="container">One
+  <input type="radio" checked="checked" name="radio">
+  <span class="checkmark"></span>
+</label>
+<label class="container">Two
+  <input type="radio" name="radio">
+  <span class="checkmark"></span>
+</label>
+<label class="container">Three
+  <input type="radio" name="radio">
+  <span class="checkmark"></span>
+</label>
+<label class="container">Four
+  <input type="radio" name="radio">
+  <span class="checkmark"></span>
+</label> -->
   </template>
   
   <script>
@@ -40,34 +55,124 @@ export default {
   name: "App",
   data() {
     return {
+      options: ['One', 'Two', 'Three', 'Four'],
+      selectedOption: null,
       questions,
       questionIndex: 0,
-      question: questions[0],
-      answer: "",
+      score:0,
+      // question: questions[0],
+      // answer: "",
     };
   },
   methods: {
-    answerQuestion(answer) {
-      this.questions[this.questionIndex].userAnswer = answer;
-    },
     next() {
-      if (this.questionIndex < this.questions.length - 1) {
-        this.questionIndex++;
-        this.question = this.questions[this.questionIndex];
-      }
-    },
-    goToQuestion(index) {
-      this.questionIndex = index;
-      this.question = this.questions[this.questionIndex];
-    },
-    previous() {
-      if (this.questionIndex > 0) {
-        this.questionIndex--;
-        this.question = this.questions[this.questionIndex];
-      }
-    },
+    // Save the user's answer if one is selected
+    if (this.selectedOption !== null) {
+      this.questions[this.questionIndex].userAnswer = this.selectedOption;
+    }
+    // Increment the question index
+    this.questionIndex++;
+
+    // Reset the selected option for the next question
+    if (this.questionIndex < this.questions.length) {
+      this.selectedOption = this.questions[this.questionIndex].userAnswer;
+    } else {
+      console.log('Questions have finished');
+      this.submite();
+    }
   },
+  previous() {
+    if (this.questionIndex > 0) {   
+      // Decrement the question index
+      this.questionIndex--;
+
+      // Restore the user's answer for the previous question
+      this.selectedOption = this.questions[this.questionIndex].userAnswer;
+    }
+  },
+  submite() {
+    let score = 0;
+    for (let question of this.questions) {
+      if (question.userAnswer === question.rightAnswer) {
+        score++;
+      }
+    }
+    console.log(`Score: ${score}`);
+    // Display the score to the user
+    alert(`Your score is ${score} out of ${this.questions.length}`);
+  },
+  }, 
+   watch: {
+    selectedOption: function(newVal, oldVal) {
+      console.log(`User picked: ${newVal}`);
+    }
+ 
+}
+
+
 };
 </script>
+ <style>
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}</style>
   
