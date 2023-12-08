@@ -13,6 +13,7 @@
   
         <div class="px-4" :class="card ? 'block' : 'hidden'">
           <section class=" container my-5 mx-auto ">
+            <NuxtLink to="/qiuz">ffffff</NuxtLink>
             <h1 class="family text-5xl text-center">{{ cardName }} Scratch Card</h1>
             <p class="text-2xl font-semibold text-center ">Buy {{ cardName }} Direct Access Card Here</p>
           </section>
