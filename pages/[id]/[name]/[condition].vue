@@ -547,7 +547,7 @@
         const publicKey =runtimeConfig.public.PAYSTACK_SECRETY_CODE
         const refreshToken=runtimeConfig.public.REFRESH_TOKEN_SECRETY
         this.publicKey = publicKey
-        console.log(this.publicKey, '');
+    
         if (splitloc[3] == 1) {
           this.form.semiprice = Number(4000) * this.form.quantity
           console.log(this.form.semiprice);
