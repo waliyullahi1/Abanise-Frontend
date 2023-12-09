@@ -95,6 +95,52 @@
         </div>
       </section>
 
+      <section
+        class="bg-white border-primary border-4 py-6 px-4 overflow-scroll bg  z-40 fixed mt-10 shadows rounded-lg  w-[80%] sm:h-fit h-screen pb-20 mb-10 ">
+        <div class="w-full justify-center items-center flex"><img src="@/assets/image/success.gif" alt="sucessful payment" class= " w-32 mx-0 justify-center "></div>
+        <h1 class="text-3xl text-center text-green-600  font-medium ">You win, Congratulation 👍   </h1>
+        <h2 class="text-xl  font-semibold text-center">Your score is {{score }} out of {{this.selectedQuestions.length}}</h2>
+        <p class="text-center font-medium ">Thanks for participate in this activity, and you would have receive 1gb on your phone number that you provided</p>
+        <h1></h1>
+        <nav>
+         
+        </nav>
+        <form action="" class=" mt-7 mb-9 sm:grid block grid-cols-2 gap-7  w-full h-fit  text-xl">
+          <div class="flex bg-white w-full flex-col">
+            <label for="" class="text-primary font-medium px-4 text-[15px]">Network</label>
+            <select v-model="form.network"
+              class="w-full px-2 font-seibold rounded-[.2rem] ml-2 text-[15px] outline-none border-2 font-medium h-full focus:border-primary border-gray-300  py-[.3rem]"
+              placeholder="Password" @input="onInput">
+              <option value="MTN">MTN</option>
+              <option value="GLO">GLO</option>
+              <option value="9MOBILE">9MOBILE</option>
+              <option value="AIRTEL">AIRTEL</option>
+            </select>
+            <p :class="errornetwork ? 'flex' : 'hidden '" class="e pl-5 text-red-700 text-[13px]">
+              Select the Network
+            </p>
+          </div>
+
+
+          <div class="flex bg-white w-full flex-col">
+            <label for="" class="text-primary font-medium w-full px-4 text-[15px]">Phone Number</label>
+            <input v-model="form.phone" type="text" pattern="[0-9]*"
+              class="w-full px-2 font-seibold rounded-[.2rem] ml-2 text-[15px] outline-none focus:border-primary border-2 border-gray- border-gray-300 py-[.3rem]"
+              placeholder="phone number " @input="onInput" />
+            <div class="relative w-0 h-0">
+              <p :class="errorphone ? 'flex' : 'hidden '" class="e pl-5 text-red-700 w-36  overflow-visible text-[13px]">
+                Enter correct phone
+              </p>
+            </div>
+
+          </div>
+
+        </form>
+        <Button class="mt-4" :loading="loadingState" @click="startTimer()" loadingText2="please wait">
+          Start Exam
+        </Button>
+      </section>
+
       <div :class="submiteEnter ? 'w-0 h-0' : 'w-full h-full '"
         class=" hidden  w-full : bg-opacity-75    justify-center items-center    py-1 fixed   px-4 ">
 
