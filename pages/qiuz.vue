@@ -2,8 +2,8 @@
   <div class=" bg-slate-200 text-[puppins] ">
     <Header :headertext="false" class="fixed z-40 top-0"></Header>
     <div class="  flex justify-center items-center mt-9   w-full h-screen">
-      <section
-        class="bg-white py-6 px-4 overflow-scroll hidden  z-40 fixed mt-10 shadows rounded-lg  w-[80%] sm:h-fit h-screen pb-20 mb-10 ">
+      <section v-if="showInstructions"
+        class="bg-white py-6 px-4 overflow-scroll bg  z-40 fixed mt-10 shadows rounded-lg  w-[80%] sm:h-fit h-screen pb-20 mb-10 ">
         <h1 class="text-xl text-center font-medium ">Please read the instruction below before you click start </h1>
         <nav>
           <ul class="  list-outside ml-4 mt-5 font-medium list-disc">
@@ -16,75 +16,53 @@
           </ul>
         </nav>
         <form action="" class=" mt-7 mb-9 sm:grid block grid-cols-2 gap-7  w-full h-fit  text-xl">
-              <div class="flex bg-white w-full flex-col">
-                <label for="" class="text-primary font-medium px-4 text-[15px]"
-                  >Network</label
-                >
-                <select
-                  v-model="form.network"
-                  class="w-full px-2 font-seibold rounded-[.2rem] ml-2 text-[15px] outline-none border-2 font-medium h-full focus:border-primary border-gray-300  py-[.3rem]"
-                  placeholder="Password"
-                  @input="onInput"
-                >
-                  <option value="MTN">MTN</option>
-                  <option value="GLO">GLO</option>
-                  <option value="9MOBILE">9MOBILE</option>
-                  <option value="AIRTEL">AIRTEL</option>
-                </select>
-                <p
-                  :class="errornetwork ? 'flex' : 'hidden '"
-                  class="e pl-5 text-red-700 text-[13px]"
-                >
-                  Select the Network
-                </p>
-              </div>
+          <div class="flex bg-white w-full flex-col">
+            <label for="" class="text-primary font-medium px-4 text-[15px]">Network</label>
+            <select v-model="form.network"
+              class="w-full px-2 font-seibold rounded-[.2rem] ml-2 text-[15px] outline-none border-2 font-medium h-full focus:border-primary border-gray-300  py-[.3rem]"
+              placeholder="Password" @input="onInput">
+              <option value="MTN">MTN</option>
+              <option value="GLO">GLO</option>
+              <option value="9MOBILE">9MOBILE</option>
+              <option value="AIRTEL">AIRTEL</option>
+            </select>
+            <p :class="errornetwork ? 'flex' : 'hidden '" class="e pl-5 text-red-700 text-[13px]">
+              Select the Network
+            </p>
+          </div>
 
-              
-              <div class="flex bg-white w-full flex-col">
-                <label for="" class="text-primary font-medium w-full px-4 text-[15px]"
-                  >Phone Number</label
-                >
-                <input
-                  v-model="form.phone"
-                  type="text"
-                  pattern="[0-9]*"
-                  class="w-full px-2 font-seibold rounded-[.2rem] ml-2 text-[15px] outline-none focus:border-primary border-2 border-gray- border-gray-300 py-[.3rem]"
-                  placeholder="phone number "
-                  @input="onInput"
-                />
-                <div class="relative w-0 h-0">
-                  <p
-                  :class="errorphone ? 'flex' : 'hidden '"
-                  class="e pl-5 text-red-700 w-36  overflow-visible text-[13px]"
-                >
-                  Enter correct phone
-                </p>
-              </div>
-                
-              </div>
-            
-            </form>
-            <Button
-                class="mt-4"
-                :loading="loadingState"
-                @click="startTimer()"
-                loadingText2="please wait"
-              >
-                Start Exam
-              </Button>
+
+          <div class="flex bg-white w-full flex-col">
+            <label for="" class="text-primary font-medium w-full px-4 text-[15px]">Phone Number</label>
+            <input v-model="form.phone" type="text" pattern="[0-9]*"
+              class="w-full px-2 font-seibold rounded-[.2rem] ml-2 text-[15px] outline-none focus:border-primary border-2 border-gray- border-gray-300 py-[.3rem]"
+              placeholder="phone number " @input="onInput" />
+            <div class="relative w-0 h-0">
+              <p :class="errorphone ? 'flex' : 'hidden '" class="e pl-5 text-red-700 w-36  overflow-visible text-[13px]">
+                Enter correct phone
+              </p>
+            </div>
+
+          </div>
+
+        </form>
+        <Button class="mt-4" :loading="loadingState" @click="startTimer()" loadingText2="please wait">
+          Start Exam
+        </Button>
       </section>
-      <section  class="bg-white mt-10 shadows rounded-lg overflow-hidden w-[80%] h-fit">
+      <section v-else class="bg-white mt-10 shadows rounded-lg overflow-hidden w-[80%] h-fit">
         <div class="">
           <div class="sm:h-32 h-fit py-3 px-4 text-white text-xl bg-primary w-full">
             <h1 class="sm:text-xl text-[14px] leading-tight mb-10">Notice: {{ selectedQuestions[questionIndex].notice }}
             </h1>
-            <h1 class="font-semibold text-xl">{{ selectedQuestions[questionIndex].question }}</h1>
+            <h1 class="font-semibold  sm:text-[20px] text-[15px] ">{{ selectedQuestions[questionIndex].question }}</h1>
           </div>
           <div class="py-3 px-5">
             <p>Time left: {{ Math.floor(timeLeft / 60) }} minutes {{ timeLeft % 60 }} seconds</p>
             <!-- Add a start button -->
             <button @click="startTimer">Start</button>
-            <label class="containerss" v-for="(option, index) in selectedQuestions[questionIndex].choices" :key="index">
+            <label class="containerss text-[15px]" v-for="(option, index) in selectedQuestions[questionIndex].choices"
+              :key="index">
               {{ option }}
               <input type="radio" v-model="selectedOption" :value="option" name="radio">
               <span class="checkmark"></span>
@@ -154,53 +132,141 @@
 
 const questions = [
   {
-    notice: 'Pick one that compudatle to this question ',
-    question: "What is American football called in England?",
-    choices: ["American football", "football", "Handball"],
-    rightAnswer: "American football",
+    notice: 'Choose  appropriate option from the list provided',
+    question: "What is location of ABANISE's turtory central in iwo ?",
+    choices: ["Arround Ceebee hotel area, Barika, iwo", "Opposite celestias Church, Barika iwo", "Opposite Barika petrol Station iwo"],
+    rightAnswer: "Opposite celestias Church, Barika iwo",
+    userAnswer: null,
+  },
+  {
+    notice: 'Choose the  appropriate option from the list provided',
+    question: "This below are selling product and services of ABANISE's Educational instituted  ",
+    choices: ["Textbook, Cobular, Stationary", "Educational services, Computer Accessories,  Bookshop, ", "Educational services, Bookshop, Tailer, "],
+    rightAnswer: "Educational services, Computer Accessories,  Bookshop",
+    userAnswer: null,
+  },
+  {
+    notice: 'Choose the  appropriate option from the list provided',
+    question: "What are the Main Abanise educational office adress?",
+    choices: ["Elemo's Compound along kajola road iwo", "Agoro compound's Along Kajola road iwo", "Osin's Compound, Along Kajola road iwo"],
+    rightAnswer: "Agoro compound's Along Kajola road iwo",
     userAnswer: null, // This will hold the user's answer
   },
   {
-    notice: '2Pick one that compudatle to this question ',
-    question: "What is American football called in England?",
-    choices: ["American football", "football", "Handball"],
-    rightAnswer: "American football",
+    notice: 'Choose  appropriate option from the list provided ',
+    question: "what is the name of ABANISE turtorial Coodinator lesson",
+    choices: ["Mr FATAI MURITALA", "Mr OLARINWA BOLAJI ", "Mr ADEWOLE OSUNLOWO"],
+    rightAnswer: "Mr FATAI MURITALA",
+    userAnswer: null, // Thishis will hold the user's answer
+  },
+  {
+    notice: 'Choose  appropriate option from the list provided ',
+    question: "What is the name of ABANISE Turtorial English Teacher  ?",
+    choices: ["Mr OLADELE BOLAJI", "Mr BOLAJI OLARINWA", "Mr ADEWOLE OSUNLOWO"],
+    rightAnswer: "Mr oladele Bolaji",
     userAnswer: null, // This will hold the user's answer
   },
   {
-    notice: '3Pick one that compudatle to this question ',
-    question: "What is American football called in England?",
-    choices: ["American football", "football", "Handball"],
-    rightAnswer: "American football",
+    notice: 'Fill the gap with appropriate option from the list provided ',
+    question: "if i were ________ i would reject the offer ?",
+    choices: ['himself', 'them', 'he'],
+    rightAnswer: 'he',
+    userAnswer: null, // This will hold the user's answer
+  },
+
+  {
+    notice: 'Complete the sentences with the correct option form the list below',
+    question: "He acts ________ he were a general manger ?",
+    choices: ['as', 'if', 'as if'],
+    rightAnswer: 'as if',
+    userAnswer: null, // This will hold the user's answer
+  },
+
+  {
+    notice: 'Choose the option that best complete the gap',
+    question: "The book will sell in ________?",
+    choices: ['hundreds of thousand ', 'a hundreds thousand ', 'hundred thousand'],
+    rightAnswer: 'hundreds of thousand ',
+    userAnswer: null, // This will hold the user's answer
+  },
+
+  {
+    notice: 'Choose the option that best complete the gap',
+    question: " We are been ready to cater for  ________ ?",
+    choices: ['the poor and the needy ', 'poor and needs ', 'the poor and needy'],
+    rightAnswer: 'the poor and the needy',
+    userAnswer: null, // This will hold the user's answer
+  },
+
+  {
+    notice: 'Choose the option that best complete the Question tag',
+    question: " Dola has left school,  ________ ?",
+    choices: ["didn't he", "has't he", "doesn't he"],
+    rightAnswer: "has't he",
+    userAnswer: null, // This will hold the user's answer
+  },
+
+  {
+    notice: 'Choose the option that best complete the Question tag',
+    question: " Sola can't read,  ________  candle light.",
+    choices: ["at", "to", "by"],
+    rightAnswer: "by",
     userAnswer: null, // This will hold the user's answer
   },
   {
-    notice: '4Pick one that compudatle to this question ',
-    question: "What is American football called in England?",
-    choices: ["American football", "football", "Handball"],
-    rightAnswer: "American football",
+    notice: 'Choose the option that best complete the Question tag',
+    question: " Sola can't read,  ________  candle light.",
+    choices: ["at", "to", "by"],
+    rightAnswer: "by",
+    userAnswer: null, // This will hold the user's answer
+  },
+
+  {
+    notice: 'Choose  appropriate option from the list provided ',
+    question: "What is the name of ABANISE Turtorial Mathemtices Teacher  ?",
+    choices: ["Mr FATAI MURITALA", "Mr OLARINWA BOLAJI ", "Mr ADEWOLE OSUNLOWO"],
+    rightAnswer: "Mr FATAI MURITALA",
+    userAnswer: null, // This will hold the user's answer
+  },
+
+  {
+    notice: 'Choose  appropriate option from the list provided ',
+    question: "What is the name of ABANISE Turtorial Chemistry Teacher  ?",
+    choices: ["Mr OGUNDARE SEYI", "Mr ODUNOLA SEYI", "Mr OGUNDARE AKAANI"],
+    rightAnswer: "Mr OGUNDARE SEYI",
+    userAnswer: null, // This will hold the user's answer
+  },
+
+  {
+    notice: 'Choose  appropriate option from the list provided ',
+    question: "What is the name of ABANISE Turtorial Biology Teacher  ?",
+    choices: ["Mr ODUNOLA SEYI", "Mr OYERINDE EMMANUEL", "Mr OYERINDE AKAANI"],
+    rightAnswer: "Mr OYERINDE EMMANUEL",
+    userAnswer: null, // This will hold the user's answer
+  },
+
+  {
+    notice: 'Choose  appropriate option from the list provided ',
+    question: "What is the name of ABANISE Turtorial Mathemtices Teacher  ?",
+    choices: ["Mr FATAI MURITALA", "Mr OLARINWA BOLAJI ", "Mr ADEWOLE OSUNLOWO"],
+    rightAnswer: "Mr FATAI MURITALA",
     userAnswer: null, // This will hold the user's answer
   },
   {
-    notice: 'pick one that compudatle to this question ',
-    question: "What is the largest country in the world?",
-    choices: ["Russia", "Canada", "United States"],
-    rightAnswer: "Russia",
+    notice: 'Choose  appropriate option from the list provided ',
+    question: "What is the name of ABANISE Turtorial government Teacher  ?",
+    choices: ["Mr IDRIS BABATUNDE", "Mr YUNUS ADEKUNLE ", "Mr IDRIS ADEKUNLE"],
+    rightAnswer: "Mr FATAI MURITALA",
     userAnswer: null, // This will hold the user's answer
   },
-  {
-    notice: 'pick one that compudatle to this question ',
-    question: "What is the 100th digit of Pi?",
-    choices: [9, 4, 7],
-    rightAnswer: 9,
-    userAnswer: null, // This will hold the user's answer
-  },
+
 ];
 
 export default {
   name: "App",
   data() {
     return {
+      showInstructions : true,
       errornetwork: false,
       errorphone: false,
       loadingState: false,
@@ -233,47 +299,58 @@ export default {
     onInput() {
       this.resetErrors();
     },
-    
+
     selectQuestions() {
       let indices = Array.from({ length: this.questions.length }, (_, i) => i); // Array of indices
       indices.sort(() => Math.random() - 0.5); // Shuffle the indices
       this.selectedQuestions = indices.slice(0, 5).map(i => this.questions[i]); // Select the first 5
     },
     startTimer() {
-  const regex = /[a-zA-Z]/;
-  // this.loadingState = true;
+      const regex = /[a-zA-Z]/;
+      this.loadingState = true;
 
-  // const phone = String(this.form.phone);
-  // if (!this.form.network || this.form.network === "network") {
-  //   this.errornetwork = true;
-  //   this.loadingState = false;
-  //   return false;
-  // } else if (!phone ||
-  //   phone.length < 10 ||
-  //   phone.length > 11 ||
-  //   regex.test(phone)
-  // ) {
-  //   this.loadingState = false;
-  //   this.errorphone = true;
-  //   return false;
-  // }
+      const phone = String(this.form.phone);
+      if (!this.form.network || this.form.network === "network") {
+        this.errornetwork = true;
+        this.loadingState = false;
+        return false;
+      } else if (!phone ||
+        phone.length < 10 ||
+        phone.length > 11 ||
+        regex.test(phone)
+      ) {
+        this.loadingState = false;
+        this.errorphone = true;
+        return false;
+      }
 
-  // Clear any existing timer
-  if (this.timer) {
-    clearInterval(this.timer);
-    this.timeLeft = 300; // Reset the time
-  }
-
-  // Select a set of questionsthis.selectQuestions()
-  // Set the timer for 5 minutes (300 seconds)
-  this.timer = setInterval(() => {
-    if (this.timeLeft > 0) {
-      this.timeLeft--;
-    } else {
-      this.submite();
-    }
-  }, 1000);
-},
+      // Clear any existing timer
+      if (this.timer) {
+        clearInterval(this.timer);
+        this.timeLeft = 300; // Reset the time
+      }
+       
+      setTimeout(() => {
+          this.transacPrev = true;
+           this.showInstructions = false
+         
+        }, 1000);
+     ;
+      // Select a set of questionsthis.selectQuestions()
+      // Set the timer for 5 minutes (300 seconds)
+      this.timer = setInterval(() => {
+        if (this.timeLeft > 0) {
+          this.timeLeft--;
+        } else {
+          this.submite();
+        }
+      }, 1000);
+      this.selectQuestions();
+    },
+  
+    // startTimer() {
+    //   this.selectQuestions()
+    // },
 
     goToQuestion(index) {
       this.questionIndex = index;
@@ -327,7 +404,7 @@ export default {
 
   },
   created() {
-    this.selectQuestions();
+    // this.selectQuestions();
     // Start the timer when the component is created
   },
 };
@@ -356,7 +433,9 @@ export default {
   padding-left: 35px;
   margin-bottom: 12px;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 18px;
+  font-weight: 400;
+
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
