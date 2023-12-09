@@ -522,7 +522,7 @@ export default {
     },
     methods: {
         notice() {
-            alert(`We are sorry, We are still work on it, check it back later,  Thanks !!!`);
+            alert(`We are sorry, Kindly Check Back on the 24th of this month at 10 am ,  Thanks !!!`);
         },
         transact() {
             this.track = !this.track

@@ -2,8 +2,8 @@
   <div class=" bg-slate-200 text-[puppins] ">
     <Header :headertext="false" class="fixed z-40 top-0"></Header>
     <div class="  flex justify-center items-center mt-9   w-full h-screen">
-      <section v-if="selectQuestions = 1"
-        class="bg-white py-6 px-4 overflow-scroll  z-40 fixed mt-10 shadows rounded-lg  w-[80%] sm:h-fit h-screen pb-20 mb-10 ">
+      <section
+        class="bg-white py-6 px-4 overflow-scroll hidden  z-40 fixed mt-10 shadows rounded-lg  w-[80%] sm:h-fit h-screen pb-20 mb-10 ">
         <h1 class="text-xl text-center font-medium ">Please read the instruction below before you click start </h1>
         <nav>
           <ul class="  list-outside ml-4 mt-5 font-medium list-disc">
@@ -73,7 +73,7 @@
                 Start Exam
               </Button>
       </section>
-      <section v-else class="bg-white mt-10 shadows rounded-lg overflow-hidden w-[80%] h-fit">
+      <section  class="bg-white mt-10 shadows rounded-lg overflow-hidden w-[80%] h-fit">
         <div class="">
           <div class="sm:h-32 h-fit py-3 px-4 text-white text-xl bg-primary w-full">
             <h1 class="sm:text-xl text-[14px] leading-tight mb-10">Notice: {{ selectedQuestions[questionIndex].notice }}
@@ -240,40 +240,41 @@ export default {
       this.selectedQuestions = indices.slice(0, 5).map(i => this.questions[i]); // Select the first 5
     },
     startTimer() {
-      const regex = /[a-zA-Z]/;
-      this.loadingState = true;
-     
-      const phone = String(this.form.phone);
-      if (!this.form.network || this.form.network === "network") {
-        this.errornetwork = true;
+  const regex = /[a-zA-Z]/;
+  // this.loadingState = true;
 
-        this.loadingState = false;
-        return false;
-      } else if (!phone ||
-        phone.length < 10 ||
-        phone.length > 11 ||
-        regex.test(phone)
-      ) {
-        this.loadingState = false;
-        this.errorphone = true
-        return false;
-      }
-      // Clear any existing timer
-      this.selectQuestions();
-      if (this.timer) {
-        clearInterval(this.timer);
-        this.timeLeft = 300; // Reset the time
-      }
+  // const phone = String(this.form.phone);
+  // if (!this.form.network || this.form.network === "network") {
+  //   this.errornetwork = true;
+  //   this.loadingState = false;
+  //   return false;
+  // } else if (!phone ||
+  //   phone.length < 10 ||
+  //   phone.length > 11 ||
+  //   regex.test(phone)
+  // ) {
+  //   this.loadingState = false;
+  //   this.errorphone = true;
+  //   return false;
+  // }
 
-      // Set the timer for 5 minutes (300 seconds)
-      this.timer = setInterval(() => {
-        if (this.timeLeft > 0) {
-          this.timeLeft--;
-        } else {
-          this.submite();
-        }
-      }, 1000);
-    },
+  // Clear any existing timer
+  if (this.timer) {
+    clearInterval(this.timer);
+    this.timeLeft = 300; // Reset the time
+  }
+
+  // Select a set of questionsthis.selectQuestions()
+  // Set the timer for 5 minutes (300 seconds)
+  this.timer = setInterval(() => {
+    if (this.timeLeft > 0) {
+      this.timeLeft--;
+    } else {
+      this.submite();
+    }
+  }, 1000);
+},
+
     goToQuestion(index) {
       this.questionIndex = index;
     },
@@ -326,7 +327,7 @@ export default {
 
   },
   created() {
-    // this.selectQuestions();
+    this.selectQuestions();
     // Start the timer when the component is created
   },
 };
