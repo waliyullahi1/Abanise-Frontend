@@ -214,10 +214,10 @@
         </section>
       </div>
 
-      <div :class="presubmitetem ? 'w-full h-full' : ' w-0 h-0'"
-        class="   w-full bg-opacity-75   justify-center items-center flex overflow-hidden     py-1 fixed   px-4 ">
+      <div :class="presubmitetem ? 'translate-y-0' : 'translate-y-[1000px]'"
+        class="   w-full  duration-700  justify-center items-center flex overflow-hidden     py-1 fixed   px-4 ">
 
-        <div :class="presubmitetem ? 'translate-y-0' : 'translate-y-[1000px]'"
+        <div 
           class="duration-700  bg-white shadows py-2 px-2  sm:w-1/4 w-full ">
           <h1 class=" text-xl font-semibold text-center"> HMMMMM <br>ARE YOU READY TO SUBMITE</h1>
           <div class="flex gap-3 pt-3 text-white ">
