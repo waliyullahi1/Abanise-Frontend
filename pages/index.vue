@@ -284,7 +284,7 @@ export default {
         useHead({
 
           // Can be static or computed
-          title: 'www.abaniseedu.com - Buy WAEC, NECO, JAMB, NABTEB scratch cards, PINs, TOKEN and result checker online, Buy all exam scratch cards',
+          title: 'www.abaniseedu.com - Buy WAEC, NECO, NABTEB scratch cards, PINs, TOKEN and result checker online, Buy all exam scratch cards',
           meta: [
             {
               name: `description`,

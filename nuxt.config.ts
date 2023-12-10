@@ -107,7 +107,7 @@ export default defineNuxtConfig({
   },
   
   runtimeConfig: {
-    public: {
+    private: {
       PAYSTACK_SECRETY_CODE:process.env.PAYSTACK_SECRETY_CODE,
       REFRESH_TOKEN_SECRETY:process.env.REFRESH_TOKEN_SECRETY,
       AUTHURL: 'http://127.0.0.1:8000',

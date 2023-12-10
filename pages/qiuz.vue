@@ -3,7 +3,7 @@
     <Header :headertext="false" class="fixed z-40 top-0"></Header>
     <div class="  flex justify-center items-center mt-9   w-full h-screen">
       <section v-if="showInstructions"
-        class="bg-white py-6 px-4 overflow-scroll bg  z-40 fixed mt-10 shadows rounded-lg  w-[80%] sm:h-fit h-screen pb-20 mb-10 ">
+        class="bg-white py-6 px-4  overflow-scroll bg  z-40 fixed mt-10 shadows rounded-lg  w-[80%] sm:h-fit h-screen pb-20 mb-10 ">
         <h1 class="text-xl text-center font-medium ">Please read the instruction below before you click start </h1>
         <nav>
           <ul class="  list-outside ml-4 mt-5 font-medium list-disc">
@@ -46,7 +46,7 @@
           </div>
 
         </form>
-        <Button class="mt-4" :loading="loadingState" @click="startTimer()" loadingText2="please wait">
+        <Button class="mt-4" :loading="loadingState" @click="start()" loadingText2="please wait">
           Start Exam
         </Button>
       </section>
@@ -60,7 +60,7 @@
           <div class="py-3 px-5">
             <p>Time left: {{ Math.floor(timeLeft / 60) }} minutes {{ timeLeft % 60 }} seconds</p>
             <!-- Add a start button -->
-            <button @click="startTimer">Start</button>
+            
             <label class="containerss text-[15px]" v-for="(option, index) in selectedQuestions[questionIndex].choices"
               :key="index">
               {{ option }}
@@ -77,7 +77,7 @@
             class="py-2 px-4 t text-white bg-primary hover:bg-green-800 ease-in-out duration-500">
             Next
           </button>
-          <button v-else @click="submite"
+          <button v-else @click="prevsubmit"
             class="py-2 px-4 t text-white bg-secondary hover:bg-red-600 ease-in-out duration-500">
             Submit
           </button>
@@ -94,58 +94,131 @@
           </div>
         </div>
       </section>
+      <!-- v-if="showInstructions"v-else  -->
+      <div v-if="isSubmitted" class=" items-center mt-48 mx-auto w-full flex flex-row justify-center">
+        <section v-if="examStatus === 'passed'"
+          class="bg-white border-primary border-4 py-6 px-4 overflow-scroll bg   shadows rounded-lg  w-[90%] sm:h-fit h-screen pb-20 mb-10 ">
+          <div class="w-full justify-center items-center flex"><img src="@/assets/image/success.gif"
+              alt="sucessful payment" class=" w-32 mx-0 justify-center "></div>
+          <h1 class="text-3xl text-center text-green-600  font-medium ">You win, Congratulation 👍 </h1>
+          <h2 class="text-xl  font-semibold mt-2 text-center">Your score is {{ score }} out of
+            {{ this.selectedQuestions.length }}</h2>
+          <!-- <p class="text-center font-medium ">Thanks for participate in this activity, and you would have receive 1GB on your phone number that you provided</p> -->
+          <p class="text-center font-medium ">Thanks for participate in this activity, and you need to ready this
+            instruction Carefully and scroll down before you can receive your gift</p>
+          <p class="mt-2">Also will want to notices you that, on this website we are selling Scratch card pin (that you
+            can use to check your waec, neco, nabteb result and exam pin for GCEWAEC, GCENECO, GCENABTEB soon on),<br> and
+            and then Airtime and databundle for MTN, GLO, AIRTEL etc at cheapest price </p>
 
-      <section
-        class="bg-white border-primary border-4 py-6 px-4 overflow-scroll bg  z-40 fixed mt-10 shadows rounded-lg  w-[80%] sm:h-fit h-screen pb-20 mb-10 ">
-        <div class="w-full justify-center items-center flex"><img src="@/assets/image/success.gif" alt="sucessful payment" class= " w-32 mx-0 justify-center "></div>
-        <h1 class="text-3xl text-center text-green-600  font-medium ">You win, Congratulation 👍   </h1>
-        <h2 class="text-xl  font-semibold text-center">Your score is {{score }} out of {{this.selectedQuestions.length}}</h2>
-        <p class="text-center font-medium ">Thanks for participate in this activity, and you would have receive 1gb on your phone number that you provided</p>
-        <h1></h1>
-        <nav>
-         
-        </nav>
-        <form action="" class=" mt-7 mb-9 sm:grid block grid-cols-2 gap-7  w-full h-fit  text-xl">
-          <div class="flex bg-white w-full flex-col">
-            <label for="" class="text-primary font-medium px-4 text-[15px]">Network</label>
-            <select v-model="form.network"
-              class="w-full px-2 font-seibold rounded-[.2rem] ml-2 text-[15px] outline-none border-2 font-medium h-full focus:border-primary border-gray-300  py-[.3rem]"
-              placeholder="Password" @input="onInput">
-              <option value="MTN">MTN</option>
-              <option value="GLO">GLO</option>
-              <option value="9MOBILE">9MOBILE</option>
-              <option value="AIRTEL">AIRTEL</option>
-            </select>
-            <p :class="errornetwork ? 'flex' : 'hidden '" class="e pl-5 text-red-700 text-[13px]">
-              Select the Network
-            </p>
-          </div>
-
-
-          <div class="flex bg-white w-full flex-col">
-            <label for="" class="text-primary font-medium w-full px-4 text-[15px]">Phone Number</label>
-            <input v-model="form.phone" type="text" pattern="[0-9]*"
-              class="w-full px-2 font-seibold rounded-[.2rem] ml-2 text-[15px] outline-none focus:border-primary border-2 border-gray- border-gray-300 py-[.3rem]"
-              placeholder="phone number " @input="onInput" />
-            <div class="relative w-0 h-0">
-              <p :class="errorphone ? 'flex' : 'hidden '" class="e pl-5 text-red-700 w-36  overflow-visible text-[13px]">
-                Enter correct phone
-              </p>
+          <div class=" block sm:flex font-medium justify-between">
+            <div>
+              <p>for mtn </p>
+              <ul>
+                <li>500 - 150</li>
+                <li>1GB - 270</li>
+                <li>2GB - 540</li>
+                <li>3GB - 810</li>
+                <li>etc</li>
+              </ul>
+            </div>
+            <div>
+              <p>for Airtel </p>
+              <ul>
+                <li>500 - 150</li>
+                <li>1GB - 250</li>
+                <li>2GB - 500</li>
+                <li>3GB - 750</li>
+                <li>etc</li>
+              </ul>
             </div>
 
+            <div>
+              <p>for GLO </p>
+              <ul>
+                <li>500 - 150</li>
+                <li>1GB - 250</li>
+                <li>2GB - 500</li>
+                <li>3GB - 750</li>
+                <li>etc</li>
+              </ul>
+            </div>
           </div>
 
-        </form>
-        <Button class="mt-4" :loading="loadingState" @click="startTimer()" loadingText2="please wait">
-          Start Exam
-        </Button>
-      </section>
 
-      <div :class="submiteEnter ? 'w-0 h-0' : 'w-full h-full '"
-        class=" hidden  w-full : bg-opacity-75    justify-center items-center    py-1 fixed   px-4 ">
+          <h1 class=" font-medium">Now click this below button to receive your gift 😂😂😂😂</h1>
+          <nav>
 
-        <div :class="submiteEnter ? 'translate-y-0' : 'translate-y-[1000px]'"
-          class="duration-700  bg-white shadows py-2 px-2 relative sm:w-1/4 w-full ">
+          </nav>
+
+          <Button class="mt-4" :loading="loadingState" @click="startTimer()" loadingText2="please wait">
+           Get gift
+          </Button>
+        </section>
+        <section v-else
+          class="bg-white border-secondary border-4 py-6 px-4 overflow-scroll bg  shadows rounded-lg  w-[90%] sm:h-fit h-screen pb-20 mb-10 ">
+          <div class="w-full justify-center items-center flex"><img src="@/assets/image/faileds.gif"
+              alt="sucessful payment" class=" w-32 mx-0 justify-center "></div>
+          <h1 class="text-3xl text-center text-red-600  font-medium ">Sorry, You failed exam 👍 </h1>
+          <h2 class="text-xl  font-semibold mt-2 text-center">Your score is {{ score }} out of
+            {{ this.selectedQuestions.length }}</h2>
+          <!-- <p class="text-center font-medium ">Thanks for participate in this activity, and you would have receive 1GB on your phone number that you provided</p> -->
+          <p class="text-center font-medium ">Thanks for participate in this activity, and you need to retry it again at
+            1st january 2023 </p>
+          <p class="mt-2">Also will want to notices you on this website that, we are selling Scratch card pin (that you
+            can use to check your waec, neco, nabteb result and exam pin for GCEWAEC, GCENECO, GCENABTEB soon on),<br> and
+            and then Airtime and databundle for MTN, GLO, AIRTEL etc at cheapest price </p>
+
+          <div class=" block sm:flex font-medium justify-between">
+            <div>
+              <p>for mtn </p>
+              <ul>
+                <li>500 - 150</li>
+                <li>1GB - 270</li>
+                <li>2GB - 540</li>
+                <li>3GB - 810</li>
+                <li>etc</li>
+              </ul>
+            </div>
+            <div>
+              <p>for Airtel </p>
+              <ul>
+                <li>500 - 150</li>
+                <li>1GB - 250</li>
+                <li>2GB - 500</li>
+                <li>3GB - 750</li>
+                <li>etc</li>
+              </ul>
+            </div>
+
+            <div>
+              <p>for GLO </p>
+              <ul>
+                <li>500 - 150</li>
+                <li>1GB - 250</li>
+                <li>2GB - 500</li>
+                <li>3GB - 750</li>
+                <li>etc</li>
+              </ul>
+            </div>
+          </div>
+
+
+          <h1 class=" font-medium">Now click this below button to go back home </h1>
+          <nav>
+
+          </nav>
+
+          <Button class="mt-4" :loading="loadingState" @click="startTimer()" loadingText2="please wait">
+            Home
+          </Button>
+        </section>
+      </div>
+
+      <div :class="presubmitetem ? 'w-full h-full' : ' w-0 h-0'"
+        class="   w-full bg-opacity-75   justify-center items-center flex overflow-hidden     py-1 fixed   px-4 ">
+
+        <div :class="presubmitetem ? 'translate-y-0' : 'translate-y-[1000px]'"
+          class="duration-700  bg-white shadows py-2 px-2  sm:w-1/4 w-full ">
           <h1 class=" text-xl font-semibold text-center"> HMMMMM <br>ARE YOU READY TO SUBMITE</h1>
           <div class="flex gap-3 pt-3 text-white ">
 
@@ -158,14 +231,7 @@
         </div>
       </div>
 
-      <div>
-        <div>
-          <div class="duration-700 shadows py-2 z-20  fixed bg-black w-full ">
-            <h1 class="text-3xl text-semibold w-full">You Win</h1>
-
-          </div>
-        </div>
-      </div>
+  
     </div>
 
 
@@ -312,11 +378,14 @@ export default {
   name: "App",
   data() {
     return {
-      showInstructions : true,
+      presubmitetem: false,
+      examStatus:'',
+      isSubmitted: false,
+      showInstructions: true,
       errornetwork: false,
       errorphone: false,
       loadingState: false,
-      submiteEnter: false,
+      submiteEnter: true,
       options: ['One', 'Two', 'Three', 'Four'],
       selectedOption: null,
       questions,
@@ -351,7 +420,7 @@ export default {
       indices.sort(() => Math.random() - 0.5); // Shuffle the indices
       this.selectedQuestions = indices.slice(0, 5).map(i => this.questions[i]); // Select the first 5
     },
-    startTimer() {
+    start() {
       const regex = /[a-zA-Z]/;
       this.loadingState = true;
 
@@ -375,13 +444,13 @@ export default {
         clearInterval(this.timer);
         this.timeLeft = 300; // Reset the time
       }
-       
+
       setTimeout(() => {
-          this.transacPrev = true;
-           this.showInstructions = false
-         
-        }, 1000);
-     ;
+        this.transacPrev = true;
+        this.showInstructions = false
+
+      }, 1000);
+      ;
       // Select a set of questionsthis.selectQuestions()
       // Set the timer for 5 minutes (300 seconds)
       this.timer = setInterval(() => {
@@ -393,7 +462,10 @@ export default {
       }, 1000);
       this.selectQuestions();
     },
-  
+    unsubmite(){
+      this.presubmitetem = false
+    },
+
     // startTimer() {
     //   this.selectQuestions()
     // },
@@ -428,17 +500,25 @@ export default {
         this.selectedOption = this.selectedQuestions[this.questionIndex].userAnswer;
       }
     },
+    prevsubmit(){
+      this.presubmitetem = true
+      console.log('tttttttt')
+    },
+    submite(){
+      
+    },
     submite() {
       clearInterval(this.timer); // Clear the timer
-      let score = 0;
+      
       for (let question of this.selectedQuestions) {
         if (question.userAnswer === question.rightAnswer) {
-          score++;
+          this.score++;
         }
       }
-      console.log(`Score: ${score}`);
-      // Display the score to the user
-      alert(`Your score is ${score} out of ${this.selectedQuestions.length}`);
+      this.isSubmitted = true
+     if (this.score >= 3){
+
+     }
     },
 
   },
@@ -552,5 +632,4 @@ export default {
   height: 8px;
   border-radius: 50%;
   background: white;
-}
-</style>
+}</style>
