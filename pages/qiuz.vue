@@ -1,3 +1,4 @@
+import { Navigation, NuxtLink } from '../.nuxt/components';
 <template class=" text-[poppins]">
   <div class=" bg-slate-200 text-[puppins] ">
     <Header :headertext="false" class="fixed z-40 top-0"></Header>
@@ -103,55 +104,23 @@
           <h1 class="text-3xl text-center text-green-600  font-medium ">You win, Congratulation 👍 </h1>
           <h2 class="text-xl  font-semibold mt-2 text-center">Your score is {{ score }} out of
             {{ this.selectedQuestions.length }}</h2>
-          <!-- <p class="text-center font-medium ">Thanks for participate in this activity, and you would have receive 1GB on your phone number that you provided</p> -->
+          <p class="text-center font-medium ">Thanks for participate in this activity, and you would have receive 1GB on your phone number that you provided</p>
           <p class="text-center font-medium ">Thanks for participate in this activity, and you need to ready this
             instruction Carefully and scroll down before you can receive your gift</p>
           <p class="mt-2">Also will want to notices you that, on this website we are selling Scratch card pin (that you
             can use to check your waec, neco, nabteb result and exam pin for GCEWAEC, GCENECO, GCENABTEB soon on),<br> and
             and then Airtime and databundle for MTN, GLO, AIRTEL etc at cheapest price </p>
 
-          <div class=" block sm:flex font-medium justify-between">
-            <div>
-              <p>for mtn </p>
-              <ul>
-                <li>500 - 150</li>
-                <li>1GB - 270</li>
-                <li>2GB - 540</li>
-                <li>3GB - 810</li>
-                <li>etc</li>
-              </ul>
-            </div>
-            <div>
-              <p>for Airtel </p>
-              <ul>
-                <li>500 - 150</li>
-                <li>1GB - 250</li>
-                <li>2GB - 500</li>
-                <li>3GB - 750</li>
-                <li>etc</li>
-              </ul>
-            </div>
-
-            <div>
-              <p>for GLO </p>
-              <ul>
-                <li>500 - 150</li>
-                <li>1GB - 250</li>
-                <li>2GB - 500</li>
-                <li>3GB - 750</li>
-                <li>etc</li>
-              </ul>
-            </div>
-          </div>
+       
 
 
-          <h1 class=" font-medium">Now click this below button to receive your gift 😂😂😂😂</h1>
+      
           <nav>
 
           </nav>
-
-          <Button class="mt-4" :loading="loadingState1" @click="startTimer()" loadingText2="please wait">
-           Get gift
+          
+          <Button  class="mt-4" :loading="loadingState2"  loadingText2="please wait">
+           <NuxtLink to="/">Home</NuxtLink>
           </Button>
         </section>
         <section v-else
@@ -168,39 +137,6 @@
             can use to check your waec, neco, nabteb result and exam pin for GCEWAEC, GCENECO, GCENABTEB soon on),<br> and
             and then Airtime and databundle for MTN, GLO, AIRTEL etc at cheapest price </p>
 
-          <div class=" block sm:flex font-medium justify-between">
-            <div>
-              <p>for mtn </p>
-              <ul>
-                <li>500 - 150</li>
-                <li>1GB - 270</li>
-                <li>2GB - 540</li>
-                <li>3GB - 810</li>
-                <li>etc</li>
-              </ul>
-            </div>
-            <div>
-              <p>for Airtel </p>
-              <ul>
-                <li>500 - 150</li>
-                <li>1GB - 250</li>
-                <li>2GB - 500</li>
-                <li>3GB - 750</li>
-                <li>etc</li>
-              </ul>
-            </div>
-
-            <div>
-              <p>for GLO </p>
-              <ul>
-                <li>500 - 150</li>
-                <li>1GB - 250</li>
-                <li>2GB - 500</li>
-                <li>3GB - 750</li>
-                <li>etc</li>
-              </ul>
-            </div>
-          </div>
 
 
           <h1 class=" font-medium">Now click this below button to go back home </h1>
@@ -208,7 +144,7 @@
 
           </nav>
 
-          <Button class="mt-4" :loading="loadingState" @click="startTimer()" loadingText2="please wait">
+          <Button class="mt-4" :loading="loadingState3" @click="startTimer()" loadingText2="please wait">
             Home
           </Button>
         </section>
@@ -378,6 +314,8 @@ export default {
   name: "App",
   data() {
     return {
+      loadingState2:false,
+      loadingState3:false,
       loadingState1:false,
       both:false,
       presubmitetem: false,

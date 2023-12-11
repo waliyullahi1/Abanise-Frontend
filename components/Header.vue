@@ -14,7 +14,7 @@
            <navigation-logo2></navigation-logo2>
           
           </div>
-        <div class=" text-white h-fit">
+        <div class=" text-white hidden sm:block h-fit">
            <p class=" leading-[20px] sm:text-xl text-[15px]   font-medium">Abanise_edu</p>
          <p class=" leading-[20px] sm:text-[16px] text-[13px] font-medium"> consultant</p>
         </div>
