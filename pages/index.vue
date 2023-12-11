@@ -102,7 +102,7 @@
                                     class="tex text-green-600 ">{{ item.status }}</span></p>
                         </div>
                         <NuxtLink :class="item.itIsAvalable ? 'block' : 'hidden'" target="_blank"
-                            :to="`/${item.id}/${item.card}/${item.condition}`">
+                            :to="{name: 'id-name', params: {id: item.id, name: item.card, condition:item.condition}}">
                             <Primary class="w-full text-center font-[14px] font-sembold">Buy now</Primary>
                         </NuxtLink>
                         <NuxtLink :class="item.itIsAvalable ? 'hidden' : 'block'" target="_blank" :to="`/`">

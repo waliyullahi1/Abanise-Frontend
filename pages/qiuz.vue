@@ -2,7 +2,7 @@
   <div class=" bg-slate-200 text-[puppins] ">
     <Header :headertext="false" class="fixed z-40 top-0"></Header>
     <div class="  flex justify-center items-center mt-9   w-full h-screen">
-      <section v-if="showInstructions"
+      <section :class="both? 'hidden': 'block'" v-if="showInstructions"
         class="bg-white py-6 px-4  overflow-scroll bg  z-40 fixed mt-10 shadows rounded-lg  w-[80%] sm:h-fit h-screen pb-20 mb-10 ">
         <h1 class="text-xl text-center font-medium ">Please read the instruction below before you click start </h1>
         <nav>
@@ -50,7 +50,7 @@
           Start Exam
         </Button>
       </section>
-      <section v-else class="bg-white mt-10 shadows rounded-lg overflow-hidden w-[80%] h-fit">
+      <section   v-else class="bg-white mt-10 shadows rounded-lg overflow-hidden w-[80%] h-fit">
         <div class="">
           <div class="sm:h-32 h-fit py-3 px-4 text-white text-xl bg-primary w-full">
             <h1 class="sm:text-xl text-[14px] leading-tight mb-10">Notice: {{ selectedQuestions[questionIndex].notice }}
@@ -150,7 +150,7 @@
 
           </nav>
 
-          <Button class="mt-4" :loading="loadingState" @click="startTimer()" loadingText2="please wait">
+          <Button class="mt-4" :loading="loadingState1" @click="startTimer()" loadingText2="please wait">
            Get gift
           </Button>
         </section>
@@ -378,6 +378,8 @@ export default {
   name: "App",
   data() {
     return {
+      loadingState1:false,
+      both:false,
       presubmitetem: false,
       examStatus:'',
       isSubmitted: false,
@@ -461,6 +463,7 @@ export default {
         }
       }, 1000);
       this.selectQuestions();
+      this.loadingState = true;
     },
     unsubmite(){
       this.presubmitetem = false
@@ -501,13 +504,15 @@ export default {
       }
     },
     prevsubmit(){
+      if (this.selectedOption !== null) {
+        this.selectedQuestions[this.questionIndex].userAnswer = this.selectedOption;
+      }
       this.presubmitetem = true
       console.log('tttttttt')
     },
-    submite(){
-      
-    },
+ 
     submite() {
+      
       clearInterval(this.timer); // Clear the timer
       
       for (let question of this.selectedQuestions) {
@@ -515,10 +520,13 @@ export default {
           this.score++;
         }
       }
-      this.isSubmitted = true
+      this.presubmitetem = false
+      this.both=true
+      this.showInstructions=true
      if (this.score >= 3){
-
+      this.examStatus='passed'
      }
+      this.isSubmitted = true
     },
 
   },
