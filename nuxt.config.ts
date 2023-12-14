@@ -93,6 +93,7 @@ const getPostRoutes = async () => {
   return item.map((items) => `/${items.id}/${items.card}/${items.condition}`)
 }
 export default defineNuxtConfig({
+  
   // css: ['~/assets/main.css'],
   routeRules: {
     '/blog/**': { isr: 3000 },
@@ -110,12 +111,15 @@ export default defineNuxtConfig({
     private: {
       PAYSTACK_SECRETY_CODE:process.env.PAYSTACK_SECRETY_CODE,
       REFRESH_TOKEN_SECRETY:process.env.REFRESH_TOKEN_SECRETY,
-      AUTHURL: 'http://127.0.0.1:8000',
     },
   },
   devtools: { enabled: true },
-  plugins: [],
+  
   modules: [
-    '@nuxtjs/tailwindcss', '@sidebase/nuxt-pdf','vue3-carousel-nuxt', 'nuxt3-notifications'
+    '@nuxtjs/tailwindcss', 
+    '@sidebase/nuxt-pdf',
+    'vue3-carousel-nuxt', 
+    'nuxt3-notifications', 
+  
   ],
 })

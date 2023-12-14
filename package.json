@@ -34,6 +34,7 @@
     "gsap": "^3.12.2",
     "html2pdf": "^0.0.11",
     "html2pdf.js": "^0.10.1",
+    "nuxt-tailvue": "^1.0.95",
     "nuxt3-notifications": "^1.1.9",
     "pinia": "^2.1.7",
     "vue3-carousel-nuxt": "^1.1.0",

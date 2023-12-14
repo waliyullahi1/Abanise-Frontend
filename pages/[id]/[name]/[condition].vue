@@ -371,7 +371,7 @@
   import gcewaec from '../assets/image/gce.jpg'
   import { useHead } from '@vueuse/head'
   import { onMounted } from 'vue'
-  
+  import { useRuntimeConfig } from '#app'
   
   
   
@@ -440,9 +440,16 @@
   
     },
     setup() {
+      // import { useRuntimeConfig } from 'nuxt3'
+      // const config = useRuntimeConfig()
+
+// Now you can access your runtime config variables
+// console.log(config.private.PAYSTACK_SECRETY_CODE)
+// console.log(config.private.REFRESH_TOKEN_SECRETY)
+// console.log(config.private.AUTHURL)
   
-      const runtimeConfig = useRuntimeConfig()
-      console.log(runtimeConfig.public.PAYSTACK_SECRETY_CODE);
+      // const runtimeConfig = useRuntimeConfig()
+      // console.log(runtimeConfig.private.PAYSTACK_SECRETY_CODE);
   
       if (typeof window !== 'undefined') {
   
@@ -540,14 +547,114 @@
   
     },
   
+    
+  
+    methods: {
+      getRuntimeConfig() {
+      const config = useRuntimeConfig()
+      this.PAYSTACK_SECRETY_CODE = config.private.PAYSTACK_SECRETY_CODE
+      this.REFRESH_TOKEN_SECRETY = config.private.REFRESH_TOKEN_SECRETY
+      this.AUTHURL = config.private.AUTHURL
+    },
+      tolink() {
+        this.form.total = this.form.quantity * this.form.semiprice
+        this.form.total = this.form.price
+        this.amount = (parseInt(this.form.quantity * this.form.semiprice) * 100) + 100 * 100
+        console.log(this.form.total, 'this.form.total');
+        console.log( this.form.email, 'this.form.email');
+        console.log( this.amount, 'this.amount');
+        console.log(this.form.quantity, 'this.form.quantity');
+      },
+      processPayment: () => {
+        
+       
+        window.alert(
+          "Are you sure you want to continue this transaction ") 
+  
+      },
+      close: () => {
+        console.log("You closed checkout page")
+  
+      },
+      Startpayment() {
+        this.paymentpage = !this.paymentpage 
+        console.log(this.$config.mySecurityCode);
+      },
+     
+  
+      hiddenpage() {
+        this.paymentpage = !this.paymentpage
+      },
+      paymentPage() {
+        this.paymentpage = !this.paymentpage
+        console.log( process.env.PAYSTACK_SECRETY_CODE);
+      },
+  
+  
+      onSuccessfulPayment: async function (response) {
+        const runtimeConfig = useRuntimeConfig()
+        
+        const refreshToken=runtimeConfig.private.REFRESH_TOKEN_SECRETY
+        this.refreshToken = refreshToken
+        this.form.price = this.form.quantity * this.form.semiprice
+        this.amount = (parseInt(this.form.price) * 100) + 100
+        this.isJsFinishedRun=false
+        
+  
+        try {
+          const response = await fetch('http://localhost:3500/scratch', {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
+            body: JSON.stringify({
+              examType:this.cardName,
+              email: this.email,
+              numCodes: this.form.quantity,
+              refreshToken:refreshToken,
+              amount:this.amount,
+          
+            })
+  
+          })
+  
+          if (!response.ok) {
+            this.loadingState = false
+            const errorData = await response.json();
+            this.erromessage = errorData.message;
+            throw new Error(errorData.message);
+  
+          }
+          this.loadingState = true
+          const data = await response.json();
+          this.message = data.success
+          console.log('Success:', data);
+          localStorage.setItem('recelpt', JSON.stringify(data))
+         
+            this.$router.push('/thankspage')
+  
+        } catch (error) {
+          console.log(error)
+        }
+  
+        
+  
+      },
+      onCancelledPayment: function () {
+        console.log("Payment cancelled by user");
+  
+      }
+    },
+
     mounted() {
       if (typeof window !== 'undefined') {
         const locationName = window.location.href
         const splitloc = locationName.split('/');
-        const runtimeConfig = useRuntimeConfig()
-        const publicKey =runtimeConfig.public.PAYSTACK_SECRETY_CODE
-        const refreshToken=runtimeConfig.public.REFRESH_TOKEN_SECRETY
-        this.publicKey = publicKey
+        this.getRuntimeConfig()
+         console.log(PRIVA)
+        // const runtimeConfig = useRuntimeConfig()
+        // const publicKey =runtimeConfig.private.PAYSTACK_SECRETY_CODE
+        // const refreshToken=runtimeConfig.private.REFRESH_TOKEN_SECRETY
+        // this.publicKey = publicKey
     
         if (splitloc[3] == 1) {
           this.form.semiprice = Number(4000) * this.form.quantity
@@ -640,97 +747,6 @@
             }
           }
         }
-  
-      }
-    },
-  
-    methods: {
-  
-      tolink() {
-        this.form.total = this.form.quantity * this.form.semiprice
-        this.form.total = this.form.price
-        this.amount = (parseInt(this.form.quantity * this.form.semiprice) * 100) + 100 * 100
-        console.log(this.form.total, 'this.form.total');
-        console.log( this.form.email, 'this.form.email');
-        console.log( this.amount, 'this.amount');
-        console.log(this.form.quantity, 'this.form.quantity');
-      },
-      processPayment: () => {
-        
-       
-        window.alert(
-          "Are you sure you want to continue this transaction ") 
-  
-      },
-      close: () => {
-        console.log("You closed checkout page")
-  
-      },
-      Startpayment() {
-        this.paymentpage = !this.paymentpage 
-        console.log(this.$config.mySecurityCode);
-      },
-     
-  
-      hiddenpage() {
-        this.paymentpage = !this.paymentpage
-      },
-      paymentPage() {
-        this.paymentpage = !this.paymentpage
-        console.log( process.env.PAYSTACK_SECRETY_CODE);
-      },
-  
-  
-      onSuccessfulPayment: async function (response) {
-        const runtimeConfig = useRuntimeConfig()
-        
-        const refreshToken=runtimeConfig.public.REFRESH_TOKEN_SECRETY
-        this.refreshToken = refreshToken
-        this.form.price = this.form.quantity * this.form.semiprice
-        this.amount = (parseInt(this.form.price) * 100) + 100
-        this.isJsFinishedRun=false
-        
-  
-        try {
-          const response = await fetch('http://localhost:3500/scratch', {
-            method: "POST",
-            headers: { 'Content-Type': 'application/json' },
-            credentials: 'include',
-            body: JSON.stringify({
-              examType:this.cardName,
-              email: this.email,
-              numCodes: this.form.quantity,
-              refreshToken:refreshToken,
-              amount:this.amount,
-          
-            })
-  
-          })
-  
-          if (!response.ok) {
-            this.loadingState = false
-            const errorData = await response.json();
-            this.erromessage = errorData.message;
-            throw new Error(errorData.message);
-  
-          }
-          this.loadingState = true
-          const data = await response.json();
-          this.message = data.success
-          console.log('Success:', data);
-          localStorage.setItem('recelpt', JSON.stringify(data))
-         
-            this.$router.push('/thankspage')
-  
-        } catch (error) {
-          console.log(error)
-        }
-  
-        
-  
-      },
-      onCancelledPayment: function () {
-        console.log("Payment cancelled by user");
   
       }
     },

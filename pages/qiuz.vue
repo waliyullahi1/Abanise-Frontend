@@ -1,10 +1,12 @@
-import { Navigation, NuxtLink } from '../.nuxt/components';
+
 <template class=" text-[poppins]">
-  <div class=" bg-slate-200 text-[puppins] ">
+  <div>
     <Header :headertext="false" class="fixed z-40 top-0"></Header>
+    <NuxtNotifications position="bottom left" :speed="500" />
     <div class="  flex justify-center items-center mt-9   w-full h-screen">
-      <section :class="both? 'hidden': 'block'" v-if="showInstructions"
-        class="bg-white py-6 px-4  overflow-scroll bg  z-40 fixed mt-10 shadows rounded-lg  w-[80%] sm:h-fit h-screen pb-20 mb-10 ">
+      <section id="error" :class="state.both? 'hidden': 'block'" v-if="state.showInstructions"
+        class="bg-white  py-6 px-4  overflow-scroll bg  z-40 fixed mt-10 shadows rounded-lg  w-[80%] sm:h-fit h-screen pb-20 mb-10 ">
+        <p class=" message pl-5 text-[15px] text-red-700 uppercase  text-center text-">{{ state.erromessage }}</p>
         <h1 class="text-xl text-center font-medium ">Please read the instruction below before you click start </h1>
         <nav>
           <ul class="  list-outside ml-4 mt-5 font-medium list-disc">
@@ -19,7 +21,7 @@ import { Navigation, NuxtLink } from '../.nuxt/components';
         <form action="" class=" mt-7 mb-9 sm:grid block grid-cols-2 gap-7  w-full h-fit  text-xl">
           <div class="flex bg-white w-full flex-col">
             <label for="" class="text-primary font-medium px-4 text-[15px]">Network</label>
-            <select v-model="form.network"
+            <select v-model="state.form.network"
               class="w-full px-2 font-seibold rounded-[.2rem] ml-2 text-[15px] outline-none border-2 font-medium h-full focus:border-primary border-gray-300  py-[.3rem]"
               placeholder="Password" @input="onInput">
               <option value="MTN">MTN</option>
@@ -27,7 +29,7 @@ import { Navigation, NuxtLink } from '../.nuxt/components';
               <option value="9MOBILE">9MOBILE</option>
               <option value="AIRTEL">AIRTEL</option>
             </select>
-            <p :class="errornetwork ? 'flex' : 'hidden '" class="e pl-5 text-red-700 text-[13px]">
+            <p :class="state.errornetwork ? 'flex' : 'hidden '" class="e pl-5 text-red-700 text-[13px]">
               Select the Network
             </p>
           </div>
@@ -35,11 +37,12 @@ import { Navigation, NuxtLink } from '../.nuxt/components';
 
           <div class="flex bg-white w-full flex-col">
             <label for="" class="text-primary font-medium w-full px-4 text-[15px]">Phone Number</label>
-            <input v-model="form.phone" type="text" pattern="[0-9]*"
+            <input v-model="state.form.phone" type="text" pattern="[0-9]*"
               class="w-full px-2 font-seibold rounded-[.2rem] ml-2 text-[15px] outline-none focus:border-primary border-2 border-gray- border-gray-300 py-[.3rem]"
               placeholder="phone number " @input="onInput" />
             <div class="relative w-0 h-0">
-              <p :class="errorphone ? 'flex' : 'hidden '" class="e pl-5 text-red-700 w-36  overflow-visible text-[13px]">
+              <p :class="state.errorphone ? 'flex' : 'hidden '"
+                class="e pl-5 text-red-700 w-36  overflow-visible text-[13px]">
                 Enter correct phone
               </p>
             </div>
@@ -47,63 +50,58 @@ import { Navigation, NuxtLink } from '../.nuxt/components';
           </div>
 
         </form>
-        <Button class="mt-4" :loading="loadingState" @click="start()" loadingText2="please wait">
+        <Button class="mt-4" :loading="state.loadingState" @click="start()" loadingText2="please wait">
           Start Exam
         </Button>
+       
       </section>
-      <section   v-else class="bg-white mt-10 shadows rounded-lg overflow-hidden w-[80%] h-fit">
+      <section v-else class="bg-white mt-10 shadows rounded-lg overflow-hidden w-[80%] h-fit">
         <div class="">
           <div class="sm:h-32 h-fit py-3 px-4 text-white text-xl bg-primary w-full">
-            <h1 class="sm:text-xl text-[14px] leading-tight mb-10">Notice: {{ selectedQuestions[questionIndex].notice }}
-            </h1>
-            <h1 class="font-semibold  sm:text-[20px] text-[15px] ">{{ selectedQuestions[questionIndex].question }}</h1>
+            <h1 class="sm:text-xl text-[14px] leading-tight mb-10">Notice: {{
+              state.selectedQuestions[state.questionIndex].notice }}</h1>
+            <h1 class="font-semibold sm:text-[20px] text-[15px]">{{ state.selectedQuestions[state.questionIndex].question
+            }}</h1>
           </div>
           <div class="py-3 px-5">
-            <p>Time left: {{ Math.floor(timeLeft / 60) }} minutes {{ timeLeft % 60 }} seconds</p>
-            <!-- Add a start button -->
-            
-            <label class="containerss text-[15px]" v-for="(option, index) in selectedQuestions[questionIndex].choices"
-              :key="index">
+            <p>Time left: {{ Math.floor(state.timeLeft / 60) }} minutes {{ state.timeLeft % 60 }} seconds</p>
+            <label class="containerss text-[15px]"
+              v-for="(option, index) in state.selectedQuestions[state.questionIndex].choices" :key="index">
               {{ option }}
-              <input type="radio" v-model="selectedOption" :value="option" name="radio">
+              <input type="radio" v-model="state.selectedOption" :value="option" name="radio">
               <span class="checkmark"></span>
             </label>
           </div>
         </div>
         <div class="flex px-4 justify-between">
-          <button @click="previous" class="py-2 px-4 t text-white bg-primary hover:bg-green-800 ease-in-out duration-500">
-            Previous
-          </button>
-          <button v-if="questionIndex < selectedQuestions.length - 1" @click="next"
-            class="py-2 px-4 t text-white bg-primary hover:bg-green-800 ease-in-out duration-500">
-            Next
-          </button>
+          <button @click="previous"
+            class="py-2 px-4 t text-white bg-primary hover:bg-green-800 ease-in-out duration-500">Previous</button>
+          <button v-if="state.questionIndex < state.selectedQuestions.length - 1" @click="next"
+            class="py-2 px-4 t text-white bg-primary hover:bg-green-800 ease-in-out duration-500">Next</button>
           <button v-else @click="prevsubmit"
-            class="py-2 px-4 t text-white bg-secondary hover:bg-red-600 ease-in-out duration-500">
-            Submit
-          </button>
+            class="py-2 px-4 t text-white bg-secondary hover:bg-red-600 ease-in-out duration-500">Submit</button>
         </div>
         <div class="mt-7 py-3 px-5 flex justify-center w-full gap-3">
           <div class="sm:py-3 border-black border-2 sm:px-5 py-1 px-3 rounded-full w-fit h-fit font-semibold text-black"
-            v-for="(q, index) in selectedQuestions" :key="index" @click="goToQuestion(index)" :class="{
-              'bg-red text-primary border-secondary bg-white': questionIndex === index && q.userAnswer === null,
-              'bg-primary border-primary text-white': questionIndex !== index && q.userAnswer !== null,
+            v-for="(q, index) in state.selectedQuestions" :key="index" @click="goToQuestion(index)" :class="{
+              'bg-red text-primary border-secondary bg-white': state.questionIndex === index && q.userAnswer === null,
+              'bg-primary border-primary text-white': state.questionIndex !== index && q.userAnswer !== null,
               'bg-white border-primary': q.userAnswer === null,
-              'bg-slate-600 border-slate-600 text-white': q.userAnswer !== null && questionIndex === index,
+              'bg-slate-600 border-slate-600 text-white': q.userAnswer !== null && state.questionIndex === index,
             }">
             <p>{{ index + 1 }}</p>
           </div>
         </div>
       </section>
-      <!-- v-if="showInstructions"v-else  -->
-      <div v-if="isSubmitted" class=" items-center mt-48 mx-auto w-full flex flex-row justify-center">
-        <section v-if="examStatus === 'passed'"
+
+      <div v-if="state.isSubmitted" class=" items-center mt-48 mx-auto w-full flex flex-row justify-center">
+        <section v-if="state.examStatus === 'passed'"
           class="bg-white border-primary border-4 py-6 px-4 overflow-scroll bg   shadows rounded-lg  w-[90%] sm:h-fit h-screen pb-20 mb-10 ">
           <div class="w-full justify-center items-center flex"><img src="@/assets/image/success.gif"
               alt="sucessful payment" class=" w-32 mx-0 justify-center "></div>
           <h1 class="text-3xl text-center text-green-600  font-medium ">You win, Congratulation 👍 </h1>
-          <h2 class="text-xl  font-semibold mt-2 text-center">Your score is {{ score }} out of
-            {{ this.selectedQuestions.length }}</h2>
+          <h2 class="text-xl  font-semibold mt-2 text-center">Your score is {{ state.score }} out of
+            {{ state.selectedQuestions.length }}</h2>
           <p class="text-center font-medium ">Thanks for participate in this activity, and you would have receive 1GB on your phone number that you provided</p>
           <p class="text-center font-medium ">Thanks for participate in this activity, and you need to ready this
             instruction Carefully and scroll down before you can receive your gift</p>
@@ -128,8 +126,8 @@ import { Navigation, NuxtLink } from '../.nuxt/components';
           <div class="w-full justify-center items-center flex"><img src="@/assets/image/faileds.gif"
               alt="sucessful payment" class=" w-32 mx-0 justify-center "></div>
           <h1 class="text-3xl text-center text-red-600  font-medium ">Sorry, You failed exam 👍 </h1>
-          <h2 class="text-xl  font-semibold mt-2 text-center">Your score is {{ score }} out of
-            {{ this.selectedQuestions.length }}</h2>
+          <h2 class="text-xl  font-semibold mt-2 text-center">Your score is {{ state.score }} out of
+            {{ state.selectedQuestions.length }}</h2>
           <!-- <p class="text-center font-medium ">Thanks for participate in this activity, and you would have receive 1GB on your phone number that you provided</p> -->
           <p class="text-center font-medium ">Thanks for participate in this activity, and you need to retry it again at
             1st january 2023 </p>
@@ -144,13 +142,13 @@ import { Navigation, NuxtLink } from '../.nuxt/components';
 
           </nav>
 
-          <Button class="mt-4" :loading="loadingState3" @click="startTimer()" loadingText2="please wait">
+          <Button class="mt-4" :loading="state.loadingState3" @click="startTimer()" loadingText2="please wait">
             Home
           </Button>
         </section>
       </div>
 
-      <div :class="presubmitetem ? 'translate-y-0' : 'translate-y-[1000px]'"
+      <div :class="state.presubmitetem ? 'translate-y-0' : 'translate-y-[1000px]'"
         class="   w-full  duration-700  justify-center items-center flex overflow-hidden     py-1 fixed   px-4 ">
 
         <div 
@@ -167,17 +165,12 @@ import { Navigation, NuxtLink } from '../.nuxt/components';
         </div>
       </div>
 
-  
     </div>
-
-
   </div>
 </template>
 
-<script>
-
-
-
+<script setup>
+ const { notify } = useNotification();
 const questions = [
   {
     notice: 'Choose  appropriate option from the list provided',
@@ -309,177 +302,237 @@ const questions = [
   },
 
 ];
+const state = reactive({
 
-export default {
-  name: "App",
-  data() {
-    return {
-      loadingState2:false,
-      loadingState3:false,
-      loadingState1:false,
-      both:false,
-      presubmitetem: false,
-      examStatus:'',
-      isSubmitted: false,
-      showInstructions: true,
-      errornetwork: false,
-      errorphone: false,
-      loadingState: false,
-      submiteEnter: true,
-      options: ['One', 'Two', 'Three', 'Four'],
-      selectedOption: null,
-      questions,
-      questionIndex: 0,
-      score: 0,
-      timer: null,
-      timeLeft: 300,
-      selectedQuestions: [{
-        notice: 'Pick one that compudatle to this question ',
-        question: "What is American football called in England?",
-        choices: ["American football", "football", "Handball"],
-        rightAnswer: "American football",
-        userAnswer: null, // This will hold the user's answer
-      },],
-      form: {
-        network: "",
-        phone: "",
-      },
-    };
+  erromessage: '',
+  loadingState2: false,
+  loadingState3: false,
+  loadingState1: false,
+  both: false,
+  examStatus: '',
+  isSubmitted: false,
+  showInstructions: true,
+  errornetwork: false,
+  errorphone: false,
+  loadingState: false,
+  submiteEnter: true,
+  options: ['One', 'Two', 'Three', 'Four'],
+  selectedOption: null,
+  questions: [], // Initialize your questions array
+  questionIndex: 0,
+  score: 0,
+  timer: null,
+  timeLeft: 300,
+  selectedQuestions: [{
+    notice: 'Pick one that compudatle to this question ',
+    question: "What is American football called in England?",
+    choices: ["American football", "football", "Handball"],
+    rightAnswer: "American football",
+    userAnswer: null, // This will hold the user's answer
+  }],
+  form: {
+    network: "",
+    phone: "",
   },
-  methods: {
-    resetErrors() {
-      this.errornetwork = false,
-        this.errorphone = false;
-    },
-    onInput() {
-      this.resetErrors();
-    },
+});
 
-    selectQuestions() {
-      let indices = Array.from({ length: this.questions.length }, (_, i) => i); // Array of indices
-      indices.sort(() => Math.random() - 0.5); // Shuffle the indices
-      this.selectedQuestions = indices.slice(0, 5).map(i => this.questions[i]); // Select the first 5
-    },
-    start() {
-      const regex = /[a-zA-Z]/;
-      this.loadingState = true;
 
-      const phone = String(this.form.phone);
-      if (!this.form.network || this.form.network === "network") {
-        this.errornetwork = true;
-        this.loadingState = false;
+
+
+
+function onClick() {
+  notify({
+    title: "Title",
+    text: "Hello notify!",
+  });
+}
+
+const resetErrors = () => {
+  state.errornetwork = false;
+  state.errorphone = false;
+};
+
+const onInput = () => {
+  resetErrors();
+};
+
+const selectQuestions = () => {
+  let indices = Array.from({ length: questions.length }, (_, i) => i); // Array of indices
+  indices.sort(() => Math.random() - 0.5); // Shuffle the indices
+  state.selectedQuestions = indices.slice(0, 5).map(i => questions[i]); // Select the first 5
+};
+const start = async () => {
+  notify({
+    title: "Title",
+    text: "Hello notify!",
+  });
+  const regex = /[a-zA-Z]/;
+      state.loadingState = true;
+
+      const phone = String(state.form.phone);
+      if (!state.form.network || state.form.network === "network") {
+        state.errornetwork = true;
+        state.loadingState = false;
         return false;
       } else if (!phone ||
         phone.length < 10 ||
         phone.length > 11 ||
         regex.test(phone)
       ) {
-        this.loadingState = false;
-        this.errorphone = true;
+        state.loadingState = false;
+        state.errorphone = true;
         return false;
-      }
+      }else{
+        console.log('yyyyyy');
+      try {
+    const response = await fetch('http://localhost:3500/quiz',{
+      method : "POST",
+      headers: {'Content-Type':'application/json'},
+      credentials:'include',
+      body:JSON.stringify({ 
+        phoneNo:state.form.phone,
+      })
+      
+    })
+  
+  if (!response.ok) {
 
-      // Clear any existing timer
-      if (this.timer) {
-        clearInterval(this.timer);
-        this.timeLeft = 300; // Reset the time
+    const errorData = await response.json();
+   state.erromessage = errorData.message;
+   
+   state.loadingState = false;
+    throw new Error(errorData.message);
+    
+  }
+   state.loadingState = true
+   if (state.timer) {
+        clearInterval(state.timer);
+        state.timeLeft = 300; // Reset the time
       }
 
       setTimeout(() => {
-        this.transacPrev = true;
-        this.showInstructions = false
+        
 
       }, 1000);
       ;
-      // Select a set of questionsthis.selectQuestions()
+      // Select a set of questionsstate.selectQuestions()
       // Set the timer for 5 minutes (300 seconds)
-      this.timer = setInterval(() => {
-        if (this.timeLeft > 0) {
-          this.timeLeft--;
+      state.timer = setInterval(() => {
+        if (state.timeLeft > 0) {
+          state.timeLeft--;
         } else {
-          this.submite();
+          state.submite();
         }
       }, 1000);
-      this.selectQuestions();
-      this.loadingState = true;
-    },
-    unsubmite(){
-      this.presubmitetem = false
-    },
+      selectQuestions();
+      state.showInstructions=false
+      state.loadingState = true;
+  
+  setTimeout(() => {
+   
+      }, 7000);
+  } catch (error) {
+    console.log(error)
+  }
+      }
 
-    // startTimer() {
-    //   this.selectQuestions()
-    // },
-
-    goToQuestion(index) {
-      this.questionIndex = index;
-    },
-    next() {
-      // Save the user's answer if one is selected
-      if (this.selectedOption !== null) {
-        this.selectedQuestions[this.questionIndex].userAnswer = this.selectedOption;
-      }
-      // Increment the question index
-      if (this.questionIndex < this.selectedQuestions.length - 1) {
-        this.questionIndex++;
-      }
-      // Reset the selected option for the next question
-      if (this.questionIndex < this.selectedQuestions.length) {
-        this.selectedOption = this.selectedQuestions[this.questionIndex].userAnswer;
-      } else {
-        console.log('Questions have finished');
-        clearInterval(this.timer);
-        this.submite();
-      }
-    },
-    previous() {
-      if (this.questionIndex > 0) {
-        if (this.selectedOption !== null) {
-          this.selectedQuestions[this.questionIndex].userAnswer = this.selectedOption;
-        };
-        this.questionIndex--;
-        this.selectedOption = this.selectedQuestions[this.questionIndex].userAnswer;
-      }
-    },
-    prevsubmit(){
-      if (this.selectedOption !== null) {
-        this.selectedQuestions[this.questionIndex].userAnswer = this.selectedOption;
-      }
-      this.presubmitetem = true
-      console.log('tttttttt')
-    },
- 
-    submite() {
-      
-      clearInterval(this.timer); // Clear the timer
-      
-      for (let question of this.selectedQuestions) {
-        if (question.userAnswer === question.rightAnswer) {
-          this.score++;
-        }
-      }
-      this.presubmitetem = false
-      this.both=true
-      this.showInstructions=true
-     if (this.score >= 3){
-      this.examStatus='passed'
-     }
-      this.isSubmitted = true
-    },
-
-  },
-
-  watch: {
-    selectedOption: function (newVal, oldVal) {
-      console.log(`User picked: ${newVal}`);
-    }
-
-  },
-  created() {
-    // this.selectQuestions();
-    // Start the timer when the component is created
-  },
 };
+const unsubmite = () => {
+  state.presubmitetem = false;
+};
+
+const goToQuestion = (index) => {
+  state.questionIndex = index;
+};
+
+// Lifecycle hooks
+onMounted(() => {
+
+});
+watch(() => state.selectedOption, (newVal, oldVal) => {
+  console.log(`User picked: ${newVal}`);
+});
+
+const next = () => {
+  if (state.selectedOption !== null) {
+    state.selectedQuestions[state.questionIndex].userAnswer = state.selectedOption;
+  }
+  if (state.questionIndex < state.selectedQuestions.length - 1) {
+    state.questionIndex++;
+  }
+  if (state.questionIndex < state.selectedQuestions.length) {
+    state.selectedOption = state.selectedQuestions[state.questionIndex].userAnswer;
+  } else {
+    console.log('Questions have finished');
+    clearInterval(state.timer);
+    submite();
+  }
+};
+
+const previous = () => {
+  if (state.questionIndex > 0) {
+    if (state.selectedOption !== null) {
+      state.selectedQuestions[state.questionIndex].userAnswer = state.selectedOption;
+    }
+    state.questionIndex--;
+    state.selectedOption = state.selectedQuestions[state.questionIndex].userAnswer;
+  }
+};
+
+const prevsubmit = () => {
+  if (state.selectedOption !== null) {
+    state.selectedQuestions[state.questionIndex].userAnswer = state.selectedOption;
+  }
+  state.presubmitetem = true;
+  console.log('tttttttt');
+};
+
+const  submite =  async () => {
+  clearInterval(state.timer);
+  for (let question of state.selectedQuestions) {
+    if (question.userAnswer === question.rightAnswer) {
+      state.score++;
+    }
+  }
+  state.presubmitetem = false;
+  state.both = true;
+  state.showInstructions = true;
+  if (state.score >= 3) {
+    state.examStatus = 'passed';
+    state.isSubmitted = true;
+    try {
+    const response = await fetch('http://localhost:3500/quiz/gift',{
+      method : "POST",
+      headers: {'Content-Type':'application/json'},
+      credentials:'include',
+      body:JSON.stringify({ 
+        phoneNo:state.form.phone,
+        networkType:state.form.network
+      })
+      
+    })
+  
+  if (!response.ok) {
+
+    const errorData = await response.json();
+   state.erromessage = errorData.message;
+   state.score =0
+   state.loadingState = false;
+    throw new Error(errorData.message);
+    
+  }
+   state.score =0
+   state.examStatus='passed'
+  } catch (error) {
+    console.log(error)
+  }
+ 
+  state.isSubmitted = true;
+};
+}
+
+
+
 
 </script>
 
