@@ -504,8 +504,7 @@ export default {
       this.examStatus='passed'
      }
       this.isSubmitted = true
-    },
-
+    }
   },
 
   watch: {

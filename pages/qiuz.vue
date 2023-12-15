@@ -174,9 +174,9 @@
 const questions = [
   {
     notice: 'Choose  appropriate option from the list provided',
-    question: "What is location of ABANISE's turtory central in iwo ?",
-    choices: ["Arround Ceebee hotel area, Barika, iwo", "Opposite celestias Church, Barika iwo", "Opposite Barika petrol Station iwo"],
-    rightAnswer: "Opposite celestias Church, Barika iwo",
+    question: "What is location of ABANISE's tutorial lesson  in iwo ?",
+    choices: ["Arround Ceebee hotel area, Barika, iwo", "Opposite celestial Church, Barika filling station iwo", "Opposite Barika petrol Station iwo"],
+    rightAnswer: "Opposite celestial Church, Barika filling station iwo",
     userAnswer: null,
   },
   {
@@ -188,7 +188,7 @@ const questions = [
   },
   {
     notice: 'Choose the  appropriate option from the list provided',
-    question: "What are the Main Abanise educational office adress?",
+    question: "What are the Main Abanise Educational office adress?",
     choices: ["Elemo's Compound along kajola road iwo", "Agoro compound's Along Kajola road iwo", "Osin's Compound, Along Kajola road iwo"],
     rightAnswer: "Agoro compound's Along Kajola road iwo",
     userAnswer: null, // This will hold the user's answer
@@ -196,15 +196,15 @@ const questions = [
   {
     notice: 'Choose  appropriate option from the list provided ',
     question: "what is the name of ABANISE turtorial Coodinator lesson",
-    choices: ["Mr FATAI MURITALA", "Mr OLARINWA BOLAJI ", "Mr ADEWOLE OSUNLOWO"],
+    choices: ["Mr ADEWOLE OSUNLOWO", "Mr OLARINWA BOLAJI ", "Mr FATAI MURITALA"],
     rightAnswer: "Mr FATAI MURITALA",
     userAnswer: null, // Thishis will hold the user's answer
   },
   {
     notice: 'Choose  appropriate option from the list provided ',
     question: "What is the name of ABANISE Turtorial English Teacher  ?",
-    choices: ["Mr OLADELE BOLAJI", "Mr BOLAJI OLARINWA", "Mr ADEWOLE OSUNLOWO"],
-    rightAnswer: "Mr oladele Bolaji",
+    choices: ["Mr BOLAJI OLARINWA", "Mr OLADELE BOLAJI", "Mr ADEWOLE OSUNLOWO"],
+    rightAnswer: "Mr OLADELE BOLAJI",
     userAnswer: null, // This will hold the user's answer
   },
   {
@@ -264,7 +264,7 @@ const questions = [
 
   {
     notice: 'Choose  appropriate option from the list provided ',
-    question: "What is the name of ABANISE Turtorial Mathemtices Teacher  ?",
+    question: "What is the name of ABANISE turtorial Mathemtices Teacher  ?",
     choices: ["Mr FATAI MURITALA", "Mr OLARINWA BOLAJI ", "Mr ADEWOLE OSUNLOWO"],
     rightAnswer: "Mr FATAI MURITALA",
     userAnswer: null, // This will hold the user's answer
@@ -297,7 +297,7 @@ const questions = [
     notice: 'Choose  appropriate option from the list provided ',
     question: "What is the name of ABANISE Turtorial government Teacher  ?",
     choices: ["Mr IDRIS BABATUNDE", "Mr YUNUS ADEKUNLE ", "Mr IDRIS ADEKUNLE"],
-    rightAnswer: "Mr FATAI MURITALA",
+    rightAnswer: "Mr IDRIS BABATUNDE",
     userAnswer: null, // This will hold the user's answer
   },
 
@@ -385,7 +385,7 @@ const start = async () => {
       }else{
         console.log('yyyyyy');
       try {
-    const response = await fetch('http://localhost:3500/quiz',{
+    const response = await fetch('https://api-abanise-five.vercel.app/quiz',{
       method : "POST",
       headers: {'Content-Type':'application/json'},
       credentials:'include',
@@ -488,6 +488,7 @@ const prevsubmit = () => {
 };
 
 const  submite =  async () => {
+
   clearInterval(state.timer);
   for (let question of state.selectedQuestions) {
     if (question.userAnswer === question.rightAnswer) {
@@ -497,11 +498,15 @@ const  submite =  async () => {
   state.presubmitetem = false;
   state.both = true;
   state.showInstructions = true;
+  state.isSubmitted = true;
   if (state.score >= 3) {
-    state.examStatus = 'passed';
-    state.isSubmitted = true;
+    console.log('pass exam');
+    state.examStatus = 'passed'; 
+    state.examStatus='passed'
+    
+    console.log(state.form.network, state.form.phone, state.score);
     try {
-    const response = await fetch('http://localhost:3500/quiz/gift',{
+    const response = await fetch('https://api-abanise-five.vercel.app/quiz/gift',{
       method : "POST",
       headers: {'Content-Type':'application/json'},
       credentials:'include',
@@ -513,7 +518,7 @@ const  submite =  async () => {
     })
   
   if (!response.ok) {
-
+    console.log('bad')
     const errorData = await response.json();
    state.erromessage = errorData.message;
    state.score =0
@@ -522,14 +527,52 @@ const  submite =  async () => {
     
   }
    state.score =0
-   state.examStatus='passed'
+   console.log('goood');
+   
   } catch (error) {
     console.log(error)
   }
- 
+
   state.isSubmitted = true;
+  state.score++;
+
 };
+console.log('failedexam');
+state.score++;
 }
+const  submitee =  async () => {
+  
+  try {
+    const response = await fetch('http://localhost:3500/quiz/gift',{
+      method : "POST",
+      headers: {'Content-Type':'application/json'},
+      credentials:'include',
+      body:JSON.stringify({ 
+        phoneNo: state.form.phone,
+        networkType: state.form.network
+      })
+      
+    })
+  
+  if (!response.ok) {
+    console.log('bad')
+    const errorData = await response.json();
+   state.erromessage = errorData.message;
+   state.score =0
+   state.loadingState = false;
+    throw new Error(errorData.message);
+    
+  }
+   
+   console.log('goood');
+ 
+  } catch (error) {
+    console.log(error)
+  }
+  
+ 
+};
+
 
 
 

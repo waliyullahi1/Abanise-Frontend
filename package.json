@@ -37,6 +37,7 @@
     "nuxt-tailvue": "^1.0.95",
     "nuxt3-notifications": "^1.1.9",
     "pinia": "^2.1.7",
+    "vite": "^5.0.9",
     "vue3-carousel-nuxt": "^1.1.0",
     "vue3-paystack": "^0.0.5"
   }
