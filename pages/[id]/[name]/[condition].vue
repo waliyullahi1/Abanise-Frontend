@@ -390,7 +390,7 @@
         card:"",
         gceneco: "",
         gceWaec: "",
-        publicKey: '',
+        publicKey: 'pk_test_6e7188c6a08247d1027aef4d5bd5eb2312c801fd',
         amount: "",
         email: "",
         nysecard: '',
@@ -410,7 +410,7 @@
         website: '',
         waepin: '3523',
         paymentpage: false,
-        refreshToken:'',
+        refreshToken:'3e353f4f0006b6020a42a3e1e0f942803eb7c8ba6152d7a75274c65991b72563ec17aceb452d04cfdbe495683ca334906512fe9a101657262519c9df4dd382f8',
         form: {
           email: '',
           semiprice: '',
@@ -550,12 +550,7 @@
     
   
     methods: {
-      getRuntimeConfig() {
-      const config = useRuntimeConfig()
-      this.PAYSTACK_SECRETY_CODE = config.private.PAYSTACK_SECRETY_CODE
-      this.REFRESH_TOKEN_SECRETY = config.private.REFRESH_TOKEN_SECRETY
-      this.AUTHURL = config.private.AUTHURL
-    },
+      
       tolink() {
         this.form.total = this.form.quantity * this.form.semiprice
         this.form.total = this.form.price
@@ -578,7 +573,7 @@
       },
       Startpayment() {
         this.paymentpage = !this.paymentpage 
-        console.log(this.$config.mySecurityCode);
+      
       },
      
   
@@ -587,15 +582,15 @@
       },
       paymentPage() {
         this.paymentpage = !this.paymentpage
-        console.log( process.env.PAYSTACK_SECRETY_CODE);
+     
       },
   
   
       onSuccessfulPayment: async function (response) {
         const runtimeConfig = useRuntimeConfig()
         
-        const refreshToken=runtimeConfig.private.REFRESH_TOKEN_SECRETY
-        this.refreshToken = refreshToken
+       
+    
         this.form.price = this.form.quantity * this.form.semiprice
         this.amount = (parseInt(this.form.price) * 100) + 100
         this.isJsFinishedRun=false
@@ -610,7 +605,7 @@
               examType:this.cardName,
               email: this.email,
               numCodes: this.form.quantity,
-              refreshToken:refreshToken,
+              refreshToken: this.refreshToken,
               amount:this.amount,
           
             })
@@ -649,12 +644,8 @@
       if (typeof window !== 'undefined') {
         const locationName = window.location.href
         const splitloc = locationName.split('/');
-        this.getRuntimeConfig()
-         console.log(PRIVA)
-        // const runtimeConfig = useRuntimeConfig()
-        // const publicKey =runtimeConfig.private.PAYSTACK_SECRETY_CODE
-        // const refreshToken=runtimeConfig.private.REFRESH_TOKEN_SECRETY
-        // this.publicKey = publicKey
+      
+       
     
         if (splitloc[3] == 1) {
           this.form.semiprice = Number(4000) * this.form.quantity
