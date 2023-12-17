@@ -398,7 +398,7 @@ const start = async () => {
    state.erromessage = errorData.message;
    notify({
     title: "error",
-    text: errorData.message,
+    text: 'errorData.message',
   });
    state.loadingState = false;
     throw new Error(errorData.message);
