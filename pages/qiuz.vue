@@ -340,7 +340,7 @@ const state = reactive({
 
 
 
-function onClick() {
+function notification( message, tittle) {
   notify({
     title: "Title",
     text: "Hello notify!",
@@ -396,7 +396,7 @@ const start = async () => {
     })
   
   if (!response.ok) {
-
+    notification('error', errorData.message)
     const errorData = await response.json();
    state.erromessage = errorData.message;
    
