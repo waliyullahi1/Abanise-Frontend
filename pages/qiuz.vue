@@ -340,12 +340,12 @@ const state = reactive({
 
 
 
-function notification( message, tittle) {
-  notify({
-    title: "Title",
-    text: "Hello notify!",
-  });
-}
+// function notification( message, tittle) {
+//   notify({
+//     title: message,
+//     text: tittle,
+//   });
+// }
 
 const resetErrors = () => {
   state.errornetwork = false;
@@ -395,7 +395,6 @@ const start = async () => {
   if (!response.ok) {
     
     const errorData = await response.json();
-    notification('error', errorData.message)
    state.erromessage = errorData.message;
    notify({
     title: "error",
