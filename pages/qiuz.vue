@@ -396,8 +396,9 @@ const start = async () => {
     })
   
   if (!response.ok) {
-    notification('error', errorData.message)
+    
     const errorData = await response.json();
+    notification('error', errorData.message)
    state.erromessage = errorData.message;
    
    state.loadingState = false;
