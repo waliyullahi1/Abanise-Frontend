@@ -362,10 +362,7 @@ const selectQuestions = () => {
   state.selectedQuestions = indices.slice(0, 5).map(i => questions[i]); // Select the first 5
 };
 const start = async () => {
-  notify({
-    title: "Title",
-    text: "Hello notify!",
-  });
+ 
   const regex = /[a-zA-Z]/;
       state.loadingState = true;
 
@@ -400,7 +397,10 @@ const start = async () => {
     const errorData = await response.json();
     notification('error', errorData.message)
    state.erromessage = errorData.message;
-   
+   notify({
+    title: "error",
+    text: errorData.message,
+  });
    state.loadingState = false;
     throw new Error(errorData.message);
     
