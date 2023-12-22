@@ -4,7 +4,7 @@
     <Header :headertext="false" class="fixed z-40 top-0"></Header>
     <NuxtNotifications position="bottom left" :speed="500" />
     <div class="  flex justify-center items-center mt-9   w-full h-screen">
-      <section id="error" :class="state.both? 'hidden': 'block'" v-if="state.showInstructions"
+      <section id="error" :class="state.both ? 'hidden' : 'block'" v-if="state.showInstructions"
         class="bg-white  py-6 px-4  overflow-scroll bg  z-40 fixed mt-10 shadows rounded-lg  w-[80%] sm:h-fit h-screen pb-20 mb-10 ">
         <p class=" message pl-5 text-[15px] text-red-700 uppercase  text-center text-">{{ state.erromessage }}</p>
         <h1 class="text-xl text-center font-medium ">Please read the instruction below before you click start </h1>
@@ -18,42 +18,44 @@
             <li> You have one chances to play this game, if you don't pass it, you need to try it again next time.</li>
           </ul>
         </nav>
-        <form action="" class=" mt-7 mb-9 sm:grid block grid-cols-2 gap-7  w-full h-fit  text-xl">
-          <div class="flex bg-white w-full flex-col">
-            <label for="" class="text-primary font-medium px-4 text-[15px]">Network</label>
-            <select v-model="state.form.network"
-              class="w-full px-2 font-seibold rounded-[.2rem] ml-2 text-[15px] outline-none border-2 font-medium h-full focus:border-primary border-gray-300  py-[.3rem]"
-              placeholder="Password" @input="onInput">
-              <option value="MTN">MTN</option>
-              <option value="GLO">GLO</option>
-              <option value="9MOBILE">9MOBILE</option>
-              <option value="AIRTEL">AIRTEL</option>
-            </select>
-            <p :class="state.errornetwork ? 'flex' : 'hidden '" class="e pl-5 text-red-700 text-[13px]">
-              Select the Network
-            </p>
-          </div>
-
-
-          <div class="flex bg-white w-full flex-col">
-            <label for="" class="text-primary font-medium w-full px-4 text-[15px]">Phone Number</label>
-            <input v-model="state.form.phone" type="text" pattern="[0-9]*"
-              class="w-full px-2 font-seibold rounded-[.2rem] ml-2 text-[15px] outline-none focus:border-primary border-2 border-gray- border-gray-300 py-[.3rem]"
-              placeholder="phone number " @input="onInput" />
-            <div class="relative w-0 h-0">
-              <p :class="state.errorphone ? 'flex' : 'hidden '"
-                class="e pl-5 text-red-700 w-36  overflow-visible text-[13px]">
-                Enter correct phone
+        <form action="" @submit.prevent="start()">
+          <div class=" mt-7 mb-9 sm:grid block grid-cols-2 gap-7  w-full h-fit  text-xl">
+            <div class="flex bg-white w-full flex-col">
+              <label for="" class="text-primary font-medium px-4 text-[15px]">Network</label>
+              <select v-model="state.form.network"
+                class="w-full px-2 font-seibold rounded-[.2rem] ml-2 text-[15px] outline-none border-2 font-medium h-full focus:border-primary border-gray-300  py-[.3rem]"
+                placeholder="Password" @input="onInput">
+                <option value="MTN">MTN</option>
+                <option value="GLO">GLO</option>
+                <option value="9MOBILE">9MOBILE</option>
+                <option value="AIRTEL">AIRTEL</option>
+              </select>
+              <p :class="state.errornetwork ? 'flex' : 'hidden '" class="e pl-5 text-red-700 text-[13px]">
+                Select the Network
               </p>
             </div>
 
-          </div>
 
+            <div class="flex bg-white w-full flex-col">
+              <label for="" class="text-primary font-medium w-full px-4 text-[15px]">Phone Number</label>
+              <input v-model="state.form.phone" type="text" pattern="[0-9]*"
+                class="w-full px-2 font-seibold rounded-[.2rem] ml-2 text-[15px] outline-none focus:border-primary border-2 border-gray- border-gray-300 py-[.3rem]"
+                placeholder="phone number " @input="onInput" />
+              <div class="relative w-0 h-0">
+                <p :class="state.errorphone ? 'flex' : 'hidden '"
+                  class="e pl-5 text-red-700 w-36  overflow-visible text-[13px]">
+                  Enter correct phone
+                </p>
+              </div>
+
+            </div>
+          </div>
+          <Button class="mt-4" :loading="state.loadingState" @click="" type="submit" loadingText2="please wait">
+            Start Exam
+          </Button>
         </form>
-        <Button class="mt-4" :loading="state.loadingState" @click="start()" loadingText2="please wait">
-          Start Exam
-        </Button>
-       
+
+
       </section>
       <section v-else class="bg-white mt-10 shadows rounded-lg overflow-hidden w-[80%] h-fit">
         <div class="">
@@ -102,23 +104,24 @@
           <h1 class="text-3xl text-center text-green-600  font-medium ">You win, Congratulation 👍 </h1>
           <h2 class="text-xl  font-semibold mt-2 text-center">Your score is {{ state.score }} out of
             {{ state.selectedQuestions.length }}</h2>
-          <p class="text-center font-medium ">Thanks for participate in this activity, and you would have receive 1GB on your phone number that you provided</p>
+          <p class="text-center font-medium ">Thanks for participate in this activity, and you would have receive 1GB on
+            your phone number that you provided</p>
           <p class="text-center font-medium ">Thanks for participate in this activity, and you need to ready this
             instruction Carefully and scroll down before you can receive your gift</p>
           <p class="mt-2">Also will want to notices you that, on this website we are selling Scratch card pin (that you
             can use to check your waec, neco, nabteb result and exam pin for GCEWAEC, GCENECO, GCENABTEB soon on),<br> and
             and then Airtime and databundle for MTN, GLO, AIRTEL etc at cheapest price </p>
 
-       
 
 
-      
+
+
           <nav>
 
           </nav>
-          
-          <Button  class="mt-4" :loading="loadingState2"  loadingText2="please wait">
-           <NuxtLink to="/">Home</NuxtLink>
+
+          <Button class="mt-4" :loading="loadingState2" loadingText2="please wait">
+            <NuxtLink to="/">Home</NuxtLink>
           </Button>
         </section>
         <section v-else
@@ -151,8 +154,7 @@
       <div :class="state.presubmitetem ? 'translate-y-0' : 'translate-y-[1000px]'"
         class="   w-full  duration-700  justify-center items-center flex overflow-hidden     py-1 fixed   px-4 ">
 
-        <div 
-          class="duration-700  bg-white shadows py-2 px-2  sm:w-1/4 w-full ">
+        <div class="duration-700  bg-white shadows py-2 px-2  sm:w-1/4 w-full ">
           <h1 class=" text-xl font-semibold text-center"> HMMMMM <br>ARE YOU READY TO SUBMITE</h1>
           <div class="flex gap-3 pt-3 text-white ">
 
@@ -170,7 +172,8 @@
 </template>
 
 <script setup>
- const { notify } = useNotification();
+import { useOnline } from '@vueuse/core'
+const { notify } = useNotification();
 const questions = [
   {
     notice: 'Choose  appropriate option from the list provided',
@@ -357,56 +360,67 @@ const selectQuestions = () => {
   state.selectedQuestions = indices.slice(0, 5).map(i => questions[i]); // Select the first 5
 };
 const start = async () => {
- 
-  const regex = /[a-zA-Z]/;
-      state.loadingState = true;
 
-      const phone = String(state.form.phone);
-      if (!state.form.network || state.form.network === "network") {
-        state.errornetwork = true;
-        state.loadingState = false;
-        return false;
-      } else if (!phone ||
-        phone.length < 10 ||
-        phone.length > 11 ||
-        regex.test(phone)
-      ) {
-        state.loadingState = false;
-        state.errorphone = true;
-        return false;
-      }else{
-        console.log('yyyyyy');
-      try {
-    const response = await fetch('https://api-abanise-five.vercel.app/quiz',{
-      method : "POST",
-      headers: {'Content-Type':'application/json'},
-      credentials:'include',
-      body:JSON.stringify({ 
-        phoneNo:state.form.phone,
+  const regex = /[a-zA-Z]/;
+  state.loadingState = true;
+
+  const phone = String(state.form.phone);
+  if (!state.form.network || state.form.network === "network") {
+    state.errornetwork = true;
+    state.loadingState = false;
+    return false;
+  } else if (!phone ||
+    phone.length < 10 ||
+    phone.length > 11 ||
+    regex.test(phone)
+  ) {
+    state.loadingState = false;
+    state.errorphone = true;
+    return false;
+  } else {
+    console.log('yyyyyy');
+    try {
+      const online = useOnline()
+  if (!online.value) {
+      notify({
+        title: "No Internet Connection",
+        text: "Please check your internet connection and try again.",
+      });
+      state.loadingState = false;
+      throw new Error("No internet connection");
+    }
+
+
+      const response = await fetch('https://api-abanise-five.vercel.app/quiz', {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({
+          phoneNo: state.form.phone,
+        })
+
       })
-      
-    })
-  
-  if (!response.ok) {
-    
-    const errorData = await response.json();
-   state.erromessage = errorData.message;
-   notify({
-    title: "error",
-    text: errorData.message,
-  });
-   state.loadingState = false;
-    throw new Error(errorData.message);
-    
-  }
-   state.loadingState = true
-   if (state.timer) {
+
+      if (!response.ok) {
+
+        const errorData = await response.json();
+        state.erromessage = errorData.message;
+        notify({
+          title: "error",
+          text: errorData.message,
+        });
+        state.loadingState = false;
+        throw new Error(errorData.message);
+
+      }
+      state.loadingState = true
+      if (state.timer) {
         clearInterval(state.timer);
         state.timeLeft = 300; // Reset the time
       }
 
       setTimeout(() => {
-        
+
 
       }, 1000);
       ;
@@ -420,16 +434,16 @@ const start = async () => {
         }
       }, 1000);
       selectQuestions();
-      state.showInstructions=false
+      state.showInstructions = false
       state.loadingState = true;
-  
-  setTimeout(() => {
-   
+
+      setTimeout(() => {
+
       }, 7000);
-  } catch (error) {
-    console.log(error)
+    } catch (error) {
+      console.log(error)
+    }
   }
-      }
 
 };
 const unsubmite = () => {
@@ -482,7 +496,7 @@ const prevsubmit = () => {
   console.log('tttttttt');
 };
 
-const  submite =  async () => {
+const submite = async () => {
 
   clearInterval(state.timer);
   for (let question of state.selectedQuestions) {
@@ -496,76 +510,76 @@ const  submite =  async () => {
   state.isSubmitted = true;
   if (state.score >= 3) {
     console.log('pass exam');
-    state.examStatus = 'passed'; 
-    state.examStatus='passed'
-    
+    state.examStatus = 'passed';
+    state.examStatus = 'passed'
+
     console.log(state.form.network, state.form.phone, state.score);
     try {
-    const response = await fetch('https://api-abanise-five.vercel.app/quiz/gift',{
-      method : "POST",
-      headers: {'Content-Type':'application/json'},
-      credentials:'include',
-      body:JSON.stringify({ 
-        phoneNo:state.form.phone,
-        networkType:state.form.network
+      const response = await fetch('https://api-abanise-five.vercel.app/quiz/gift', {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({
+          phoneNo: state.form.phone,
+          networkType: state.form.network
+        })
+
       })
-      
-    })
-  
-  if (!response.ok) {
-    console.log('bad')
-    const errorData = await response.json();
-   state.erromessage = errorData.message;
-   state.score =0
-   state.loadingState = false;
-    throw new Error(errorData.message);
-    
-  }
-   state.score =0
-   console.log('goood');
-   
-  } catch (error) {
-    console.log(error)
-  }
 
-  state.isSubmitted = true;
+      if (!response.ok) {
+        console.log('bad')
+        const errorData = await response.json();
+        state.erromessage = errorData.message;
+        state.score = 0
+        state.loadingState = false;
+        throw new Error(errorData.message);
+
+      }
+      state.score = 0
+      console.log('goood');
+
+    } catch (error) {
+      console.log(error)
+    }
+
+    state.isSubmitted = true;
+    state.score++;
+
+  };
+  console.log('failedexam');
   state.score++;
-
-};
-console.log('failedexam');
-state.score++;
 }
-const  submitee =  async () => {
-  
+const submitee = async () => {
+
   try {
-    const response = await fetch('http://localhost:3500/quiz/gift',{
-      method : "POST",
-      headers: {'Content-Type':'application/json'},
-      credentials:'include',
-      body:JSON.stringify({ 
+    const response = await fetch('http://localhost:3500/quiz/gift', {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({
         phoneNo: state.form.phone,
         networkType: state.form.network
       })
-      
+
     })
-  
-  if (!response.ok) {
-    console.log('bad')
-    const errorData = await response.json();
-   state.erromessage = errorData.message;
-   state.score =0
-   state.loadingState = false;
-    throw new Error(errorData.message);
-    
-  }
-   
-   console.log('goood');
- 
+
+    if (!response.ok) {
+      console.log('bad')
+      const errorData = await response.json();
+      state.erromessage = errorData.message;
+      state.score = 0
+      state.loadingState = false;
+      throw new Error(errorData.message);
+
+    }
+
+    console.log('goood');
+
   } catch (error) {
     console.log(error)
   }
-  
- 
+
+
 };
 
 
@@ -669,4 +683,5 @@ const  submitee =  async () => {
   height: 8px;
   border-radius: 50%;
   background: white;
-}</style>
+}
+</style>
