@@ -14,8 +14,8 @@
             <li>Please, Don't try to refresh the page when you are on the exam.</li>
             <li>You have 5 minite to answer all the question, so you need to be fast.</li>
             <li> You must answer three question Correctly before you can receive your gift.</li>
-            <li>If you dont score more than five, We are sorry, you can't receive any gift.</li>
-            <li> You have three chances to play this game if you don't pass it.</li>
+            <li>If you dont score three above, We are sorry, you can't receive any gift.</li>
+            <li> You have one chances to play this game, if you don't pass it, you need to try it again next time.</li>
           </ul>
         </nav>
         <form action="" class=" mt-7 mb-9 sm:grid block grid-cols-2 gap-7  w-full h-fit  text-xl">
@@ -340,12 +340,7 @@ const state = reactive({
 
 
 
-// function notification( message, tittle) {
-//   notify({
-//     title: message,
-//     text: tittle,
-//   });
-// }
+
 
 const resetErrors = () => {
   state.errornetwork = false;
@@ -398,7 +393,7 @@ const start = async () => {
    state.erromessage = errorData.message;
    notify({
     title: "error",
-    text: 'errorData.message',
+    text: errorData.message,
   });
    state.loadingState = false;
     throw new Error(errorData.message);

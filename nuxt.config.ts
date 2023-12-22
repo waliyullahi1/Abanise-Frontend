@@ -120,6 +120,7 @@ export default defineNuxtConfig({
     '@sidebase/nuxt-pdf',
     'vue3-carousel-nuxt', 
     'nuxt3-notifications', 
+   
   
   ],
 })

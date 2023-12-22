@@ -259,12 +259,7 @@ export default {
     setup() {
         const { notify } = useNotification();
 
-        function onClick() {
-            notify({
-                title: "Title",
-                text: "Hello notify!",
-            });
-        }
+       
         const headerChange = ref(true)
         // const isJsFinishedRun=ref(true)
         onMounted(async () => {
