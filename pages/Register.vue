@@ -101,7 +101,7 @@
 
             <div class=" ">
               <div class="flex input-containers  b border-primary  mt-2 ">
-                <input :type="state.comfirmpassword" :class="state.comfirmpassword ? ' border-secondary shake ' : '  border-primary  '"
+                <input :type="state.comfirmpassword" :class="state.errorconfirmpassword ? ' border-secondary shake ' : '  border-primary  '"
                   @input="onInput"
                   class="w-full focus:border-primary input-field drop-shadow-md  h-[2.5rem]  px-5   outline-none font-normal    border-2 rounded-[5px] focus:border-primry"
                   placeholder=" " v-model="state.form.comfirmpassword">
@@ -136,7 +136,7 @@
 
               <input :type="state.transaction" @input="onInput"
               class="w-full focus:border-primary border-gray-700 input-field drop-shadow-md  h-[2.5rem]  px-5   outline-none font-normal    border-2 rounded-[5px] focus:border-primry"
-                placeholder=" " v-model="state.form.transactionCode">
+                placeholder=" " v-model="state.form.transactionCode" :class="state.errortransactionCode ? ' border-secondary shake ' : '  border-primary  '">
               <label for="name" class="input-label  text-slate-600 font-normal"> <span
                   class=" py-0 px-1  bg-white Phone Number h-6 w-fit">Transaction code </span> </label>
 
@@ -211,49 +211,46 @@ const state = reactive({
 });
 
 
-// setup() {
 
 
 
-//   useHead({
-//     // Can be static or computed
-//     title: 'Sign Up - abanise.com | Buy WAEC Scratch cards, NECO Scratch cards and NABTEB cards online, Buy Data, Airtime to cash,',
-//     meta: [
-//       {
-//         name: `description`,
-//         content: 'Buy WAEC scratch cards online at WWW.abaniseedu.COM. Buy WAEC Scratch cards, NECO Scratch cards and NABTEB cards online, Buy Cheap Internet Data Plan and Airtime Recharge for Airtel, 9mobile, GLO, MTN. at the best price in Nigeria. Order now at WWW.abaniseedu.COM and get it delivered to you instantly using your prefered method.',
-//       },
-//       // {
-//       //   itemprop: `name,
-//       //   content: 'Buy WAEC scratch cards online at WWW.abaniseedu.COM. Buy WAEC Scratch cards, NECO Scratch cards and NABTEB cards online, Buy Cheap Internet Data Plan and Airtime Recharge for Airtel, 9mobile, GLO, MTN. at the best price in Nigeria. Order now at WWW.abaniseedu.COM and get it delivered to you instantly using your prefered method.',
-//       // },
-//       {
-//         name: 'site_name',
-//         content: 'abaniseedu.com',
-//       },
-//       {
-//         name: 'type',
-//         content: 'website ',
-//       },
-//       {
-//         name: 'site_name',
-//         content: 'abaniseedu.com',
-//       },
-//       {
-//         name: 'type',
-//         content: 'website ',
-//       },
 
-//       {
-//         name: 'url',
-//         content: 'abaniseedu.com',
-//       },
+   useHead({
+     // Can be static or computed
+     title: 'Sign Up - abanise.com | Buy WAEC Scratch cards, NECO Scratch cards and NABTEB cards online, Buy Data, Airtime to cash,',
+    meta: [
+       {        name: `description`,
+       content: 'Buy WAEC scratch cards online at WWW.abaniseedu.COM. Buy WAEC Scratch cards, NECO Scratch cards and NABTEB cards online, Buy Cheap Internet Data Plan and Airtime Recharge for Airtel, 9mobile, GLO, MTN. at the best price in Nigeria. Order now at WWW.abaniseedu.COM and get it delivered to you instantly using your prefered method.',      },
+       // {
+       //   itemprop: `name,
+       //   content: 'Buy WAEC scratch cards online at WWW.abaniseedu.COM. Buy WAEC Scratch cards, NECO Scratch cards and NABTEB cards online, Buy Cheap Internet Data Plan and Airtime Recharge for Airtel, 9mobile, GLO, MTN. at the best price in Nigeria. Order now at WWW.abaniseedu.COM and get it delivered to you instantly using your prefered method.',
+       // },
+       {
+         name: 'site_name',
+         content: 'abaniseedu.com',
+       },
+       {
+         name: 'type',
+         content: 'website ',
+       },
+       {
+        name: 'site_name',
+        content: 'abaniseedu.com',
+       },
+       {
+        name: 'type',
+         content: 'website ',
+      },
 
-//       ],
+       {
+         name: 'url',
+         content: 'abaniseedu.com',
+       },
 
-//   })
-//   return { };
-// },
+      ],
+
+  })
+
 
 
 

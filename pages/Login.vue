@@ -9,10 +9,13 @@
         <p class=" message pl-5 text-xl text-red-700 pb-9 uppercase text-center text-">{{ erromessage }}</p>
         <form class=" " @submit.prevent="submit" action="">
           <div class="">
-            <div class="flex input-containers    mt-2 "> <input  type="email"
-                :class="state.erroremail ? ' border-secondary' : '  border-primary  '" @input="onInput"
-                class="w-full  focus:border-primary input-field bg-white h-[2.5rem]  px-5   outline-none font-normal   border-2 rounded-[5px] focus:border-primry"
-                placeholder="" v-model="state.form.email">
+            <div class="flex input-containers    mt-2 ">
+              
+              <input type="email" :class="state.erroremail ? ' border-secondary shake ' : '  border-primary  '"
+                  @input="onInput"
+                  class="w-full focus:border-primary input-field drop-shadow-md  h-[2.5rem]  px-5   outline-none font-normal    border-2 rounded-[5px] focus:border-primry"
+                  placeholder=" " v-model="state.form.email">
+              
               <label for="name" class="input-label  text-slate-600 font-normal"> <span
                   class=" py-0 px-1  bg-white h-6 w-fit">Your
                   Email</span> </label>
@@ -30,11 +33,12 @@
 
 
             <div class="flex input-containers  b  border-primary  mt-2 ">
-              <input :type="state.paswo" @input="onInput"
-              :class="state.errorpassword ? ' border-secondary' : '  border-gray-500 '"
-      
-                class="w-full input-field  h-[2.5rem] drop-shadow-md px-5 border-gre border-gray-500  outline-none font-normal    border-2 rounded-[5px] focus:border-primary "
-                placeholder="" v-model="state.form.password">
+
+              <input :type="state.paswo" :class="state.errorpassword ? ' border-secondary shake ' : '  border-primary  '"
+                  @input="onInput"
+                  class="w-full focus:border-primary input-field drop-shadow-md  h-[2.5rem]  px-5   outline-none font-normal    border-2 rounded-[5px] focus:border-primry"
+                  placeholder=" " v-model="state.form.password">
+             
               <label for="name" class="input-label  text-slate-600 font-normal"> <span
                   class=" py-0 px-1  bg-white Phone Number h-6 w-fit">Password</span> </label>
 
