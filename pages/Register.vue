@@ -154,9 +154,15 @@
 
 
             <div class="flex input-containers  b  border-primary  mt-2 ">
+
+              <!-- <input :type="state.transaction" :class="state.comfirmpassword ? ' border-secondary' : '  border-primary  '"
+                  @input="onInput"
+                  class="w-full focus:border-primary input-field drop-shadow-md  h-[2.5rem]  px-5   outline-none font-normal    border-2 rounded-[5px] focus:border-primry"
+                  placeholder=" " v-model="state.form.transactionCode"> -->
+
               <input :type="state.transaction" @input="onInput"
               class="w-full focus:border-primary input-field drop-shadow-md  h-[2.5rem]  px-5   outline-none font-normal    border-2 rounded-[5px] focus:border-primry"
-                placeholder="" v-model="state.form.transactionCode">
+                placeholder=" " v-model="state.form.transactionCode">
               <label for="name" class="input-label  text-slate-600 font-normal"> <span
                   class=" py-0 px-1  bg-white Phone Number h-6 w-fit">Transaction code </span> </label>
 
