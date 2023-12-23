@@ -48,7 +48,8 @@
               </p>
 
           </div>
-          <NuxtLink to=""></NuxtLink>
+          <p class=" text-[15px] text-secondary w-full text-right mb-40"> <router-link class=" text-primary "
+            to="/forgetPassword">Forget Password</router-link></p>
 
       
 
