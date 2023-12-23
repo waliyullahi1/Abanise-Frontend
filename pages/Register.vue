@@ -13,24 +13,10 @@
 
 
           <div class="my-5 w-full grid grid-cols-1 sm:grid-cols-2 gap-5 justify-between">
-            <!-- <div class="">
-              <div class="flex input-containers    mt-2 "> <input type="username"
-                  :class="state.errorFirstname ? ' border-secondary' : '  border-primary  '" @input="onInput"
-                  class="w-full drop-shadow-md focus:border-primary input-field bg-white h-[2.5rem]  px-5   outline-none font-normal   border-2 rounded-[5px] focus:border-primry"
-                  placeholder="" v-model="state.form.firstname">
-                <label for="name" class="input-label  text-slate-600 font-normal"> <span
-                    class=" py-0 px-1  bg-white h-6 w-fit">Your
-                    Name</span> </label>
-
-              </div>
-
-              <p :class="state.errorFirstname ? 'flex' : 'hidden '" class=" relative pl-5 text-red-700 text-['13rem']">
-                please enter your full name</p>
-            </div> -->
-              
+             
             <div>
               <div class="flex input-containers    mt-2 ">
-                <input type="username" :class="state.errorFirstname ? ' border-secondary' : '  border-primary  '"
+                <input type="username" :class="state.errorFirstname ? ' border-secondary shake  shake ' : '  border-primary  '"
                   @input="onInput"
                   class="w-full focus:border-primary input-field drop-shadow-md  h-[2.5rem]  px-5   outline-none font-normal    border-2 rounded-[5px] focus:border-primry"
                   placeholder=" " v-model="state.form.firstname">
@@ -45,7 +31,7 @@
 
             <div>
               <div class="flex input-containers    mt-2 ">
-                <input type="username" :class="state.errorLastname ? ' border-secondary' : '  border-primary  '"
+                <input type="username" :class="state.errorLastname ? ' border-secondary shake ' : '  border-primary  '"
                   @input="onInput"
                   class="w-full focus:border-primary input-field drop-shadow-md  h-[2.5rem]  px-5   outline-none font-normal    border-2 rounded-[5px] focus:border-primry"
                   placeholder=" " v-model="state.form.lastname">
@@ -63,7 +49,7 @@
           <div class="my-5 w-full grid grid-cols-1 sm:grid-cols-2 gap-5 justify-between">
             <div>
               <div class="flex w-full  input-containers border-primary  mt-2 "> <input type="text" @input="onInput"
-                  :class="{ 'border-secondary': state.erroremail || state.erroremail1, 'border-gray-500': !state.erroremail && !state.erroremail1 }"
+                  :class="{ 'border-secondary shake': state.erroremail || state.erroremail1, 'border-gray-500': !state.erroremail && !state.erroremail1 }"
                   class="w-full input-field  h-[2.5rem]  px-5   outline-none font-normal drop-shadow-md   border-2 rounded-[5px] focus:border-primary "
                   placeholder=" " v-model="state.form.email">
                 <label for="name" class="input-label  text-slate-600 font-normal"> <span
@@ -78,7 +64,7 @@
 
             <div>
               <div class="flex input-containers    mt-2 ">
-                <input type="username" :class="state.errorphone ? ' border-secondary' : '  border-primary  '"
+                <input type="username" :class="state.errorphone ? ' border-secondary shake ' : '  border-primary  '"
                   @input="onInput"
                   class="w-full focus:border-primary input-field drop-shadow-md  h-[2.5rem]  px-5   outline-none font-normal    border-2 rounded-[5px] focus:border-primry"
                   placeholder=" " v-model="state.form.phone">
@@ -89,25 +75,13 @@
                 please
                 enter correct phone</p>
             </div>
-            <!-- <div>
-              <div class="flex  b   input-containers border-primary  mt-2 "> <input type="text"
-                  :class="state.errorphone ? ' border-secondary' : '   border-gray-500'" @input="onInput"
-                  class="w-full input-field drop-shadow-md h-[2.5rem]  px-5  outline-none font-normal    border-2 rounded-[5px] focus:border-primary "
-                  placeholder="" v-model="state.form.phone">
-                <label for="name" class="input-label  text-slate-600 font-normal"> <span
-                    class=" py-0 px-1  bg-white Phone Number h-6 w-fit">Phone Number</span> </label>
-
-              </div>
-              <p :class="state.errorphone ? 'flex' : 'hidden '" class=" relative pl-5 text-red-700 text-['13rem']">please
-                enter correct phone</p>
-            </div> -->
-
+        
           </div>
 
           <div class="my-5 w-full grid grid-cols-1 sm:grid-cols-2 gap-5 justify-between">
             <div class=" ">
               <div class="flex input-containers  b  border-primary  mt-2 ">
-                <input :type="state.password" :class="state.errorpassword ? ' border-secondary' : '  border-primary  '"
+                <input :type="state.password" :class="state.errorpassword ? ' border-secondary shake ' : '  border-primary  '"
                   @input="onInput"
                   class="w-full focus:border-primary input-field drop-shadow-md  h-[2.5rem]  px-5   outline-none font-normal    border-2 rounded-[5px] focus:border-primry"
                   placeholder=" " v-model="state.form.password">
@@ -127,7 +101,7 @@
 
             <div class=" ">
               <div class="flex input-containers  b border-primary  mt-2 ">
-                <input :type="state.comfirmpassword" :class="state.comfirmpassword ? ' border-secondary' : '  border-primary  '"
+                <input :type="state.comfirmpassword" :class="state.comfirmpassword ? ' border-secondary shake ' : '  border-primary  '"
                   @input="onInput"
                   class="w-full focus:border-primary input-field drop-shadow-md  h-[2.5rem]  px-5   outline-none font-normal    border-2 rounded-[5px] focus:border-primry"
                   placeholder=" " v-model="state.form.comfirmpassword">
@@ -155,13 +129,13 @@
 
             <div class="flex input-containers  b  border-primary  mt-2 ">
 
-              <!-- <input :type="state.transaction" :class="state.comfirmpassword ? ' border-secondary' : '  border-primary  '"
+              <!-- <input :type="state.transaction" :class="state.comfirmpassword ? ' border-secondary shake ' : '  border-primary  '"
                   @input="onInput"
                   class="w-full focus:border-primary input-field drop-shadow-md  h-[2.5rem]  px-5   outline-none font-normal    border-2 rounded-[5px] focus:border-primry"
                   placeholder=" " v-model="state.form.transactionCode"> -->
 
               <input :type="state.transaction" @input="onInput"
-              class="w-full focus:border-primary input-field drop-shadow-md  h-[2.5rem]  px-5   outline-none font-normal    border-2 rounded-[5px] focus:border-primry"
+              class="w-full focus:border-primary border-gray-700 input-field drop-shadow-md  h-[2.5rem]  px-5   outline-none font-normal    border-2 rounded-[5px] focus:border-primry"
                 placeholder=" " v-model="state.form.transactionCode">
               <label for="name" class="input-label  text-slate-600 font-normal"> <span
                   class=" py-0 px-1  bg-white Phone Number h-6 w-fit">Transaction code </span> </label>
@@ -471,6 +445,23 @@ const submit = async () => {
   padding-left: 0.5rem;
   transform-origin: left;
   transition: all 0.3s ease;
+}
+.shake {
+  animation: shake 0.5s;
+  animation-iteration-count: 2;
+}
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
 
