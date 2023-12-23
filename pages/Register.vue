@@ -13,7 +13,7 @@
 
 
           <div class="my-5 w-full grid grid-cols-1 sm:grid-cols-2 gap-5 justify-between">
-            <div class="">
+            <!-- <div class="">
               <div class="flex input-containers    mt-2 "> <input type="username"
                   :class="state.errorFirstname ? ' border-secondary' : '  border-primary  '" @input="onInput"
                   class="w-full drop-shadow-md focus:border-primary input-field bg-white h-[2.5rem]  px-5   outline-none font-normal   border-2 rounded-[5px] focus:border-primry"
@@ -25,7 +25,22 @@
               </div>
 
               <p :class="state.errorFirstname ? 'flex' : 'hidden '" class=" absolute pl-5 text-red-700 text-['13rem']">
-                please enter your username</p>
+                please enter your full name</p>
+            </div> -->
+              
+            <div>
+              <div class="flex input-containers    mt-2 ">
+                <input type="username" :class="state.errorFirstname ? ' border-secondary' : '  border-primary  '"
+                  @input="onInput"
+                  class="w-full focus:border-primary input-field drop-shadow-md  h-[2.5rem]  px-5   outline-none font-normal    border-2 rounded-[5px] focus:border-primry"
+                  placeholder=" " v-model="state.form.firstname">
+                <label for="name" class="input-label  text-slate-600 font-normal"> <span
+                    class=" py-0 px-1  bg-white h-6 w-fit">Last
+                    name</span> </label>
+              </div>
+              <p :class="state.errorFirstname ? 'flex' : 'hidden '" class=" absolute pl-5 text-red-700 text-['13rem']">
+                please
+                enter your last name properly</p>
             </div>
 
             <div>
