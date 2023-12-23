@@ -35,12 +35,12 @@
                   class="w-full focus:border-primary input-field drop-shadow-md  h-[2.5rem]  px-5   outline-none font-normal    border-2 rounded-[5px] focus:border-primry"
                   placeholder=" " v-model="state.form.firstname">
                 <label for="name" class="input-label  text-slate-600 font-normal"> <span
-                    class=" py-0 px-1  bg-white h-6 w-fit">Last
+                    class=" py-0 px-1  bg-white h-6 w-fit">First
                     name</span> </label>
               </div>
               <p :class="state.errorFirstname ? 'flex' : 'hidden '" class=" absolute pl-5 text-red-700 text-['13rem']">
                 please
-                enter your last name properly</p>
+                enter your first name properly</p>
             </div>
 
             <div>
@@ -75,7 +75,21 @@
                 enter correct email</p>
             </div>
 
+
             <div>
+              <div class="flex input-containers    mt-2 ">
+                <input type="username" :class="state.errorphone ? ' border-secondary' : '  border-primary  '"
+                  @input="onInput"
+                  class="w-full focus:border-primary input-field drop-shadow-md  h-[2.5rem]  px-5   outline-none font-normal    border-2 rounded-[5px] focus:border-primry"
+                  placeholder=" " v-model="state.form.phone">
+                <label for="name" class="input-label  text-slate-600 font-normal"> <span
+                    class=" py-0 px-1  bg-white h-6 w-fit">Phone Number</span> </label>
+              </div>
+              <p :class="state.errorphone ? 'flex' : 'hidden '" class=" absolute pl-5 text-red-700 text-['13rem']">
+                please
+                enter correct phone</p>
+            </div>
+            <!-- <div>
               <div class="flex  b   input-containers border-primary  mt-2 "> <input type="text"
                   :class="state.errorphone ? ' border-secondary' : '   border-gray-500'" @input="onInput"
                   class="w-full input-field drop-shadow-md h-[2.5rem]  px-5  outline-none font-normal    border-2 rounded-[5px] focus:border-primary "
@@ -86,17 +100,18 @@
               </div>
               <p :class="state.errorphone ? 'flex' : 'hidden '" class=" absolute pl-5 text-red-700 text-['13rem']">please
                 enter correct phone</p>
-            </div>
+            </div> -->
 
           </div>
 
           <div class="my-5 w-full grid grid-cols-1 sm:grid-cols-2 gap-5 justify-between">
             <div class=" ">
               <div class="flex input-containers  b  border-primary  mt-2 ">
-                <input :type="state.password" @input="onInput"
-                  :class="state.errorpassword ? ' border-secondary' : '   border-gray-500'"
-                  class="w-full input-field  h-[2.5rem] drop-shadow-md px-5 border-gre border-gray-500  outline-none font-normal    border-2 rounded-[5px] focus:border-primary "
-                  placeholder="" v-model="state.form.password">
+                <input :type="state.password" :class="state.errorpassword ? ' border-secondary' : '  border-primary  '"
+                  @input="onInput"
+                  class="w-full focus:border-primary input-field drop-shadow-md  h-[2.5rem]  px-5   outline-none font-normal    border-2 rounded-[5px] focus:border-primry"
+                  placeholder=" " v-model="state.form.password">
+               
                 <label for="name" class="input-label  text-slate-600 font-normal"> <span
                     class=" py-0 px-1  bg-white Phone Number h-6 w-fit">Password </span> </label>
 
