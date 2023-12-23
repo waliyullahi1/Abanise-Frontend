@@ -370,7 +370,7 @@ export default {
           ],
 
         })
-        return { headerChange, onClick};
+        return { headerChange};
     },
     components: {
         Carousel,

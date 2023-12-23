@@ -372,7 +372,7 @@ const submit = async () => {
       setTimeout(() => {
         state.$router.push('/Login')
         state.loadingState = false
-      }, 7000);
+      }, 10);
     } catch (error) {
       console.log(error)
     }

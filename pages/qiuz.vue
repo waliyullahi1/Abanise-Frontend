@@ -12,10 +12,11 @@
           <ul class="  list-outside ml-4 mt-5 font-medium list-disc">
             <li>Enter the correct phone number and Network type.</li>
             <li>Please, Don't try to refresh the page when you are on the exam.</li>
-            <li>You have 5 minite to answer all the question, so you need to be fast.</li>
-            <li> You must answer three question Correctly before you can receive your gift.</li>
-            <li>If you dont score three above, We are sorry, you can't receive any gift.</li>
-            <li> You have one chances to play this game, if you don't pass it, you need to try it again next time.</li>
+            <li>You have 2 minite 15 seconds to answer all the question, so you need to be fast.</li>
+            <li> You must answer two question Correctly before you can receive your gift.</li>
+            <li>If you dont score two above, We are sorry, you can't receive any gift.</li>
+            <li> You have one chance to play this game, So choose your answer wisely. </li>
+         
           </ul>
         </nav>
         <form action="" @submit.prevent="start()">
@@ -104,10 +105,10 @@
           <h1 class="text-3xl text-center text-green-600  font-medium ">You win, Congratulation 👍 </h1>
           <h2 class="text-xl  font-semibold mt-2 text-center">Your score is {{ state.score }} out of
             {{ state.selectedQuestions.length }}</h2>
-          <p class="text-center font-medium ">Thanks for participate in this activity, and you would have receive 1GB on
+          <p class="text-center font-medium ">Thanks for participate in this activity, and you would have receive 100
+            credit card on
             your phone number that you provided</p>
-          <p class="text-center font-medium ">Thanks for participate in this activity, and you need to ready this
-            instruction Carefully and scroll down before you can receive your gift</p>
+       
           <p class="mt-2">Also will want to notices you that, on this website we are selling Scratch card pin (that you
             can use to check your waec, neco, nabteb result and exam pin for GCEWAEC, GCENECO, GCENABTEB soon on),<br> and
             and then Airtime and databundle for MTN, GLO, AIRTEL etc at cheapest price </p>
@@ -155,7 +156,7 @@
         class="   w-full  duration-700  justify-center items-center flex overflow-hidden     py-1 fixed   px-4 ">
 
         <div class="duration-700  bg-white shadows py-2 px-2  sm:w-1/4 w-full ">
-          <h1 class=" text-xl font-semibold text-center"> HMMMMM <br>ARE YOU READY TO SUBMITE</h1>
+          <h1 class=" text-xl font-semibold text-center"> Hmmm <br>Are you ready to submit</h1>
           <div class="flex gap-3 pt-3 text-white ">
 
             <button @click="unsubmite()" class="text-2xl py-2  font-medium bg-secondary w-full  ">No</button>
@@ -174,137 +175,7 @@
 <script setup>
 import { useOnline } from '@vueuse/core'
 const { notify } = useNotification();
-const questions = [
-  {
-    notice: 'Choose  appropriate option from the list provided',
-    question: "What is location of ABANISE's tutorial lesson  in iwo ?",
-    choices: ["Arround Ceebee hotel area, Barika, iwo", "Opposite celestial Church, Barika filling station iwo", "Opposite Barika petrol Station iwo"],
-    rightAnswer: "Opposite celestial Church, Barika filling station iwo",
-    userAnswer: null,
-  },
-  {
-    notice: 'Choose the  appropriate option from the list provided',
-    question: "This below are selling product and services of ABANISE's Educational instituted  ",
-    choices: ["Textbook, Cobular, Stationary", "Educational services, Computer Accessories,  Bookshop, ", "Educational services, Bookshop, Tailer, "],
-    rightAnswer: "Educational services, Computer Accessories,  Bookshop",
-    userAnswer: null,
-  },
-  {
-    notice: 'Choose the  appropriate option from the list provided',
-    question: "What are the Main Abanise Educational office adress?",
-    choices: ["Elemo's Compound along kajola road iwo", "Agoro compound's Along Kajola road iwo", "Osin's Compound, Along Kajola road iwo"],
-    rightAnswer: "Agoro compound's Along Kajola road iwo",
-    userAnswer: null, // This will hold the user's answer
-  },
-  {
-    notice: 'Choose  appropriate option from the list provided ',
-    question: "what is the name of ABANISE turtorial Coodinator lesson",
-    choices: ["Mr ADEWOLE OSUNLOWO", "Mr OLARINWA BOLAJI ", "Mr FATAI MURITALA"],
-    rightAnswer: "Mr FATAI MURITALA",
-    userAnswer: null, // Thishis will hold the user's answer
-  },
-  {
-    notice: 'Choose  appropriate option from the list provided ',
-    question: "What is the name of ABANISE Turtorial English Teacher  ?",
-    choices: ["Mr BOLAJI OLARINWA", "Mr OLADELE BOLAJI", "Mr ADEWOLE OSUNLOWO"],
-    rightAnswer: "Mr OLADELE BOLAJI",
-    userAnswer: null, // This will hold the user's answer
-  },
-  {
-    notice: 'Fill the gap with appropriate option from the list provided ',
-    question: "if i were ________ i would reject the offer ?",
-    choices: ['himself', 'them', 'he'],
-    rightAnswer: 'he',
-    userAnswer: null, // This will hold the user's answer
-  },
 
-  {
-    notice: 'Complete the sentences with the correct option form the list below',
-    question: "He acts ________ he were a general manger ?",
-    choices: ['as', 'if', 'as if'],
-    rightAnswer: 'as if',
-    userAnswer: null, // This will hold the user's answer
-  },
-
-  {
-    notice: 'Choose the option that best complete the gap',
-    question: "The book will sell in ________?",
-    choices: ['hundreds of thousand ', 'a hundreds thousand ', 'hundred thousand'],
-    rightAnswer: 'hundreds of thousand ',
-    userAnswer: null, // This will hold the user's answer
-  },
-
-  {
-    notice: 'Choose the option that best complete the gap',
-    question: " We are been ready to cater for  ________ ?",
-    choices: ['the poor and the needy ', 'poor and needs ', 'the poor and needy'],
-    rightAnswer: 'the poor and the needy',
-    userAnswer: null, // This will hold the user's answer
-  },
-
-  {
-    notice: 'Choose the option that best complete the Question tag',
-    question: " Dola has left school,  ________ ?",
-    choices: ["didn't he", "has't he", "doesn't he"],
-    rightAnswer: "has't he",
-    userAnswer: null, // This will hold the user's answer
-  },
-
-  {
-    notice: 'Choose the option that best complete the Question tag',
-    question: " Sola can't read,  ________  candle light.",
-    choices: ["at", "to", "by"],
-    rightAnswer: "by",
-    userAnswer: null, // This will hold the user's answer
-  },
-  {
-    notice: 'Choose the option that best complete the Question tag',
-    question: " Sola can't read,  ________  candle light.",
-    choices: ["at", "to", "by"],
-    rightAnswer: "by",
-    userAnswer: null, // This will hold the user's answer
-  },
-
-  {
-    notice: 'Choose  appropriate option from the list provided ',
-    question: "What is the name of ABANISE turtorial Mathemtices Teacher  ?",
-    choices: ["Mr FATAI MURITALA", "Mr OLARINWA BOLAJI ", "Mr ADEWOLE OSUNLOWO"],
-    rightAnswer: "Mr FATAI MURITALA",
-    userAnswer: null, // This will hold the user's answer
-  },
-
-  {
-    notice: 'Choose  appropriate option from the list provided ',
-    question: "What is the name of ABANISE Turtorial Chemistry Teacher  ?",
-    choices: ["Mr OGUNDARE SEYI", "Mr ODUNOLA SEYI", "Mr OGUNDARE AKAANI"],
-    rightAnswer: "Mr OGUNDARE SEYI",
-    userAnswer: null, // This will hold the user's answer
-  },
-
-  {
-    notice: 'Choose  appropriate option from the list provided ',
-    question: "What is the name of ABANISE Turtorial Biology Teacher  ?",
-    choices: ["Mr ODUNOLA SEYI", "Mr OYERINDE EMMANUEL", "Mr OYERINDE AKAANI"],
-    rightAnswer: "Mr OYERINDE EMMANUEL",
-    userAnswer: null, // This will hold the user's answer
-  },
-
-  {
-    notice: 'Choose  appropriate option from the list provided ',
-    question: "What is the name of ABANISE Turtorial Mathemtices Teacher  ?",
-    choices: ["Mr FATAI MURITALA", "Mr OLARINWA BOLAJI ", "Mr ADEWOLE OSUNLOWO"],
-    rightAnswer: "Mr FATAI MURITALA",
-    userAnswer: null, // This will hold the user's answer
-  },
-  {
-    notice: 'Choose  appropriate option from the list provided ',
-    question: "What is the name of ABANISE Turtorial government Teacher  ?",
-    choices: ["Mr IDRIS BABATUNDE", "Mr YUNUS ADEKUNLE ", "Mr IDRIS ADEKUNLE"],
-    rightAnswer: "Mr IDRIS BABATUNDE",
-    userAnswer: null, // This will hold the user's answer
-  },
-
-];
 const state = reactive({
 
   erromessage: '',
@@ -325,7 +196,7 @@ const state = reactive({
   questionIndex: 0,
   score: 0,
   timer: null,
-  timeLeft: 300,
+  timeLeft: 2 * 60 + 15,
   selectedQuestions: [{
     notice: 'Pick one that compudatle to this question ',
     question: "What is American football called in England?",
@@ -354,11 +225,14 @@ const onInput = () => {
   resetErrors();
 };
 
-const selectQuestions = () => {
-  let indices = Array.from({ length: questions.length }, (_, i) => i); // Array of indices
+const selectQuestions = (questionss) => {
+  let indices = Array.from({ length: questionss.length }, (_, i) => i); // Array of indices
   indices.sort(() => Math.random() - 0.5); // Shuffle the indices
-  state.selectedQuestions = indices.slice(0, 5).map(i => questions[i]); // Select the first 5
+  state.selectedQuestions = indices.slice(0, 3).map(i => questionss[i]); // Select the first 5
 };
+
+
+
 const start = async () => {
 
   const regex = /[a-zA-Z]/;
@@ -381,14 +255,14 @@ const start = async () => {
     console.log('yyyyyy');
     try {
       const online = useOnline()
-  if (!online.value) {
-      notify({
-        title: "No Internet Connection",
-        text: "Please check your internet connection and try again.",
-      });
-      state.loadingState = false;
-      throw new Error("No internet connection");
-    }
+      if (!online.value) {
+        notify({
+          title: "No Internet Connection",
+          text: "Please check your internet connection and try again.",
+        });
+        state.loadingState = false;
+        throw new Error("No internet connection");
+      }
 
 
       const response = await fetch('https://api-abanise-five.vercel.app/quiz', {
@@ -413,10 +287,13 @@ const start = async () => {
         throw new Error(errorData.message);
 
       }
+      const data = await response.json();
+   
       state.loadingState = true
+
       if (state.timer) {
         clearInterval(state.timer);
-        state.timeLeft = 300; // Reset the time
+        state.timeLeft = 2 * 60 + 15;
       }
 
       setTimeout(() => {
@@ -430,10 +307,10 @@ const start = async () => {
         if (state.timeLeft > 0) {
           state.timeLeft--;
         } else {
-          state.submite();
+          submite();
         }
       }, 1000);
-      selectQuestions();
+      selectQuestions(data.success);
       state.showInstructions = false
       state.loadingState = true;
 
@@ -496,6 +373,9 @@ const prevsubmit = () => {
   console.log('tttttttt');
 };
 
+
+
+
 const submite = async () => {
 
   clearInterval(state.timer);
@@ -508,11 +388,9 @@ const submite = async () => {
   state.both = true;
   state.showInstructions = true;
   state.isSubmitted = true;
-  if (state.score >= 3) {
+  if (state.score >= 2) {
     console.log('pass exam');
     state.examStatus = 'passed';
-    state.examStatus = 'passed'
-
     console.log(state.form.network, state.form.phone, state.score);
     try {
       const response = await fetch('https://api-abanise-five.vercel.app/quiz/gift', {
@@ -536,7 +414,7 @@ const submite = async () => {
 
       }
       state.score = 0
-      console.log('goood');
+      console.log(response.j);
 
     } catch (error) {
       console.log(error)
@@ -549,38 +427,6 @@ const submite = async () => {
   console.log('failedexam');
   state.score++;
 }
-const submitee = async () => {
-
-  try {
-    const response = await fetch('http://localhost:3500/quiz/gift', {
-      method: "POST",
-      headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
-      body: JSON.stringify({
-        phoneNo: state.form.phone,
-        networkType: state.form.network
-      })
-
-    })
-
-    if (!response.ok) {
-      console.log('bad')
-      const errorData = await response.json();
-      state.erromessage = errorData.message;
-      state.score = 0
-      state.loadingState = false;
-      throw new Error(errorData.message);
-
-    }
-
-    console.log('goood');
-
-  } catch (error) {
-    console.log(error)
-  }
-
-
-};
 
 
 
