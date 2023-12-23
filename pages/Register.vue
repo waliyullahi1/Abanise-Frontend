@@ -24,7 +24,7 @@
 
               </div>
 
-              <p :class="state.errorFirstname ? 'flex' : 'hidden '" class=" absolute pl-5 text-red-700 text-['13rem']">
+              <p :class="state.errorFirstname ? 'flex' : 'hidden '" class=" relative pl-5 text-red-700 text-['13rem']">
                 please enter your full name</p>
             </div> -->
               
@@ -38,7 +38,7 @@
                     class=" py-0 px-1  bg-white h-6 w-fit">First
                     name</span> </label>
               </div>
-              <p :class="state.errorFirstname ? 'flex' : 'hidden '" class=" absolute pl-5 text-red-700 text-['13rem']">
+              <p :class="state.errorFirstname ? 'flex' : 'hidden '" class=" relative pl-5 text-red-700 text-['13rem']">
                 please
                 enter your first name properly</p>
             </div>
@@ -53,7 +53,7 @@
                     class=" py-0 px-1  bg-white h-6 w-fit">Last
                     name</span> </label>
               </div>
-              <p :class="state.errorLastname ? 'flex' : 'hidden '" class=" absolute pl-5 text-red-700 text-['13rem']">
+              <p :class="state.errorLastname ? 'flex' : 'hidden '" class=" relative pl-5 text-red-700 text-['13rem']">
                 please
                 enter your last name properly</p>
             </div>
@@ -69,9 +69,9 @@
                 <label for="name" class="input-label  text-slate-600 font-normal"> <span
                     class=" py-0 px-1  bg-white h-6 w-fit">Email</span> </label>
               </div>
-              <p :class="state.erroremail ? 'flex' : 'hidden '" class=" absolute pl-5 text-red-700 text-['13rem']">please
+              <p :class="state.erroremail ? 'flex' : 'hidden '" class=" relative pl-5 text-red-700 text-['13rem']">please
                 enter your email</p>
-              <p :class="state.erroremail1 ? 'flex' : 'hidden '" class=" absolute pl-5 text-red-700 text-['13rem']">please
+              <p :class="state.erroremail1 ? 'flex' : 'hidden '" class=" relative pl-5 text-red-700 text-['13rem']">please
                 enter correct email</p>
             </div>
 
@@ -85,7 +85,7 @@
                 <label for="name" class="input-label  text-slate-600 font-normal"> <span
                     class=" py-0 px-1  bg-white h-6 w-fit">Phone Number</span> </label>
               </div>
-              <p :class="state.errorphone ? 'flex' : 'hidden '" class=" absolute pl-5 text-red-700 text-['13rem']">
+              <p :class="state.errorphone ? 'flex' : 'hidden '" class=" relative pl-5 text-red-700 text-['13rem']">
                 please
                 enter correct phone</p>
             </div>
@@ -98,7 +98,7 @@
                     class=" py-0 px-1  bg-white Phone Number h-6 w-fit">Phone Number</span> </label>
 
               </div>
-              <p :class="state.errorphone ? 'flex' : 'hidden '" class=" absolute pl-5 text-red-700 text-['13rem']">please
+              <p :class="state.errorphone ? 'flex' : 'hidden '" class=" relative pl-5 text-red-700 text-['13rem']">please
                 enter correct phone</p>
             </div> -->
 
@@ -127,12 +127,15 @@
 
             <div class=" ">
               <div class="flex input-containers  b border-primary  mt-2 ">
-                <input :type="state.comfirmpassword" @input="onInput"
-                  :class="state.comfirmpassword ? ' border-secondary' : '   border-gray-500'"
-                  class="w-full input-field  h-[2.5rem]  drop-shadow-md px-5 border-gre border-gray-500  outline-none font-normal    border-2 rounded-[5px] focus:border-primary "
-                  placeholder="" v-model="state.form.comfirmpassword">
+                <input :type="state.comfirmpassword" :class="state.comfirmpassword ? ' border-secondary' : '  border-primary  '"
+                  @input="onInput"
+                  class="w-full focus:border-primary input-field drop-shadow-md  h-[2.5rem]  px-5   outline-none font-normal    border-2 rounded-[5px] focus:border-primry"
+                  placeholder=" " v-model="state.form.comfirmpassword">
+               
+
+                
                 <label for="name" class="input-label  text-slate-600 font-normal"> <span
-                    class=" py-0 px-1  bg-white Phone Number h-6 w-fit">Comfirm Password </span> </label>
+                    class=" py-0 px-1 relative bg-white Phone Number h-6 w-fit">Comfirm Password </span> </label>
 
                 <div class="w-0 h-1">
                   <toggle class="  relative top-3 right-5" @revealPassword="revealPasswordconfirm"
@@ -140,7 +143,7 @@
                 </div>
               </div>
 
-              <p :class="state.errorconfirmpassword ? 'flex' : 'hidden '" class=" text-red-700 text-['13rem']">password
+              <p :class="state.errorconfirmpassword ? 'flex' : 'hidden '" class=" relative text-red-700 text-['13rem']">password
                 and confirm password must match</p>
             </div>
 
@@ -152,7 +155,7 @@
 
             <div class="flex input-containers  b  border-primary  mt-2 ">
               <input :type="state.transaction" @input="onInput"
-                class="w-full input-field  h-[2.5rem] drop-shadow-md px-5 border-gre border-gray-500  outline-none font-normal    border-2 rounded-[5px] focus:border-primary "
+              class="w-full focus:border-primary input-field drop-shadow-md  h-[2.5rem]  px-5   outline-none font-normal    border-2 rounded-[5px] focus:border-primry"
                 placeholder="" v-model="state.form.transactionCode">
               <label for="name" class="input-label  text-slate-600 font-normal"> <span
                   class=" py-0 px-1  bg-white Phone Number h-6 w-fit">Transaction code </span> </label>
