@@ -203,9 +203,9 @@
             </div>
         </section>
         <div class="w-full flex justify-center items-center">
-            <button @click="notice()"
+            <button
                 class="bg-primary justify-center flex hover:bg-secondary ease-in-out duration-700 text-white rounded-xl text-xl py-2 px-4 ">
-                Click here to collect your year gift</button>
+                <NuxtLink to="/quiz"> Click here to collect your year gift</NuxtLink> </button>
 
         </div>
 
