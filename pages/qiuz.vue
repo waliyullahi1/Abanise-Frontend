@@ -15,7 +15,7 @@
             <li> You must answer two question Correctly before you can receive your gift.</li>
             <li>If you dont score two above, We are sorry, you can't receive any gift.</li>
             <li> You have one chance to play this game, So choose your answer wisely. </li>
-            <li> Please if you passed, wait, dont refresh that page until you receive that gift </li>
+            <li> Please if you passed, wait, dont refresh that page until you receive the gift </li>
           </ul>
         </nav>
         <form action="" @submit.prevent="start()">
