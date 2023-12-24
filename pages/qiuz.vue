@@ -15,7 +15,7 @@
             <li> You must answer two question Correctly before you can receive your gift.</li>
             <li>If you dont score two above, We are sorry, you can't receive any gift.</li>
             <li> You have one chance to play this game, So choose your answer wisely. </li>
-         
+            <li> Please if you passed, wait, dont refresh that page until you receive that gift </li>
           </ul>
         </nav>
         <form action="" @submit.prevent="start()">
@@ -106,7 +106,7 @@
             {{ state.selectedQuestions.length }}</h2>
           <p class="text-center font-medium ">Thanks for participate in this activity, and you would have receive 100
             credit card on
-            your phone number that you provided</p>
+             this phone number {{state.form.phone}} that you provided</p>
        
           <p class="mt-2">Also will want to notices you that, on this website we are selling Scratch card pin (that you
             can use to check your waec, neco, nabteb result and exam pin for GCEWAEC, GCENECO, GCENABTEB soon on),<br> and
