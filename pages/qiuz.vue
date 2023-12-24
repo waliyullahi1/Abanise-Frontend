@@ -412,8 +412,9 @@ const submite = async () => {
         throw new Error(errorData.message);
 
       }
+      const data = await response.json();
       state.score = 0
-      console.log(response.j);
+      console.log(data);
 
     } catch (error) {
       console.log(error)
