@@ -205,7 +205,7 @@
         <div class="w-full flex justify-center items-center">
             <button
                 class="bg-primary justify-center flex hover:bg-secondary ease-in-out duration-700 text-white rounded-xl text-xl py-2 px-4 ">
-                <NuxtLink to="/quiz"> Click here to collect your year gift</NuxtLink> </button>
+                <NuxtLink to="/qiuz"> Click here to collect your year gift</NuxtLink> </button>
 
         </div>
 
