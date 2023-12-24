@@ -1,4 +1,3 @@
-
 <template class=" text-[poppins]">
   <div>
     <Header :headertext="false" class="fixed z-40 top-0"></Header>

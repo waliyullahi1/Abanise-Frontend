@@ -177,6 +177,9 @@ import axios from 'axios'
 import { useHead } from '@vueuse/head'
 import { useOnline } from '@vueuse/core'
 const { notify } = useNotification();
+
+import { useRouter } from 'vue-router'
+const router = useRouter()
 const state = reactive({
   disabled: '',
   message: '',
@@ -380,7 +383,8 @@ const submit = async () => {
         });
       console.log('Success:', data);
       setTimeout(() => {
-        state.$router.push('/Login')
+        router.push('/Login')
+       
         state.loadingState = false
       }, 10);
     } catch (error) {

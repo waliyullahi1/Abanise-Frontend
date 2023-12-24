@@ -56,11 +56,11 @@
 
       
 
-          <Button :loading="loadingState" @click="submit()" loadingText="Authenticating"> Login</Button>
+          <Button :loading="state.loadingState" @click="submit()" loadingText="Authenticating"> Login</Button>
 
         </form>
 
-        <p class=" font-semibold">Dont have an account yet? <router-link class=" text-primary"
+        <p class=" py-5 font-semibold">Dont have an account yet? <router-link class=" text-primary"
             to="/Register">Register</router-link></p>
 
       </div>
@@ -75,9 +75,16 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import axios from 'axios'
+
 import { useHead } from '@vueuse/head'
 import { useOnline } from '@vueuse/core'
 const { notify } = useNotification();
+
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+
 const state = reactive({
   errorphone: '',
   disabled: '',
@@ -100,50 +107,42 @@ const state = reactive({
   ]
 });
 
+useHead({
+     // Can be static or computed
+     title: 'Login in - abanise.com | Buy WAEC Scratch cards, NECO Scratch cards and NABTEB cards online, Buy Data, Airtime to cash,',
+    meta: [
+       {        name: `description`,
+       content: 'Buy WAEC scratch cards online at WWW.abaniseedu.COM. Buy WAEC Scratch cards, NECO Scratch cards and NABTEB cards online, Buy Cheap Internet Data Plan and Airtime Recharge for Airtel, 9mobile, GLO, MTN. at the best price in Nigeria. Order now at WWW.abaniseedu.COM and get it delivered to you instantly using your prefered method.',      },
+       // {
+       //   itemprop: `name,
+       //   content: 'Buy WAEC scratch cards online at WWW.abaniseedu.COM. Buy WAEC Scratch cards, NECO Scratch cards and NABTEB cards online, Buy Cheap Internet Data Plan and Airtime Recharge for Airtel, 9mobile, GLO, MTN. at the best price in Nigeria. Order now at WWW.abaniseedu.COM and get it delivered to you instantly using your prefered method.',
+       // },
+       {
+         name: 'site_name',
+         content: 'abaniseedu.com',
+       },
+       {
+         name: 'type',
+         content: 'website ',
+       },
+       {
+        name: 'site_name',
+        content: 'abaniseedu.com',
+       },
+       {
+        name: 'type',
+         content: 'website ',
+      },
 
-// setup() {
+       {
+         name: 'url',
+         content: 'abaniseedu.com',
+       },
 
+      ],
 
+  })
 
-//   useHead({
-//     // Can be static or computed
-//     title: 'Sign Up - abanise.com | Buy WAEC Scratch cards, NECO Scratch cards and NABTEB cards online, Buy Data, Airtime to cash,',
-//     meta: [
-//       {
-//         name: `description`,
-//         content: 'Buy WAEC scratch cards online at WWW.abaniseedu.COM. Buy WAEC Scratch cards, NECO Scratch cards and NABTEB cards online, Buy Cheap Internet Data Plan and Airtime Recharge for Airtel, 9mobile, GLO, MTN. at the best price in Nigeria. Order now at WWW.abaniseedu.COM and get it delivered to you instantly using your prefered method.',
-//       },
-//       // {
-//       //   itemprop: `name,
-//       //   content: 'Buy WAEC scratch cards online at WWW.abaniseedu.COM. Buy WAEC Scratch cards, NECO Scratch cards and NABTEB cards online, Buy Cheap Internet Data Plan and Airtime Recharge for Airtel, 9mobile, GLO, MTN. at the best price in Nigeria. Order now at WWW.abaniseedu.COM and get it delivered to you instantly using your prefered method.',
-//       // },
-//       {
-//         name: 'site_name',
-//         content: 'abaniseedu.com',
-//       },
-//       {
-//         name: 'type',
-//         content: 'website ',
-//       },
-//       {
-//         name: 'site_name',
-//         content: 'abaniseedu.com',
-//       },
-//       {
-//         name: 'type',
-//         content: 'website ',
-//       },
-
-//       {
-//         name: 'url',
-//         content: 'abaniseedu.com',
-//       },
-
-//       ],
-
-//   })
-//   return { };
-// },
 
 
 const revealPassword = () => {
@@ -231,7 +230,7 @@ const submit = async () => {
       });
       console.log('Success:', data);
       setTimeout(() => {
-        state.$router.push('/user/Dashboard')
+        router.push('/user/Dashboard')
         state.loadingState = false
       }, 10);
     } catch (error) {
@@ -247,155 +246,7 @@ const submit = async () => {
 
 </script>
 
-<script>
-import { ref, onMounted } from 'vue'
-import axios from 'axios'
-import { useHead } from '@vueuse/head'
 
-
-export default {
-  setup() {
-
-
-
-    useHead({
-      // Can be static or computed
-      title: 'Login - abanise.com | Buy WAEC Scratch cards, NECO Scratch cards and NABTEB cards online, Buy Data, Airtime to cash,',
-      meta: [
-        {
-          name: `description`,
-          content: 'Buy WAEC scratch cards online at WWW.abaniseedu.COM. Buy WAEC Scratch cards, NECO Scratch cards and NABTEB cards online, Buy Cheap Internet Data Plan and Airtime Recharge for Airtel, 9mobile, GLO, MTN. at the best price in Nigeria. Order now at WWW.abaniseedu.COM and get it delivered to you instantly using your prefered method.',
-        },
-        // {
-        //   itemprop: `name,
-        //   content: 'Buy WAEC scratch cards online at WWW.abaniseedu.COM. Buy WAEC Scratch cards, NECO Scratch cards and NABTEB cards online, Buy Cheap Internet Data Plan and Airtime Recharge for Airtel, 9mobile, GLO, MTN. at the best price in Nigeria. Order now at WWW.abaniseedu.COM and get it delivered to you instantly using your prefered method.',
-        // },
-        {
-          name: 'site_name',
-          content: 'abaniseedu.com',
-        },
-        {
-          name: 'type',
-          content: 'website ',
-        },
-        {
-          name: 'site_name',
-          content: 'abaniseedu.com',
-        },
-        {
-          name: 'type',
-          content: 'website ',
-        },
-
-        {
-          name: 'url',
-          content: 'abaniseedu.com',
-        },
-
-      ],
-
-    })
-    return {};
-  },
-
-  data() {
-    return {
-      errorphone: '',
-      disabled: '',
-      erromessage: '',
-      paswo: "password",
-      erroremail: false,
-      errorpassword: false,
-      loadingState: false,
-      form: {
-        username: '',
-        email: '',
-        password: '',
-        comfirmpassword: '',
-        phone: "",
-        transactionCode: "",
-      },
-
-      user: [
-
-      ]
-    }
-  },
-
-  methods: {
-
-    revealPassword() {
-      state.paswo = 'text';
-    },
-    hidePassword() {
-      state.paswo = 'password';
-    },
-    resetErrors() {
-
-      state.erroremail = false;
-      state.errorpassword = false;
-    },
-    onInput() {
-      state.resetErrors();
-    },
-
-
-
-    async submit() {
-      state.loadingState = true;
-
-      if (!state.form.email) {
-        state.erroremail = true;
-        state.loadingState = false;
-        return false;
-      } else if (!state.form.password) {
-        state.errorpassword = true;
-        state.loadingState = false;
-        return false;
-      } else {
-
-        try {
-          const response = await fetch('https://api-abanise-five.vercel.app/login', {
-            method: "POST",
-            headers: { 'Content-Type': 'application/json' },
-            credentials: 'include',
-            body: JSON.stringify({
-              email: state.form.email,
-              pwd: state.form.password,
-            })
-
-          })
-
-          if (!response.ok) {
-            state.loadingState = false
-            const errorData = await response.json();
-            state.erromessage = errorData.message;
-            throw new Error(errorData.message);
-
-          }
-          state.loadingState = true
-          const data = await response.json();
-          state.message = data.success
-          console.log('Success:', data);
-          setTimeout(() => {
-            state.$router.push('/user/Dashboard')
-
-            state.loadingState = false
-          }, 2);
-        } catch (error) {
-          console.log(error)
-        }
-      }
-    },
-
-
-
-  },
-
-
-
-}
-</script>
 
 <style>
 .image {
