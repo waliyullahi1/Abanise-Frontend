@@ -107,12 +107,12 @@
           <p class="text-center font-medium ">Thanks for participate in this activity, and you would have receive 100
             credit card on
              this phone number {{state.form.phone}} that you provided</p>
-       
+
           <p class="mt-2">Also will want to notices you that, on this website we are selling Scratch card pin (that you
             can use to check your waec, neco, nabteb result and exam pin for GCEWAEC, GCENECO, GCENABTEB soon on),<br> and
             and then Airtime and databundle for MTN, GLO, AIRTEL etc at cheapest price </p>
 
-
+            <p>message from api{{ state.erromessage }}</p>
 
 
 
@@ -407,12 +407,18 @@ const submite = async () => {
         console.log('bad')
         const errorData = await response.json();
         state.erromessage = errorData.message;
-        state.score = 0
+        state.score = 0;
+        notify({
+          title: "error",
+          text: errorData.message,
+        });
         state.loadingState = false;
         throw new Error(errorData.message);
 
       }
       const data = await response.json();
+      state.erromessage =  data.success
+        
       state.score = 0
       console.log(data);
 
