@@ -391,7 +391,7 @@ const submite = async () => {
     console.log('pass exam');
     state.examStatus = 'passed';
     console.log(state.form.network, state.form.phone, state.score);
-    try {
+    
       const response = await fetch('https://api-abanise-five.vercel.app/quiz/gift', {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
@@ -422,9 +422,6 @@ const submite = async () => {
       state.score = 0
       console.log(data);
 
-    } catch (error) {
-      console.log(error)
-    }
 
     state.isSubmitted = true;
     state.score++;
