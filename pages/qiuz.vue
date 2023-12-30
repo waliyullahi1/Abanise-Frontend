@@ -104,8 +104,8 @@
           <h1 class="text-3xl text-center text-green-600  font-medium ">You win, Congratulation 👍 </h1>
           <h2 class="text-xl  font-semibold mt-2 text-center">Your score is {{ state.score }} out of
             {{ state.selectedQuestions.length }}</h2>
-          <p class="text-center font-medium ">Thanks for participate in this activity, and you would have receive 100
-            credit card on
+          <p class="text-center font-medium ">Thanks for participate in this activity, and you would have receive 1001GB
+            data bundle card on
              this phone number {{state.form.phone}} that you provided</p>
 
           <p class="mt-2">Also will want to notices you that, on this website we are selling Scratch card pin (that you
