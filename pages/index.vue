@@ -203,9 +203,9 @@
             </div>
         </section>
         <div class="w-full flex justify-center items-center">
-            <button
+            <button @click="notice"
                 class="bg-primary justify-center flex hover:bg-secondary ease-in-out duration-700 text-white rounded-xl text-xl py-2 px-4 ">
-                <NuxtLink to="/qiuz"> Click here to collect your year gift</NuxtLink> </button>
+               Click here to collect your year gift </button> <!-- <NuxtLink to="/qiuz"> Click here to collect your year gift</NuxtLink> -->
 
         </div>
 
@@ -517,7 +517,7 @@ export default {
     },
     methods: {
         notice() {
-            alert(`We are sorry, Kindly Check Back on the 24th of this month at 10 am ,  Thanks !!!`);
+            alert(`We are sorry, Kindly Check Back on the 1st of this month at 10 pm ,  Thanks !!!`);
         },
         transact() {
             this.track = !this.track
