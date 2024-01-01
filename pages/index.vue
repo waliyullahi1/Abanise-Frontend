@@ -735,7 +735,7 @@ export default {
     },
     methods: {
         notices() {
-            alert(`We are sorry, Kindly Check Back later`);
+            alert(`We are sorry, It is not been releaseed, Kindly Check Back later`);
         },
         transact() {
             this.track = !this.track
