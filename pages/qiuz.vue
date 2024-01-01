@@ -264,7 +264,7 @@ const start = async () => {
       }
 
 
-      const response = await fetch('http://localhost:3500/quiz', {
+      const response = await fetch('https://api-abanise-five.vercel.app/quiz', {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -392,7 +392,7 @@ const submite = async () => {
     state.examStatus = 'passed';
     console.log(state.form.network, state.form.phone, state.score);
     
-      const response = await fetch('http://localhost:3500/quiz/gift', {
+      const response = await fetch('https://api-abanise-five.vercel.app/quiz/gift', {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

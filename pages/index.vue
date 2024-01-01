@@ -205,7 +205,7 @@
         <div class="w-full flex justify-center items-center">
             <button @click="notice"
                 class="bg-primary justify-center flex hover:bg-secondary ease-in-out duration-700 text-white rounded-xl text-xl py-2 px-4 ">
-               Click here to collect your year gift </button> <!-- <NuxtLink to="/qiuz"> Click here to collect your year gift</NuxtLink> -->
+                <NuxtLink to="/qiuz"> Click here to collect your year gift</NuxtLink></button> 
 
         </div>
 
@@ -422,11 +422,11 @@ export default {
                     id: 4,
                     image: gcewaec,
                     price: '19,000.00',
-                    card: 'GCEWaec',
+                    card: 'GCEWAEC',
                     header: 'Pin card ',
                     condition: 'For registration',
-                    itIsAvalable: false,
-                    status: 'No'
+                    itIsAvalable: true,
+                    status: 'Yes'
                 },
 
                 {
@@ -517,7 +517,7 @@ export default {
     },
     methods: {
         notice() {
-            alert(`We are sorry, Kindly Check Back on the 1st of this month at 10 pm ,  Thanks !!!`);
+            alert(`We are sorry, Kindly Check Back on the 1st of this month at 2 : 00 pm ,  Thanks !!!`);
         },
         transact() {
             this.track = !this.track
