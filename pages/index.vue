@@ -251,7 +251,7 @@
             
             <div class="  flex flex-col justify-center  gap-3 items-center ">
                 <h2 class="text-3xl font-bold text">PAST QUESTION </h2>
-                <h2 class="md:text-xl text-xl  font-normal ">ORDER FOR YOUR JAMB PAST QUESTION 2024 NOW </h2>
+                <h2 class="md:text-xl text-xl  font-normal ">BUY YOUR JAMB PAST QUESTION 2024 NOW </h2>
                 <Carousel class="mb-10"  :autoplay="9000" :transition="800" :wrap-around="false"  v-bind="settings1" :breakpoints="breakpoints1">
                     <slide v-for="slide in pastQuestion" :key="slide.id" class=" group shadow border-primary w-full overflow-hidden   ">
 
