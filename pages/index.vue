@@ -276,8 +276,9 @@
 
                             </div>
                         </div>
-
+                        
                         <template #addons>
+                           <Pagination /> 
                         </template>
                     </slide>
                 </Carousel>
@@ -333,6 +334,7 @@
 <script>
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
+import 'vue3-carousel/dist/carousel.css'
 import hero2 from '@/assets/image/hero.jpg';
 import hero3 from '@/assets/image/her.jpg';
 import { onMounted, ref } from 'vue';
@@ -733,10 +735,11 @@ export default {
     },
 
     components: {
-    Carousel,
+        Carousel,
     Slide,
     Pagination,
-    Navigation,
+    Carousel,
+  
   },
 
 }
