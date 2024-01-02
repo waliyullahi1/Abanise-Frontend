@@ -5,7 +5,7 @@
 
         <div class="w-full "></div>
         <section class=" j">
-            <Carousel :autoplay="9000" :transition="2000" :wrap-around="true" :items-to-show="1">
+            <Carousel :autoplay="9000"  :transition="2000" :wrap-around="true" :items-to-show="1">
                 <slide v-for="slide in hero" :key="slide.id" class="w-full  ">
                     <div :style="{ backgroundImage: 'url(' + slide.image + ')' }"
                         class=" image sticky top-0 w-full h-[30rem] md:h-[40rem]  overflow-hidden ">
@@ -206,11 +206,11 @@
         <section id="expo exam" class=" w-[90%] mx-auto">
             <div class="w-full">
                 <h1 class="text-2xl mb-5 text-secondary font-semibold ">Expo Exam</h1>
-                <Carousel class="mb-10" :transition="1000"  v-bind="settings" :breakpoints="breakpoints">
+                <Carousel class="mb-10" :autoplay="1000" :transition="1000" :wrap-around="true"  v-bind="settings" :breakpoints="breakpoints">
                     <slide v-for="slide in expo" :key="slide.id" class="w-full   overflow-hidden ">
 
 
-                        <div>
+                        <div class="mx-2">
                             <div
                                 class=" group shadow border-primary w-full overflow-hidden  h-fit flex flex-col gap-3 rounded-[2rem]">
                                 <div
@@ -252,39 +252,36 @@
             <div class="  flex flex-col justify-center  gap-3 items-center ">
                 <h2 class="text-3xl font-bold text">PAST QUESTION </h2>
                 <h2 class="md:text-xl text-xl  font-normal ">BUY YOUR JAMB PAST QUESTION 2024 NOW </h2>
-                <Carousel class="mb-10"  :autoplay="9000" :transition="800" :wrap-around="false"  v-bind="settings1" :breakpoints="breakpoints1">
-                    <slide v-for="slide in pastQuestion" :key="slide.id" class=" group shadow border-primary w-full overflow-hidden   ">
+                <Carousel class="mb-10" :autoplay="1000" :transition="1000" :wrap-around="true"  v-bind="settings" :breakpoints="breakpoints">
+                    <slide v-for="slide in pastQuestion" :key="slide.id" class="w-full  mx-12s overflow-hidden ">
 
 
-                       
-                          <div>
-                            <div
-                            class="w-full  group-hover:drop-shadow-xl h-48 flex  duration-700  pt-3 px-3 overflow-hidden ">
-                            <div class="overflow-hidden duration-700   "> <img v-bind:src="slide.image" v-bind:alt="item.alt" 
-                                    class="" /></div> 
+                        <div class="mx-2">
+                            <div  class=" mx-2 group shadow border-primary w-full overflow-hidden  h-fit flex flex-col gap-3 rounded-[2rem]">
+                                <div
+                                    class="w-full rounded-[2rem] group-hover:drop-shadow-xl duration-700  pt-3 px-3 overflow-hidden ">
+                                    <div class="overflow-hidden flex justify-center duration-700 w-full   rounded-[2rem] ">
+                                        <img v-bind:src="slide.image" class=" " />
+                                    </div>
 
-                        </div>
-                        <div class=" flex py-3 px-3 flex-col gap-3 border-primary transform duration-300">
-                            <div class=" group-hover:w-full w-1 duration-500 h-1 bg-primary"></div>
-                            <p class="text-[17px] "> {{ slide.header }} <span
-                                    class="tex- text-base font-sebold">({{ slide.condition }})</span></p>
-                            <div class="flex justify-between">
-                                <p class="text-[17px]">Price</p>
-                                <p class="font-semibold font-lg ">₦{{ slide.price }}</p>
+                                </div>
+                                <div class="">
+                                    <h1 class="text-[17px] font-medium ">
+                                        {{ slide.header}}  {{ slide.condition }}
+                                    </h1>
+                                </div>
+
+                                <Primary  class="w-full text-center font-[14px] font-sembold"> <a href="https://wa.me/message/SRWH2WAPTXUAN1">Buy Now</a>
+                                </Primary>
+
                             </div>
-                            <p class="flex justify-between font-font-[17px] ">Availability(status) <span
-                                    class="tex text-green-600 ">{{ slide.status }}</span></p>
                         </div>
-                       
-                            <Primary class="w-full text-center font-[14px] font-sembold"> <a href="https://wa.me/message/SRWH2WAPTXUAN1" >Buy now</a></Primary>
-        
 
-                          </div>
-                        
                         <template #addons>
                         </template>
                     </slide>
                 </Carousel>
+                
             
 
                 <div class="w-full mt-10">
@@ -483,7 +480,7 @@ export default {
                     itemsToShow: 3.5,
                     snapAlign: 'center',
                 },
-                300: {
+                100: {
                     itemsToShow: 1.5,
                     snapAlign: 'center',
                 },
@@ -493,22 +490,7 @@ export default {
                     snapAlign: 'start',
                 },
             },
-            breakpoints1: {
-                // 700px and up
-                700: {
-                    itemsToShow: 3.5,
-                    snapAlign: 'center',
-                },
-                300: {
-                    itemsToShow: 1.5,
-                    snapAlign: 'center',
-                },
-                // 1024 and up
-                1024: {
-                    itemsToShow: 4.5,
-                    snapAlign: 'start',
-                },
-            },
+           
             scrollPosition: null,
             track: false,
             item: [
@@ -762,7 +744,7 @@ export default {
 
 <style scoped>
 .carousel__slide {
-    padding: 5px;
+    padding: 0px;
 }
 
 /* @import '~/assets/main.css'; */
