@@ -205,7 +205,7 @@
 
         <section id="expo exam" class=" w-[90%] mx-auto">
             <div class="w-full">
-                <h1 class="text-2xl mb-5 text-secondary font-semibold ">Expo Exam</h1>
+                <h1 class="text-2xl mb-5 text-secondary font-semibold "> Exam solution</h1>
                 <Carousel class="mb-10" :autoplay="1000" :transition="1000" :wrap-around="true"  v-bind="settings" :breakpoints="breakpoints">
                     <slide v-for="slide in expo" :key="slide.id" class="w-full   overflow-hidden ">
 
@@ -226,7 +226,7 @@
                                     </h1>
                                 </div>
 
-                                <Primary @click="notices" class="w-full text-center font-[14px] font-sembold">View answer
+                                <Primary @click="notices" class="w-full text-center font-[14px] font-sembold">View solution
                                 </Primary>
 
                             </div>
@@ -683,14 +683,14 @@ export default {
                 {
                     id: 1,
                     image: waeclogo,
-                    header: 'WAEC EXPO JUN/FEB 2024',
+                    header: 'WAEC solution JUN/FEB 2024',
                     condition: 'not been release'
                 },
 
                 {
                     id: 2,
                     image: jamblogo,
-                    header: `JAMB EXPO 2024 `,
+                    header: `JAMB cbt solution 2024 `,
                     condition: 'Not been release ',
 
                 },
@@ -699,7 +699,7 @@ export default {
                 {
                     id: 3,
                     image: necologo,
-                    header: 'NECO EXPO JUNE/JULY 2024 ',
+                    header: 'NECO solution JUNE/JULY 2024 ',
                     condition: 'Not been release',
 
                 },
@@ -709,7 +709,7 @@ export default {
                 {
                     id: 4,
                     image: nabteblogo,
-                    header: `NABTEB EXPO EXPO JUNE/JULY 2024`,
+                    header: `NABTEB solution JUNE/JULY 2024`,
                     condition: 'Not been release',
 
                 },
