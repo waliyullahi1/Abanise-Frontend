@@ -597,7 +597,7 @@
         
   
         try {
-          const response = await fetch('http://localhost:3500/scratch', {
+          const response = await fetch('https://api-abanise-five.vercel.app/scratch', {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include',
