@@ -390,7 +390,7 @@
         card:"",
         gceneco: "",
         gceWaec: "",
-        publicKey: 'sk_live_55cba0b47a3d10699a592dc95a8ffcaea4d330a7',
+        publicKey: 'sk_live_4802abae3d44c704132695047e9cdba4a93304f4',
         amount: "",
         email: "",
         nysecard: '',
