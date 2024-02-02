@@ -292,7 +292,7 @@
                 </div>
             </div>
         </section>
-
+        <Adsbygoogle />
         <div class="w-full flex justify-center items-center">
             <button
                 class="bg-primary justify-center flex hover:bg-secondary ease-in-out duration-700 text-white rounded-xl text-xl py-2 px-4 ">

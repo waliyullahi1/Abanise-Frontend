@@ -116,6 +116,9 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   
   modules: [
+    ['@nuxtjs/google-adsense', {
+      id: 'ca-pub-8150576152002690'
+    }],
     '@nuxtjs/tailwindcss', 
     '@sidebase/nuxt-pdf',
     'vue3-carousel-nuxt', 
@@ -123,4 +126,7 @@ export default defineNuxtConfig({
    
   
   ],
+  googleAdsense: {
+    id: 'ca-pub-8150576152002690'
+  }
 })
