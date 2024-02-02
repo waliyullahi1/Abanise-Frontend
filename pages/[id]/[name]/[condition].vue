@@ -390,7 +390,7 @@
         card:"",
         gceneco: "",
         gceWaec: "",
-        publicKey: 'sk_live_4802abae3d44c704132695047e9cdba4a93304f4',
+        publicKey: 'pk_live_98f0335f99f7a0e2b1399a55ad5903b3f88a92af',
         amount: "",
         email: "",
         nysecard: '',
@@ -597,7 +597,7 @@
         
   
         try {
-          const response = await fetch('http://localhost:3500/scratch', {
+          const response = await fetch('https://api-abanise-five.vercel.app/scratch', {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include',
