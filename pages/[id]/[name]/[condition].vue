@@ -11,10 +11,12 @@
         </div>
   
   
-        <div class="px-4" :class="card ? 'block' : 'hidden'">
+        <div class="px-4" v-if="showcard === 'Scratchcard'">
           <section class=" container my-5 mx-auto ">
             
             <h1 class="family text-5xl text-center">{{ cardName }} Scratch Card</h1>
+            <p>User ID: {{ $route.params.status }}</p>
+            <p>User ID: {{ $route.params.id }}</p>
             <p class="text-2xl font-semibold text-center ">Buy {{ cardName }} Direct Access Card Here</p>
           </section>
           <section class="container mx-auto">
@@ -25,7 +27,7 @@
               </Primary>
               <div class="w-  flex flex-col gap-3">
                 <div class="flex flex-col gap-5">
-                  <div :class="waec ? 'block' : 'hidden'">
+                  <div v-if="Scratchcardo === 'waecscratch'"  >
                     <h2 class="text-primary  font-bold text-xl">Buy {{ cardName }} Online</h2>
                     <p class="font-semibold text-sm ">The West {{ full_name }} produced the <span>{{ cardName }}</span> Scratch
                       Card. It comprises of a Pin and Serial Number that may be used to check the results of applicants who
@@ -33,7 +35,7 @@
                         cardName }}</span> Exams (GCE or Private Candidates).</p>
                   </div>
   
-                  <div :class="nabteb ? 'block' : 'hidden'">
+                  <div v-if="Scratchcardo === 'nabtebscratch'" >
                     <h2 class="text-primary  font-bold text-sm">Buy {{ cardName }} Online</h2>
                     <p>The West {{ full_name }} produced the <span>{{ cardName }}</span> Scratch Card. It comprises of a Pin and
                       Serial Number that may be used to check the results of applicants who took the May/June (internal or
@@ -41,7 +43,7 @@
                       Private Candidates).</p>
                   </div>
   
-                  <div :class="neco ? 'block' : 'hidden'">
+                  <div v-if="Scratchcardo === 'necoscratch'" >
                     <h2 class="text-primary  font-bold text-xl">Buy {{ cardName }} Online</h2>
                     <p class="text-sm font-semibold">
                       The Neco Scratch Card, also known as the Neco Result Checker Token or Neco Token, is the same thing as
@@ -60,7 +62,7 @@
                       <li> Visit www.abaniseedu.com</li>
                       <li> Click on BUY NOW below the <span> </span>Image.</li>
                       <li>Proceed to Payment on the Checkout Page</li>
-                      <li>Make Payment using our secure payment channels, PAYSTACK or FLUTTERWAVE </li>
+                      <li>Make Payment using our secure payment channels, PAYSTACK </li>
                       <li>Your Card is instantly displayed on your screen and delivered to your email for future reference.
                       </li>
                     </ul>
@@ -112,7 +114,7 @@
   
   
   
-        <div class="px-4" :class="vcard ? 'block' : 'hidden'">
+        <div class="px-4" v-if="showcard === 'pin'">
           <section class=" container my-5 mx-auto ">
             <h1 class="family text-4xl text-center">Buy {{ cardName }} Pin Online</h1>
             <p class="text-2xl font-semibold text-center ">Buy GCE{{ cardName }} Pin Direct Access Here</p>
@@ -150,7 +152,7 @@
   
                 <div class="flex flex-col gap-5">
   
-                  <div :class="Nabtebre ? 'hidden' : 'block'">
+                  <div v-if="scratchCards === 'Nabtebre'" >
                     <h2 class="text-xl font-semibold mb-2  text-primary">How to Register for {{ cardName }} Online </h2>
                     <ul class="tracking-normal  text-sm font-semibold list-decimal">
                       <li>Visit <a class="text-red"
@@ -161,7 +163,7 @@
   
                   </div>
   
-                  <div :class="gceWaec ? 'hidden' : 'block'">
+                  <div  v-if="scratchCards === 'gceWaec'">
                     <h2 class="text-xl font-semibold mb-2  text-primary">How to Register for{{ cardName }} Online </h2>
                     <p class="text-[14px] font-semibold ">firstly All you have to do is download the software from the WAEC
                       website and purchase a registration PIN from our website, abaniseedu.com. The WAEC Biometric
@@ -192,14 +194,11 @@
                     </ul>
                   </div>
   
-                  <div :class="gceneco ? 'hidden' : 'block'">
+                  <div v-if="scratchCards === 'Neco'" >
                     <h2 class="text-xl font-semibold mb-2  text-primary">How to Register for{{ cardName }} Online </h2>
-                    <p class="text-[14px] font-semibold ">firstly All you have to do is logon to NECO Registration Portal
-                    </p>
-                    <p class="font-semibold text-[15px]"> Carefully follow the Registration Instruction.</p>
-  
+                   
                     <ul class=" font-semibold text-sm tracking-normal list-decimal">
-                      <li>Firstly All you have to do is logon to NECO Registration Portal </li>
+                      <li>Firstly All you have to do is log in to NECO Registration Portal </li>
                       <li>Carefully follow the Registration Instruction.</li>
                       <li> Fill the form carefully.</li>
                       <li> Provide the token as required.</li>
@@ -223,7 +222,7 @@
   
   
   
-        <div class="px-4" :class="nysecard ? 'block' : 'hidden'">
+        <div class="px-4" v-if="showcard === 'nysc'">
           <section class=" container my-5 mx-auto ">
             <h1 class="family text-3xl text-center">Buy {{ cardName }}</h1>
             <p class="text-2xl font-semibold text-center ">Buy {{ cardName }} Direct Access Here</p>
@@ -292,6 +291,7 @@
                 <div class="w-full flex items-center">
                   <Primary class="ronded duration-500 w-fit  text-center
               rounded-xl hover:bg-secondary" @click="Startpayment">Proceed to payment</Primary>
+              
                 </div>
               </div>
               <div>
@@ -315,9 +315,9 @@
               <div class="flex flex-col justify-center mb-10 items-center">
                 <form action="" class=" ">
                   <div>
-                    <h1 class="text-primary font-bold text-xl ">Scratch card</h1>
-                    <h2 class="text-2xl font-normal text-secondary ">{{ cardName }} Scratch Card</h2>
-                    <h2 class="text2xl text-black  "> ₦{{ this.form.semiprice }}</h2>
+                    <h1 class="text-primary text-center font-bold text-xl ">Scratch card</h1>
+                    <h2 class=" sm:text-xl text-[15px]  font-normal text-center  text-secondary ">{{ cardName }} Scratch Card</h2>
+                    <h2 class="text2xl text-black text-center  "> ₦{{ this.form.semiprice }}</h2>
                   </div>
                   <Input label="Enter Quantity" type="number" @click=" tolink()" placeholder="Enter Quantity" :error="false"
                     v-model:inputValue="form.quantity" inputValue="`1`" min=1></Input>
@@ -349,9 +349,9 @@
                 </div>
               </div>
             </div>
-  
+           
             <NavigationLoadingJs :isJsFinishedRun="isJsFinishedRun"></NavigationLoadingJs>
-  
+          
           </div>
         </div>
   
@@ -387,8 +387,11 @@
     data() {
       return {
         Nabtebre: "",
+        Scratchcard:true,
         card:"",
         gceneco: "",
+        showcard: 'Scratchcard',
+        Scratchcardo:"waecscratch",
         gceWaec: "",
         publicKey: 'pk_live_98f0335f99f7a0e2b1399a55ad5903b3f88a92af',
         amount: "",
@@ -397,12 +400,12 @@
         descrption: '',
         disabled: true,
         numm: Number(1),
+        scratchCards:"gceWaec",
         vcard: '',
         wlabel: '',
         nabteb: '',
         isJsFinishedRun:true ,
-        waec: '',
-        neco: '',
+       
         waecImg: 'waec',
         cardlink: '',
         cardName: '',
@@ -454,6 +457,7 @@
       if (typeof window !== 'undefined') {
   
         const locationName = window.location.href
+        const route = useRoute()
   
         const splitloc = locationName.split('/');
         const siteData = reactive({
@@ -464,30 +468,18 @@
         })
         useHead({
           // Can be static or computed
-          title: `Buy  Scratch Cards online – Buy  Result Checker Online ABANISEEDU.COM`,
+          title: ` Buy ${route.params.name} Scratch Cards online – Buy ${route.params.name} Result Checker Online`,
           meta: [
-            // {
-            //   name: `description`,
-            //   content: computed(() => {
-            //     // You can replace this condition with your own logic
-            //     if (splitloc[4]== 1) {
-            //       return siteData.waecDescription
-            //     } else if (splitloc[4]== 2) {
-            //       return siteData.necoDescription
-            //     } else {
-            //       return siteData.description
-            //     }
-            //   }),
-            // },
+           
   
             {
               name: `description`,
-              content: 'Buy WAEC scratch cards online at WWW.abaniseedu.COM. Buy WAEC Scratch cards, NECO Scratch cards and NABTEB cards online at the best price in Nigeria. Order now at WWW.abaniseedu.COM and get it delivered to you instantly using your prefered method.',
+              content:`Buy ${route.params.name} Scratch Cards online at abaniseedu. We sell original ${route.params.name} scrach cards online at the best price guarantee in Nigeria. Order now"`,
             },
   
             {
-              name: `image`,
-              content: 'Buy WAEC scratch cards online at WWW.abaniseedu.COM. Buy WAEC Scratch cards, NECO Scratch cards and NABTEB cards online at the best price in Nigeria. Order now at WWW.abaniseedu.COM and get it delivered to you instantly using your prefered method.',
+              name: `keywords`,
+              content: `Buy ${route.params.name} Scratch Cards online, Buy ${route.params.name} result checker online, ${route.params.name} scratch card`,
             },
             {
               name: 'summary',
@@ -495,16 +487,16 @@
             },
             {
               name: 'abstract',
-              content: 'Buy WAEC Result Checker Online, Buy NECO Result Checker Online, Buy NABTEB Result Checker Online, Buy WAEC GCE Registration Card Online, Buy NECO Registration Card Online, Buy NABTEB Registration Card Online, WAEC Result Checker, NECO Result Checker, NABTEB Result Checker, WAEC Result Verification Pins',
+              content: `Buy ${route.params.name} Scratch Cards Online, Buy ${route.params.name} Scratch Cards Online, Buy ${route.params.name} Scratch Cards Online, Buy ${route.params.name} GCE Registration Card Online, Buy ${route.params.name} Registration Card Online, Buy ${route.params.name} Registration Card Online, ${route.params.name} Result Checker, ${route.params.name} Result Checker, ${route.params.name} Result Checker, ${route.params.name} Result Verification Pins`,
             },
             {
               name: 'keywords',
-              content: 'Buy WAEC Scratch Cards Online, Buy NECO Scratch Cards Online, Buy NABTEB Scratch Cards Online, Buy WAEC GCE Registration Card Online, Buy NECO Registration Card Online, Buy NABTEB Registration Card Online, WAEC Result Checker, NECO Result Checker, NABTEB Result Checker, WAEC Result Verification Pins',
+              content: `Buy ${route.params.name} Scratch Cards Online, Buy ${route.params.name} Scratch Cards Online, Buy ${route.params.name} Scratch Cards Online, Buy ${route.params.name} GCE Registration Card Online, Buy ${route.params.name} Registration Card Online, Buy ${route.params.name} Registration Card Online, ${route.params.name} Result Checker, ${route.params.name} Result Checker, ${route.params.name} Result Checker, ${route.params.name} Result Verification Pins`,
             },
   
             {
               name: 'document-classification',
-              content: 'Buy WAEC Scratch Cards Online, Buy NECO Scratch Cards Online, Buy NABTEB Scratch Cards Online, Buy WAEC GCE Registration Card Online, Buy NECO Registration Card Online, Buy NABTEB Registration Card Online, WAEC Result Checker, NECO Result Checker, NABTEB Result Checker, WAEC Result Verification Pins',
+              content: `Buy ${route.params.name} Scratch Cards Online, Buy ${route.params.name} Scratch Cards Online, Buy ${route.params.name} Scratch Cards Online, Buy ${route.params.name} GCE Registration Card Online, Buy ${route.params.name} Registration Card Online, Buy ${route.params.name} Registration Card Online, ${route.params.name} Result Checker, ${route.params.name} Result Checker, ${route.params.name} Result Checker, ${route.params.name} Result Verification Pins`,
             },
             {
               name: 'url',
@@ -516,11 +508,11 @@
             },
             {
               name: 'category',
-              content: 'Buy WAEC Result Checker Online, Buy NECO Result Checker Online, Buy NABTEB Result Checker Online, Buy WAEC GCE Registration Card Online, Buy NECO Registration Card Online, Buy NABTEB Registration Card Online, WAEC Result Checker, NECO Result Checker, NABTEB Result Checker, WAEC Result Verification Pins',
+              content: `Buy ${route.params.name} Result Checker Online, Buy ${route.params.name} Result Checker Online, Buy ${route.params.name} Result Checker Online, Buy ${route.params.name} GCE Registration Card Online, Buy ${route.params.name} Registration Card Online, Buy ${route.params.name} Registration Card Online, ${route.params.name} Result Checker, ${route.params.name} Result Checker, ${route.params.name} Result Checker, ${route.params.name} Result Verification Pins`,
             },
             {
               name: 'application-name',
-              content: 'Where to Buy WAEC Result Checker Online, Buy NECO Result Checker Online, Buy NABTEB Result Checker Online, Buy WAEC GCE Registration Card Online, Buy NECO Registration Card Online, Buy NABTEB Registration Card Online, WAEC Result Checker, NECO Result Checker, NABTEB Result Checker, WAEC Result Verification Pins',
+              content: `Where to Buy ${route.params.name} Result Checker Online, Buy ${route.params.name} Result Checker Online, Buy ${route.params.name} Result Checker Online, Buy ${route.params.name} GCE Registration Card Online, Buy NECO Registration Card Online, Buy ${route.params.name} Registration Card Online, ${route.params.name} Result Checker, ${route.params.name} Result Checker, ${route.params.name} Result Checker, ${route.params.name} Result Verification Pins`,
             },
           ],
   
@@ -644,7 +636,7 @@
       if (typeof window !== 'undefined') {
         const locationName = window.location.href
         const splitloc = locationName.split('/');
-      
+        
        
     
         if (splitloc[3] == 1) {
@@ -654,11 +646,13 @@
           console.log(this.form.price)
           this.form.total = this.form.price
           this.cardName = 'WAEC',
+          this.showcard= 'Scratchcard',
+          this.Scratchcardo='waecscratch'
             this.waecImg = waec,
             this.card = true
           this.wlabel = true
   
-          this.waec = true
+
           this.full_name = 'Western Afriacan Examination Councell'
         } else {
           if (splitloc[3] == 2) {
@@ -667,10 +661,11 @@
             this.form.total = this.form.quantity * this.form.semiprice
             this.amount = (parseInt(this.form.price) * 100) + 100,
               this.cardName = 'Neco',
-           
+              this.showcard= 'Scratchcard',
+              this.Scratchcardo='necoscratch'
               this.card = true
             this.full_name = 'National Examination Councell'
-            this.neco = !this.neco
+         
             this.waecImg = neco
           } else {
             if (splitloc[3] == 3) {
@@ -680,9 +675,11 @@
                 this.cardName = 'Nabteb',
                 this.websiteLink = 'www.eworld.nabteb.gov.ng',
                 this.full_name = 'National Businesss technology cancil'
+                this.Scratchcardo='nabtebscratch'
               this.nabteb = !this.nabteb
               this.waecImg = nabteb
               this.card = true
+              this.showcard= 'Scratchcard'
             } else {
               if (splitloc[3] == 4) {
                 this.form.semiprice = Number(19000)
@@ -691,6 +688,8 @@
                   this.vcard = true
                 this.card = false
                 this.Nabtebre = true
+                this.showcard= 'pin',
+                this.scratchCards = 'gceWaec'
                 this.descrption = ' This card is a product of The West African Examinations Council. It is used for the registration of candidates for GCE Private examinations. A Pin can only be used only once for a candidate.'
                 this.cardName = 'GCEWaec'
                 this.gceneco = true
@@ -702,6 +701,8 @@
                   this.amount = (parseInt(this.form.price) * 100) + 100,
                     this.vcard = true
                   this.card = false
+                  this.showcard= 'pin',
+                  this.scratchCards = 'Neco'
                   this.gceneco = false
                   this.gceWaec = true
                   this.descrption = ' This card is a product of The National Examination Council of Nigeria. It is used for the registration of candidates for GCE Private examinations. A Pin can only be used only once for a candidate.'
@@ -717,7 +718,9 @@
                     this.gceWaec = true
                     this.Nabtebre = false
                     this.waecImg = nabtebgce
-                    this.cardName = 'Nabteb'
+                    this.showcard= 'pin',
+                    this.scratchCards = 'Nabtebre'
+                    this.cardName = 'Nabteb GCE'
                     this.descrption = 'NABTEB GCE O LEVEL card is a product of National Business and Technical Examinations Board. It is used to register candidates for NABTEB Private Examination.'
                   } else {
                     if (splitloc[3] == 7) {
@@ -727,6 +730,7 @@
                         this.nysecard = true
                       this.vcard = false
                       this.card = false
+                      this.showcard= 'nysc',
                       this.cardName = 'Waec Verification Pin'
                       this.waecImg = vwaec
                     } else {

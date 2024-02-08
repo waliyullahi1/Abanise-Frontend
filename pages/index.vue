@@ -549,7 +549,7 @@ export default {
                     card: 'GCENeco',
                     header: 'Pin card ',
                     condition: 'For registration',
-                    itIsAvalable: false,
+                    itIsAvalable: true,
                     status: 'No'
                 },
 
@@ -561,7 +561,7 @@ export default {
                     card: 'GCENabteb',
                     header: 'pin ',
                     condition: 'For registration',
-                    itIsAvalable: false,
+                    itIsAvalable: true,
                     status: 'No'
                 },
 
@@ -572,7 +572,7 @@ export default {
                     card: 'Waec',
                     header: 'Result Verification ',
                     condition: 'Correction of date of birth in NYSE',
-                    itIsAvalable: false,
+                    itIsAvalable: true,
                     status: 'No'
                 },
 
