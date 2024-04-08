@@ -339,8 +339,8 @@
   
                 </form>
                 <div class="bg-primary flex gap-3 text-white py-2 px-4 rounded-xl mt-4 font-bold">
-                    <img src="@/assets/image/paystack.png" alt="paystack logo"  class="w-5">
-                  <paystack @click=" processPayment()" class="bg-red" style="font-size:20px, background-color:red, "
+                    <img src="@/assets/image/paystack.png" alt="paystack logo"  class="w-5"/>
+                  <paystack @click=" processPayment()" class="bg-red"
                     buttonClass="'button-class btn btn-primary'" buttonText="Pay Online" :publicKey="publicKey" :email=email
                     :amount=amount :reference="reference" :onSuccess="onSuccessfulPayment" :onCanel="onCancelledPayment">
                   </paystack>

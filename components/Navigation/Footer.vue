@@ -7,7 +7,7 @@
        </a>
      </div>
     </div>
-  <section class="  mt-10 bg-[#060d0b] w-full ">
+  <section class="  mt-10 bg-primary  w-full ">
        <div class="flex md:flex-row flex-col  mx-auto  container justify-between items-center px-5 py-5">
           <p class="fd text-white">Get connected with us on socials network!</p>
           <div class="flex gap-3">
