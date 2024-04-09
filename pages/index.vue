@@ -301,9 +301,9 @@
         <Adsbygoogle />
         <div class="w-full flex justify-center items-center">
             <button
-                class="bg-primary justify-center flex hover:bg-secondary ease-in-out duration-700 text-white rounded-xl text-xl py-2 px-4 ">
+                class="bg-primary justify-center flex font-medium hover:bg-secondary ease-in-out duration-700 text-white rounded-xl text-[15px] gift py-2 px-4 ">
                 <!-- <NuxtLink to="/qiuz"> Click here to collect your year gift</NuxtLink> -->
-                <NuxtLink to="/Nest"> Click here to collect your year gift</NuxtLink>
+                <NuxtLink to="/eid"> Click here to collect your ELD-LIL-FITRI gift</NuxtLink>
             </button>
 
         </div>
@@ -357,6 +357,7 @@ import waeclogo from '@/assets/image/waec.jpg';
 import nabteblogo from '@/assets/image/nabteblogo.jpg';
 import nabtebgce from '@/assets/image/pinnabteb.jpg'
 import pastquestionimage1 from "@/assets/image/pastqu1.jpg";
+import eld from "@/assets/image/eld.jpg";
 import pastquestionimage2 from "@/assets/image/pastqu2.jpg";
 import pastquestionimage3 from "@/assets/image/pastqu3.jpg";
 import pastquestionimage4 from "@/assets/image/pastqu4.jpg";
@@ -650,6 +651,15 @@ export default {
 
            
             hero: [
+
+            {
+                    id: 1,
+
+                    image: eld,
+                    heroSection: 'Happy EID-LIL-FITRI',
+                    heroParagraph: 'Happy Eid Mubarak to you and your family, and may Allah bless you with happiness and success always. May this day bring everyone peace, happiness, and enjoy too you and your family, scroll down to receive your eid-lil-fitri gift'
+                },
+
                 {
                     id: 1,
 
