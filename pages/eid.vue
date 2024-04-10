@@ -3,9 +3,9 @@
 
         <Header :headertext="false" class="fixed z-40 top-0"></Header>
 
-        <div class="w-full h-screen  text-center flex justify-center items-center ">
+        <div class="w-full h-screen mt-32 text-center flex justify-center items-center ">
             <div class=" flex flex-col justify-center items-center">
-                <img src="@/assets/image/gif.gif" alt="" class=" w-40" srcset="">
+                <img src="@/assets/image/card.jpg" alt="" srcset="">
             <h3 class=" text-2xl font-medium" >Check back today at 9:00pm <br>Thanks </h3>
             </div>
             
