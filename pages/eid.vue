@@ -6,7 +6,7 @@
         <div class="w-full h-screen  text-center flex justify-center items-center ">
             <div class=" flex flex-col justify-center items-center">
                 <img src="@/assets/image/gif.gif" alt="" class=" w-40" srcset="">
-            <h3 class=" text-2xl font-medium" >Check back tommorow at 11:00am <br>Thanks </h3>
+            <h3 class=" text-2xl font-medium" >Check back today at 9:00pm <br>Thanks </h3>
             </div>
             
         </div>
