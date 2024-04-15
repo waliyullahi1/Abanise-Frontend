@@ -6,28 +6,28 @@
     <section class=" lg:w-[88%] w-[96%] mt-8 mx-auto">
       <h2 class="text-[20px] font-medium">Latest News </h2>
       <div class=" flex gap-4 w-full">
-        <div class="  md:w-[70%] w ">
-
+        <div class="  md:w-[70%] gap-2">
+         
 
           <div class="  w-full   border-y-4  border-y-primary  mt-2 shadow-lg bg-white ">
-            <div class=" grid sm:grid-cols-2 grid-cols-1 gap-3 w-full">
-
+            <div class=" grid sm:grid-cols-3 grid-cols-1 gap-3 w-full">
+             
               <div v-for="item in paginatedData" :key="item.title"
-                class="sm:flex gap-3  p-2 border-b-2  justify-start   items-center">
-                <div class=" sm:w-2/5 w-full flex justify-center items-center h-40 overflow-hidden">
-                  <img src="@/assets/image/UNIZIK-1.png" class="v w-full  " alt="">
-                </div>
-                <div class=" sm:w-3/5  w-full  r">
-                <NuxtLink target="_blank" :to="`news/${item._id}`">
-                    <h3 class="  sm:text-[14px] text-[14px] hover:text-primary  font-medium ">{{ item.title }}</h3>
+                class="sm:block gap-3  p-2 border-b-2  justify-start   items-center">
+
+                
+                <div class="  justify-center items-center gap-2">
+                  <NuxtLink target="_blank" :to="`news/${item._id}`" class=" grou bg-black gap-2 overflow-hidden  flex justify-center items-center h ">
+                    <img v-bind:src="item.image" class=" border-2 hover:opacity-30 duration-700  w-72 " alt="">
+                    <img src="@/assets/abanisee1.png" alt="" class=" absolute w-10  ">
+                    <div class=" relative w-full h-full bg-black"></div>
                   </NuxtLink>
-                  
-                  <h3 class="break-all title text-[13px]  sm:text-[15px] ov">The MasterCard Foundation, Canada in
-                    partnership with KNUST he MasterCard Foundation, Canada in partnership with KNUST </h3>
-                  <button class=" mt-2 py-1 px-2 text-[14px] duration-500 text-white hover:bg-gray-500 bg-primary">
-                    <NuxtLink target="_blank" :to="`news/${item._id}`"> Read More » </NuxtLink>
-                   </button>
-                </div>
+                  <NuxtLink class="text-[15px]" target="_blank" :to="`news/${item._id}`">
+                  <h3 class="   hover:text-primary  font-normal  ">{{ item.title }}</h3>
+
+                </NuxtLink>
+              </div>
+
 
               </div>
 
@@ -43,14 +43,14 @@
               <button @click="nextPage()">wwwww</button>
             </div>
             <nuxt-link :to="{ path: '/news', query: { page: currentPage + 1 } }">Next Page</nuxt-link>
-           <nuxt-link :to="{ path: '/news', query: { page: currentPage - 1 } }">Previous Page</nuxt-link>
+            <button @click="nextPage()">next3</button>
             <div>
               <p class="text-[12px] ">Page 1 of 611</p>
             </div>
           </div>
         </div>
 
-  <TableLatestNews></TableLatestNews>
+        <TableLatestNews></TableLatestNews>
 
       </div>
 
@@ -64,47 +64,26 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 
+const allNews = ref([]);
 const currentPage = ref(1);
 const perPage = ref(6);
-const news = ref([
-  {
-
-  },
-  {
-
-  },
-
-  {
-
-},
-{
-
-},
-{
-
-},
-{
-
-},
-{
-
-},
-{
-
-},
-]);
+const news = ref([]);
 
 // Fetch data when component is created
 onMounted(async () => {
-  const page = parseInt(useRoute().query.page) || 1;
-  const limit = perPage.value;
-  const skip = (page - 1) * limit;
-
   const response = await fetch('http://localhost:3500/news');
   const allNews = await response.json();
-  news.value = allNews;
+  const updatedNews = await Promise.all(allNews.map(async (element) => {
+    const imageResponse = await fetch(`http://localhost:3500/news/${element.image}`);
+    console.log(imageResponse.url);
+    element.image = imageResponse.url;
+    return element;
+  }));
+  console.log(updatedNews.image);
+  news.value = updatedNews;
   currentPage.value = page;
 });
 
@@ -120,16 +99,19 @@ const totalPages = computed(() => {
 
 const nextPage = () => {
   if (currentPage.value < totalPages.value) {
-    useRouter().push({ path: '/news', query: { page: currentPage.value + 1 } });
+    currentPage.value++;
+    useRouter().push({ path: '/news', query: { page: currentPage.value } });
   }
 };
 
 const previousPage = () => {
   if (currentPage.value > 1) {
-    useRouter().push({ path: '/news', query: { page: currentPage.value - 1 } });
+    currentPage.value--;
+    useRouter().push({ path: '/news', query: { page: currentPage.value } });
   }
 };
 </script>
+
 
 
 <!-- <script>
@@ -215,13 +197,14 @@ export default {
 </script> -->
 
 <style>
-
 .title {
-  white-space: nowrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;  
   overflow: hidden;
-  text-overflow: ellipsis;
-  /* Adjust this value as needed */
 }
+
+
 
 .router-link-active {
   background-color: #164b3b;

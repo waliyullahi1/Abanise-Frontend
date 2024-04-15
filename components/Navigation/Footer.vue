@@ -31,9 +31,9 @@
            <div class="mt-5 t">
                 <p class=" text-[15px] font-semld mb-5 ">PRODUCT</p>
                 <div class="flex flex-col text-[14px]  gap-2">
-                    <a href="#section" class=" hover:text-secondary  w-fit " >Vend Jamb Pin </a>
-                    <a href="#section" class=" hover:text-secondary  w-fit ">Waec scratch card </a>
-                      <a href="#section" class=" hover:text-secondary  w-fit ">Waec GCE epin</a>
+                    <a href="#section" class=" hover:text-secondary  w-fit " >Vend Jamb Pin <router-link to="/1/Waec/result%20checker"></router-link> </a>
+                    <a href="#section" class=" hover:text-secondary  w-fit "><router-link to="/1/Waec/result%20checker">Waec scratch card</router-link> </a>
+                      <a href="#section" class=" hover:text-secondary  w-fit "><router-link to="/1/Waec/result%20checker">Waec GCE epin</router-link></a>
                      <a href="#section" class=" hover:text-secondary  w-fit ">Neco scratch card </a>
                        <a href="#section" class=" hover:text-secondary  w-fit ">Nabteb scratch card </a>
                          <a href="#section" class=" hover:text-secondary  w-fit ">Nabteb GCE Epin </a>
@@ -43,7 +43,7 @@
           <div class="mt-5">
              <p class=" text-[15px] mb-5 te ">USEFUL LINKs</p>
                  <div class=" text-[15px]  flex-col  flex gap-2 ">
-                    <a href="#how" class=" hover:text-secondary w-fit ">How it is works </a>
+                    <a href="#how" class=" hover:text-secondary w-fit "> <router-link to="/1/Waec/result%20checker">How it is works </router-link></a>
                     <a href="" class=" hover:text-secondary  w-fit  ">Blogs </a>
                       <a href="" class="hover:text-secondary    w-fit ">Princing</a>
                      <a href="" class=" hover:text-secondary   w-fit ">Helping </a>

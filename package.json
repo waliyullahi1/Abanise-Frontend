@@ -1,6 +1,7 @@
 {
   "name": "nuxt-app",
   "private": true,
+  "proxy":"http://localhost:3500",
   "type": "module",
   "scripts": {
     "build": "nuxt build",
