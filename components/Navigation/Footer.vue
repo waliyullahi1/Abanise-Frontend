@@ -33,8 +33,8 @@
                 <div class="flex flex-col text-[14px]  gap-2">
                     <a href="#section" class=" hover:text-secondary  w-fit " >Vend Jamb Pin <router-link to="/1/Waec/result%20checker"></router-link> </a>
                     <a href="#section" class=" hover:text-secondary  w-fit "><router-link to="/1/Waec/result%20checker">Waec scratch card</router-link> </a>
-                      <a href="#section" class=" hover:text-secondary  w-fit "><router-link to="/1/Waec/result%20checker">Waec GCE epin</router-link></a>
-                     <a href="#section" class=" hover:text-secondary  w-fit ">Neco scratch card </a>
+                      <a href="#section" class=" hover:text-secondary  w-fit "><router-link to="/4/GCEWAEC/result%20checker">Waec GCE epin</router-link></a>
+                     <a href="#section" class=" hover:text-secondary  w-fit "><router-link to="/2/Neco/result%20checker">Neco scratch card</router-link> </a>
                        <a href="#section" class=" hover:text-secondary  w-fit ">Nabteb scratch card </a>
                          <a href="#section" class=" hover:text-secondary  w-fit ">Nabteb GCE Epin </a>
                 </div>

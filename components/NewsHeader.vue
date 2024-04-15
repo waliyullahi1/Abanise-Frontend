@@ -26,8 +26,8 @@ import { useRouter } from 'vue-router';
 
             <div class="w-full  overflow-hidden  h-fit flex ">
               <nav
-                class=" duration-700 ease-in-out transform   place-contnt-center px-3  lg:h-7  text-[13px] justify-ed items-center flex">
-                <ul @click=" this.rotate = true" class=" lg:bg-transparent text-[15px] text-primary w-fit  flex gap-4">
+                class=" duration-700 ease-in-out transform   place-contnt-center px-3  lg:h-7   justify-ed items-center flex">
+                <ul @click=" this.rotate = true" class=" lg:bg-transparent text-[13px] text-primary w-fit  flex gap-4">
                   <li
                     class="  h-full py  lg:mt-0 boder border-transparent  transform duration-200 ease-in-out  ">
                     <router-link to="/news" class="px-4 md:hover:border-b py-2">Home</router-link>

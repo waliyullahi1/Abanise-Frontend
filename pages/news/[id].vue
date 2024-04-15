@@ -59,6 +59,26 @@ onMounted(async () => {
     height: auto
 }
 
+.entry img {
+    max-width: 100%;
+    height: auto
+}
+.entry p a:hover {
+    color: #007f26;
+}
+.entry li a:hover {
+    color: #007f26;
+}
+.entry p a:hover {
+    color: #007f26;
+}
+.entry li a {
+    color: #007f26;
+}
+body.single .post .entry a, body.page .post .entry a {
+    color: #1b9048;
+    text-decoration: underline;
+}
 .entry h1, .entry h2, .entry h3, .entry h4, .entry h5, .entry h6 {
     margin-top: 25px;
     margin-bottom: 10px;
