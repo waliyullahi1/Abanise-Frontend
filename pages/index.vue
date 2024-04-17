@@ -652,13 +652,7 @@ export default {
            
             hero: [
 
-            {
-                    id: 1,
-
-                    image: eld,
-                    heroSection: 'Happy EID-LIL-FITRI',
-                    heroParagraph: 'Happy Eid Mubarak to you and your family, and may Allah bless you with happiness and success always. May this day bring everyone peace, happiness, and enjoy too you and your family, scroll down to receive your eid-lil-fitri gift'
-                },
+           
 
                 {
                     id: 1,
