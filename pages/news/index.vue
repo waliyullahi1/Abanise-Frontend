@@ -1,9 +1,9 @@
 <template>
-  <div class="text-[poppins]">
+  <div  >
 
-    <NewsHeader></NewsHeader>
-
-    <section class=" lg:w-[88%] w-[96%] mt-8 mx-auto">
+    <NewsHeader ></NewsHeader>
+ <TableLatestNews class="  text-[poppins] " ></TableLatestNews>
+ <section class=" lg:w-[88%] w-[96%] mt-8 mx-auto">
       <h2 class="text-[20px] font-medium">Latest News </h2>
       <div class=" flex gap-4 w-full">
         <div class="  md:w-[70%] gap-2">
@@ -69,45 +69,48 @@
           </div>
         </div>
 
-        <TableLatestNews></TableLatestNews>
-
       </div>
 
 
 
     </section>
+      
+   
     <NewsSections> </NewsSections>
 
-    <NavigationFooter></NavigationFooter>
+    <NavigationFooter ></NavigationFooter>
   </div>
 </template>
 
 <script setup>
 import { ref, computed, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
+import { useMyStore } from '~/stores/myStore'
 
+const store = useMyStore()
+
+// Access the data from the store
+console.log(store.$state.data)
 const allNews = ref([]);
 const perPage = ref(6);
-const news = ref([]);
+const news = ref([
+  {},{},{},{},{},{},{},
+]);
 
-// Fetch data when component is created
-onMounted(async () => {
-  const route = useRoute();
-  const page = parseInt(route.query.page) || 1;
-  const limit = perPage.value;
-  const skip = (page - 1) * limit;
-  const response = await fetch(`http://localhost:3500/news?_start=${skip}&_limit=${limit}`);
-  const allNews = await response.json();
-  const updatedNews = await Promise.all(allNews.map(async (element) => {
-    const imageResponse = await fetch(`http://localhost:3500/news/${element.image}`);
 
-    element.image = imageResponse.url;
-    return element;
-  }));
+const route = useRoute()
+const page = parseInt(route.query.page) || 1
+const limit = perPage.value
+const skip = (page - 1) * limit
 
-  news.value = updatedNews;
-  currentPage.value = page;
-});
+const fetchData = async () => {
+  await store.fetchData()
+  news.value = store.$state.data
+  console.log(news);
+  currentPage.value = page
+}
+
+fetchData()
 
 const currentPage = computed(() => {
   const route = useRoute();

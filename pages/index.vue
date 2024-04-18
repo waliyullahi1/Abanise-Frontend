@@ -2,7 +2,7 @@
     <div class="overflow-y-hidden text-[poppins]">
 
         <Header @transaction="transact()" :headertext="headerChange" class="fixed z-40 top-0"></Header>
-
+        
         <div class="w-full "></div>
         <section class=" j">
             <Carousel :autoplay="9000"  :transition="2000" :wrap-around="true" :items-to-show="1">

@@ -1,13 +1,13 @@
 <template>
-  <div>
-    <div class=" w-fit font-[Poppins] fixed animate-bounce right-[1rem] bottom-[3rem] 0 top- flex justify-end ">
+  <div id="footer" class="">
+    <div class=" w-fit font-[Poppins] animate-bounce right-[1rem] bottom-[3rem] 0 top- flex justify-end ">
      <div class="bg- bg-green-600 cursor-pointer shadow-[90px] rounded-full p-2">
        <a href="https://wa.me/message/SRWH2WAPTXUAN1">
         <img class="w-[50px] group  hover:scale-105 f" src="@/assets/image/whatsapps.svg"/>
        </a>
      </div>
     </div>
-  <section class="  mt-10 bg-[#000100]  w-full ">
+  <footer class="  mt-10 bg-[#000100]  w-full ">
        <div class="flex md:flex-row flex-col  mx-auto  container justify-between items-center px-5 py-5">
           <p class="fd\ https://www.google.com/search?q=how+to+setup+an+amazon+s3+bucket+for+endpoint+in+node+js&sca_esv=a79b0a0851d3cf4f&sca_upv=1&rlz=1C1KNTJ_enNG1083NG1083&biw=1366&bih=641&tbm=vid&ei=zhQUZtmANJSmhbIPkJSG0As&oq=how+to+setu+a+amazon+s3+bucket+for+endpoint+in+node+js&gs_lp=Eg1nd3Mtd2l6LXZpZGVvIjZob3cgdG8gc2V0dSBhIGFtYXpvbiBzMyBidWNrZXQgZm9yIGVuZHBvaW50IGluIG5vZGUganMqAggAMgYQIRgKGApI9idQrBtYrBtwAHgAkAEAmAGEA6ABkQqqAQUyLTIuMrgBAcgBAPgBAZgCBKACyArCAgcQIRgKGKABwgIIEAAYgAQYogSYAwCIBgGSBwcyLTEuMi4xoAf6EA&sclient=gws-wiz-video#fpstate=ive&vld=cid:10321855,vid:M6uL6c_Smbc,st:0 text-white">Get connected with us on socials network!</p>
           <div class="flex gap-3">
@@ -76,7 +76,7 @@
             
            
           </div>
-    </section>
+    </footer>
   </div>
 </template>
 

@@ -34,7 +34,7 @@ const newsId = route.params.id;
 onMounted(async () => {
     const response = await fetch(`http://localhost:3500/news/name/${newsId}`);
     allNews.value = await response.json();
-    const imageResponse = await fetch(`http://localhost:3500/news/${allNews.value.image}`);
+    
     allNews.value.image = imageResponse.url;
 });
 </script>

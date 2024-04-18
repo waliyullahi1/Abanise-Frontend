@@ -1,7 +1,7 @@
 <template>
-    <div class=" w-[30%] md:block hidden">
-        <div class="">
-          <div class=" m   mt-5 shadow-lg bg-white ">
+    <div id="myDiv" class="  w-[98%] mx-auto  h-0  overflow-visible  sticky top-10  place-content-center  justify-end md:flex  hidden">
+        <div class=" w-[30%] ">
+          <div class=" m  top-0  mt-5 shadow-lg bg-white ">
             <h3>Latest Posts</h3>
             <div v-for="item in paginatedData" :key="item.id" class="  ">
              
@@ -16,31 +16,63 @@
   </template>
   
   <script setup>
-import { ref, computed } from 'vue';
-import { useAuthStore } from '~/store/auth';
+import { ref, computed, onMounted } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import { useMyStore } from '~/stores/myStore'
 
-const authStore = useAuthStore();
+const store = useMyStore()
 
-const currentPage = ref(1);
+// Access the data from the store
+console.log(store.$state.data)
+const allNews = ref([]);
 const perPage = ref(9);
+const news = ref([
+  {},{},{},{},{},{}
+]);
 
-const news = ref([]);
 
-// Fetch data when component is created
-onMounted(async () => {
-  const page = 1;
-  const limit = perPage.value;
+const route = useRoute()
+const page =1
+const limit = perPage.value
+const skip = (page - 1) * limit
+
+const fetchData = async () => {
+  await store.fetchData()
+  news.value = store.$state.data
  
-  const skip = (page - 1) * limit;
-    console.log(authStore.news);
-  const response = await fetch('http://localhost:3500/news');
-  const allNews = await response.json();
-  news.value = allNews;
-  currentPage.value = page;
+  currentPage.value = page
+}
 
+fetchData()
+let scrollHandler = null
 
+onMounted(() => {
+  scrollHandler = function() {
+    const myDiv = document.getElementById('myDiv')
+    const footer = document.getElementById('footer')
+    const footerRect = footer.getBoundingClientRect()
+
+    if (footerRect.top <= window.innerHeight) {
+      myDiv.style.position = 'sticky'
+      myDiv.style.bottom = '-20'
+    } else {
+      myDiv.style.position = 'sticky'
+      myDiv.style.top = '0'
+    }
+  }
+
+  window.addEventListener('scroll', scrollHandler)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', scrollHandler)
+})
+
+const currentPage = computed(() => {
+  const route = useRoute();
+  return  1;
 });
-  
+
 const paginatedData = computed(() => {
   const start = (currentPage.value - 1) * perPage.value;
   const end = start + perPage.value;
@@ -72,8 +104,11 @@ const props = defineProps({
   background-color: #164b3b;
   color: white;
 }
-</style>>
+</style>
   
-  <style>
-  
-  </style>
+<style scoped>
+#myDiv {
+  position: sticky;
+  top: 0;
+}
+</style>

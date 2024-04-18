@@ -107,16 +107,11 @@ export default defineNuxtConfig({
       nitroConfig.prerender.routes.push(...slugs)
     },
   },
-  
+
   runtimeConfig: {
-    private: {
-      PAYSTACK_SECRETY_CODE:process.env.PAYSTACK_SECRETY_CODE,
-      REFRESH_TOKEN_SECRETY:process.env.REFRESH_TOKEN_SECRETY,
-    },
+   
     public: {
-      PAYSTACK_SECRETY_CODE:process.env.PAYSTACK_SECRETY_CODE,
-      REFRESH_TOKEN_SECRETY:process.env.REFRESH_TOKEN_SECRETY,
-      API_NEWS:'http://localhost:3500/news'
+      baseURL:'http://localhost:3500/',
     },
   },
   devtools: { enabled: true },
