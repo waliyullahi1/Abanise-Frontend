@@ -9,16 +9,17 @@
         <div class="  md:w-[70%] gap-2">
 
 
-          <div class="  w-full   border-y-4  border-y-primary  mt-2 shadow-lg bg-white ">
+          <div class="  w-full   border-y-4  h-fit border-y-primary  mt-2 shadow-lg bg-white ">
             <div class=" grid sm:grid-cols-3 grid-cols-1 gap-3 w-full">
 
               <div v-for="item in paginatedData" :key="item.title"
                 class="sm:block gap-3  p-2 border-b-2  justify-start   items-center">
 
 
-                <div class="  group justify-center items-center gap-2">
+                <div class=" h-full   group justify-center items-center gap-2">
                   <NuxtLink target="_blank"  :to="`news/${item._id}`"
-                    class=" grou bg-black gap-2 overflow-hidden  flex justify-center items-center h ">
+                    class=" grou bg-black min-h-60 gap-2 m overflow-hidden  flex justify-center items-center h ">
+                    <div class=" h-32  w-full"></div>
                     <img v-bind:src="item.image" class=" border-2  hover:opacity-30 duration-500  w-72 " alt="">
                     <img src="@/assets/abanisee1.png" alt="" class=" opacity-0  duration-500  group-hover:opacity-100 opacity- absolute w-10  ">
                     <div class=" relative w-full h-full bg-black"></div>
@@ -76,7 +77,7 @@
     </section>
       
    
-    <NewsSections> </NewsSections>
+    <NewsSections :myProp="news" newstype="Admission" header="Latest Admission"></NewsSections> 
 
     <NavigationFooter ></NavigationFooter>
   </div>

@@ -1,6 +1,6 @@
 <template>
     <section class=" lg:w-[80%] w-[96%] mt-9 mx-auto">
-      <h2 class="text-xl font-medium">Admission </h2>
+      <h2 class="text-xl font-medium">{{ props.header}} </h2>
       <div class=" flex gap-4 w-full">
         <div class="  md:w-2/3 w-full ">
 
@@ -16,7 +16,7 @@
                   <h3 class="  sm:text-[18px] text-[16px] hover:text-primary  font-medium ">{{ news[0].title }} </h3>
 
                   <h3 class="break-all title text-[13px]  sm:text-[15px] ov">The MaserCard Foundation, Canada in partnership with KNUST he MasterCard Foundation, Canada in partnership with KNUST </h3>
-                  <NuxtLink class="text-[15px]" target="_blank" :to="`news/${news[0]._id}`">
+                  <NuxtLink class="text-[15px]" target="_blank" :to="`news/${props.newstype}/${item._id}`">
                    
                       <button class=" mt-2 py-1 px-2 text-[14px] duration-500 text-white hover:bg-gray-500 bg-primary">Read More »</button>
                   </NuxtLink>
@@ -31,7 +31,7 @@
                     <img  v-bind:src="item.image" class=" " alt="">
                   </div>
                   <div class=" w-3/5">
-                    <NuxtLink target="_blank" :to="`news/${item._id}`">
+                    <NuxtLink target="_blank" :to="`news/${props.newstype}/${item._id}`">
                     
                     <h3 class=" text-[13px] sm:py-4 cursor-pointer hover:text-green-700   px-2 font-[500]">{{ item.title }}</h3>
                   </NuxtLink>
@@ -61,7 +61,9 @@ import { ref, computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useMyStore } from '~/stores/myStore'
 const props = defineProps({
-  myProp: Array
+  myProp: Array,
+  newstype: String,
+  header: String,
 })
 const store = useMyStore()
 const allNews = ref([])
@@ -70,7 +72,7 @@ const news = ref([])
 
 const fetchData = async () => {
   await store.fetchData()
-  news.value = store.$state.data
+  news.value = props.myProp
 }
 
 onMounted(fetchData)
