@@ -34,9 +34,11 @@ import { useRouter } from 'vue-router';
                   </li>
 
                   <li
-                    class="  md:hover:border-b  lg:mt-0 boder border-transparent  transform duration-200 ease-in-out  ">
-                    <router-link to="/">Admission</router-link>
+                    class="  h-full py  lg:mt-0 boder border-transparent  transform duration-200 ease-in-out  ">
+                    <router-link to="/news/Admission" class="px-4 md:hover:border-b py-2">Admission</router-link>
                   </li>
+
+                
 
 
                   <li
