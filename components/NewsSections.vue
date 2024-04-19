@@ -16,10 +16,11 @@
                   <h3 class="  sm:text-[18px] text-[16px] hover:text-primary  font-medium ">{{ news[0].title }} </h3>
 
                   <h3 class="break-all title text-[13px]  sm:text-[15px] ov">The MaserCard Foundation, Canada in partnership with KNUST he MasterCard Foundation, Canada in partnership with KNUST </h3>
-                  <NuxtLink class="text-[15px]" target="_blank" :to="`news/${props.newstype}/${item._id}`">
-                   
-                      <button class=" mt-2 py-1 px-2 text-[14px] duration-500 text-white hover:bg-gray-500 bg-primary">Read More »</button>
+                  <NuxtLink target="_blank" :to="`news/${props.newstype}/${news[0]._id}`">
+                    
+                    <button class=" mt-2 py-1 px-2 text-[14px] duration-500 text-white hover:bg-gray-500 bg-primary">Read More »</button>
                   </NuxtLink>
+                 
                  
                 </div>
                 
