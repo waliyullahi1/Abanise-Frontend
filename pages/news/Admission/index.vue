@@ -1,78 +1,46 @@
 <template>
   <div>
 
-   <NewsTemplate></NewsTemplate>
+   <NewsTemplate 
+  header =" Admission"
+  routes="Admission"
+  paragraph="Admission: To find out about undergraduate and graduate degree admissions across all tertiary institutions (including colleges of education, universities, polytechnics, and Admission: To find out about undergraduate and graduate degree admissions across all tertiary institutions (including colleges of education, universities, polytechnics, and monotechnics).monotechnics)."
+  :admissionNewsData="allNews"
+   ></NewsTemplate>
   </div>
 </template>
 
 <script setup>
 import { ref, computed, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
+
 import { useMyStore } from '~/stores/myStore'
 
 const store = useMyStore()
 
-// Access the data from the store
-console.log(store.$state.data)
+
+
+
+
 const allNews = ref([]);
-const perPage = ref(6);
-const news = ref([
-  {}, {}, {}, {}, {}, {}, {},
-]);
 
 
-const route = useRoute()
-const page = parseInt(route.query.page) || 1
-const limit = perPage.value
-const skip = (page - 1) * limit
 
 const fetchData = async () => {
   await store.fetchData()
-  news.value = store.$state.data
-  console.log(news);
-  currentPage.value = page
+ allNews.value = store.$state.data
+  
 }
 
 fetchData()
 
-const currentPage = computed(() => {
-  const route = useRoute();
-  return parseInt(route.query.page) || 1;
-});
-
-const paginatedData = computed(() => {
-  const start = (currentPage.value - 1) * perPage.value;
-  const end = start + perPage.value;
-  return news.value.slice(start, end);
-});
-
-const totalPages = computed(() => {
-  return Math.ceil(news.value.length / perPage.value);
-});
-
-const nextPage = () => {
-  if (currentPage.value < totalPages.value) {
-    const router = useRouter();
-    router.push({ path: '/news', query: { page: currentPage.value + 1 } });
-  }
-};
-
-const goToPage = (pageNumber) => {
-  const router = useRouter();
-  if (router) {
-    router.push({ path: '/news', query: { page: pageNumber } });
-  } else {
-    console.error('Router is undefined');
-  }
-};
 
 
-const previousPage = () => {
-  if (currentPage.value > 1) {
-    const router = useRouter();
-    router.push({ path: '/news', query: { page: currentPage.value - 1 } });
-  }
-};
+
+
+
+
+
 </script>
 
 
