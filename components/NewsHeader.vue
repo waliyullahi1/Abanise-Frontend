@@ -44,11 +44,13 @@ import { useRouter } from 'vue-router';
                     <router-link to="/news/Post-utme" class="px-4 md:hover:border-b py-2">Post-UTME</router-link>
                   </li>
 
-                
-
-                  <li class="  md:hover:border-b   boder border-transparent  transform duration-200 ease-in-out  ">
-                    <router-link to="/">JAMB</router-link>
+                  <li
+                    class="  h-full py  lg:mt-0 boder border-transparent  transform duration-200 ease-in-out  ">
+                    <router-link to="/news/jamb" class="px-4 md:hover:border-b py-2">JAMB</router-link>
                   </li>
+
+
+              
 
 
                   <li class="  md:hover:border-b boder border-transparent  transform duration-200 ease-in-out  ">

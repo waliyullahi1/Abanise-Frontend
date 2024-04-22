@@ -106,7 +106,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { useMyStore } from '~/stores/myStore'
+
 
 const props = defineProps({
 

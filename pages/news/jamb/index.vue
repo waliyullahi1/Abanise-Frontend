@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <NewsTemplate header=" Post-UTME" routes="post-utme"
+    <NewsTemplate header=" Post-UTME" routes="JAMB"
       paragraph=""
       :admissionNewsData="paginatedData"
       :totalPages="totalPages"
