@@ -34,7 +34,8 @@
                     </div>
 
                     <div class="  p">
-                      <p v-html="truncateText(extractFirstElements(item.content)) " class=" text-[15px]  fn  divClass"> </p>
+                      <p v-html="truncateText(extractFirstElements(item.content))" class=" text-[15px]  fn  divClass">
+                      </p>
 
                       <NuxtLink target="_blank" :to="`${props.routes}/${item._id}`">
                         <button
@@ -70,7 +71,7 @@
                   </div> -->
 
               <div class=" flex gap-4 =">
-                <button class="   flex " v-for="number in totalPages" :key="number" @click="goToPage(number)">
+                <button class="   flex " v-for="number in totalPages" :key="number" @click="updateImageUrls()">
                   <nuxt-link class="h-fit text-[18px] font-medium  bg-transparent bg-none"
                     :to="{ path: `${props.routes}`, query: { page: number } }">
                     <p class=" bg-white w-full  text-red-950">{{ number }}</p>
@@ -107,62 +108,75 @@ import { ref, computed, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useMyStore } from '~/stores/myStore'
 
-const store = useMyStore()
 const props = defineProps({
-  admissionNewsData: Array,
+
   newstype: String,
   header: String,
   paragraph: String,
-  routes: String
+  routes: String,
+  totalPages: String,
+  endpoint:String,
 })
-// Access the data from the store
-console.log(store.$state.data)
+
+const emit = defineEmits(['goToPage', 'delete', 'create'])
 const allNews = ref([]);
 const perPage = ref(6);
-const news = ref([
-  {},{},{},{},{},{},{},
-]);
+const news = ref([]);
+
 
 
 const route = useRoute()
 const page = parseInt(route.query.page) || 1
-const limit = perPage.value
-const skip = (page - 1) * limit
-
-const fetchData = async () => {
-  await store.fetchData()
-  news.value = props.admissionNewsData 
-  console.log(news,'hhhhh');
-  currentPage.value = page
-}
-
-fetchData()
 
 const currentPage = computed(() => {
   const route = useRoute();
   return parseInt(route.query.page) || 1;
 });
 
-const  extractFirstElements=(htmlContent, limit)=> {
-        let tempDiv = document.createElement("div");
-        tempDiv.innerHTML = htmlContent;
-        let allElements = Array.from(tempDiv.children);
-        let firstElements = allElements.slice(0, limit);
-        return firstElements.map(el => el.outerHTML).join('');
-    }
-
-const truncateText = (text) =>  {
-        let words = text.split(' ');
-        if (words.length > 30) {
-            words = words.slice(0, 30);
-            return words.join(' ') + '...';
-        }}
-
 const paginatedData = computed(() => {
   const start = (currentPage.value - 1) * perPage.value;
   const end = start + perPage.value;
   return news.value.slice(start, end);
 });
+
+const updateImageUrls = async () => {
+  let paginatedNews = paginatedData.value;
+  const updatedNews = await Promise.all(paginatedNews.map(async (element) => {
+    const imageResponse = await fetch(`http://localhost:3500/news/${element.image}`);
+    element.image = imageResponse.url;
+    return element;
+  }));
+  news.value = news.value.map(item => updatedNews.find(updatedItem => updatedItem._id === item._id) || item);
+}
+
+const fetchData = async () => {
+  const response = await fetch(`http://localhost:3500/${props.endpoint}`);
+  news.value = await response.json();
+  await updateImageUrls();
+}
+
+onMounted(fetchData, );
+
+
+
+const extractFirstElements = (htmlContent, limit) => {
+  let tempDiv = document.createElement("div");
+  tempDiv.innerHTML = htmlContent;
+  let allElements = Array.from(tempDiv.children);
+  let firstElements = allElements.slice(0, limit);
+  return firstElements.map(el => el.outerHTML).join('');
+}
+
+const truncateText = (text) => {
+  let words = text.split(' ');
+  if (words.length > 30) {
+    words = words.slice(0, 30);
+    return words.join(' ') + '...';
+  }
+}
+
+
+
 
 const totalPages = computed(() => {
   return Math.ceil(news.value.length / perPage.value);
@@ -175,13 +189,19 @@ const nextPage = () => {
   }
 };
 
-const goToPage = (pageNumber) => {
-  const router = useRouter();
-  if (router) {
-    router.push({ path: '/news', query: { page: pageNumber } });
-  } else {
-    console.error('Router is undefined');
-  }
+const goToPage = async(pageNumber) => {
+  console.log();
+  
+    let paginatedNews = paginatedData.value;
+    console.log('ffff');
+  const updatedNews = await Promise.all(paginatedNews.map(async (element) => {
+    if (!element.image.includes('http://localhost:350')) {
+       const imageResponse = await fetch(`http://localhost:3500/news/${element.image}`);
+    element.image = imageResponse.url;
+    return element;
+    }
+    news.value = news.value.map(item => updatedNews.find(updatedItem => updatedItem._id === item._id) || item);
+  }));
 };
 
 
@@ -192,90 +212,6 @@ const previousPage = () => {
   }
 };
 </script>
-<!-- <script setup>
-
-import { ref, computed, onMounted } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
-
-
-
-const props = defineProps({
-  admissionNewsData: Array,
-  newstype: String,
-  header: String,
-  paragraph: String,
-  routes: String
-})
-// Access the data from the store
-
-const allNews = ref([]);
-const perPage = ref(6);
-const news = ref([
-  {}, {}, {}, {}, {}, {}, {},
-]);
-
-
-const route = useRoute()
-const page = parseInt(route.query.page) || 1
-const limit = perPage.value
-const skip = (page - 1) * limit
-
-const fetchData = async () => {
-  news.value = props.admissionNewsData
-  console.log(props.admissionNewsData);
-  console.log(news.value, 'hhhhhh');
-
-  console.log(news);
-  currentPage.value = page
-}
-
-fetchData()
-
-const currentPage = computed(() => {
-  const route = useRoute();
-  return parseInt(route.query.page) || 1;
-});
-const truncateText = (text) =>  {
-        let words = text.split(' ');
-        if (words.length > 30) {
-            words = words.slice(0, 30);
-            return words.join(' ') + '...';
-        }}
-       
-const paginatedData = computed(() => {
-  const start = (currentPage.value - 1) * perPage.value;
-  const end = start + perPage.value;
-  return news.value.slice(start, end);
-});
-
-const totalPages = computed(() => {
-  return Math.ceil(news.value.length / perPage.value);
-});
-
-const nextPage = () => {
-  if (currentPage.value < totalPages.value) {
-    const router = useRouter();
-    router.push({ path: '/news', query: { page: currentPage.value + 1 } });
-  }
-};
-
-const goToPage = (pageNumber) => {
-  const router = useRouter();
-  if (router) {
-    router.push({ path: '/news', query: { page: pageNumber } });
-  } else {
-    console.error('Router is undefined');
-  }
-};
-
-
-const previousPage = () => {
-  if (currentPage.value > 1) {
-    const router = useRouter();
-    router.push({ path: '/news', query: { page: currentPage.value - 1 } });
-  }
-};
-</script> -->
 
 
 

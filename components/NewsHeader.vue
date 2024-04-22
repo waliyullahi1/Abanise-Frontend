@@ -39,13 +39,12 @@ import { useRouter } from 'vue-router';
                   </li>
 
                 
-
-
                   <li
-                    class="  md:hover:border-b lg:mt-0 boder border-transparent  transform duration-200 ease-in-out  ">
-                    <router-link to="/">PostUTME</router-link>
+                    class="  h-full py  lg:mt-0 boder border-transparent  transform duration-200 ease-in-out  ">
+                    <router-link to="/news/Post-utme" class="px-4 md:hover:border-b py-2">Post-UTME</router-link>
                   </li>
 
+                
 
                   <li class="  md:hover:border-b   boder border-transparent  transform duration-200 ease-in-out  ">
                     <router-link to="/">JAMB</router-link>

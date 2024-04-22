@@ -65,18 +65,37 @@ const props = defineProps({
   myProp: Array,
   newstype: String,
   header: String,
+  endpoint:String
 })
-const store = useMyStore()
-const allNews = ref([])
+
+
 const perPage = ref(4)
 const news = ref([])
 
-const fetchData = async () => {
-  await store.fetchData()
-  news.value = props.myProp
+const paginatedData = computed(() => {
+  const start = (currentPage.value - 1) * perPage.value;
+  const end = start + perPage.value;
+  return news.value.slice(start, end);
+});
+
+const updateImageUrls = async () => {
+  let paginatedNews = paginatedData.value;
+ 
+  const updatedNews = await Promise.all(paginatedNews.map(async (element) => {
+    const imageResponse = await fetch(`http://localhost:3500/news/${element.image}`);
+    element.image = imageResponse.url;
+    return element;
+  }));
+  news.value = news.value.map(item => updatedNews.find(updatedItem => updatedItem._id === item._id) || item);
 }
 
-onMounted(fetchData)
+const fetchData = async () => {
+  const response = await fetch(`http://localhost:3500/${props.endpoint}`);
+  news.value = await response.json();
+  await updateImageUrls();
+}
+
+onMounted(fetchData);
 
 const currentPage = computed(() => {
   const route = useRoute()
@@ -89,11 +108,7 @@ const truncateText = (text) =>  {
             return words.join(' ') + '...';
         }}
        
-const paginatedData = computed(() => {
-  const start = (currentPage.value - 1) * perPage.value
-  const end = start + perPage.value
-  return news.value.slice(start, end)
-})
+
 </script>
   
   <style>

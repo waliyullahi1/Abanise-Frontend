@@ -2,7 +2,7 @@
   <div  >
 
     <NewsHeader ></NewsHeader>
- <TableLatestNews class="  text-[poppins] " ></TableLatestNews>
+ <!-- <TableLatestNews class="  text-[poppins] " ></TableLatestNews> -->
  <section class=" lg:w-[88%] w-[96%] mt-8 mx-auto">
       <h2 class="text-[20px] font-medium">Latest News </h2>
       <div class=" flex gap-4 w-full">
@@ -43,14 +43,7 @@
 
             <div class="flex w-1/2">
 
-              <!-- <div class="  flex text-[14px] gap-2">
-                <nuxt-link class="py-1 text-[13px] px-4" :to="{ path: '/news', query: { page: currentPage + 1 } }">Next
-                </nuxt-link>
-                <nuxt-link class="py-1 text-[13px] px-4"
-                  :to="{ path: '/news', query: { page: currentPage - 1 } }">Previous </nuxt-link>
-           
-              </div> -->
-
+            
               <div class=" flex gap-4 =">
                 <button class="   flex " v-for="number in totalPages" :key="number" @click="goToPage(number)">
                   <nuxt-link class="h-fit text-[18px] font-medium  bg-transparent bg-none" :to="{ path: '/news', query: { page: number } }"> <p class=" bg-white w-full  text-red-950">{{ number }}</p>
@@ -77,7 +70,7 @@
     </section>
       
    
-    <NewsSections :myProp="news" newstype="Admission" header="Latest Admission"></NewsSections> 
+    <NewsSections :myProp="sectionpaginatedData" newstype="Admission" :endpoint="`news`" header="Latest Admission"></NewsSections> 
 
     <NavigationFooter ></NavigationFooter>
   </div>
@@ -88,30 +81,16 @@ import { ref, computed, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useMyStore } from '~/stores/myStore'
 
-const store = useMyStore()
 
-// Access the data from the store
-console.log(store.$state.data)
+
 const allNews = ref([]);
 const perPage = ref(6);
-const news = ref([
-  {},{},{},{},{},{},{},
-]);
+const news = ref([]);
+const sectionnews = ref([]);
 
 
 const route = useRoute()
 const page = parseInt(route.query.page) || 1
-const limit = perPage.value
-const skip = (page - 1) * limit
-
-const fetchData = async () => {
-  await store.fetchData()
-  news.value = store.$state.data
-  console.log(news);
-  currentPage.value = page
-}
-
-fetchData()
 
 const currentPage = computed(() => {
   const route = useRoute();
@@ -124,6 +103,27 @@ const paginatedData = computed(() => {
   return news.value.slice(start, end);
 });
 
+const updateImageUrls = async () => {
+  let paginatedNews = paginatedData.value;
+  const updatedNews = await Promise.all(paginatedNews.map(async (element) => {
+    const imageResponse = await fetch(`http://localhost:3500/news/${element.image}`);
+    element.image = imageResponse.url;
+    return element;
+  }));
+  news.value = news.value.map(item => updatedNews.find(updatedItem => updatedItem._id === item._id) || item);
+}
+
+const fetchData = async () => {
+  const response = await fetch(`http://localhost:3500/news`);
+  news.value = await response.json();
+  await updateImageUrls();
+}
+
+onMounted(fetchData, );
+
+
+
+
 const totalPages = computed(() => {
   return Math.ceil(news.value.length / perPage.value);
 });
@@ -135,13 +135,19 @@ const nextPage = () => {
   }
 };
 
-const goToPage = (pageNumber) => {
-  const router = useRouter();
-  if (router) {
-    router.push({ path: '/news', query: { page: pageNumber } });
-  } else {
-    console.error('Router is undefined');
-  }
+const goToPage = async(pageNumber) => {
+  console.log();
+  
+    let paginatedNews = paginatedData.value;
+    console.log('ffff');
+  const updatedNews = await Promise.all(paginatedNews.map(async (element) => {
+    if (!element.image.includes('http://localhost:350')) {
+       const imageResponse = await fetch(`http://localhost:3500/news/${element.image}`);
+    element.image = imageResponse.url;
+    return element;
+    }
+    news.value = news.value.map(item => updatedNews.find(updatedItem => updatedItem._id === item._id) || item);
+  }));
 };
 
 
@@ -156,88 +162,6 @@ const previousPage = () => {
 
 
 
-
-<!-- <script>
-import { lightFormat } from 'date-fns';
-
-export default {
-  data() {
-    return {
-      currentPage: 1,
-      perPage: 6,
-      news: [], // This will hold your news data
-    };
-  },
-  // async created() {
-  //   const page = parseInt(this.$route.query.page) || 1;
-  //   const limit = this.perPage;
-  //   const skip = (page - 1) * limit;
-
-  //   const response = await fetch('http://localhost:3500/news');
-  //   const allNews = await response.json();
-  //   this.news = allNews;
-  //   this.paginatedNews = allNews.slice(skip, skip + limit);
-
-  //   this.currentPage = page;
-  //   console.log(allNews);
-  //   //   const page = parseInt(this.$route.query.page) || 1;
-  //   //   const limit = this.perPage;
-  //   //   const skip = (page - 1) * limit;
-  //   //   console.log(page, 'skip', skip, 'limit',limit);
-  //   // const response = await fetch('http://localhost:3500/news');
-  //   // const data = await response.json();
-  //   // this.news = data;
-  //   // console.log(this.news);
-  // },
-
-
-  async fetch() {
-    const page = parseInt(this.$route.query.page) || 1;
-    const limit = this.perPage;
-    const skip = (page - 1) * limit;
-
-    const response = await fetch('http://localhost:3500/news');
-    const allNews = await response.json();
-    this.news = allNews;
-    this.paginatedNews = allNews.slice(skip, skip + limit);
-    console.log(this.news);
-    this.currentPage = page;
-  },
-
-  watchQuery: ['page'], 
-  computed: {
-    paginatedData() {
-      const start = (this.currentPage - 1) * this.perPage;
-      const end = start + this.perPage;
-      return this.news.slice(start, end);
-    },
-    totalPages() {
-      return Math.ceil(this.news.length / this.perPage);
-    },
-  },
-  methods: {
-    nextPage() {
-      if (this.currentPage < this.totalPages) {
-        this.$router.push({ path: '/news', query: { page: this.currentPage + 1 } });
-        console.log('hhhhhhh');
-      }
-    },
-    previousPage() {
-      if (this.currentPage > 1) {
-        this.currentPage--;
-      }
-    },
-    shortenTitle(title) {
-      const maxLength = 50; // Adjust this value as needed
-      if (title.length > maxLength) {
-        return title.substring(0, maxLength) + '...';
-      } else {
-        return title;
-      }
-    },
-  },
-};
-</script> -->
 
 <style>
 .title {

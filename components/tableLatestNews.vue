@@ -18,12 +18,12 @@
   <script setup>
 import { ref, computed, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { useMyStore } from '~/stores/myStore'
 
-const store = useMyStore()
+
+
 
 // Access the data from the store
-console.log(store.$state.data)
+
 const allNews = ref([]);
 const perPage = ref(9);
 const news = ref([
@@ -37,8 +37,8 @@ const limit = perPage.value
 const skip = (page - 1) * limit
 
 const fetchData = async () => {
-  await store.fetchData()
-  news.value = store.$state.data
+  const response = await fetch(`http://localhost:3500/news`);
+  news.value = await response.json();
  
   currentPage.value = page
 }
