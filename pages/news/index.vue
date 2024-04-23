@@ -70,7 +70,7 @@
     </section>
       
    
-    <NewsSections :myProp="sectionpaginatedData" newstype="Admission" :endpoint="`news`" header="Latest Admission"></NewsSections> 
+    <NewsSections :myProp="sectionpaginatedData" newstype="Admission" :endpoint="`admissionNews`" header="Latest Admission"></NewsSections> 
 
     <NavigationFooter ></NavigationFooter>
   </div>

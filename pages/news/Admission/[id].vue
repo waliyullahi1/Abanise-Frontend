@@ -1,7 +1,7 @@
 <template>
-    <div>
-    <FullNewsTemplate :endpoint="`news/name/${newsId}`"></FullNewsTemplate>
-    </div>
+
+    <FullNewsTemplate :endpoint="`admissionNews/name/${newsId}`"></FullNewsTemplate>
+
 </template>
 
 <script setup>

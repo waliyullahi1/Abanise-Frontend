@@ -8,14 +8,14 @@
           <div   class="    border-y-4  border-y-primary  mt-2 shadow-lg bg-white ">
             <div>
 
-              <div v-if="news.length > 0" class="sm:flex sm:px-10 py-5 px-4 border-b-2  justify-start   items-center">
-                <div class=" sm:w-2/5 w-full  py-3 flex justify-center items-center h-48 overflow-hidden">
+              <div v-if="news.length > 0" class="sm:flex gap-3 sm:px-10 py-5 px-4 border-b-2  justify-start   items-center">
+                <div class=" sm:w-2/5 w-full  py-3 flex justify-center items-center ">
                   <img  v-bind:src="news[0].image"  class="v w-full  " alt="">
                 </div>
                 <div  class=" sm:w-3/5  w-full  r">
-                  <h3 class="  sm:text-[18px] text-[16px] hover:text-primary  font-medium ">{{ news[0].title }} </h3>
+                  <h3 class="  sm:text-[16px] text-[16px] hover:text-primary  font-medium ">{{ news[0].title }} </h3>
 
-                  <h3 class="break-all title text-[13px]  sm:text-[15px] ov">{{truncateText('Howo print your JAMB exam slip directly from the JAMB website is what this page is all about. The official portal for 2024 UTME candidates to print their JAMB exam slips has been enabled. See details on how to Print Your Exam Slips Di to print your JAMB exam slip directly from the JAMB website is what this page is all about. The official portal for 2024 UTME candidates to print their JAMB exam slips has been enabled. See details on how to Print Your Exam Slips Directly From JAMB Website. Please note')}}</h3>
+                  <h3 v-html="truncateText(extractFirstElements(news[0].content))"  class=" text-[13px]  sm:text-[15px] ov"></h3>
                   <NuxtLink target="_blank" :to="`news/${props.newstype}/${news[0]._id}`">
                     
                     <button class=" mt-2 py-1 px-2 text-[14px] duration-500 text-white hover:bg-gray-500 bg-primary">Read More »</button>
@@ -27,7 +27,7 @@
               </div>
 
               <div class="grid gap-3 bg-gray-100 h-fit sm:px-5 px-2 font-normal  py-3 grid-cols-1 sm:grid-cols-2">
-                <div v-for="(item, index) in paginatedData" :key="item.id"  class="flex gap-2 justify-center  items-center">
+                <div v-for="(item, index) in paginatedData.slice(2, 9)" :key="item.id"  class="flex gap-2 justify-center  items-center">
                   <div class=" flex  justify-center items-center  w-2/5 sm:h-20 h-20 overflow-hidden">
                     <img  v-bind:src="item.image" class=" " alt="">
                   </div>
@@ -73,9 +73,8 @@ const perPage = ref(4)
 const news = ref([])
 
 const paginatedData = computed(() => {
-  const start = (currentPage.value - 1) * perPage.value;
-  const end = start + perPage.value;
-  return news.value.slice(start, end);
+
+  return news.value.slice(0, 6);
 });
 
 const updateImageUrls = async () => {
@@ -101,12 +100,21 @@ const currentPage = computed(() => {
   const route = useRoute()
   return 1
 })
-const truncateText = (text) =>  {
-        let words = text.split(' ');
-        if (words.length > 30) {
-            words = words.slice(0, 30);
-            return words.join(' ') + '...';
-        }}
+const extractFirstElements = (htmlContent, limit) => {
+  let tempDiv = document.createElement("div");
+  tempDiv.innerHTML = htmlContent;
+  let allElements = Array.from(tempDiv.children);
+  let firstElements = allElements.slice(0, limit);
+  return firstElements.map(el => el.outerHTML).join('');
+}
+
+const truncateText = (text) => {
+  let words = text.split(' ');
+  if (words.length > 8) {
+    words = words.slice(0, 8);
+    return words.join(' ') + '...';
+  }
+}
        
 
 </script>

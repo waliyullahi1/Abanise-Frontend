@@ -40,7 +40,7 @@ onMounted(async () => {
     const response = await fetch(`http://localhost:3500/${props.endpoint}`);
     allNews.value = await response.json();
     
-    allNews.value.image = imageResponse.url;
+  
 });
 </script>
 

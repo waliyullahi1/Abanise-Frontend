@@ -5,7 +5,7 @@
       paragraph="Admission: To find out about undergraduate and graduate degree admissions across all tertiary institutions (including colleges of education, universities, polytechnics, and Admission: To find out about undergraduate and graduate degree admissions across all tertiary institutions (including colleges of education, universities, polytechnics, and monotechnics).monotechnics)."
       :admissionNewsData="paginatedData"
       :totalPages="totalPages"
-      endpoint="news"
+      endpoint="admissionNews"
       ></NewsTemplate>
   </div>
 </template>
