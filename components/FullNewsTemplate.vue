@@ -1,10 +1,11 @@
 <template>
     <div>
         <NewsHeader></NewsHeader>
-        <div class="flex w-[90%] mx-auto">
+        <TableLatestNews class="  text-[poppins] "></TableLatestNews>
+        <div class="flex md:w-[90%] w-[98%] mx-auto">
 
-            <div class="text-xl md:w-[70%] w-full mt-9 ">
-                <div class="mt-5 py-5 shadow-xl w-full px-5 ">
+            <div class="text-xl md:w-[70%] w-full sm:mt-0 mt-32 ">
+                <div class="mt-5 sm:py-5 py-5 shadow-xl w-full px-2 ">
 
                     <h1 class="title-[Bebas Neue] mb-4 text-[bebas neue] text-xl font-bold">{{ allNews.title }}</h1>
                     <div v-html="allNews.content" class=" entry tess text-[15px] pb-1"> </div>
@@ -39,7 +40,7 @@ const newsId = route.params.id;
 onMounted(async () => {
     const response = await fetch(`http://localhost:3500/${props.endpoint}`);
     allNews.value = await response.json();
-    
+    log
   
 });
 </script>

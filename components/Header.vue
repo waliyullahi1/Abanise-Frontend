@@ -1,5 +1,6 @@
 <template>
-  <div :class="headertext ? ' md:bg-transparent' : ' bg-primary shodow'"
+  <div class=" w-full duration-500" :class="top?'  -translate-y-36':'translate-y-0 '">
+    <div :class="headertext ? ' md:bg-transparent' : ' bg-primary shodow'"
     class="text-[poppins]  w-full lg:top-0   place-contnt-center fixed    ">
     <div class=" contains  mx-auto px-2 bg-gray-100 font-sembold">
       <div class="text-[15px] gap-3 flex">
@@ -71,52 +72,53 @@
       </div>
     </div>
 
+  </div> 
   </div>
+ 
 </template>
 
-<script>
+<script setup>
+import { ref, onMounted, onUnmounted } from 'vue';
 
+let rotate = ref(false);
+let flex = ref(true);
+let scrollPosition = ref(0);
+let top = ref(false);
 
-export default {
+let lastScrollPosition = 0;
 
+const transc = () => {
+  emit('transaction');
+};
 
-  data() {
-    return {
-      rotate: false,
-      flex: true,
+const emitclick = () => {
+  rotate.value = !rotate.value;
+};
 
-    }
-  },
+const handleScroll = () => {
+  const currentScrollPosition = window.pageYOffset;
+  top.value = currentScrollPosition > lastScrollPosition;
+  scrollPosition.value = currentScrollPosition;
+  lastScrollPosition = currentScrollPosition;
+};
 
-  props: {
-    headertext: Boolean
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+});
 
-  },
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
 
-
-
-  methods: {
-    transc() {
-      this.$emit("transaction",)
-    },
-    emitclick() {
-      this.rotate = !this.rotate
-
-    },
-
-    updateScroll() {
-      this.scrollPosition = window.scrollY;
-    },
-  },
-
-  mounted() {
-    window.addEventListener('scroll', this.updateScroll);
-  },
-
-}
+defineProps({
+  headertext: Boolean
+});
 </script>
 
+
+
 <style>
+
 .shodow {
   box-shadow: -3px 17px 28px -2px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: -3px 17px 28px -2px rgba(0, 0, 0, 0.75);

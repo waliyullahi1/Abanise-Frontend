@@ -2,15 +2,16 @@
   <div>
 
     <NewsHeader></NewsHeader>
-    <TableLatestNews class="  text-[poppins] "></TableLatestNews>
-    <section class=" lg:w-[88%] w-[96%] mt-8 mx-auto">
+    <div class="  pt-36">
+      <TableLatestNews class="  text-[poppins] "></TableLatestNews>
+    <section class=" lg:w-[88%] w-[96%] mx-auto">
       <h2 class="text-[20px] font-medium">{{ props.header }} </h2>
       <p class=" md:w-[60%] w-full text-[15px] ">{{ props.paragraph }}</p>
       <div class=" flex gap-4 w-full">
         <div class="  md:w-[60%] gap-2">
 
 
-          <div class="  w-full   border-y-4  h-fit border-y-primary px-5 py-3 mt-2 shadow-lg bg-white ">
+          <div class="  w-full   border-y-4  h-fit border-y-primary px-1 sm:px-5 py-3 mt-2 shadow-lg bg-white ">
             <div class=" grid-cols-1 gap-6 w-full">
 
               <div v-for="item in paginatedData" :key="item.title"
@@ -19,14 +20,14 @@
 
                 <div class=" h-full   group justify-center items-center gap-2">
                   <NuxtLink target="_blank" :to="`Admission/${item._id}`">
-                    <h2 class="hover:text-primary text-xl mb-4 font-normal ">{{ item.title }}</h2>
+                    <h2 class="hover:text-primary text-[15px] sm:text-xl mb-4 font-normal ">{{ item.title }}</h2>
                   </NuxtLink>
                   <div class=" sm:gap-6 gap-3">
-                    <div class="px-5 float-left">
+                    <div class="sm:px-5 float-left">
                       <NuxtLink target="_blank" :to="`${props.routes}/${item._id}`"
                         class=" grou bg-black min-h-60 gap-2 m overflow-hidden  flex justify-center items-center h ">
                         <div class="  h-40  w-full"></div>
-                        <img v-bind:src="item.image" class=" border-2  hover:opacity-30 duration-500  w-72 " alt="">
+                        <img v-bind:src="item.image" class="   hover:opacity-30 duration-500  w-72 " alt="">
                         <img src="@/assets/abanisee1.png" alt=""
                           class=" opacity-0  duration-500  group-hover:opacity-100 opacity- absolute w-10  ">
                         <div class=" relative w-full h-full bg-black"></div>
@@ -34,7 +35,7 @@
                     </div>
 
                     <div class="  p">
-                      <p v-html="truncateText(extractFirstElements(item.content))" class=" text-[15px]  fn  divClass">
+                      <p v-html="truncateText(extractFirstElements(item.content))" class=" text-[14px]  fn  divClass">
                       </p>
 
                       <NuxtLink target="_blank" :to="`${props.routes}/${item._id}`">
@@ -58,9 +59,9 @@
             </div>
 
           </div>
-          <div class=" flex  justify-between">
+          <div class=" grid grid-cols-2 overflow-hidden  justify-between">
 
-            <div class="flex w-1/2">
+            <div class="flex ">
 
               <!-- <div class="  flex text-[14px] gap-2">
                     <nuxt-link class="py-1 text-[13px] px-4" :to="{ path: '/news', query: { page: currentPage + 1 } }">Next
@@ -69,12 +70,12 @@
                       :to="{ path: '/news', query: { page: currentPage - 1 } }">Previous </nuxt-link>
                
                   </div> -->
-
-              <div class=" flex gap-4 =">
+               
+              <div class=" flex gap-4 div-class  overflow-scroll">
                 <button class="   flex " v-for="number in totalPages" :key="number" @click="updateImageUrls()">
                   <nuxt-link class="h-fit text-[18px] font-medium  bg-transparent bg-none"
                     :to="{ path: `${props.routes}`, query: { page: number } }">
-                    <p class=" bg-white w-full  text-red-950">{{ number }}</p>
+                    <p :class="{'bg-primary text-white': currentPage === number, 'bg-white': currentPage !== number}" class=" w-full px-2  text-[15px] text-red-950">{{ number }}</p> 
                   </nuxt-link>
 
                 </button>
@@ -84,7 +85,7 @@
 
 
 
-            <div>
+            <div class=" text-end">
               <p class="text-[14px] font-medium">Page {{ currentPage }} of {{ totalPages }}</p>
 
             </div>
@@ -96,6 +97,8 @@
 
 
     </section>
+    </div>
+    
 
 
 
@@ -225,7 +228,19 @@ const previousPage = () => {
   overflow: hidden;
 }
 
+.div-class {
+  /* Enables scrolling if content overflows */
+  overflow: auto;
 
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
 
 
 

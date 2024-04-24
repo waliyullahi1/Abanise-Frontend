@@ -127,6 +127,9 @@ export default defineNuxtConfig({
     '@pinia/nuxt'
   
   ],
+  plugins: [
+    
+  ],
   // googleAdsense: {
   //   id: 'ca-pub-8150576152002690'
   // }
