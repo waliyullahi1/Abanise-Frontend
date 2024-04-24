@@ -2,7 +2,8 @@
   <div  >
 
     <NewsHeader ></NewsHeader>
- <TableLatestNews class="  text-[poppins]  " ></TableLatestNews>
+<div class=" pt-36">
+  <TableLatestNews class="  text-[poppins]  " ></TableLatestNews>
  <section  class=" lg:w-[88%] w-[96%] pt-40 md:pt-0   mt- mx-auto">
       <h2 class="text-[20px] font-medium">Latest News </h2>
 
@@ -70,6 +71,7 @@
 
 
     </section>
+</div>
       
    
     <NewsSections :myProp="sectionpaginatedData" newstype="Admission" :endpoint="`admissionNews`" header="Latest Admission"></NewsSections> 

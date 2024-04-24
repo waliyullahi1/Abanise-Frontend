@@ -1,7 +1,8 @@
 <template>
     <div>
         <NewsHeader></NewsHeader>
-        <TableLatestNews class="  text-[poppins] "></TableLatestNews>
+        <div class=" pt-36">
+         <TableLatestNews class="  text-[poppins] "></TableLatestNews>
         <div class="flex md:w-[90%] w-[98%] mx-auto">
 
             <div class="text-xl md:w-[70%] w-full sm:mt-0 mt-32 ">
@@ -13,7 +14,9 @@
                 </div>
             </div>
 
+        </div>   
         </div>
+        
 
         <NavigationFooter></NavigationFooter>
 

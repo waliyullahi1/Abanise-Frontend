@@ -41,7 +41,7 @@
               <div v-for="(item, index) in paginatedData.slice(2, 9)" :key="item.id"
                 class="flex gap-2 justify-center  items-center">
                
-                  <div class=" sm:w-2/5 w-full group  py-3 flex justify-center items-center ">
+                  <div class=" sm:w-2/5 w-20 group  py-3 flex justify-center items-center ">
                     <NuxtLink target="_blank" :to="`news/${props.newstype}/${news[0]._id}`"
                       class=" grou bg-black  gap-2 m overflow-hidden  flex justify-center items-center h ">
                       <div class=" hfull  w-full"></div>
