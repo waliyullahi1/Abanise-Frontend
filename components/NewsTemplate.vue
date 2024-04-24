@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class=" overflow-x-hidden">
 
     <NewsHeader></NewsHeader>
     <div class="  pt-36">
@@ -145,7 +145,7 @@ const paginatedData = computed(() => {
 const updateImageUrls = async () => {
   let paginatedNews = paginatedData.value;
   const updatedNews = await Promise.all(paginatedNews.map(async (element) => {
-    const imageResponse = await fetch(`http://localhost:3500/news/${element.image}`);
+    const imageResponse = await fetch(`http://localhost:3500/${props.endpoint}/${element.image}`);
     element.image = imageResponse.url;
     return element;
   }));

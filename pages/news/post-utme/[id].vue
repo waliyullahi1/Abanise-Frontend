@@ -1,6 +1,6 @@
 <template>
     <div>
-    <FullNewsTemplate :endpoint="`news/name/${newsId}`"></FullNewsTemplate>
+    <FullNewsTemplate :endpoint="`postutme/name/${newsId}`"></FullNewsTemplate>
     </div>
 </template>
 

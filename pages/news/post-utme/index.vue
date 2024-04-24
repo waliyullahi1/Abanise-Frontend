@@ -1,11 +1,11 @@
 <template>
   <div>
 
-    <NewsTemplate header=" Post-UTME" routes="post-utme"
+    <NewsTemplate header="O'level" routes="Olevel"
       paragraph=""
       :admissionNewsData="paginatedData"
       :totalPages="totalPages"
-      endpoint="news"
+      endpoint="olevelNews"
       ></NewsTemplate>
   </div>
 </template>

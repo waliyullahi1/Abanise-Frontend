@@ -47,11 +47,11 @@
 
 
                 <li class="  h-full py  lg:mt-0 boder border-transparent  transform duration-200 ease-in-out  ">
-                  <router-link to="/news/jamb" class="px-1 md:hover:border-b py-2">O'level</router-link>
+                  <router-link to="/Olevel" class="px-1 md:hover:border-b py-2">O'level</router-link>
                 </li>
 
                 <li class="  h-full py  lg:mt-0 boder border-transparent  transform duration-200 ease-in-out  ">
-                  <router-link to="/news/jamb" class="px-1 md:hover:border-b py-2">Scholarships</router-link>
+                  <router-link to="/news" class="px-1 md:hover:border-b py-2">Scholarships</router-link>
                 </li>
                 
               

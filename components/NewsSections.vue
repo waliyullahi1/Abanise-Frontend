@@ -1,5 +1,5 @@
 <template>
-  <section class=" lg:w-[80%] w-[96%] mt-9 mx-auto">
+  <section class=" lg:w-[80%] w-[96%] mt-20 mx-auto">
     <h2 class="text-xl font-medium">{{ props.header }} </h2>
     <div class=" flex gap-4 w-full">
       <div class="  md:w-[70%] w-full ">

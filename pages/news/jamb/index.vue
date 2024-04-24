@@ -5,7 +5,7 @@
       paragraph=""
       :admissionNewsData="paginatedData"
       :totalPages="totalPages"
-      endpoint="news"
+      endpoint="jambNews"
       ></NewsTemplate>
   </div>
 </template>

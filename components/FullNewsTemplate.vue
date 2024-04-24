@@ -17,7 +17,7 @@
         </div>   
         </div>
         
-
+        <TableLatestNews class="  text-[poppins] "></TableLatestNews>
         <NavigationFooter></NavigationFooter>
 
     </div>
