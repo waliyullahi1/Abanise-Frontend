@@ -85,7 +85,7 @@
         </section>
 
 
-        <section id="ScratchCards" class="container  mt-2  mx-auto">
+        <section id="ScratchCards" class="w-[80%]  mt-2  mx-auto">
             <marquee behavior="scroll" direction="left" scrollamount=""
                 class=" text-sm md:text-[13px] font-bold w-full font-bo text-primary "><span>IF YOU WANT TO PROCESS YOUR
                     ADDMISSION TO ANY UNIVERSITY OR POLYTECHNIC KINDLY MESSAGE THIS WHATSAPP NUMBER 07068393706 </span>
@@ -99,12 +99,12 @@
                         INSTANTLY </h2>
 
                 </div>
-                <div class="grid md:grid-cols-2  lg:grid-cols-3 sm:grid-cols-2  grid-cols-1 gap-4 md:gap-20 px-10 ">
+                <div class="grid md:grid-cols-2  lg:grid-cols-3 sm:grid-cols-2  grid-cols-1 gap-4 md:gap-5 px-10 ">
                     <div v-for="item in item" :key="item.id"
-                        class=" group shadow border-primary w-full overflow-hidden  h-fit flex flex-col gap-3 rounded-[2rem]">
+                        class=" group shadow border-primary w-full overflow-hidden  h-fit flex flex-col gap-3 ">
                         <div
-                            class="w-full rounded-[2rem] group-hover:drop-shadow-xl  duration-700  pt-3 px-3 overflow-hidden ">
-                            <div class="overflow-hidden duration-700   rounded-[2rem] "> <img v-bind:src="item.image"
+                            class="w-full  group-hover:drop-shadow-xl  duration-700  pt-3 px-3 overflow-hidden ">
+                            <div class="overflow-hidden duration-700   "> <img v-bind:src="item.image"
                                     class="" /></div>
 
                         </div>
