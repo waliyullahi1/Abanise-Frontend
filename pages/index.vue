@@ -2,10 +2,10 @@
     <div class="overflow-y-hidden text-[poppins]">
 
         <Header @transaction="transact()" :headertext="headerChange" class="fixed z-40 top-0"></Header>
-        
+
         <div class="w-full "></div>
         <section class=" j">
-            <Carousel :autoplay="9000"  :transition="2000" :wrap-around="true" :items-to-show="1">
+            <Carousel :autoplay="9000" :transition="2000" :wrap-around="true" :items-to-show="1">
                 <slide v-for="slide in hero" :key="slide.id" class="w-full  ">
                     <div :style="{ backgroundImage: 'url(' + slide.image + ')' }"
                         class=" image sticky top-0 w-full h-[30rem] md:h-[40rem]  overflow-hidden ">
@@ -17,7 +17,8 @@
                             </div>
                             <div class=" w-full flex justify-center items-center overflow-hidden">
                                 <div class="md:w-1/2 herop  w-full flex justify-center mx-2 items-center">
-                                    <h2 class="sm:text-2xl text-[15px] text-[white] pt-0 ">{{ slide.heroParagraph }}</h2>
+                                    <h2 class="sm:text-2xl text-[15px] text-[white] pt-0 ">{{ slide.heroParagraph }}
+                                    </h2>
                                 </div>
 
                             </div>
@@ -32,7 +33,8 @@
                                 </p>
 
                             </div>
-                            <h2 class="font-semibold text-7xl text-white hidden font-mem]"> BUY ONLINE REGISTRATION CARD PIN
+                            <h2 class="font-semibold text-7xl text-white hidden font-mem]"> BUY ONLINE REGISTRATION CARD
+                                PIN
                                 AUTOMATICINSTANTLY DELIVERY</h2>
                         </div>j
                     </div>
@@ -47,26 +49,35 @@
                 <div
                     class="grid mx-auto px-4  container md:max-w-full lg:max-w-full justify-between md:grid-cols-4 grid-cols-1 gap-10 py-10 w-full h-fit">
                     <div class=" text-white  border-l-2 pl-3 ">
-                        <h2 class=" text-[20px] mb-2  text-white">Discounted Prices</h2>
-                        <p class="text-[14px] font leading-relaxed ">Buy Waec , Neco, Nabteb resultchecker and Waec pin,
+                        <h2 class=" md:text-[18px] text-[15px] mb-2 font-medium  text-white">Discounted Prices</h2>
+                        <p class="sm:text-[15px] text-[13px] font leading-relaxed ">Buy Waec , Neco, Nabteb
+                            resultchecker and Waec
+                            pin,
                             Nabteb pin at highly subsized prices</p>
                     </div>
 
                     <div class=" text-white  border-l-2 pl-3 ">
-                        <h2 class=" text-[20px] mb-2  text-white">Instant Delivery</h2>
-                        <p class="text-[14px] font leading-relaxed ">Users receive Product at most 1 minutes after Purchase
+                        <h2 class=" md:text-[18px] text-[15px] mb-2 font-medium  text-white">Instant Delivery</h2>
+                        <p class="sm:text-[15px] text-[13px] font leading-relaxed ">Users receive Product at most 1
+                            minutes after
+                            Purchase
                         </p>
                     </div>
 
                     <div class=" text-white border-l-2 pl-3  ">
-                        <h2 class=" text-[20px] mb-2  text-white">24/7 Customer Support</h2>
-                        <p class="text-[14px] font leading-relaxed ">Our customer service agent are always available to
+                        <h2 class=" md:text-[18px] text-[15px] mb-2 font-medium  text-white">24/7 Customer Support</h2>
+                        <p class="sm:text-[15px] text-[13px] font leading-relaxed">Our customer service agent are always
+                            available
+                            to
                             respond to any issues that you might have</p>
                     </div>
 
                     <div class=" text-white  border-l-2 pl-3 ">
-                        <h2 class=" text-[20px] mb-2  text-white">User-Friendly Experience</h2>
-                        <p class="text-[14px] font leading-relaxed ">Top notch user Interface that give you a smooth and
+                        <h2 class=" md:text-[18px] text-[15px] mb-2 font-medium  text-white">User-Friendly Experience
+                        </h2>
+                        <p class="sm:text-[15px] text-[13px] font leading-relaxed ">Top notch user Interface that give
+                            you a smooth
+                            and
                             satisfying experience</p>
                     </div>
                 </div>
@@ -74,16 +85,21 @@
         </section>
 
 
-        <section id="ScratchCards" class="container  my-10  mt-10 mx-auto">
+        <section id="ScratchCards" class="container  mt-2  mx-auto">
             <marquee behavior="scroll" direction="left" scrollamount=""
                 class=" text-sm md:text-[13px] font-bold w-full font-bo text-primary "><span>IF YOU WANT TO PROCESS YOUR
                     ADDMISSION TO ANY UNIVERSITY OR POLYTECHNIC KINDLY MESSAGE THIS WHATSAPP NUMBER 07068393706 </span>
             </marquee>
-            <div class="  flex flex-col justify-cen
+            <div class=" mt-10 flex flex-col justify-cen
       ter gap-5 items-center ">
-                <h2 class="text-3xl font-bold text">CARDS PRODUCT</h2>
-                <h2 class="md:text-xl text-sm  font-normal ">CLICK ON ANY CARD BELOW TO BUY THE CARD PIN INSTANTLY </h2>
-                <div class="grid md:grid-cols-2  lg:grid-cols-3 sm:grid-cols-2  grid-cols-1 gap-20 px-10 ">
+                <div>
+                    <h2 class="md:text-3xl text-xl text-primary font-bold text-center">CARDS PRODUCT</h2>
+                    <h2 class="md:text-xl text-sm  px-2 font-normal text-center">CLICK ON ANY CARD BELOW TO BUY THE CARD
+                        PIN
+                        INSTANTLY </h2>
+
+                </div>
+                <div class="grid md:grid-cols-2  lg:grid-cols-3 sm:grid-cols-2  grid-cols-1 gap-4 md:gap-20 px-10 ">
                     <div v-for="item in item" :key="item.id"
                         class=" group shadow border-primary w-full overflow-hidden  h-fit flex flex-col gap-3 rounded-[2rem]">
                         <div
@@ -94,10 +110,11 @@
                         </div>
                         <div class=" flex py-3 px-3 flex-col gap-3 border-primary transform duration-300">
                             <div class=" group-hover:w-full w-1 duration-500 h-1 bg-primary"></div>
-                            <p class="text-[17px] "><span>{{ item.card }}</span> {{ item.header }} <span
-                                    class="tex- text-base font-sebold">({{ item.condition }})</span></p>
-                            <div class="flex justify-between">
-                                <p class="text-[17px]">Price</p>
+                            <p class="sm:text-[17px] text-[15px] "><span>{{ item.card }}</span> {{ item.header }} <span
+                                    class="sm:text-[17px] text-[15px] font-sebold">({{ item.condition }})</span></p>
+                            <div class="flex  justify-between">
+                                <p class="text-[17px] ">Price</p>
+                                <p class="text-[17px] ">Price</p>
                                 <p class="font-semibold font-lg ">₦{{ item.price }}</p>
                             </div>
                             <p class="flex justify-between font-font-[17px] ">Availability(status) <span
@@ -120,9 +137,14 @@
 
         <section class="container  mx-auto my-20 py-5">
             <div class="">
-                <h2 class="md:text-3xl text-xl text-primary font-bold text-center">PHONE AIRTIME AND DATA BUNDLE </h2>
-                <p class="font-normal md:text-2xl text-[15px] mb-20 text-center">We provide affordable price for Airtime and
-                    Data bundle </p>
+                <div>
+                    <h2 class="md:text-3xl text-xl text-primary font-bold text-center">PHONE AIRTIME AND DATA BUNDLE
+                    </h2>
+                    <p class="font-normal md:text-2xl text-[15px] mb-20 text-center">We provide affordable price for
+                        Airtime and
+                        Data bundle </p>
+                </div>
+
                 <div class="grid md:grid-cols-4 grid-cols-2  md:gap-10 gap-3 justify-center ">
                     <div class="flex flex-col justify-center items-center">
                         <div class="shadows rounded-[2rem] overflow-hidden w-[7rem] md:w-[10rem]"><img
@@ -174,7 +196,8 @@
         <section id="how" class="bg-gray-200">
             <div class="container  mx-auto my-20 py-20">
                 <h2 class="text-3xl text-center text-primary">How it is works</h2>
-                <h2 class="text-xl py-6 text-center text-primary">Start purchasing cards now. It’s easy, secure and takes
+                <h2 class="text-xl py-6 text-center text-primary">Start purchasing cards now. It’s easy, secure and
+                    takes
                     only a few minutes!</h2>
 
                 <div class="w-full grid grid-cols-1 sm:px-5 px-11 sm:grid-cols-3 gap-6">
@@ -184,7 +207,8 @@
                                 alt="Select Card type & number of pins"></div>
                         <h2 class="text-3xl text-secondary font-mermaid">1</h2>
                         <p class=" text-xl text-center font-semibold ">Select Card type <br> & number of pins</p>
-                        <p class=" text-[15px] text-center">Start by selecting the card you want to purchase from the above
+                        <p class=" text-[15px] text-center">Start by selecting the card you want to purchase from the
+                            above
                             list, then select the number of pins in next page </p>
                     </div>
                     <div class="c shadow-lg rounded-2xl py-4 px-4 flex  gap-4 justify-center items-center flex-col ">
@@ -193,13 +217,15 @@
                                 alt="Make Payment"></div>
                         <h2 class="text-3xl text-secondary font-mermaid">2</h2>
                         <p class=" text-xl text-center font-semibold ">Make Payment <br> </p>
-                        <p class=" text-[15px]  text-center">We partnered with Paystack to make your payment process fast
+                        <p class=" text-[15px]  text-center">We partnered with Paystack to make your payment process
+                            fast
                             and secure. </p>
                     </div>
                     <div class="c shadow-lg rounded-2xl py-4 px-4 flex  gap-4 justify-center items-center flex-col ">
 
                         <div><img class="bg-  w-20 bg-primary py-4 px-4 rounded-full " src="@/assets/image/token.svg"
-                                alt=""></div>
+                                alt="">
+                        </div>
                         <h2 class="text-3xl text-secondary font-mermaid">3</h2>
                         <p class=" text-xl text-center font-semibold ">Receive Tokens Instantly <br> </p>
                         <p class=" text-[15px]  text-center">Immediately after your payment, if successful,you will be
@@ -209,95 +235,10 @@
             </div>
         </section>
 
-        <section id="expo exam" class=" w-[90%] mx-auto">
-            <div class="w-full">
-                <h1 class="text-2xl mb-5 text-secondary font-semibold "> Exam solution</h1>
-                <Carousel class="mb-10" :autoplay="1000" :transition="1000" :wrap-around="true"  v-bind="settings" :breakpoints="breakpoints">
-                    <slide v-for="slide in expo" :key="slide.id" class="w-full   overflow-hidden ">
 
 
-                        <div class="mx-2">
-                            <div
-                                class=" group shadow border-primary w-full overflow-hidden  h-fit flex flex-col gap-3 rounded-[2rem]">
-                                <div
-                                    class="w-full rounded-[2rem] group-hover:drop-shadow-xl duration-700  pt-3 px-3 overflow-hidden ">
-                                    <div
-                                        class="overflow-hidden flex justify-center duration-700 w-full h-full  rounded-[2rem] ">
-                                        <img v-bind:src="slide.image" class=" " /></div>
-
-                                </div>
-                                <div class="">
-                                    <h1 class="text-[17px] font-medium ">
-                                        {{ slide.header }}
-                                    </h1>
-                                </div>
-
-                                <Primary @click="notices" class="w-full text-center font-[14px] font-sembold">View solution
-                                </Primary>
-
-                            </div>
-                        </div>
-
-                        <template #addons>
-                        </template>
-                    </slide>
-                </Carousel>
-
-                <div mt-10>
-                    <ul v-for="text in expo" :key="text.id">
-                        <li @click="notices" class=" font-medium  text-red-800">{{ text.header }}</li>
-                    </ul>
-                </div>
-            </div>
-           
-        </section>
 
 
-        <section id="ScratchCards" class="container  my-10  mt-10 mx-auto">
-            
-            <div class="  flex flex-col justify-center  gap-3 items-center ">
-                <h2 class="text-3xl font-bold text">PAST QUESTION </h2>
-                <h2 class="md:text-xl text-[15px] text-center  font-normal ">BUY YOUR JAMB PAST QUESTION 2024 NOW </h2>
-                <Carousel class="mb-10" :autoplay="1000" :transition="1000" :wrap-around="true"  v-bind="settings" :breakpoints="breakpoints">
-                    <slide v-for="slide in pastQuestion" :key="slide.id" class="w-full  mx-12s overflow-hidden ">
-
-
-                        <div class="mx-2">
-                            <div  class=" mx-2 group shadow border-primary w-full overflow-hidden  h-fit flex flex-col gap-3 rounded-[2rem]">
-                                <div
-                                    class="w-full rounded-[2rem] group-hover:drop-shadow-xl duration-700  pt-3 px-3 overflow-hidden ">
-                                    <div class="overflow-hidden flex justify-center duration-700 w-full   rounded-[2rem] ">
-                                        <img v-bind:src="slide.image" class=" " />
-                                    </div>
-
-                                </div>
-                                <div class="">
-                                    <h1 class="text-[17px] font-medium ">
-                                        {{ slide.header}}  {{ slide.condition }}
-                                    </h1>
-                                </div>
-
-                                <Primary  class="w-full text-center font-[14px] font-sembold"> <a href="https://wa.me/message/SRWH2WAPTXUAN1">Buy Now</a>
-                                </Primary>
-
-                            </div>
-                        </div>
-                        
-                        <template #addons>
-                           <Pagination /> 
-                        </template>
-                    </slide>
-                </Carousel>
-                
-            
-
-                <div class="w-full mt-10">
-                    <ul v-for="text in pastQuestion" :key="text.id">
-                        <li class=" font-medium  text-red-800"><a href="https://wa.me/message/SRWH2WAPTXUAN1">{{ text.header }} {{ text.condition }}</a></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
         <Adsbygoogle />
         <div class="w-full flex justify-center items-center">
             <button
@@ -500,7 +441,7 @@ export default {
                     snapAlign: 'start',
                 },
             },
-           
+
             scrollPosition: null,
             track: false,
             item: [
@@ -605,7 +546,7 @@ export default {
 
                     image: pastquestionimage2,
                     price: '4000.00',
-                    alt:'JAMB past question 2024 for engineering courses',
+                    alt: 'JAMB past question 2024 for engineering courses',
                     header: 'JAMB Past Question 2024 combine ',
                     condition: `for Engineer Courses`,
                     itIsAvalable: true,
@@ -616,7 +557,7 @@ export default {
                     id: 2,
                     image: pastquestionimage1,
                     price: '4000.00',
-                    alt:'JAMB past question 2024 for Medicines courses',
+                    alt: 'JAMB past question 2024 for Medicines courses',
                     header: 'JAMB Past Question 2024 combine ',
                     condition: `for Healths Courses`,
                     itIsAvalable: true,
@@ -627,7 +568,7 @@ export default {
                     id: 3,
                     image: pastquestionimage4,
                     price: '4000.00',
-                    alt:'JAMB past question 2024 for Arts courses',
+                    alt: 'JAMB past question 2024 for Arts courses',
                     header: 'JAMB Past Question 2024 combine  ',
                     condition: `for All Art Courses`,
                     itIsAvalable: true,
@@ -639,20 +580,20 @@ export default {
                     id: 4,
                     image: pastquestionimage4,
                     price: '4000.00',
-                     alt:'JAMB past question 2024 for Commercial courses',
+                    alt: 'JAMB past question 2024 for Commercial courses',
                     header: 'JAMB Past Question combine ',
                     condition: `for  Commercial Courses`,
                     itIsAvalable: true,
                     status: 'Yes'
                 },
 
-              
+
             ],
 
-           
+
             hero: [
 
-           
+
 
                 {
                     id: 1,
@@ -747,11 +688,11 @@ export default {
 
     components: {
         Carousel,
-    Slide,
-    Pagination,
-    Carousel,
-  
-  },
+        Slide,
+        Pagination,
+        Carousel,
+
+    },
 
 }
 </script>

@@ -3,15 +3,15 @@
     <div :class="headertext ? ' md:bg-transparent' : ' bg-primary shodow'"
     class="text-[poppins]  w-full lg:top-0   place-contnt-center fixed    ">
     <div class=" contains  mx-auto px-2 bg-gray-100 font-sembold">
-      <div class="text-[15px] gap-3 flex">
+      <div class="sm:text-[15px] text-[13px] gap-3 flex">
 
         <p class="text- text-yellow-600">Phone number: <span class="ml-1 text-black">07068393706</span></p>
         <p>|</p>
-        <p class="text- text-yellow-600">Email <span class="ml-1 text-black">alfaabanise@gmail.com</span></p>
+        <p class="text- text-yellow-600  hidden sm:flex">Email <span class="ml-1 text-black">alfaabanise@gmail.com</span></p>
       </div>
     </div>
     <div :class="headertext ? 'bg-transparent ' : ' bg-primary'"
-      class=" container w-full duration-1000  my-auto mx-auto  mb-5 px-3 flex justify-between items-center ">
+      class=" container w-full duration-1000  mx-auto sm:mb-4 mb-0  px-3 flex justify-between items-center ">
       <router-link to="/" class="flex gap-5 w-full  items-center">
         <div>
           <navigation-logo2></navigation-logo2>
@@ -39,7 +39,7 @@
 
             <li @click=" transc()"
               class=" font-semibold   text-white  hover:border-b boder border-transparent hover:text-secondary transform duration-200 ease-in-out ">
-              <h1>Transaction tracking</h1>
+              <h1>News</h1>
             </li>
 
             <div
