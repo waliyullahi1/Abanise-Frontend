@@ -114,7 +114,7 @@
                                     class="sm:text-[17px] text-[15px] font-sebold">({{ item.condition }})</span></p>
                             <div class="flex  justify-between">
                                 <p class="text-[17px] ">Price</p>
-                                <p class="text-[17px] ">Price</p>
+                              
                                 <p class="font-semibold font-lg ">₦{{ item.price }}</p>
                             </div>
                             <p class="flex justify-between font-font-[17px] ">Availability(status) <span
@@ -135,72 +135,67 @@
         </section>
 
 
-        <section class="container  mx-auto my-20 py-5">
-            <div class="">
-                <div>
-                    <h2 class="md:text-3xl text-xl text-primary font-bold text-center">PHONE AIRTIME AND DATA BUNDLE
+        <section class="py-5 px-3  bg-[url('@/assets/image/bgdata.png')] bg-cover bg-['@']">
+            <div class="container  mx-auto my-20 gap-5  md:flex justify-center block  ">
+                <div class=" md:w-1/2 w-full py-5">
+                    <h2 class=" md:text-[45px] text-[32px]  leading-[40px]  sm:leading-[55px]"> <strong class=" text-secondary">Buy your</strong> <br class=" md:block hidden">  Airtime <strong class=" text-secondary">and</strong>  data <br class="md:block hidden">bundle with  affordable prices 
                     </h2>
-                    <p class="font-normal md:text-2xl text-[15px] mb-20 text-center">We provide affordable price for
-                        Airtime and
-                        Data bundle </p>
+                    <p class="md:text-xl text-[1px]  px-2 py-5 font-normal ">Join millions satisfied with our affordable rates on airtime and data bundles (MTN, AIRTEL, GLO).  </p>
+                    <button class=" bg-primary text-white sm:w-1/2 w-2/3 rounded-3xl shadowsss  hover:bg-opacity-80 -2xl py-3  ">Click here to Sign Up</button>
                 </div>
 
-                <div class="grid md:grid-cols-4 grid-cols-2  md:gap-10 gap-3 justify-center ">
-                    <div class="flex flex-col justify-center items-center">
-                        <div class="shadows rounded-[2rem] overflow-hidden w-[7rem] md:w-[10rem]"><img
-                                src="@/assets/image/mtn.png" alt="mtn logo" class="w-[13rem]"></div>
-                        <div class="e w-fit mt-5 py-2 px-3">
-                            <h2 class="font-bold text-primary text-center   text-[1rem]">MTN Airtime VTU And Data</h2>
-                            <Primary class="w-full text-center rounded-[2rem] font-semibold">
-                                <NuxtLink to="/register"> Buy now</NuxtLink>
-                            </Primary>
-                        </div>
-                    </div>
-                    <div class="flex flex-col justify-center items-center">
-                        <div class="shadows rounded-[2rem] overflow-hidden w-[7rem] md:w-[10rem]"><img
-                                src="@/assets/image/airtel.png" alt="mtn logo" class="md:w-[13rem] w-[10rem]"></div>
-                        <div class="e w-fit mt-5 py-2 px-3">
-                            <h2 class="font-bold text-primary text-center  text-[1rem]">MTN Airtime VTU And Data</h2>
-                            <Primary class="w-full text-center rounded-[2rem]  font-semibold">
-                                <NuxtLink to="/register"> Buy now</NuxtLink>
-                            </Primary>
-                        </div>
-                    </div>
-                    <div class="flex flex-col justify-center items-center">
-                        <div class="shadows rounded-[2rem] overflow-hidden w-[7rem] md:w-[10rem]"><img
-                                src="@/assets/image/9mobile.png" alt="mtn logo" class="w-[13rem]"></div>
-                        <div class="e w-fit mt-5 py-2 px-3">
-                            <h2 class="font-bold text-primary text-center  text-[1rem]">MTN Airtime VTU And Data</h2>
-                            <Primary class="w-full text-center  rounded-[2rem] font-semibold">
-                                <NuxtLink to="/register"> Buy now</NuxtLink>
-                            </Primary>
+                <div class="grid md:grid-cols-2 grid-cols-2  md:gap-10 gap-3 justify-center ">
+                    <div class="flex  rounded-2xl  w-fit h-fit py-4 shadowss flex-col justify-center items-center">
+                        <div class="shadowss rounded-full overflow-hidden bg-white py-1 px-1 w-fit md:w-fit"><img
+                                src="@/assets/image/mtn.png" alt="mtn logo" class="sm:w-[5rem] rounded-full  w-[4rem]"></div>
+                        <div class="e w-fit mt-3 py-2 px-3">
+                            <h2 class="  text-center font-semibold   text-[14px]">MTN airtime and data</h2>
+                           
                         </div>
                     </div>
 
-                    <div class="flex flex-col justify-center items-center">
-                        <div class="shadows  rounded-[2rem] overflow-hidden w-[7rem] md:w-[10rem]"><img
-                                src="@/assets/image/glo.png" alt="mtn logo" class="w-[13rem]"></div>
-                        <div class="e w-fit mt-5 py-2 px-3">
-                            <h2 class="font-bold text-primary text-center  text-[1rem]">MTN Airtime VTU And Data</h2>
-                            <Primary class="w-full text-center  rounded-[2rem] font-semibold">
-                                <NuxtLink to="/login"> Buy now</NuxtLink>
-                            </Primary>
+                    <div class="flex  rounded-2xl  w-fit h-fit py-4 shadowss flex-col justify-center items-center">
+                        <div class="shadowss rounded-full overflow-hidden bg-white py-1 px-1 w-fit md:w-fit"><img
+                                src="@/assets/image/airtel.png" alt="mtn logo" class="sm:w-[5rem] rounded-full  w-[4rem]"></div>
+                        <div class="e w-fit mt-3 py-2 px-3">
+                            <h2 class="  text-center font-semibold   text-[14px]">Airtel airtime and data</h2>
+                           
                         </div>
                     </div>
+
+                    <div class="flex  rounded-2xl  w-fit h-fit py-4 shadowss flex-col justify-center items-center">
+                        <div class="shadowss rounded-full overflow-hidden bg-white py-1 px-1 w-fit md:w-fit"><img
+                                src="@/assets/image/9mobile.png" alt="mtn logo" class="sm:w-[5rem] rounded-full  w-[4rem]"></div>
+                        <div class="e w-fit mt-3 py-2 px-3">
+                            <h2 class="  text-center font-semibold   text-[14px]">9mobile airtime and data</h2>
+                           
+                        </div>
+                    </div>
+                    
+                    <div class="flex  rounded-2xl  w-fit h-fit py-4 shadowss flex-col justify-center items-center">
+                        <div class="shadowss rounded-full overflow-hidden bg-white py-1 px-1 w-fit md:w-fit"><img
+                                src="@/assets/image/glo.png" alt="mtn logo" class="sm:w-[5rem] rounded-full  w-[4rem]"></div>
+                        <div class="e w-fit mt-3 py-2 px-3">
+                            <h2 class="  text-center font-semibold   text-[14px]">Glo airtime and data</h2>
+                           
+                        </div>
+                    </div>
+
+                  
 
                 </div>
             </div>
         </section>
 
 
-        <section id="how" class="bg-gray-200">
-            <div class="container  mx-auto my-20 py-20">
-                <h2 class="text-3xl text-center text-primary">How it is works</h2>
-                <h2 class="text-xl py-6 text-center text-primary">Start purchasing cards now. It’s easy, secure and
+        <section id="how" class="bg-[#f4f6f6] w-full">
+            <div class=" w-[80%]  mx-auto py-20 ">
+                <h2 class="md:text-3xl text-xl text-primary font-bold text-center ">How it is works</h2>
+                <h2 class="md:text-xl text-sm  px-2 font-normal text-center pb-5">Start purchasing cards now. It’s easy, secure and
                     takes
                     only a few minutes!</h2>
 
-                <div class="w-full grid grid-cols-1 sm:px-5 px-11 sm:grid-cols-3 gap-6">
+                <div class="w-full grid grid-cols-1 sm:px-5 px-11 sm:grid-cols-3 mt-4 gap-6">
                     <div class="c shadow-lg rounded-2xl py-4 px-4 flex  gap-4 justify-center items-center flex-col ">
 
                         <div><img class="bg w-20 bg-primary py-4 px-4 rounded-full " src="@/assets/image/card1.svg"
@@ -701,12 +696,20 @@ export default {
 .carousel__slide {
     padding: 0px;
 }
+ .shadowss {
+    box-shadow: -9.1159px -18.2318px 24.3091px #fff, 9.1159px 18.2318px 24.3091px #eceef1;
+ }
+.shadowsss{
+ box-shadow: 0 18.2571px 21.6157px -15.9059px #00712b;
+}
+
 
 /* @import '~/assets/main.css'; */
 /* .carousel__item {
    width: 200%;
   
 }
+shad
 .carousel__slide--active {
   opacity: 1;
   transform: rotateY(0) scale(1.1);

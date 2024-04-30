@@ -39,7 +39,7 @@
 
             <li @click=" transc()"
               class=" font-semibold   text-white  hover:border-b boder border-transparent hover:text-secondary transform duration-200 ease-in-out ">
-              <h1>News</h1>
+              <h1> <a href="https://news.abaniseedu.com/"></a>News</h1>
             </li>
 
             <div
