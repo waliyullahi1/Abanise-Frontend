@@ -3,7 +3,7 @@
 
     <div class="md:w-3/5 sm:w-1/2   sm:pt-14 pt-8   ">
       <div class="md:max-w-1/2   lg:max-w-1/2sm:max-w-md px-2 md:px-20 sm:w-full ">
-        <div class="flex justify-center"> <img src="@/assets/image/login-image.png" alt=" login image" class="w-1/3">  </div>
+        <div class="flex justify-center"> <img src="@/assets/image/login-images.png" alt=" login image" class="w-1/3">  </div>
         <p class="font-semibold text-2xl font-sans  text-center ">Login</p>
 
         <p class="font-semibold text-[15px] font-sans  text-center ">Enter your credential to get access</p>
