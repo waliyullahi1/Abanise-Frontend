@@ -4,7 +4,7 @@
     <div class="md:w-3/5 sm:w-1/2   sm:pt-14 pt-8   ">
       <div class="md:px-10  px-5 sm:w-full ">
         <div class="flex justify-center"> <img src="@/assets/image/login-images.png" alt=" login image" class="sm:w-1/3 w-3/5">  </div>
-        <p class="font-semibold text-2xl font-sans  text-center ">Login</p>
+        <p class="font-semibold text-2xl text-secondary text-center">Register</p>
 
         <p class="font-semibold text-[15px] font-sans  text-center ">Enter your credential to get access</p>
        
