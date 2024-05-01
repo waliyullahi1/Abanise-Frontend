@@ -284,7 +284,7 @@ const submit = async () => {
 
 .input-label {
   position: absolute;
-  bottom: -10px;
+  bottom: -8px;
   left: 0;
   height: 3rem;
   pointer-events: none;
