@@ -3,7 +3,7 @@
 
     <div class="md:w-3/5 sm:w-1/2   sm:pt-14 pt-8   ">
       <div class="md:max-w-1/2   lg:max-w-1/2sm:max-w-md px-2 md:px-20 sm:w-full ">
-        <div class="flex justify-center"> <img src="@/assets/image/login-images.png" alt=" login image" class="w-1/3">  </div>
+        <div class="flex justify-center"> <img src="@/assets/image/login-images.png" alt=" login image" class="sm:w-1/3 w-full ">  </div>
         <p class="font-semibold text-2xl font-sans  text-center ">Login</p>
 
         <p class="font-semibold text-[15px] font-sans  text-center ">Enter your credential to get access</p>
@@ -124,10 +124,10 @@
           </div>
 
 
-          <div class="my-5 ">
+          <div class="my-5 pb-6 ">
 
 
-            <div class="flex input-containers  b  border-primary  mt-2 ">
+            <div class="flex input-containers b  border-primary  mt-2 ">
 
               <!-- <input :type="state.transaction" :class="state.comfirmpassword ? ' border-secondary shake ' : '  border-primary  '"
                   @input="onInput"
@@ -159,7 +159,7 @@
 
         </form>
 
-        <p class=" font-semibold mb-40">Already have an account yet? <router-link class=" text-primary "
+        <p class="flex  py-5 sm:text-[16px] text-[14px]">Already have an account yet? <router-link class=" text-primary "
             to="/login">Home</router-link></p>
 
       </div>
@@ -429,7 +429,7 @@ const submit = async () => {
 
 .input-field:focus+.input-label,
 .input-field:not(:placeholder-shown)+.input-label {
-  transform: translateY(-1.3rem);
+  transform: translateY(-1.5rem);
   font-size: 1rem;
   color: rgb(3, 3, 3);
 
@@ -439,7 +439,7 @@ const submit = async () => {
 
 .input-label {
   position: absolute;
-  bottom: -15px;
+  bottom: -8px;
   left: 0;
   height: 3rem;
   pointer-events: none;
@@ -447,6 +447,7 @@ const submit = async () => {
   transform-origin: left;
   transition: all 0.3s ease;
 }
+
 .shake {
   animation: shake 0.5s;
   animation-iteration-count: 2;
