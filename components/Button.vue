@@ -4,7 +4,7 @@
     class="
       py-3
       px-4
-      w-full
+      w-full 
       justify-center
       flex
       bg-primary
@@ -14,7 +14,8 @@
       text-base
       duration-500
       ease-in-out
-      rounded-lg
+       rounded-md
+     
       hover:text-white
       active:text-white
       focus:text-white

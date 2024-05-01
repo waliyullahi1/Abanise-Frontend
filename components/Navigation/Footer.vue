@@ -7,7 +7,7 @@
        </a>
      </div>
     </div>
-  <footer class="  mt-10 bg-[#000100] text-[13px]  w-full ">
+  <footer class=" pt-10 bg-[#000100] text-[13px]  w-full ">
        <div class="flex md:flex-row flex-col  mx-auto  container justify-between items-center px-5 py-5">
           <p class=" whitespace-nowrap text-white">Get connected with us on socials network!</p>
           <div class="flex gap-3">

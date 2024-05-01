@@ -6,7 +6,7 @@
        <p  class=" message pl-5 text-2xl text-red-700  text-center text-">{{erromessage}}</p>
         <p  class=" message pl-5 text-2xl text-green-700 pb-9 text-center text-">{{message}}</p>
           
-      <form class="md:max-w-md  lg:max-w-md sm:w-full"  @submit.prevent="submit" action="">
+      <form class="md:max-w-md lg:max-w-md sm:w-full"  @submit.prevent="submit" action="">
         
            <div class="mb-5" >
               <div  class="flex  b drop-shadow-md  mt-2 ">  <input type="text" :class="erroremail ? ' border-secondary':'  border-primary '" @input="onInput" class="w-full focus:border-primary  h-[2.5rem]  px-5   outline-none font-normal    border-2 rounded-[5px] focus:border-primry" placeholder="Email " v-model="form.email"  ></div>

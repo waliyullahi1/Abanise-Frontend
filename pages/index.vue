@@ -146,8 +146,8 @@
                         rates
                         on airtime and data bundles (MTN, AIRTEL, GLO). </p>
                     <button
-                        class=" bg-primary text-white sm:w-1/2 w-2/3 rounded-3xl shadowsss  hover:bg-opacity-80 -2xl py-3  ">Click
-                        here to Sign Up</button>
+                        class=" bg-primary text-white sm:w-1/2 w-2/3 rounded-3xl shadowsss  hover:bg-opacity-80 -2xl py-3  "> <NuxtLink to="/Register"> Click
+                        here to Sign Up</NuxtLink></button>
                 </div>
 
                 <div class="grid md:grid-cols-2 grid-cols-2  md:gap-10 gap-3 justify-center ">
@@ -254,8 +254,9 @@
 
 
 
+        
+        <div class="w-full flex justify-center bg-[#f4f6f6] items-center">
         <Adsbygoogle />
-        <div class="w-full flex justify-center items-center">
             <button
                 class="bg-primary justify-center flex font-medium hover:bg-secondary ease-in-out duration-700 text-white rounded-xl text-[15px] gift py-2 px-4 ">
                 <!-- <NuxtLink to="/qiuz"> Click here to collect your year gift</NuxtLink> -->

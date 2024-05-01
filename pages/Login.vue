@@ -1,19 +1,21 @@
 <template>
-  <div class="h-screen   text-[poppins] bg2 w-full overflow-x-hidden ">
+  <div class="   text-[poppins] bg2 w-full overflow-x-hidden ">
 
-    <div class=" w-fit pt-20  bg h-screen shadow  ">
+    <div class=" md:w-2/5 sm:w-1/2   sm:pt-14 pt-8  bg    ">
 
-      <div class="md:max-w-1/2   lg:max-w-1/2 sm:max-w-md md:px-20 px-2  sm:w-full">
-        <div class="flex justify-center"> <navigation-logo></navigation-logo></div>
-        <h1 class="font-semibold text-xl font-sans  text-center ">Login in to your account to continue.</h1>
-        <p class=" message pl-5 text-xl text-red-700 pb-9 uppercase text-center text-">{{ erromessage }}</p>
+      <div class="  md:px-10  px-5 sm:w-full">
+        <div class="flex justify-center"> <img src="@/assets/image/login-image.png" alt=" login image" class="w-1/2">  </div>
+        <p class="font-semibold text-2xl font-sans  text-center ">Login</p>
+
+        <p class="font-semibold text-[15px] font-sans  text-center ">Enter your credential to get access</p>
+       
         <form class=" " @submit.prevent="submit" action="">
           <div class="">
-            <div class="flex input-containers    mt-2 ">
+            <div class="flex input-containers    mt-9 ">
               
               <input type="email" :class="state.erroremail ? ' border-secondary shake ' : '  border-primary  '"
                   @input="onInput"
-                  class="w-full focus:border-primary input-field drop-shadow-md  h-[2.5rem]  px-5   outline-none font-normal    border-2 rounded-[5px] focus:border-primry"
+                  class="w-full focus:border-primary input-field drop-shadow-md  h-[3rem]  px-5   outline-none font-normal    border border- rounded-[5px] focus:border-primry"
                   placeholder=" " v-model="state.form.email">
               
               <label for="name" class="input-label  text-slate-600 font-normal"> <span
@@ -22,28 +24,28 @@
 
             </div>
 
-            <p :class="state.erroremail ? 'flex' : 'hidden '" class=" absolute  text-red-700 text-['13rem']">
+            <p :class="state.erroremail ? 'flex' : 'hidden '" class="   text-red-700 text-['13rem']">
              Please enter your email properly</p>
           </div>
 
 
        
 
-          <div class="my-10 ">
+          <div class="mt-8 ">
 
 
             <div class="flex input-containers  b  border-primary  mt-2 ">
 
               <input :type="state.paswo" :class="state.errorpassword ? ' border-secondary shake ' : '  border-primary  '"
                   @input="onInput"
-                  class="w-full focus:border-primary input-field drop-shadow-md  h-[2.5rem]  px-5   outline-none font-normal    border-2 rounded-[5px] focus:border-primry"
+                  class="w-full focus:border-primary input-field drop-shadow-md   h-[3rem]  px-5   outline-none font-normal    border rounded-[5px] focus:border-primry"
                   placeholder=" " v-model="state.form.password">
              
               <label for="name" class="input-label  text-slate-600 font-normal"> <span
                   class=" py-0 px-1  bg-white Phone Number h-6 w-fit">Password</span> </label>
 
               <div class="w-0 h-1">
-                <toggle class="  relative top-3 right-5" @revealPassword="revealPassword"
+                <toggle class="  relative top-4 right-5" @revealPassword="revealPassword"
                   @hidePassword="hidePassword"> </toggle>
               </div>
             </div>
@@ -53,15 +55,20 @@
 
           </div>
 
-
+          <div class=" flex justify-end text-primary sm:text-[18px] text-[15px] my-3">
+             <router-link to="/Forget-Password"> Forget password?</router-link>
+          </div>
+         
+        
+          
+            <Button class=" " :loading="state.loadingState" @click="submit()" loadingText="Authenticating"> Login</Button>
+ 
       
-
-          <Button :loading="state.loadingState" @click="submit()" loadingText="Authenticating"> Login</Button>
-
+         
         </form>
 
-        <p class=" py-5 font-semibold">Dont have an account yet? <router-link class=" text-primary"
-            to="/Register">Register</router-link></p>
+        <p class=" flex  py-5 sm:text-[16px] text-[14px] ">Dont have an account yet? <router-link class="flex  text-primary"
+            to="/Register"> <img src="@/assets/image/maleuser.svg" alt="" class=" w-4">Register</router-link></p>
 
       </div>
     </div>
@@ -267,7 +274,7 @@ const submit = async () => {
 
 .input-field:focus+.input-label,
 .input-field:not(:placeholder-shown)+.input-label {
-  transform: translateY(-1.3rem);
+  transform: translateY(-1.5rem);
   font-size: 1rem;
   color: rgb(3, 3, 3);
 
@@ -277,7 +284,7 @@ const submit = async () => {
 
 .input-label {
   position: absolute;
-  bottom: -15px;
+  bottom: -10px;
   left: 0;
   height: 3rem;
   pointer-events: none;

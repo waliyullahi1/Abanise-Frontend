@@ -1,13 +1,13 @@
 <template>
-  <div class="h-screen  bg2   w-full overflow-x-hidden text-[poppins]">
+  <div class=" bg2   w-full overflow-x-hidden text-[poppins]">
 
-    <div class=" md:w-fit w-full bg md:pt-10 pt-5  h-fit  md:h-screen shadow     ">
+    <div class="md:w-3/5 sm:w-1/2   sm:pt-14 pt-8   ">
       <div class="md:max-w-1/2   lg:max-w-1/2sm:max-w-md px-2 md:px-20 sm:w-full ">
-        <div class="flex justify-center"> <navigation-logo></navigation-logo></div>
-        <h1 class="font-semibold text-xl font-sans  text-center ">Create an Account.</h1>
-        <p class=" message pl-5 text-[15px] text-red-700 uppercase  text-center text-">{{ state.erromessage }}</p>
-        <p class=" message pl-5 text-[15px] text-green-700  pb-9 text-center text-">{{ state.message }}</p>
+        <div class="flex justify-center"> <img src="@/assets/image/login-image.png" alt=" login image" class="w-1/3">  </div>
+        <p class="font-semibold text-2xl font-sans  text-center ">Login</p>
 
+        <p class="font-semibold text-[15px] font-sans  text-center ">Enter your credential to get access</p>
+       
         <form class="mx-" @submit.prevent="submit" action="">
 
 
@@ -18,7 +18,7 @@
               <div class="flex input-containers    mt-2 ">
                 <input type="username" :class="state.errorFirstname ? ' border-secondary shake  shake ' : '  border-primary  '"
                   @input="onInput"
-                  class="w-full focus:border-primary input-field drop-shadow-md  h-[2.5rem]  px-5   outline-none font-normal    border-2 rounded-[5px] focus:border-primry"
+                  class="w-full focus:border-primary input-field drop-shadow-md  h-[3rem]  px-5   outline-none font-normal    border rounded-[5px] focus:border-primry"
                   placeholder=" " v-model="state.form.firstname">
                 <label for="name" class="input-label  text-slate-600 font-normal"> <span
                     class=" py-0 px-1  bg-white h-6 w-fit">First
@@ -33,7 +33,7 @@
               <div class="flex input-containers    mt-2 ">
                 <input type="username" :class="state.errorLastname ? ' border-secondary shake ' : '  border-primary  '"
                   @input="onInput"
-                  class="w-full focus:border-primary input-field drop-shadow-md  h-[2.5rem]  px-5   outline-none font-normal    border-2 rounded-[5px] focus:border-primry"
+                  class="w-full focus:border-primary input-field drop-shadow-md  h-[3rem] px-5   outline-none font-normal    border rounded-[5px] focus:border-primry"
                   placeholder=" " v-model="state.form.lastname">
                 <label for="name" class="input-label  text-slate-600 font-normal"> <span
                     class=" py-0 px-1  bg-white h-6 w-fit">Last
@@ -50,7 +50,7 @@
             <div>
               <div class="flex w-full  input-containers border-primary  mt-2 "> <input type="text" @input="onInput"
                   :class="{ 'border-secondary shake': state.erroremail || state.erroremail1, 'border-gray-500': !state.erroremail && !state.erroremail1 }"
-                  class="w-full input-field  h-[2.5rem]  px-5   outline-none font-normal drop-shadow-md   border-2 rounded-[5px] focus:border-primary "
+                  class="w-full input-field  h-[3rem]  px-5   outline-none font-normal drop-shadow-md   border rounded-[5px] focus:border-primary "
                   placeholder=" " v-model="state.form.email">
                 <label for="name" class="input-label  text-slate-600 font-normal"> <span
                     class=" py-0 px-1  bg-white h-6 w-fit">Email</span> </label>
@@ -66,7 +66,7 @@
               <div class="flex input-containers    mt-2 ">
                 <input type="username" :class="state.errorphone ? ' border-secondary shake ' : '  border-primary  '"
                   @input="onInput"
-                  class="w-full focus:border-primary input-field drop-shadow-md  h-[2.5rem]  px-5   outline-none font-normal    border-2 rounded-[5px] focus:border-primry"
+                  class="w-full focus:border-primary input-field drop-shadow-md  h-[3rem]  px-5   outline-none font-normal    border rounded-[5px] focus:border-primry"
                   placeholder=" " v-model="state.form.phone">
                 <label for="name" class="input-label  text-slate-600 font-normal"> <span
                     class=" py-0 px-1  bg-white h-6 w-fit">Phone Number</span> </label>
@@ -83,7 +83,7 @@
               <div class="flex input-containers  b  border-primary  mt-2 ">
                 <input :type="state.password" :class="state.errorpassword ? ' border-secondary shake ' : '  border-primary  '"
                   @input="onInput"
-                  class="w-full focus:border-primary input-field drop-shadow-md  h-[2.5rem]  px-5   outline-none font-normal    border-2 rounded-[5px] focus:border-primry"
+                  class="w-full focus:border-primary input-field drop-shadow-md  h-[3rem]  px-5   outline-none font-normal    border rounded-[5px] focus:border-primry"
                   placeholder=" " v-model="state.form.password">
                
                 <label for="name" class="input-label  text-slate-600 font-normal"> <span
@@ -103,7 +103,7 @@
               <div class="flex input-containers  b border-primary  mt-2 ">
                 <input :type="state.comfirmpassword" :class="state.errorconfirmpassword ? ' border-secondary shake ' : '  border-primary  '"
                   @input="onInput"
-                  class="w-full focus:border-primary input-field drop-shadow-md  h-[2.5rem]  px-5   outline-none font-normal    border-2 rounded-[5px] focus:border-primry"
+                  class="w-full focus:border-primary input-field drop-shadow-md  h-[3rem]  px-5   outline-none font-normal    border rounded-[5px] focus:border-primry"
                   placeholder=" " v-model="state.form.comfirmpassword">
                
 
@@ -135,7 +135,7 @@
                   placeholder=" " v-model="state.form.transactionCode"> -->
 
               <input :type="state.transaction" @input="onInput"
-              class="w-full focus:border-primary border-gray-700 input-field drop-shadow-md  h-[2.5rem]  px-5   outline-none font-normal    border-2 rounded-[5px] focus:border-primry"
+              class="w-full focus:border-primary border-gray-700 input-field drop-shadow-md h-[3rem]  px-5   outline-none font-normal    border rounded-[5px] focus:border-primry"
                 placeholder=" " v-model="state.form.transactionCode" :class="state.errortransactionCode ? ' border-secondary shake ' : '  border-primary  '">
               <label for="name" class="input-label  text-slate-600 font-normal"> <span
                   class=" py-0 px-1  bg-white Phone Number h-6 w-fit">Transaction code </span> </label>
