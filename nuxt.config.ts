@@ -130,6 +130,13 @@ export default defineNuxtConfig({
   plugins: [
     
   ],
+
+  ui: {
+    notifications: {
+      // Show toasts at the top right of the screen
+      position: 'top-0 bottom-auto'
+    }
+  }
   // googleAdsense: {
   //   id: 'ca-pub-8150576152002690'
   // }
