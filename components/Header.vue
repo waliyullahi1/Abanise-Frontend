@@ -30,16 +30,16 @@
           :class="rotate ? 'translate-x-32' : 'translate-x-[30rem]'">
           <ul @click=" this.rotate = true"
             class=" lg:bg-transparent bg-primary px-5 lg:px-0  h-screen lg:h-4 justify-start  lg:justify-center lg:flex-row flex-col flex klg:mt-5 mt-0 lg:gap-5 gap-4">
-            <li
-              class=" font-semibold md:hover:border-b mt-10 lg:mt-0 boder border-transparent hover:text-secondary transform duration-200 ease-in-out  text-white">
+            <li class=" font-semibold md:hover:border-b mt-10 lg:mt-0 boder border-transparent hover:text-secondary transform duration-200 ease-in-out  text-white">
               <router-link to="/">Home</router-link></li>
-            <p
-              class=" font-semibold   text-white text-hover:border-b boder border-transparent hover:text-secondary transform duration-200 ease-in-out ">
-              <a href="#ScratchCards">Cards</a></p>
+             
+              <li  class=" font-semibold   text-white  hover:border-b boder border-transparent hover:text-secondary transform duration-200 ease-in-out ">
+              <nuxt-link :to="{ path: '/', hash: '#ScratchCards' }">Cards</nuxt-link>
 
+            </li>
             <li @click=" transc()"
               class=" font-semibold   text-white  hover:border-b boder border-transparent hover:text-secondary transform duration-200 ease-in-out ">
-              <h1> <a href="https://news.abaniseedu.com/"></a>News</h1>
+              <h1> <a href="https://news.abaniseedu.com/">News</a></h1>
             </li>
 
             <div
@@ -48,7 +48,7 @@
 
             <li
               class=" font-semibold  text-white  hover:border-b boder border-transparent hover:text-secondary transform duration-200 ease-in-out ">
-              <a href="#how">How it work</a></li>
+                <nuxt-link :to="{ path: '/', hash: '#how' }">How it work</nuxt-link></li>
 
             <li
               class=" font-semibold  text-white hover:border-b boder border-transparent hover:text-secondary transform duration-200 ease-in-out ">

@@ -35,7 +35,7 @@
                     <a href="#section" class=" hover:text-secondary  w-fit "><router-link to="/1/Waec/result%20checker">Waec scratch card</router-link> </a>
                       <a href="#section" class=" hover:text-secondary  w-fit "><router-link to="/4/GCEWAEC/result%20checker">Waec GCE epin</router-link></a>
                      <a href="#section" class=" hover:text-secondary  w-fit "><router-link to="/2/Neco/result%20checker">Neco scratch card</router-link> </a>
-                       <a href="#section" class=" hover:text-secondary  w-fit ">Nabteb scratch card </a>
+                       <a href="#section" class=" hover:text-secondary  w-fit "> <router-link to="/3/Nabteb/result%20checkerNabteb">Nabteb scratch card</router-link></a>
                          <a href="#section" class=" hover:text-secondary  w-fit ">Nabteb GCE Epin </a>
                 </div>
            </div>

@@ -85,7 +85,7 @@
         </section>
 
 
-        <section id="ScratchCards" class="w-[80%]  mt-2  mx-auto">
+        <section id="ScratchCards" class="sm:w-[80%] w-[90%]  mb-10 mt-2  mx-auto">
             <marquee behavior="scroll" direction="left" scrollamount=""
                 class=" text-sm md:text-[13px] font-bold w-full font-bo text-primary "><span>IF YOU WANT TO PROCESS YOUR
                     ADDMISSION TO ANY UNIVERSITY OR POLYTECHNIC KINDLY MESSAGE THIS WHATSAPP NUMBER 07068393706 </span>
@@ -99,22 +99,21 @@
                         INSTANTLY </h2>
 
                 </div>
-                <div class="grid md:grid-cols-2  lg:grid-cols-3 sm:grid-cols-2  grid-cols-1 gap-4 md:gap-5 px-10 ">
+                <div
+                    class="grid md:grid-cols-2  lg:grid-cols-3 sm:grid-cols-2  grid-cols-1 gap-4 md:gap-5 px-2 sm:px-10 ">
                     <div v-for="item in item" :key="item.id"
-                        class=" group shadow border-primary w-full overflow-hidden  h-fit flex flex-col gap-3 ">
-                        <div
-                            class="w-full  group-hover:drop-shadow-xl  duration-700  pt-3 px-3 overflow-hidden ">
-                            <div class="overflow-hidden duration-700   "> <img v-bind:src="item.image"
-                                    class="" /></div>
+                        class=" group shadow  rounded-lg border-primary w-full overflow-hidden  h-fit flex flex-col gap-3 ">
+                        <div class="w-full  group-hover:drop-shadow-xl  duration-700  pt-3 px-3 overflow-hidden ">
+                            <div class="overflow-hidden duration-700   "> <img v-bind:src="item.image" class="rounded-lg" /></div>
 
                         </div>
                         <div class=" flex py-3 px-3 flex-col gap-3 border-primary transform duration-300">
-                            <div class=" group-hover:w-full w-1 duration-500 h-1 bg-primary"></div>
+                            <div class=" group-hover:w-full w-1/4 duration-500 h-1 bg-secondary"></div>
                             <p class="sm:text-[17px] text-[15px] "><span>{{ item.card }}</span> {{ item.header }} <span
                                     class="sm:text-[17px] text-[15px] font-sebold">({{ item.condition }})</span></p>
                             <div class="flex  justify-between">
                                 <p class="text-[17px] ">Price</p>
-                              
+
                                 <p class="font-semibold font-lg ">₦{{ item.price }}</p>
                             </div>
                             <p class="flex justify-between font-font-[17px] ">Availability(status) <span
@@ -138,50 +137,62 @@
         <section class="py-5 px-3  bg-[url('@/assets/image/bgdata.png')] bg-cover bg-['@']">
             <div class="container  mx-auto my-20 gap-5  md:flex justify-center block  ">
                 <div class=" md:w-1/2 w-full py-5">
-                    <h2 class=" md:text-[45px] text-[32px]  leading-[40px]  sm:leading-[55px]"> <strong class=" text-secondary">Buy your</strong> <br class=" md:block hidden">  Airtime <strong class=" text-secondary">and</strong>  data <br class="md:block hidden">bundle with  affordable prices 
+                    <h2 class=" md:text-[45px] text-[32px]  leading-[40px]  sm:leading-[55px]"> <strong
+                            class=" text-secondary">Buy your</strong> <br class=" md:block hidden"> Airtime <strong
+                            class=" text-secondary">and</strong> data <br class="md:block hidden">bundle with affordable
+                        prices
                     </h2>
-                    <p class="md:text-xl text-[1px]  px-2 py-5 font-normal ">Join millions satisfied with our affordable rates on airtime and data bundles (MTN, AIRTEL, GLO).  </p>
-                    <button class=" bg-primary text-white sm:w-1/2 w-2/3 rounded-3xl shadowsss  hover:bg-opacity-80 -2xl py-3  ">Click here to Sign Up</button>
+                    <p class="md:text-xl text-[1px]  px-2 py-5 font-normal ">Join millions satisfied with our affordable
+                        rates
+                        on airtime and data bundles (MTN, AIRTEL, GLO). </p>
+                    <button
+                        class=" bg-primary text-white sm:w-1/2 w-2/3 rounded-3xl shadowsss  hover:bg-opacity-80 -2xl py-3  ">Click
+                        here to Sign Up</button>
                 </div>
 
                 <div class="grid md:grid-cols-2 grid-cols-2  md:gap-10 gap-3 justify-center ">
                     <div class="flex  rounded-2xl  w-fit h-fit py-4 shadowss flex-col justify-center items-center">
                         <div class="shadowss rounded-full overflow-hidden bg-white py-1 px-1 w-fit md:w-fit"><img
-                                src="@/assets/image/mtn.png" alt="mtn logo" class="sm:w-[5rem] rounded-full  w-[4rem]"></div>
+                                src="@/assets/image/mtn.png" alt="mtn logo" class="sm:w-[5rem] rounded-full  w-[4rem]">
+                        </div>
                         <div class="e w-fit mt-3 py-2 px-3">
                             <h2 class="  text-center font-semibold   text-[14px]">MTN airtime and data</h2>
-                           
+
                         </div>
                     </div>
 
                     <div class="flex  rounded-2xl  w-fit h-fit py-4 shadowss flex-col justify-center items-center">
                         <div class="shadowss rounded-full overflow-hidden bg-white py-1 px-1 w-fit md:w-fit"><img
-                                src="@/assets/image/airtel.png" alt="mtn logo" class="sm:w-[5rem] rounded-full  w-[4rem]"></div>
+                                src="@/assets/image/airtel.png" alt="mtn logo"
+                                class="sm:w-[5rem] rounded-full  w-[4rem]"></div>
                         <div class="e w-fit mt-3 py-2 px-3">
                             <h2 class="  text-center font-semibold   text-[14px]">Airtel airtime and data</h2>
-                           
+
                         </div>
                     </div>
 
                     <div class="flex  rounded-2xl  w-fit h-fit py-4 shadowss flex-col justify-center items-center">
                         <div class="shadowss rounded-full overflow-hidden bg-white py-1 px-1 w-fit md:w-fit"><img
-                                src="@/assets/image/9mobile.png" alt="mtn logo" class="sm:w-[5rem] rounded-full  w-[4rem]"></div>
+                                src="@/assets/image/9mobile.png" alt="mtn logo"
+                                class="sm:w-[5rem] rounded-full  w-[4rem]">
+                        </div>
                         <div class="e w-fit mt-3 py-2 px-3">
                             <h2 class="  text-center font-semibold   text-[14px]">9mobile airtime and data</h2>
-                           
-                        </div>
-                    </div>
-                    
-                    <div class="flex  rounded-2xl  w-fit h-fit py-4 shadowss flex-col justify-center items-center">
-                        <div class="shadowss rounded-full overflow-hidden bg-white py-1 px-1 w-fit md:w-fit"><img
-                                src="@/assets/image/glo.png" alt="mtn logo" class="sm:w-[5rem] rounded-full  w-[4rem]"></div>
-                        <div class="e w-fit mt-3 py-2 px-3">
-                            <h2 class="  text-center font-semibold   text-[14px]">Glo airtime and data</h2>
-                           
+
                         </div>
                     </div>
 
-                  
+                    <div class="flex  rounded-2xl  w-fit h-fit py-4 shadowss flex-col justify-center items-center">
+                        <div class="shadowss rounded-full overflow-hidden bg-white py-1 px-1 w-fit md:w-fit"><img
+                                src="@/assets/image/glo.png" alt="mtn logo" class="sm:w-[5rem] rounded-full  w-[4rem]">
+                        </div>
+                        <div class="e w-fit mt-3 py-2 px-3">
+                            <h2 class="  text-center font-semibold   text-[14px]">Glo airtime and data</h2>
+
+                        </div>
+                    </div>
+
+
 
                 </div>
             </div>
@@ -189,43 +200,52 @@
 
 
         <section id="how" class="bg-[#f4f6f6] w-full">
-            <div class=" w-[80%]  mx-auto py-20 ">
+            <div class=" sm:w-[80%]  w-[90%] mx-auto py-20 ">
                 <h2 class="md:text-3xl text-xl text-primary font-bold text-center ">How it is works</h2>
-                <h2 class="md:text-xl text-sm  px-2 font-normal text-center pb-5">Start purchasing cards now. It’s easy, secure and
+                <h2 class="md:text-xl text-[15px]   px-2 font-normal text-center pb-5">Start purchasing cards now. It’s
+                    easy,
+                    secure and
                     takes
                     only a few minutes!</h2>
 
                 <div class="w-full grid grid-cols-1 sm:px-5 px-11 sm:grid-cols-3 mt-4 gap-6">
-                    <div class="c shadow-lg rounded-2xl py-4 px-4 flex  gap-4 justify-center items-center flex-col ">
+                    <div class="c  shadowss rounded-2xl py-4 px-4 flex  gap-4 justify-center items-center flex-col ">
 
-                        <div><img class="bg w-20 bg-primary py-4 px-4 rounded-full " src="@/assets/image/card1.svg"
-                                alt="Select Card type & number of pins"></div>
-                        <h2 class="text-3xl text-secondary font-mermaid">1</h2>
-                        <p class=" text-xl text-center font-semibold ">Select Card type <br> & number of pins</p>
-                        <p class=" text-[15px] text-center">Start by selecting the card you want to purchase from the
+                        <div><img class="bg w-16 sm:w-20  shadowss py-4 px-4 rounded-full "
+                                src="@/assets/image/card1.svg" alt="Select Card type & number of pins"></div>
+                        <h2 class="text-2xl  "> <strong>1</strong></h2>
+                        <p class=" sm:text-xl text-secondary text-[16px]  text-center font-semibold "> Select card type & quantity</p>
+                        <p class=" sm:text-[15px] text-[13px] text-center">Start by selecting the card you want to
+                            purchase from
+                            the
                             above
                             list, then select the number of pins in next page </p>
                     </div>
-                    <div class="c shadow-lg rounded-2xl py-4 px-4 flex  gap-4 justify-center items-center flex-col ">
+                    <div class="c shadowss rounded-2xl py-4 px-4 flex  gap-4 justify-center items-center flex-col ">
 
-                        <div><img class="bg-  w-20 bg-primary py-4 px-4 rounded-full " src="@/assets/image/payment.svg"
-                                alt="Make Payment"></div>
-                        <h2 class="text-3xl text-secondary font-mermaid">2</h2>
-                        <p class=" text-xl text-center font-semibold ">Make Payment <br> </p>
-                        <p class=" text-[15px]  text-center">We partnered with Paystack to make your payment process
+                        <div><img class="bg w-16 sm:w-20  shadowss py-4 px-4 rounded-full"
+                                src="@/assets/image/payment.svg" alt="Make Payment"></div>
+
+                        <h2 class="text-2xl "> <strong>2</strong></h2>
+                        <p class=" sm:text-xl text-secondary text-[16px]  text-center font-semibold ">Make Payment <br> </p>
+                        <p class="  sm:text-[15px] text-[13px] text-center">We partnered with Paystack to make your
+                            payment
+                            process
                             fast
                             and secure. </p>
                     </div>
-                    <div class="c shadow-lg rounded-2xl py-4 px-4 flex  gap-4 justify-center items-center flex-col ">
 
-                        <div><img class="bg-  w-20 bg-primary py-4 px-4 rounded-full " src="@/assets/image/token.svg"
-                                alt="">
-                        </div>
-                        <h2 class="text-3xl text-secondary font-mermaid">3</h2>
-                        <p class=" text-xl text-center font-semibold ">Receive Tokens Instantly <br> </p>
-                        <p class=" text-[15px]  text-center">Immediately after your payment, if successful,you will be
+                    <div class="c shadowss rounded-2xl py-4 px-4 flex  gap-4 justify-center items-center flex-col ">
+
+                        <div><img class="bg w-16 sm:w-20  shadowss py-4 px-4 rounded-full"
+                                src="@/assets/image/receipt.svg" alt="Make Payment"></div>
+
+                        <h2 class="text-2xl  "> <strong>3</strong></h2>
+                        <p class=" sm:text-xl text-[16px] text-secondary text-center font-semibold ">Receive Tokens Instantly </p>
+                        <p class="  sm:text-[15px] text-[13px] text-center">Immediately after your payment, if successful,you will be
                             direct to another page automatically to copy you token. </p>
                     </div>
+                   
                 </div>
             </div>
         </section>
@@ -696,13 +716,18 @@ export default {
 .carousel__slide {
     padding: 0px;
 }
- .shadowss {
+
+.shadowss {
     box-shadow: -9.1159px -18.2318px 24.3091px #fff, 9.1159px 18.2318px 24.3091px #eceef1;
- }
-.shadowsss{
- box-shadow: 0 18.2571px 21.6157px -15.9059px #00712b;
 }
 
+.shadowsss {
+    box-shadow: 0 18.2571px 21.6157px -15.9059px #00712b;
+}
+
+.shadowssss {
+    box-shadow: 0 18.2571px 21.6157px -15.9059px #ff0000;
+}
 
 /* @import '~/assets/main.css'; */
 /* .carousel__item {
