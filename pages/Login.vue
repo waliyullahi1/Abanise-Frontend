@@ -235,7 +235,7 @@ const submit = async () => {
         title: "successful",
         text: data.success,
       });
-      console.log('Success:', data);
+     
       setTimeout(() => {
         router.push('/user/Dashboard')
         state.loadingState = false
