@@ -67,7 +67,7 @@
          
         </form>
 
-        <p class=" flex  py-5 sm:text-[16px] text-[14px] ">Dont have an account yet? <router-link class="flex  text-primary"
+        <p class=" flex gap-1  py-5 sm:text-[16px] text-[14px] ">Dont have an account yet? <router-link class="flex  gap-1 text-primary"
             to="/Register"> <img src="@/assets/image/maleuser.svg" alt="" class=" w-4">Register</router-link></p>
 
       </div>

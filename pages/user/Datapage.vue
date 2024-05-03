@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-100 text-[poppins]">
+  <div class="bg-[#f4f6f6] text-[poppins]">
     <div>
       <Dashboardbtn :datapage="true" class="w-full"></Dashboardbtn>
       <SucessTemplate :status="status" :statusreport="statusreport" :transacicon='transacicon'
@@ -29,12 +29,13 @@
               <div v-for="(field, index) in formFields" :key="index">
                 <div class="flex bg-white flex-col">
                   <label :for="field.name" class="text-primary mb- ml-4 text-[15px]">{{ field.label }}</label>
-                  <select :id="field.name" v-model="formValues[field.name]" @input="onInput" :class="
+                  
+                  <select :id="field.name" v-model="formValues[field.name]"   :class="
                     field.errorselection
                       ? ' border-secondary'
                       : '  border-gray-300 '
                   "
-                    class="w-full px-2 font-seibold rounded-[.2rem] ml-2 text-[15px] outline-none focus:border-primary border py-[.3rem]">
+                   class="w-full px-2 font-seibold rounded-[.2rem] ml-2 text-[15px] outline-none focus:border-primary border-gray-100 border py-[.3rem]">
                     <option v-for="(option, index) in getOptions(field)" :key="index" :value="option.value">
                       {{ option.text }}
                     </option>
@@ -46,14 +47,13 @@
               </div>
 
               <div class="flex bg-white flex-col">
-                <label for="" class="text-primary ml-4 text-[15px]">Recipients</label>
+                <label for="" class="text-primary font-medium ml-4 text-[15px]">Recipients</label>
 
-                <div class="drop-shadow-md mt-">
+                <div class=" mt-">
                   <input type="number" v-model="form.phone" :class="
                     errorphone ? ' border-secondary' : ' border-gray-300 '
                   " @input="onInput"
-                    class="w-full px-2 font-seibold rounded-[.2rem] ml-2 text-[17px] outline-none focus:border-primary border-gray-100 border py-[.2rem]"
-                    placeholder="Recipients" />
+                  class="w-full px-2 font-seibold rounded-[.2rem] ml-2 text-[15px] outline-none focus:border-primary border-gray-100 border py-[.3rem]"                    placeholder="Recipients" />
                   <p :class="errorphone ? 'flex' : 'hidden '" class="e pl-5 text-red-700 text-[13px]">
                     please enter correct phone
                   </p>
@@ -232,7 +232,7 @@ throw new Error(errorData.message);
           errorselection: false,
           message: "please select network",
           options: [
-            { value: "network", text: "network" },
+            { value: "network", text: "Network" },
             { value: "MTN", text: "MTN" },
             { value: "GLO", text: "GLO" },
             { value: "Airtel", text: "Airtel" },
@@ -258,40 +258,40 @@ throw new Error(errorData.message);
           { value: 2000, text: "Select data Type", plan: "" },
           {
             value: 3000,
-            text: "corporate100mb - ₦155 - 1Month",
+            text: "Corporate100mb - ₦155 - 1Month",
             plan: 173,
 
           },
           {
             value: 4000,
-            text: "corporate200mb - ₦80 - 1Month",
+            text: "Corporate200mb - ₦80 - 1Month",
             plan: 172,
 
           },
 
           {
             value: 5000,
-            text: "corporate1GB - ₦250 - 1Month",
+            text: "Corporate1GB - ₦250 - 1Month",
             plan: 174,
 
           },
           {
             value: 6000,
-            text: "corporate2GB - ₦500 - 1Month",
+            text: "Corporate2GB - ₦500 - 1Month",
             plan: 175,
 
           },
 
           {
             value: 7000,
-            text: "corporate3GB - ₦750 - 1Month",
+            text: "Corporate3GB - ₦750 - 1Month",
             plan: 176,
 
           },
 
           {
             value: 8000,
-            text: "corporate5GB - ₦1250 - 1Month",
+            text: "Corporate5GB - ₦1250 - 1Month",
             plan: 177,
 
           },
@@ -339,45 +339,45 @@ throw new Error(errorData.message);
             plan: 168,
 
           },
-          //Mtn corporate data 
+          //Mtn Corporate data 
 
           {
             value: 40000,
-            text: "corporate500MB - ₦135 - 1 Month",
+            text: "Corporate500MB - ₦135 - 1 Month",
             plan: 13,
 
           },
           {
             value: 9000,
-            text: "corporate1GB - ₦280 - 1 Month",
+            text: "Corporate1GB - ₦280 - 1 Month",
             plan: 14,
 
           },
 
           {
             value: 10000,
-            text: "corporate2GB - ₦560 - 1 Month",
+            text: "Corporate2GB - ₦560 - 1 Month",
             plan: 15,
 
           },
 
           {
             value: 20000,
-            text: "corporate3GB - ₦840 - 1 Month",
+            text: "Corporate3GB - ₦840 - 1 Month",
             plan: 16,
 
           },
 
           {
             value: 30000,
-            text: "corporate5GB - ₦1400 - 1 Month",
+            text: "Corporate5GB - ₦1400 - 1 Month",
             plan: 17,
 
           },
 
           {
             value: 40000,
-            text: "corporate10GB - ₦2780 - 1 Month",
+            text: "Corporate10GB - ₦2780 - 1 Month",
             plan: 18,
 
           },
@@ -386,19 +386,19 @@ throw new Error(errorData.message);
           { value: 2000, text: "Select data Type", plan: "" },
           {
             value: 3000,
-            text: "corporate100mb - ₦55 - 7DAYS",
+            text: "Corporate100mb - ₦55 - 7DAYS",
             plan: 157,
 
           },
           {
             value: 5000,
-            text: "corporate300mb - ₦100 - 1Month",
+            text: "Corporate300mb - ₦100 - 1Month",
             plan: 158,
 
           },
           {
             value: 4000,
-            text: "corporate1GB - ₦250 - 1Month",
+            text: "Corporate1GB - ₦250 - 1Month",
             plan: 160,
 
           },
@@ -406,21 +406,21 @@ throw new Error(errorData.message);
 
           {
             value: 6000,
-            text: "corporate2GB - ₦500 - 1Month",
+            text: "Corporate2GB - ₦500 - 1Month",
             plan: 161,
 
           },
 
           {
             value: 7000,
-            text: "corporate500mb - ₦150 - 1Month",
+            text: "Corporate500mb - ₦150 - 1Month",
             plan: 159,
 
           },
 
           {
             value: 8000,
-            text: "corporate5GB - ₦1250 - 1Month",
+            text: "Corporate5GB - ₦1250 - 1Month",
             plan: 162,
 
           },
@@ -477,38 +477,38 @@ throw new Error(errorData.message);
             plan: 104,
 
           },
-          //ninimobile corporate data 
+          //ninimobile Corporate data 
 
           {
             value: 40000,
-            text: "corporate500MB - ₦150 - 1 Month",
+            text: "Corporate500MB - ₦150 - 1 Month",
             plan: 179,
 
           },
           {
             value: 9000,
-            text: "corporate1GB - ₦160 - 1 Month",
+            text: "Corporate1GB - ₦160 - 1 Month",
             plan: 180,
 
           },
 
           {
             value: 10000,
-            text: "corporate2GB - ₦320 - 1 Month",
+            text: "Corporate2GB - ₦320 - 1 Month",
             plan: 181,
 
           },
 
           {
             value: 20000,
-            text: "corporate3GB - ₦480 - 1 Month",
+            text: "Corporate3GB - ₦480 - 1 Month",
             plan: 182,
 
           },
 
           {
             value: 30000,
-            text: "corporate5GB - ₦800 - 1 Month",
+            text: "Corporate5GB - ₦800 - 1 Month",
             plan: 184,
 
           },

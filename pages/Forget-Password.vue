@@ -27,14 +27,14 @@
             <p :class="state.erroremail ? 'flex' : 'hidden '" class="   text-red-700 text-['13rem']">
              Please enter your email properly</p>
           </div>
-            <Button class=" " :loading="state.loadingState" @click="submit()" loadingText="Authenticating"> Login</Button>
+            <Button class=" " :loading="state.loadingState" @click="submit()" loadingText="Authenticating"> submit</Button>
  
       
          
         </form>
 
-        <p class=" flex  py-5 sm:text-[16px] text-[14px] ">Dont have an account yet? <router-link class="flex  text-primary"
-            to="/Register"> <img src="@/assets/image/maleuser.svg" alt="" class=" w-4">Register</router-link></p>
+        <p class=" flex gap-2  py-5 sm:text-[16px] text-[14px] ">Already have an Account? <router-link class="flex  text-primary"
+            to="/Login"> <img src="@/assets/image/maleuser.svg" alt="" class=" w-4">Login</router-link></p>
 
       </div>
     </div>
@@ -162,7 +162,7 @@ const submit = async () => {
       setTimeout(() => {
         router.push('/login')
         state.loadingState = false
-      }, 10);
+      }, 1000);
     } catch (error) {
       console.log(error)
     }

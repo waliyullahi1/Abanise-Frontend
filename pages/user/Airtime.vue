@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-100 text-[poppins]">
+  <div class="bg-[#f4f6f6] text-[poppins]">
     <div>
      
        <SucessTemplate :statusreport="statusreport" :status="status" :transacicon='transacicon'  :transacmessage="transacmessage" :messagetransaction="messagetransaction" @next="next"   class="w-full"></SucessTemplate>

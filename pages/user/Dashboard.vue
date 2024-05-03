@@ -1,5 +1,5 @@
 <template>
-  <div class="await foundUser.save()">
+  <div class="bg-[#f4f6f6] w-full">
     <Dashboardbtn :dashboard="true" class="w-full text-[poppins]"></Dashboardbtn>
     <div class=" flex bg-gray-200 gap-5">
       <div class=" w-1/4 hidden md:block border-4"></div>

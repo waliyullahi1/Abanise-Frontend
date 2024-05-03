@@ -1,5 +1,5 @@
 <template>
-  <NuxtNotifications position="top right" :speed="5000" />
+  <NuxtNotifications position="top right" :speed="500" />
   <NuxtLayout>
     <NuxtPage/>
   </NuxtLayout>

@@ -137,7 +137,7 @@
                     <div
                       class="lg:text-primary w-5 md:text-wite text-wite"
                     ></div>
-                    <p   class="font-semibold">Found With Bank Transfer</p>
+                    <p   class="font-semibold">Fund With Bank Transfer</p>
                   </div>
                 </div>
               </NuxtLink>
@@ -150,7 +150,7 @@
                     <div
                       class="lg:text-primary w-5 md:text-wite text-wite"
                     ></div>
-                    <p :class="fundhistory?'text-white':'text-primary  '"  class="group-hover:text-white font-semibold">Found History</p>
+                    <p :class="fundhistory?'text-white':'text-primary  '"  class="group-hover:text-white font-semibold">Fund History</p>
                   </div>
                 </div>
               </NuxtLink>

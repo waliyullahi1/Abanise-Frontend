@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-100 text-[poppins] h-fit ">
+  <div class="bg-[#f4f6f6] text-[poppins] h-fit ">
     <div>
       <Dashboardbtn :transactionreport="true"  class="w-full hiden "></Dashboardbtn>
       <div class="w-full h-[5.5rem] bg-secondary"></div>
@@ -74,6 +74,7 @@ export default {
  if (!response.ok) {
    const errorData = await response.json();
   this.erromessage = errorData.message;
+  router.push('/login')
    throw new Error(errorData.message);
    
  }
@@ -163,7 +164,6 @@ export default {
 
 created: async function(){
   
- 
     const response = await fetch('https://api-abanise-five.vercel.app/transaction',{
       method : "GET",
       headers: {'Content-Type':'application/json'},
@@ -177,9 +177,10 @@ created: async function(){
     throw new Error(errorData.message);
     
   }
- 
-  const data = await response.json();
-  console.log('Success:', data);
+  console.log(response.json);
+  const firstsdata = await response.json();
+  const data =  firstsdata.reverse()
+
    this.data = data
  
   //  this.user.wallet =data.foundUser.walletBalance

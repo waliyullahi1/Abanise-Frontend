@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-100 text-[poppins] h-fit ">
+  <div class="bg-[#f4f6f6] text-[poppins] h-fit ">
     <div>
       <Dashboardbtn :Wallet="true" :fundhistory="true"  class="w-full hiden "></Dashboardbtn>
       <div class="w-full h-[5.5rem] bg-secondary"></div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="text-[poppins]">
+  <div class=" bg-[#f4f6f6] text-[poppins]">
     <Dashboardbtn :scratchcards="true" class="t"></Dashboardbtn>
     <div class="h-[7rem] w-full"></div>
     <div class="flex gap-10">

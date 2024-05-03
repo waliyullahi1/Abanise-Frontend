@@ -199,7 +199,7 @@
         </section>
 
 
-        <section id="how" class="bg-[#f4f6f6] w-full">
+        <section id="how" class="await bg-[#f4f6f6] w-full">
             <div class=" sm:w-[80%]  w-[90%] mx-auto py-20 ">
                 <h2 class="md:text-3xl text-xl text-primary font-bold text-center ">How it is works</h2>
                 <h2 class="md:text-xl text-[15px]   px-2 font-normal text-center pb-5">Start purchasing cards now. It’s

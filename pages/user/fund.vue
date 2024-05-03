@@ -1,6 +1,6 @@
 
 <template>
-  <div>
+  <div class="bg-[#f4f6f6]">
      <Dashboardbtn :Wallet="true" :fund="true" @logout="logout" class=" text-[poppins] w-full hiddn "></Dashboardbtn>
      <div class="w-full h-[5.5rem] bg-secondary"></div>
     <div  class="flex mt-10 gap-10 ">
