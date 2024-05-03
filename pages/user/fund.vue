@@ -15,7 +15,7 @@
                 <p class="font-normal text-[15px] ">{{user.account_number}}</p>
             </div>
              <div class="flex gap-1 pl-5">
-              copy<small class="font-semibold text- text-sm gap-1 flex text-gray-800">abaniseedu.com copy 2023</small></div>
+            <small class="font-semibold text- text-sm gap-1 flex text-gray-800">abaniseedu.com copy 2023</small></div>
             </div>
         </div>
        <NavigationLoadingJs :isJsFinishedRun="isJsFinishedRun" > </NavigationLoadingJs>
