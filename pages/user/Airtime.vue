@@ -37,7 +37,7 @@
                   v-model="form.network"
                   class="w-full px-2 font-seibold rounded-[.2rem] ml-2 text-[15px] outline-none focus:border-primary border-gray-100 border py-[.3rem]"
                   placeholder="Password"
-                  @input="onInput"
+                
                 >
                   <option value="MTN">MTN</option>
                   <option value="GLO">GLO</option>
@@ -275,6 +275,7 @@ export default {
       transacmessage:true,
       messagetransaction:'',
       status:'',
+      transacicon:'',
         statusreport:false,
             message: "",
       errortransactionCode: "",

@@ -27,7 +27,7 @@
       <div class="h-28 w-8"></div>
 
       <NuxtLink class="group " to="/user/Dashboard">
-        <div :class="dashboard?'bg-primary':' bg-white'" class="px-3 group  duration-500 py-2 group-hover:bg-primary ">
+        <div :class="dashboard?'bg-primary':' bg-white'" class="px-3 group  duration-500 py-2 group-hover:bg-secondary ">
           <div :class="dashboard?'text-white':'text-primary '" class="flex gap-5 group-hover:text-white items-center">
             <div :class="dashboard?'text-white':'text-primary '" class="w-5 group-hover:text-white ">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -36,7 +36,7 @@
            
             </div>
             
-            <p class="font-semibold">Dashboard</p>
+            <p class="font-semibold ">Dashboard</p>
           </div>
         </div>
       </NuxtLink>
@@ -45,7 +45,7 @@
         <div class="flex flex-col gap-">
           <div>
             <NuxtLink  class="group "  to="/user/scratch">
-              <div :class="scratchcards?'bg-primary':' bg-white'"  class="px-3 group duration-500 py-2 group-hover:bg-primary ">
+              <div :class="scratchcards?'bg-primary':' bg-white'"  class="px-3 group duration-500 py-2 group-hover:bg-secondary ">
                 <div :class="scratchcards?'text-white':'text-primary '"  class="flex items-center group-hover:text-white  gap-5">
                   <div :class="scratchcards?'text-white':'text-primary '" class=" w-5 group-hover:text-white md:text-wite ">
                     <svg
@@ -66,7 +66,7 @@
 
           <div>
             <NuxtLink  class="group "   to="/user/Datapage">
-              <div :class="datapage?'bg-primary':' bg-white'" class="px-3 group duration-500 py-2 group-hover:bg-primary ">
+              <div :class="datapage?'bg-primary':' bg-white'" class="px-3 group duration-500 py-2 group-hover:bg-secondary ">
                 <div :class="datapage?'text-white':'text-primary '"  class="flex items-center group-hover:text-white  gap-5">
                   <div :class="datapage?'text-white':'text-primary '"  class=" w-5 group-hover:text-white md:text-wite text-wite">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" >
@@ -82,7 +82,7 @@
 
           <div>
             <NuxtLink  class="group "  to="/user/Airtime">
-              <div :class="airtime?'bg-primary':' bg-white'"  class="px-3 group duration-500 py-2 group-hover:bg-primary ">
+              <div :class="airtime?'bg-primary':' bg-white'"  class="px-3 group duration-500 py-2 group-hover:bg-secondary ">
                 <div :class="airtime?'text-white':'text-primary '"  class="flex items-center group-hover:text-white  gap-5">
                   <div :class="airtime?'text-white':'text-primary '"  class=" w-5 group-hover:text-white md:text-wite text-wite">
                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
@@ -104,7 +104,7 @@
           <div class="flex flex-col gap-0">
             <div>
               <div class="group " @click="showFound()" >
-                <div  :class="Wallet?'bg-primary':' bg-white'"  class="px-0 group justify-between  group-hover:text-white   group duration-500 py-2 group-hover:bg-primary flex">
+                <div  :class="Wallet?'bg-primary':' bg-white'"  class="px-0 group justify-between  group-hover:text-white   group duration-500 py-2 group-hover:bg-secondary flex">
                   <div  class="flex items-center px-3  gap-5">
                     <div :class="Wallet?'text-white':'text-primary '" class="  group-hover:text-white w-5 md:text-wite text-wite">
                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" >
@@ -162,7 +162,7 @@
           <div>
             
             <NuxtLink  class="group "  to="/user/Transaction">
-              <div :class="transactionreport?'bg-primary':' bg-white'"  class="px-3 group duration-500 py-2 group-hover:bg-primary ">
+              <div :class="transactionreport?'bg-primary':' bg-white'"  class="px-3 group duration-500 py-2 group-hover:bg-secondary ">
                 <div :class="transactionreport?'text-white':'text-primary '"  class="flex items-center group-hover:text-white  gap-5">
                   <div :class="transactionreport?'text-white':'text-primary '"  class=" w-5 group-hover:text-white md:text-wite text-wite">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26">
@@ -179,7 +179,7 @@
 
            <div @click="showSetting()" class="flex cursor-pointer  flex-col gap-">
             <div class=" group   ">
-               <div :class="Setting?'bg-primary':' bg-white'" class=" group pl-3  group-hover:text-white   group duration-500 py-2 group-hover:bg-primary justify-between flex">
+               <div :class="Setting?'bg-primary':' bg-white'" class=" group pl-3  group-hover:text-white   group duration-500 py-2 group-hover:bg-secondary justify-between flex">
                   <div  class="flex  items-center gap-5">
                     <div :class="Setting?'text-white':'text-primary  '"  class=" group-hover:text-white w-5 md:text-wite text-wite">
                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" >
@@ -227,7 +227,7 @@
 
           <div>
             <div class="group ">
-              <div @click="logout()" class=" groupgroup-hover:text-white   group duration-500 py-2 group-hover:bg-primary items-center px-3">
+              <div @click="logout()" class=" groupgroup-hover:text-white   group duration-500 py-2 group-hover:bg-secondary items-center px-3">
                 <div class="flex gap-5 "> 
                   <div class=" lg:text-primary duration-700 w-5 group-hover:text-white md:text-wite  w-5 md:text-wite text-wite">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26">

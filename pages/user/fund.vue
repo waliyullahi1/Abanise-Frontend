@@ -1,6 +1,6 @@
 
 <template>
-  <div class="bg-[#f4f6f6]">
+  <div>
      <Dashboardbtn :Wallet="true" :fund="true" @logout="logout" class=" text-[poppins] w-full hiddn "></Dashboardbtn>
      <div class="w-full h-[5.5rem] bg-secondary"></div>
     <div  class="flex mt-10 gap-10 ">
@@ -15,7 +15,7 @@
                 <p class="font-normal text-[15px] ">{{user.account_number}}</p>
             </div>
              <div class="flex gap-1 pl-5">
-            <small class="font-semibold text- text-sm gap-1 flex text-gray-800">abaniseedu.com copy 2023</small></div>
+           <small class="font-semibold text- text-sm gap-1 flex text-gray-800">abaniseedu.com copy 2023</small></div>
             </div>
         </div>
        <NavigationLoadingJs :isJsFinishedRun="isJsFinishedRun" > </NavigationLoadingJs>
