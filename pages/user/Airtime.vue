@@ -220,6 +220,7 @@ export default {
   if (!response.ok) {
     const errorData = await response.json();
    this.erromessage = errorData.message;
+   router.push('/login')
     throw new Error(errorData.message);
     
   }

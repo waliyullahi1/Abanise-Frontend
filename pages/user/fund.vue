@@ -44,6 +44,7 @@ export default {
  
  if (!response.ok) {
    const errorData = await response.json();
+   router.push('/login')
   this.erromessage = errorData.message;
    throw new Error(errorData.message);
    
