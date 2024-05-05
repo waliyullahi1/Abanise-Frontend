@@ -23,18 +23,18 @@
           <section class=" mt-10 w-full   ">
             <div class="grid grid-cols-3 text-center items-center   justify-between">
               <div class="border-r px-2 border-r-slate-400">
-                <h1 class="text-[14px] text-gray-600 font-medium tracking-[1px]"> Wallet Balance</h1>
-                <h2 class="sm:text-[23px] text-[19px] text-gray-600  font-light  tracking-[1px]">{{ user.wallet }}</h2>
+                <h1 class="sm:text-[14px] text-[12px] text-gray-600 font-medium tracking-[1px]"> Wallet Balance</h1>
+                <h2 class="sm:text-[23px] text-[14px] text-gray-600  font-light  tracking-[1px]">{{ user.wallet }}</h2>
               </div>
 
               <div class=" border-r px-2  border-r-slate-400">
-                <h1 class="text-[14px] text-gray-600 font-medium tracking-[1px]"> Total Lifetime Funding</h1>
-                <h2 class="sm:text-[23px] text-[19px] font-light text-gray-600  tracking-[1px]">{{ totalfund }}</h2>
+                <h1 class="sm:text-[14px] text-[12px] text-gray-600 font-medium tracking-[1px]"> Total Lifetime Funding</h1>
+                <h2 class="sm:text-[23px] text-[14px] font-light text-gray-600  tracking-[1px]">{{ totalfund }}</h2>
               </div>
 
               <div class="  px-2 ">
-                <h1 class="text-[14px] text-gray-600 font-medium tracking-[1px]"> Total Lifetime Transactions</h1>
-                <h2 class="sm:text-[23px] text-[19px] text-gray-600  font-light  tracking-[1px]">{{ totalspent }}</h2>
+                <h1 class="sm:text-[14px] text-[12px] text-gray-600 font-medium tracking-[1px]"> Total Lifetime Transactions</h1>
+                <h2 class="sm:text-[23px] text-[14px] text-gray-600  font-light  tracking-[1px]">{{ totalspent }}</h2>
               </div>
 
 
