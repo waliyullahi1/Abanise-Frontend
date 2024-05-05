@@ -1,5 +1,5 @@
 <template>
-    <div class="py-3 px-5 text-white cursor-pointer bg-primary">
+    <div :class="props.updatepassword ? 'w-full' : 'w-0'" class="py-3 px-5 text-white cursor-pointer bg-primary">
         <div class="mx- text-black">
             <div :class="props.updatepassword ? 'w-full' : 'w-0'"
                 class="fixed top-0 right-0 bottom-[100rem] bg-black opacity-20   h-screen z-10"></div>

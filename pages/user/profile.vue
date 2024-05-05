@@ -89,9 +89,7 @@
               </div>
             </div>
           </section>
-          <div class="flex gap-1 pl-5">
-            <small class="font-semibold text- text-sm gap-1 flex text-gray-800">abaniseedu.com copy 2023</small>
-          </div>
+          
           <div>
 
           </div>
