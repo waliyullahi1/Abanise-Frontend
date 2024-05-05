@@ -138,7 +138,7 @@
               class="w-full focus:border-primary border-gray-700 input-field drop-shadow-md h-[3rem]  px-5   outline-none font-normal    border rounded-[5px] focus:border-primry"
                 placeholder=" " v-model="state.form.transactionCode" :class="state.errortransactionCode ? ' border-secondary shake ' : '  border-primary  '">
               <label for="name" class="input-label  text-slate-600 font-normal"> <span
-                  class=" py-0 px-1  bg-white Phone Number h-6 w-fit">Transaction code (must be 4 digit Number)</span> </label>
+                  class=" py-0 px-1  bg-white Phone Number h-6 w-fit">Transaction code(4digit No)</span> </label>
 
               <div class="w-0 h-1">
                 <toggle class="  relative top-3 right-5" @revealPassword="revealtransaction"
