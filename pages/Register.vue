@@ -80,7 +80,7 @@
 
           <div class="my-5 w-full grid grid-cols-1 sm:grid-cols-2 gap-5 justify-between">
             <div class=" ">
-              <div class="flex input-containers  b  border-primary  mt-2 ">
+              <div class="flex input-containers  b                                                                                                                                                                            border-primary  mt-2 ">
                 <input :type="state.password" :class="state.errorpassword ? ' border-secondary shake ' : '  border-primary  '"
                   @input="onInput"
                   class="w-full focus:border-primary input-field drop-shadow-md  h-[3rem]  px-5   outline-none font-normal    border rounded-[5px] focus:border-primry"
@@ -138,7 +138,7 @@
               class="w-full focus:border-primary border-gray-700 input-field drop-shadow-md h-[3rem]  px-5   outline-none font-normal    border rounded-[5px] focus:border-primry"
                 placeholder=" " v-model="state.form.transactionCode" :class="state.errortransactionCode ? ' border-secondary shake ' : '  border-primary  '">
               <label for="name" class="input-label  text-slate-600 font-normal"> <span
-                  class=" py-0 px-1  bg-white Phone Number h-6 w-fit">Transaction code </span> </label>
+                  class=" py-0 px-1  bg-white Phone Number h-6 w-fit">Transaction code (must be for digit Number)</span> </label>
 
               <div class="w-0 h-1">
                 <toggle class="  relative top-3 right-5" @revealPassword="revealtransaction"

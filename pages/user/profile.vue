@@ -184,7 +184,7 @@ export default {
       totalspent: '',
       totalfund: '',
       updatepassword:false,
-      updatetransaction:true,
+      updatetransaction:false,
      
     }
   },
