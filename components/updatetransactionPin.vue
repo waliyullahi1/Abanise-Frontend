@@ -8,7 +8,7 @@
                 <div class="h-fit lg:w-1/4 md:w-1/3 sm:w-[2rem] sm:block hidden lg:block md:block  ml-[2rem"></div>
                 <div>
                     <div class="text-[16px] w-full   bg-white w mx-4 py-5 px-0">
-                        <p class="text-[15px] text-center">Update Password</p>
+                        <p class="text-[15px] text-center">Update Transaction code</p>
 
 
 
