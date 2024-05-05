@@ -279,7 +279,7 @@ export default {
       this.foundpage = !this.foundpage;
       this.changebtn = !this.changebtn
       console.log("it work");
-      this.$router.push('/login')
+     
     },
 
    async logout(){

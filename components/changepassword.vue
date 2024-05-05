@@ -113,7 +113,7 @@ const cancell = () => {
 
 const resetPassword = async () => {
     console.log('hhhhhhhhh');
-    state.loadingState = false;
+    state.loadingState = true;
     if (!state.form.currentPassword) {
         state.errorcurrentpassword = true
         state.loadingState = false;
