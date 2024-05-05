@@ -146,7 +146,7 @@ async submit() {
     }
     const data = await response.json();
     
-  console.log(data.message)
+  
          this.message =  data.sucesss
 } catch (error) {
     console.log(error);

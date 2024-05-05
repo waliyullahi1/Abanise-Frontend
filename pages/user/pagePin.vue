@@ -114,7 +114,7 @@ import { exportToPDF } from '#imports'
       mounted() {
      
         this.pin = JSON.parse(localStorage.getItem('cards'))
-        console.log(this.pin);
+        // console.log(this.pin);
 
         // let array = [];
         // array =  JSON.parse(localStorage.getItem("cards"))
@@ -132,7 +132,7 @@ this.item[0].details = this.form.name;
 this.item[1].details = this.form.quantity;
 this.item[2].details = `₦${this.form.quantity * this.form.price}`;
    this.item[3].details = this.form.time;    
-    console.log(this.form.price);
+    // console.log(this.form.price);
   },
    created(){
      

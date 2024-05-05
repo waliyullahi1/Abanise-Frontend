@@ -157,7 +157,7 @@ throw new Error(errorData.message);
 
   
   } catch (error) {
-    console.error('There has been a problem with your fetch operation:', error)
+    
     router.push('/login') // Redirect to the login page
   }
 })
@@ -523,7 +523,7 @@ throw new Error(errorData.message);
   methods: {
 
     next() {
-      console.log('dddddd33');
+    
       this.transacmessage = true
       setTimeout(() => {
 
@@ -549,7 +549,7 @@ throw new Error(errorData.message);
           );
           return selectedOption;
         } else {
-          console.error("getOptions returned undefined for field:", field);
+        
         }
       }
     },
@@ -580,12 +580,12 @@ throw new Error(errorData.message);
       const networkoption = selectedProduct.text; //network he/she that choose
       const serviceIDoptionArray = selectedOption.text.split(" - ");
       const serviceIDoption1 = `${serviceIDoptionArray[0]} `;
-      console.log(planoption, 'planoption');
-      console.log(amountoption, 'amountoption');
-      console.log(datatype, 'datatype');
-      console.log(networkoption, 'networkoption');
-      console.log(serviceIDoptionArray, 'serviceIDoptionArray');
-      console.log(serviceIDoption1, 'serviceIDoption1');
+      // console.log(planoption, 'planoption');
+      // console.log(amountoption, 'amountoption');
+      // console.log(datatype, 'datatype');
+      // console.log(networkoption, 'networkoption');
+      // console.log(serviceIDoptionArray, 'serviceIDoptionArray');
+      // console.log(serviceIDoption1, 'serviceIDoption1');
 
       if (networkoption === "network") {
         this.formFields[0].errorselection = true;
@@ -608,7 +608,7 @@ throw new Error(errorData.message);
         this.form.planoption = planoption;
         // this.form.variation_code = variation_code;
         this.form.datatype = datatype;
-        console.log(this.form.planoption, this.form.variation_code);
+        // console.log(this.form.planoption, this.form.variation_code);
         setTimeout(() => {
           this.transacPrev = true;
           this.loadingState1 = false;
@@ -622,7 +622,7 @@ throw new Error(errorData.message);
       if (!this.form.TransactionCode) {
         this.errortransactionCode = true;
         this.loadingState2 = false;
-        console.log( this.loadingState2);
+        // console.log( this.loadingState2);
         return false;
       } else {
         try { 
@@ -659,7 +659,7 @@ throw new Error(errorData.message);
           this.loadingState2 = true;
           const data = await response.json();
           this.message = data.success;
-          console.log("Success:", data);
+          // console.log("Success:", data);
           this.status = data.success
           this.transacPrev = false;
           this.transacmessage = false;
@@ -681,7 +681,7 @@ throw new Error(errorData.message);
           }
 
         } catch (error) {
-          console.log(error);
+          // console.log(error);
           this.loadingState2 = false;
         }
       }

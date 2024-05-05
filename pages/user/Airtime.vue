@@ -227,7 +227,7 @@ export default {
 
       
       } catch (error) {
-        console.error('There has been a problem with your fetch operation:', error)
+       
         router.push('/login') // Redirect to the login page
       }
     })
@@ -299,7 +299,7 @@ export default {
   methods: {
 
     next(){
-        console.log('dddddd33');
+   
          this.transacmessage=true
           setTimeout(() => {
 
@@ -324,7 +324,7 @@ export default {
     register() {
       const regex = /[a-zA-Z]/;
       this.loadingState = true;
-      console.log(this.form.amount);
+    
       const phone = String(this.form.recipients);
       if (!this.form.network || this.form.network === "network") {
         this.errornetwork = true;
@@ -357,7 +357,7 @@ export default {
 
     async submitted() {
       this.loadingState = true;
-      console.log(this.form.network);
+
       if (!this.form.TransactionCode) {
         this.errortransactionCode = true;
         this.loadingState = false;
@@ -386,14 +386,14 @@ export default {
             throw new Error(errorData.message);
           } 
           
-          console.log( this.transacmessage);
+     
           this.loadingState = true;
           const data = await response.json();
           // this.message = data.success;
           this.status = data.success
           
 
-          console.log("Success:", data);
+          
          
            this.transacPrev = false;
          setTimeout(() => {
@@ -416,7 +416,7 @@ export default {
           }, 200);
         
         } catch (error) {
-          console.log(error);
+        
           this.loadingState = false;
         }
       }

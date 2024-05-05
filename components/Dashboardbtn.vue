@@ -226,7 +226,7 @@
           </div>
 
           <div>
-            <div class="group ">
+            <div class="group  cursor-pointer">
               <div @click="logout()" class=" groupgroup-hover:text-white   group duration-500 py-2   group-hover:bg-primary       items-center px-3">
                 <div class="flex gap-5 "> 
                   <div class=" lg:text-primary duration-700 w-5 group-hover:text-white md:text-wite  w-5 md:text-wite text-wite">
@@ -279,10 +279,12 @@ export default {
       this.foundpage = !this.foundpage;
       this.changebtn = !this.changebtn
       console.log("it work");
+      this.$router.push('/login')
     },
 
    async logout(){
    console.log('fffffffffffffffff');
+   this.$router.push('/login')
        this.$emit("logout")
          try {
     const response = await fetch('https://api-abanise-5a3s.vercel.app/logout',{
@@ -300,10 +302,10 @@ export default {
     
   }
    
-  console.log(response);
+ 
   
 
-  this.$router.push('/login')
+
 
    
   } catch (error) {

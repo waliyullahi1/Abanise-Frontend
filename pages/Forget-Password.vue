@@ -154,18 +154,18 @@ const submit = async () => {
       const data = await response.json();
       state.erromessage = ''
       state.message = data.success
-      console.log(data.success);
+    
       notify({
         title: "successful",
         text: data.sucess,
       });
-      console.log('Success:', data.sucess);
+ 
       setTimeout(() => {
         router.push('/login')
         state.loadingState = false
       }, 1000);
     } catch (error) {
-      console.log(error)
+      
     }
   }
 }

@@ -102,7 +102,7 @@ export default {
 
 
       } catch (error) {
-        console.error('There has been a problem with your fetch operation:', error)
+       
         router.push('/login') // Redirect to the login page
       }
     })
@@ -146,7 +146,7 @@ export default {
     })
     return {};
   },
-  middleware: ['auth ', `${console.log('ssssssss')}`],
+
 
   data() {
     return {
@@ -167,7 +167,7 @@ export default {
   methods: {
       async generateVirtualAccountNo() {
         this.isJsFinishedRun = false
-        console.log("ddddhdhdhhd");
+      
       const response1 = await fetch('https://api-abanise-five.vercel.app/accout', {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
@@ -181,7 +181,7 @@ export default {
         throw new Error(errorData.message);
 
       }
-      console.log(response1);
+      
 const response = await fetch('https://api-abanise-five.vercel.app/dashboard', {
       method: "GET",
       headers: { 'Content-Type': 'application/json' },
@@ -195,7 +195,7 @@ const response = await fetch('https://api-abanise-five.vercel.app/dashboard', {
       throw new Error(errorData.message);
 
     }
-    console.log(response);
+ 
     const data = await response.json();
 
     this.user.accountNo = data.foundUser.account_number

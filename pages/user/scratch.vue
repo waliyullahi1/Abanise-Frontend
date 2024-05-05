@@ -243,7 +243,7 @@ throw new Error(errorData.message);
 
   
   } catch (error) {
-    console.error('There has been a problem with your fetch operation:', error)
+
     router.push('/login') // Redirect to the login page
   }
 })
@@ -458,7 +458,7 @@ throw new Error(errorData.message);
         this.form.name = "11";
         this.form.price = "11";
       }
-      console.log(this.form.name, this.form.price, this.form.total);
+
       setTimeout(() => {
         this.transacPrev = true;
         this.item[index].loadingState1 = false;
@@ -513,17 +513,17 @@ throw new Error(errorData.message);
              this.loadingState2 = false;
            
             const errorData = await response.json();
-            console.log(errorData.message);
+           
             this.erromessage = errorData.message;
             throw new Error(errorData.message);
           }
             this.loadingState2 = true;
           const data = await response.json();
-          console.log(response);
+      
           // this.message = data.success;
          
           this.message = data.success
-          console.log('Success:', data);
+         
           localStorage.setItem('cards', JSON.stringify(data))
         
          
@@ -543,7 +543,7 @@ throw new Error(errorData.message);
             this.loadingState = false;
           }, 1000);
         } catch (error) {
-          console.log(error);
+          
           this.loadingState = false;
         }
       }

@@ -107,7 +107,7 @@ export default {
  
    methods: {
    async logout(){
-      console.log('kkkkkkk');
+      // console.log('kkkkkkk');
   
  
     }
@@ -133,7 +133,7 @@ export default {
   }
  
   const data = await response.json();
-  console.log('Success:', data);
+  // console.log('Success:', data);
    this.user= data.foundUser
   
  this.isJsFinishedRun=true

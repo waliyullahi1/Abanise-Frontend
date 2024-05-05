@@ -140,7 +140,7 @@ created: async function(){
   }
  
   const data = await response.json();
-  console.log('Success:', data);
+  
    this.fund = data
   //  this.user.accountName= `${data.foundUser.first_name } ${data.foundUser.last_name } `
   //  this.user.wallet =data.foundUser.walletBalance

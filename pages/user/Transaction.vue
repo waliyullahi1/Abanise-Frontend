@@ -177,14 +177,11 @@ created: async function(){
     throw new Error(errorData.message);
     
   }
-  console.log(response.json);
+  
   const firstsdata = await response.json();
   const data =  firstsdata.reverse()
 
    this.data = data
- 
-  //  this.user.wallet =data.foundUser.walletBalance
-  //  this.user.bankName =data.foundUser.preferred_bank
 this.isJsFinishedRun=true
  
  

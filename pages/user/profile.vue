@@ -131,7 +131,7 @@ export default {
 
 
       } catch (error) {
-        console.error('There has been a problem with your fetch operation:', error)
+    
         router.push('/login') // Redirect to the login page
       }
     })
@@ -190,11 +190,11 @@ export default {
   methods: {
     handleUpdatePassword() {
   this.updatepassword = false
-  console.log('ggggg');
+
 },
 handleupdatetransaction() {
   this.updatetransaction = false
-  console.log('ggggg');
+
 },
  
 
@@ -219,7 +219,7 @@ handleupdatetransaction() {
     }
 
     const data = await response.json();
-    console.log('Success:', data);
+ 
     this.user = data.foundUser
     this.totalspent = data.totalAmountSpent.toLocaleString('en-US', { style: 'currency', currency: 'NGN' })
     this.user.fullname = `${data.foundUser.firstname} ${data.foundUser.lastName} `
