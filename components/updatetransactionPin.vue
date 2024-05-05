@@ -124,7 +124,7 @@ const resetPassword = async () => {
                 state.loadingState = false;
                 throw new Error("No internet connection");
             }
-            const response = await fetch('http://localhost:3500/resetpassword/resetTransactionCode', {
+            const response = await fetch('https://api-abanise-five.vercel.app/resetpassword/resetTransactionCode', {
                 method: "POST",
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',

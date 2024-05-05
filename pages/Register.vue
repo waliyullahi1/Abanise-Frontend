@@ -6,7 +6,7 @@
         <div class="flex justify-center"> <img src="@/assets/image/login-images.png" alt=" login image" class="sm:w-1/3 w-3/5">  </div>
         <p class="font-semibold text-2xl text-secondary text-center">Register</p>
 
-        <p class="font-semibold text-[15px] font-sans  text-center ">Enter your credential to get access</p>
+        <p class="font-semibold text-[15px] font-sans  text-center ">Please enter information</p>
        
         <form class="mx-" @submit.prevent="submit" action="">
 
@@ -388,7 +388,7 @@ const submit = async () => {
         state.loadingState = false
       }, 10);
     } catch (error) {
-     
+      console.log(error)
     }
   }
 }
