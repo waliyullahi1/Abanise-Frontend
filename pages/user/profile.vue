@@ -12,10 +12,10 @@
               <h1 class="text-2xl font-medium  text-gray-900 uppercase">{{ user.fullname }}</h1>
               <div>
                 <p> <span class=" text-green-700 sm:text-[15px] text-[14px] font-medium tracking-[1px]"> <button
-                      @click="updatepwd()">Update</button>
-                    Password</span> | <span
+                      @click="updatepassword = true ">Update Password</button>
+                  </span> | <button type="button"><span   @click="updatetransaction = true "
                     class=" text-green-700 sm:text-[15px] text-[14px] font-medium tracking-[1px]">Update Transaction
-                    pin</span></p>
+                    pin</span></button> </p>
               </div>
             </div>
           </section>
@@ -98,11 +98,11 @@
         </div>
 
       </div>
-      <NavigationLoadingJs :isJsFinishedRun="isJsFinishedRun"> </NavigationLoadingJs>
+      <NavigationLoadingJs  :isJsFinishedRun="isJsFinishedRun"> </NavigationLoadingJs>
 
 
-      <Changepassword></Changepassword>
-      <UpdatetransactionPin></UpdatetransactionPin>
+      <Changepassword :updatepassword ="updatepassword" @update:updatepassword="handleUpdatePassword"   ></Changepassword>
+      <UpdatetransactionPin  :update_transactions ="updatetransaction" @uptransaction="handleupdatetransaction"></UpdatetransactionPin> 
     </div>
   </div>
 </template>
@@ -125,7 +125,9 @@ export default {
         if (!response.ok) {
           const errorData = await response.json();
           this.erromessage = errorData.message;
+             router.push('/login')
           throw new Error(errorData.message);
+       
 
         }
 
@@ -181,20 +183,30 @@ export default {
       user: '',
       totalspent: '',
       totalfund: '',
+      updatepassword:false,
+      updatetransaction:true,
      
     }
   },
 
   methods: {
-
+    handleUpdatePassword() {
+  this.updatepassword = false
+  console.log('ggggg');
+},
+handleupdatetransaction() {
+  this.updatetransaction = false
+  console.log('ggggg');
+},
+ 
 
 
   },
 
   created: async function () {
 
-
-    const response = await fetch('https://api-abanise-five.vercel.app/dashboard', {
+    try {
+       const response = await fetch('https://api-abanise-five.vercel.app/dashboard', {
       method: "GET",
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
@@ -219,6 +231,10 @@ export default {
     this.isJsFinishedRun = true
 
 
+    } catch (error) {
+      
+    }
+   
 
 
   },

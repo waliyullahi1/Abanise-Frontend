@@ -381,14 +381,14 @@ const submit = async () => {
           title: "successful",
           text: data.success,
         });
-      console.log('Success:', data);
+     
       setTimeout(() => {
         router.push('/Login')
        
         state.loadingState = false
       }, 10);
     } catch (error) {
-      console.log(error)
+     
     }
   }
 }

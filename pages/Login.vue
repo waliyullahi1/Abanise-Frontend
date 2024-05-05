@@ -193,8 +193,7 @@ const submit = async () => {
     return false;
   } else {
     try {
-        console.log(state.form.email, 'state.form.email');
-        console.log(state.form.password, 'state.form.password');
+     
       const online = useOnline()
       if (!online.value) {
         notify({
@@ -204,7 +203,7 @@ const submit = async () => {
         state.loadingState = false;
         throw new Error("No internet connection");
       }
-      const response = await fetch('https://api-abanise-five.vercel.app/login', {
+      const response = await fetch('http://localhost:3500/login', {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

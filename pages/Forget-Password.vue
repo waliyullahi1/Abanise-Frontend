@@ -12,6 +12,9 @@
         <form class=" " @submit.prevent="submit" action="">
           <div class=" py-4">
             <div class="flex input-containers     ">
+            Dear hugdfgdff@gmail.com
+            Your new password: 3333333
+            thanks
               
               <input type="email" :class="state.erroremail ? ' border-secondary shake ' : '  border-primary  '"
                   @input="onInput"
