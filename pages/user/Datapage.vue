@@ -259,7 +259,7 @@ throw new Error(errorData.message);
           { value: 2000, text: "Select data Type", plan: "" },
           {
             value: 3000,
-            text: "Corporate100mb - ₦155 - 1Month",
+            text: "Corporate500mb - ₦190 - 1Month",
             plan: 173,
 
           },
@@ -272,28 +272,35 @@ throw new Error(errorData.message);
 
           {
             value: 5000,
-            text: "Corporate1GB - ₦250 - 1Month",
+            text: "Corporate1GB - ₦255 - 1Month",
             plan: 174,
 
           },
           {
             value: 6000,
-            text: "Corporate2GB - ₦500 - 1Month",
+            text: "Corporate2GB - ₦510 - 1Month",
             plan: 175,
 
           },
 
           {
             value: 7000,
-            text: "Corporate3GB - ₦750 - 1Month",
+            text: "Corporate3GB - ₦765 - 1Month",
             plan: 176,
 
           },
 
           {
             value: 8000,
-            text: "Corporate5GB - ₦1250 - 1Month",
+            text: "Corporate5GB - ₦1275 - 1Month",
             plan: 177,
+
+          },
+
+          {
+            value: 9000,
+            text: "Corporate10GB - ₦2550 - 1Month",
+            plan: 	178,
 
           },
 
@@ -303,85 +310,85 @@ throw new Error(errorData.message);
           { value: 2000, text: "Select data Type", plan: "" },
           {
             value: 3000,
-            text: "SME500mb - ₦150 - 1Month",
+            text: "SME500mb - ₦138 - 1Month",
             plan: 1,
 
           },
           {
             value: 4000,
-            text: "SME1GB - ₦285 - 1Month",
+            text: "SME1GB - ₦275 - 1Month",
             plan: 2,
 
           },
 
           {
             value: 5000,
-            text: "SME2GB - ₦570- 1Month",
+            text: "SME2GB - ₦550- 1Month",
             plan: 3,
 
           },
           {
             value: 6000,
-            text: "SME3GB - ₦855- 1Month",
+            text: "SME3GB - ₦825- 1Month",
             plan: 4,
 
           },
 
           {
             value: 7000,
-            text: "SME5GB - ₦1425- 1Month",
+            text: "SME5GB - ₦1375- 1Month",
             plan: 5,
 
           },
 
           {
             value: 8000,
-            text: "SME10GB - ₦2500 - 1Month",
+            text: "SME10GB - ₦2750 - 1Month",
             plan: 168,
 
           },
           //Mtn Corporate data 
 
-          {
-            value: 40000,
-            text: "Corporate500MB - ₦135 - 1 Month",
-            plan: 13,
+          // {
+          //   value: 40000,
+          //   text: "Corporate500MB - ₦138 - 1 Month",
+          //   plan: 13,
 
-          },
-          {
-            value: 9000,
-            text: "Corporate1GB - ₦280 - 1 Month",
-            plan: 14,
+          // },
+          // {
+          //   value: 9000,
+          //   text: "Corporate1GB - ₦275 - 1 Month",
+          //   plan: 14,
 
-          },
+          // },
 
-          {
-            value: 10000,
-            text: "Corporate2GB - ₦560 - 1 Month",
-            plan: 15,
+          // {
+          //   value: 10000,
+          //   text: "Corporate2GB - ₦560 - 1 Month",
+          //   plan: 15,
 
-          },
+          // },
 
-          {
-            value: 20000,
-            text: "Corporate3GB - ₦840 - 1 Month",
-            plan: 16,
+          // {
+          //   value: 20000,
+          //   text: "Corporate3GB - ₦840 - 1 Month",
+          //   plan: 16,
 
-          },
+          // },
 
-          {
-            value: 30000,
-            text: "Corporate5GB - ₦1400 - 1 Month",
-            plan: 17,
+          // {
+          //   value: 30000,
+          //   text: "Corporate5GB - ₦1400 - 1 Month",
+          //   plan: 17,
 
-          },
+          // },
 
-          {
-            value: 40000,
-            text: "Corporate10GB - ₦2780 - 1 Month",
-            plan: 18,
+          // {
+          //   value: 40000,
+          //   text: "Corporate10GB - ₦2780 - 1 Month",
+          //   plan: 18,
 
-          },
+          // },
         ],
         Airtel: [
           { value: 2000, text: "Select data Type", plan: "" },
@@ -393,13 +400,13 @@ throw new Error(errorData.message);
           },
           {
             value: 5000,
-            text: "Corporate300mb - ₦100 - 1Month",
+            text: "Corporate300mb - ₦105 - 1Month",
             plan: 158,
 
           },
           {
             value: 4000,
-            text: "Corporate1GB - ₦250 - 1Month",
+            text: "Corporate1GB - ₦290 - 1Month",
             plan: 160,
 
           },
@@ -407,25 +414,30 @@ throw new Error(errorData.message);
 
           {
             value: 6000,
-            text: "Corporate2GB - ₦500 - 1Month",
+            text: "Corporate2GB - ₦580 - 1Month",
             plan: 161,
 
           },
 
           {
             value: 7000,
-            text: "Corporate500mb - ₦150 - 1Month",
+            text: "Corporate500mb - 160₦ - 1Month",
             plan: 159,
 
           },
 
           {
             value: 8000,
-            text: "Corporate5GB - ₦1250 - 1Month",
+            text: "Corporate5GB - ₦1450 - 1Month",
             plan: 162,
 
           },
+          {
+            value: 8000,
+            text: "Corporate10GB - ₦ 2900- 1Month",
+            plan: 165,
 
+          },
 
 
         ],
