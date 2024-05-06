@@ -433,7 +433,7 @@ throw new Error(errorData.message);
 
           },
           {
-            value: 8000,
+            value: 9000,
             text: "Corporate10GB - ₦ 2900- 1Month",
             plan: 165,
 
