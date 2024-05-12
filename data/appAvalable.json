@@ -100,7 +100,7 @@
      },
      {
         "appName": "LinkedIn USA",
-         "image": "LinkedIn",
+         "image": "linkin",
          "price":"",
         " available":["US","USA"]
  
@@ -785,7 +785,7 @@
      },
      {
         "appName": "Dosh",
-         "image": "Dosh",
+         "image": "dos",
          "price":"",
          " available":["USA"]
      },
