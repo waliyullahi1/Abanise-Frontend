@@ -50,7 +50,7 @@
     },
     {
        "countryName": "Cayman Islands",
-        "image": "caymanIslands"
+        "image": "caymanislands"
 
     },
 
@@ -222,7 +222,7 @@
     },
     {
        "countryName": "Finland",
-        "image": "Finland"
+        "image": "fin"
 
     },
     {
@@ -262,7 +262,7 @@
     },
     {
        "countryName": "Malaysia",
-        "image": "Malawi"
+        "image": "Malaysia"
 
     },
     {
@@ -362,7 +362,7 @@
     },
     {
        "countryName": "Algeria",
-        "image": "Algeria"
+        "image": "geria"
 
     },
     {
@@ -370,11 +370,7 @@
         "image": "Ghana"
 
     },
-    {
-       "countryName": "Israel ",
-        "image": "Israel"
 
-    },
     {
        "countryName": "Tanzania ",
         "image": "tanzania"
@@ -382,7 +378,7 @@
     },
     {
        "countryName": "Israel ",
-        "image": "Israel"
+        "image": "israel"
 
     },
     {
