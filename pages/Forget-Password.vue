@@ -165,7 +165,10 @@ const submit = async () => {
         state.loadingState = false
       }, 1000);
     } catch (error) {
-      
+      notify({
+          title: "No Internet Connection",
+          text: "Please check your internet connection and try again.",
+        });
     }
   }
 }
