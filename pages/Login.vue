@@ -176,80 +176,83 @@ const onInput = () => {
 
 
 
-
 const submit = async () => {
 
-  state.loadingState = true;
-  state.loadingState = true;
-  let emailPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  const regex = /[a-zA-Z]/
-  if (!state.form.email || !emailPattern.test(state.form.email)) {
-    state.erroremail = true;
-    state.loadingState = false;
-    return false;
-  } else if (!state.form.password) {
-    state.errorpassword = true;
-    state.loadingState = false;
-    return false;
-  } else {
-    try {
-     
-      const online = useOnline()
-      if (!online.value) {
-        notify({
-          title: "No Internet Connection",
-          text: "Please check your internet connection and try again.",
-        });
-        state.loadingState = false;
-        throw new Error("No internet connection");
-      }
-      const response = await fetch('https://api-abanise-five.vercel.app/login', {
-        method: "POST",
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
-        body: JSON.stringify({
-          email: state.form.email,
-          pwd: state.form.password,
-        })
-
+state.loadingState = true;
+state.loadingState = true;
+let emailPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const regex = /[a-zA-Z]/
+if (!state.form.email || !emailPattern.test(state.form.email)) {
+  state.erroremail = true;
+  state.loadingState = false;
+  return false;
+} else if (!state.form.password) {
+  state.errorpassword = true;
+  state.loadingState = false;
+  return false;
+} else {
+  try {
+   
+    const online = useOnline()
+    if (!online.value) {
+      notify({
+        title: "No Internet Connection",
+        text: "Please check your internet connection and try again.",
+      });
+      state.loadingState = false;
+      throw new Error("No internet connection");
+    }
+    const response = await fetch('https://api-abanise-five.vercel.app/login', {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({
+        email: state.form.email,
+        pwd: state.form.password,
       })
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        notify({
-          title: "error",
-          text: errorData.message,
-        });
-        state.erromessage = errorData.message;
-        state.loadingState = false;
-        throw new Error(errorData.message);
+    })
 
-      }
-      state.loadingState = true
-      const data = await response.json();
-      state.erromessage = ''
-      state.message = data.success
-
+    if (!response.ok) {
+      const errorData = await response.json();
       notify({
-        title: "successful",
-        text: data.success,
+        title: "error",
+        text: errorData.message,
       });
-     
-      setTimeout(() => {
-        router.push('/user/Dashboard')
-        state.loadingState = false
-      }, 10);
-    } catch (error) {
+      state.erromessage = errorData.message;
       state.loadingState = false;
-      notify({
-       
-          title: "No Internet Connection",
-          text: "Please check your internet connection and try again.",
-        });
-     
+      throw new Error(errorData.message);
+
     }
+    state.loadingState = true
+    const data = await response.json();
+    state.erromessage = ''
+    state.message = data.success
+
+    notify({
+      title: "successful",
+      text: data.success,
+    });
+   
+    setTimeout(() => {
+      router.push('/user/Dashboard')
+      state.loadingState = false
+    }, 10);
+  } catch (error) {
+    state.loadingState = false;
+    notify({
+     
+        title: "No Internet Connection",
+        text: "Please check your internet connection and try again.",
+      });
+   
   }
 }
+}
+
+
+
+
 
 
 
