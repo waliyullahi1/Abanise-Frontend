@@ -245,7 +245,7 @@ const shows = async (item) => {
 
 
   try {
-    const response = await axios.get(`http://localhost:3500/getRates/apps/${item.countryName}`);
+    const response = await axios.get(`https://api-abanise-five.vercel.app/getRates/apps/${item.countryName}`);
     const apps = response.data;
 
     appfounds = appfounds.filter(element => {
@@ -301,7 +301,7 @@ const filteredApps = computed(() => {
 const getOtp = async (item) => {
   console.log(item, 'rrr');
   try {
-    const response = await axios.post(`http://localhost:3500/getRates/otp`, { country: item.Country, app: item.App, phoneNumber: item.phoneNumberv, transactiondate: item.transactiondate });
+    const response = await axios.post(`https://api-abanise-five.vercel.app/getRates/otp`, { country: item.Country, app: item.App, phoneNumber: item.phoneNumberv, transactiondate: item.transactiondate });
     const apps = response.data;
 
     setTimeout(() => {
@@ -320,7 +320,7 @@ const getOtp = async (item) => {
 const getnumber = async () => {
 
   try {
-    const response = await axios.get('http://localhost:3500/getRates');
+    const response = await axios.get('https://api-abanise-five.vercel.app/getRates');
     const apps = response.data;
     data.value = apps.reverse()
 
