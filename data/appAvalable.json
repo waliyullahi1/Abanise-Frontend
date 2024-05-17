@@ -354,12 +354,7 @@
          "price":"",
          "available":["UK 2","UK","India","Guyana","Gabon","ARMENIA","Angola","Brazil","Tanzania","Israel","Ghana","Algeria","Russia","Senegal","China","Yemen","Ukraine","Sweden","Saudi Arabia","Portugal","Morocco","Jamaica","Italy","Hong Kong","Uganda","Turkey","Togo","Thailand","South Africa","Qatar","Philippines","Nigeria","New Guinea","Malaysia","Malawi","Kenya","Ireland","Iraq","Iran","Indonesia","Gambia","Finland","Ethiopia","Egypt","Congo","Columbia","Burkina Faso","Columbia","Cameroon","Afghanistan","Argentina","Zimbabwe","Venezuela","Uzbekistan","UAE","Tunisia","Switzerland","Sudan","Spain","Romania","Poland","Peru","Nicaragua","Netherlands","Moldova","Mexico","Lithuania","Lesotho","Latvia","Ivory Coast","Guatemala","Grenada","Germany","France","Estonia","Czech Republic","Cyprus","Cayman Islands","Bosnia","Belgium","Barbados","Armenia","Anguilla","Swaziland", "USA 2"]
      },
-     {
-        "appName": "Signal",
-         "image": "Signal",
-         "price":"",
-         "available":["UK 2","UK","India","Guyana","Gabon","ARMENIA","Angola","Brazil","Tanzania","Israel","Ghana","Algeria","Russia","Senegal","China","Yemen","Ukraine","Sweden","Saudi Arabia","Portugal","Morocco","Jamaica","Italy","Hong Kong","Uganda","Turkey","Togo","Thailand","South Africa","Qatar","Philippines","Nigeria","New Guinea","Malaysia","Malawi","Kenya","Ireland","Iraq","Iran","Indonesia","Gambia","Finland","Ethiopia","Egypt","Congo","Columbia","Burkina Faso","Columbia","Cameroon","Afghanistan","Argentina","Zimbabwe","Venezuela","Uzbekistan","UAE","Tunisia","Switzerland","Sudan","Spain","Romania","Poland","Peru","Nicaragua","Netherlands","Moldova","Mexico","Lithuania","Lesotho","Latvia","Ivory Coast","Guatemala","Grenada","Germany","France","Estonia","Czech Republic","Cyprus","Cayman Islands","Bosnia","Belgium","Barbados","Armenia","Anguilla","Swaziland", "USA 2"]
-     },
+    
      {
         "appName": "Chime",
          "image": "Chime",
