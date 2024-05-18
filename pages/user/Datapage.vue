@@ -316,34 +316,34 @@ throw new Error(errorData.message);
           },
           {
             value: 4000,
-            text: "SME1GB - ₦275 - 1Month",
+            text: "SME1GB - ₦260 - 1Month",
             plan: 2,
 
           },
 
           {
             value: 5000,
-            text: "SME2GB - ₦550- 1Month",
+            text: "SME2GB - ₦520- 1Month",
             plan: 3,
 
           },
           {
             value: 6000,
-            text: "SME3GB - ₦825- 1Month",
+            text: "SME3GB - ₦780- 1Month",
             plan: 4,
 
           },
 
           {
             value: 7000,
-            text: "SME5GB - ₦1375- 1Month",
+            text: "SME5GB - ₦1300- 1Month",
             plan: 5,
 
           },
 
           {
             value: 8000,
-            text: "SME10GB - ₦2750 - 1Month",
+            text: "SME10GB - ₦2600 - 1Month",
             plan: 168,
 
           },
@@ -394,13 +394,13 @@ throw new Error(errorData.message);
           { value: 2000, text: "Select data Type", plan: "" },
           {
             value: 3000,
-            text: "Corporate100mb - ₦55 - 7DAYS",
+            text: "Corporate100mb - ₦45 - 7DAYS",
             plan: 157,
 
           },
           {
             value: 5000,
-            text: "Corporate300mb - ₦105 - 1Month",
+            text: "Corporate300mb - ₦75 - 1Month",
             plan: 158,
 
           },

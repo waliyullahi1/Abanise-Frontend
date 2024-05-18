@@ -6,7 +6,9 @@
     <div class="flex mt-10 gap-10 ">
       <div class=" h-full w-full lg:block md:block md:w-1/5 hidden   ml-[2rem] "></div>
       <div class=" w-full my-10  ">
-        <div class=" w-[90%] mx-auto flex flex-col justify-center ">
+        <div class=" w-[90%] mx-auto flex gap-6 flex-col justify-center ">
+
+
           <section class="  mb-20 mt-">
             <div class=" w-full py-3 flex justify-between items-center  bg-primary rounded-b-md text-white px-3 mb-5">
               <p class="text-[16px] font-medium">Recent Working Countries </p>
@@ -30,8 +32,9 @@
 
 
           <section class="  ">
-            <div class=" w-full py-3 flex justify-between items-center  bg-primary rounded-b-md text-white px-3 mb-5">
-              <p class="text-[16px] font-medium">Choose a Country </p>
+            <div
+              class=" w-full py-3 sm:flex block justify-between items-center  bg-primary rounded-b-md text-white px-3 mb-5">
+              <p class="text-[16px] pb-3 font-medium">Choose a Country </p>
               <input type="search5" name="" v-model="searchCoutry" placeholder="search Country..."
                 class=" px-2 outline-none h-8 rounded-sm text-black" id="">
             </div>
@@ -57,8 +60,9 @@
 
 
           <section class=" ">
-            <div class=" w-full py-3 flex justify-between items-center  bg-primary rounded-b-md text-white px-3 mb-5">
-              <p class="text-[16px] font-medium">Choose an App </p>
+            <div
+              class=" w-full py-3  md:flex justify-between items-center  bg-primary rounded-b-md text-white px-3 mb-5">
+              <p class="text-[16px] pb-2 font-medium">Choose an App </p>
               <input type="search" v-model="searchTerm" name="" placeholder="search Country..."
                 class=" px-2 outline-none h-8 rounded-sm text-black" id="">
             </div>
@@ -73,7 +77,7 @@
                   <p class=" text-2xl text-center ">Choose a Country first.</p>
                 </div>
                 <div id="apps"
-                  class=" cursor-pointer py-5  px-3  lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4 w grid max-h-[250px] overflow-y-scroll">
+                  class=" cursor-pointer py-5  px-3  lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 gap-4 w grid max-h-[250px] overflow-y-scroll">
                   <div v-for="item in filteredApps" @click="generateNnumber(item)"
                     :class="{ 'bg-black hover:bg-black  text-white': item.appName === selectedapp }"
                     class="flex cursor-pointers gap-3 text-center items-center w-full border border-black py-1 px-2 rounded shadowss"
@@ -84,7 +88,12 @@
                   item.appName
                 }}</h3>
 
-                    <p class="  text-[10px] flex gap-1 font-medium  px-3 py-[2px] border-green-700 rounded-xl w-fit hfit border  text-end"><div class=""> <p>{{ item.price }}</p> Credits</div></p>
+                    <p
+                      class="  text-[10px] flex gap-1 font-medium  px-3 py-[2px] border-green-700 rounded-xl w-fit hfit border  text-end">
+                    <div class=" flex gap-2">
+                      <p>{{ item.price }}</p> Credits
+                    </div>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -247,22 +256,36 @@ const shows = async (item) => {
   try {
     const response = await axios.get(`https://api-abanise-five.vercel.app/getRates/apps/${item.countryName}`);
     const apps = response.data;
+    if (!apps) {
+      notify({
 
-    appfounds = appfounds.filter(element => {
-      const matchingApp = apps.find(app => app.app === element.appName);
-      if (matchingApp) {
-        console.log(matchingApp.rate);
-        element.price = matchingApp.rate;
-        return true;
-      }
-      return false;
-    });
+        title: "Notices",
+        text: 'an error occure',
+      });
+      return
+    } else {
+      appfounds = appfounds.filter(element => {
+        const matchingApp = apps.find(app => app.app === element.appName);
+        if (matchingApp) {
+         
+          element.price = matchingApp.rate;
+          return true;
+        }
+        return false;
+      });
+    }
+
   } catch (error) {
+    notify({
+
+      title: "Notices",
+      text: 'an error occure',
+    });
     console.error(error);
   }
 
   appfound.value = appfounds;
-  console.log(appfound.value);
+ 
   isLoadingFinished.value = true
 }
 
@@ -275,7 +298,7 @@ const filteredcountry = computed(() => {
     const countryfilter = countryNames.filter(app => app.countryName.toLowerCase().includes(searchCoutry.value.toLowerCase()))
     return countryfilter
   } else {
-    console.log(countryNames);
+   
     return countryNames;
   }
 
@@ -299,7 +322,7 @@ const filteredApps = computed(() => {
 
 
 const getOtp = async (item) => {
-  console.log(item, 'rrr');
+  
   try {
     const response = await axios.post(`https://api-abanise-five.vercel.app/getRates/otp`, { country: item.Country, app: item.App, phoneNumber: item.phoneNumberv, transactiondate: item.transactiondate });
     const apps = response.data;
@@ -335,12 +358,22 @@ getnumber()
 
 
 const generateNnumber = async (item) => {
+  isLoadingFinished.value = false
   selectedapp.value = item.appName;
 
   const selectedApp = item.appName
 
   try {
-    const response = await axios.post(`http://localhost:3500/getRates/generateNumber`, { country: selectedcountry.value, app: selectedApp });
+    const response = await axios({
+      url: "https://api-abanise-five.vercel.app/getRates/generateNumber",
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      withCredentials: true,
+      data: {
+        country: selectedcountry.value, app: selectedApp
+      }
+    });
+
     const apps = response.data;
 
     setTimeout(() => {
@@ -351,9 +384,30 @@ const generateNnumber = async (item) => {
       title: "Notices",
       text: apps,
     });
-
+    isLoadingFinished.value = true
   } catch (error) {
-    console.error(error);
+    if (error.response) {
+      notify({
+        title: 'error',
+        text: error.response.data.message,
+      });
+      // The request was made and the server responded with a status code
+      // that falls out of the range of 2xx
+      
+    } else if (error.request) {
+      notify({
+        title: 'error',
+        text: error.request,
+      });
+      isLoadingFinished.value = false
+      // The request was made but no response was received
+      
+    } else {
+      isLoadingFinished.value = true
+      
+    }
+
+    isLoadingFinished.value = true
   }
 
 
@@ -362,9 +416,9 @@ const generateNnumber = async (item) => {
 
 
 
-setTimeout(() => {
-  getnumber();
-}, 30000);
+// setTimeout(() => {
+//   getnumber();
+// }, 30000);
 
 </script>
 
