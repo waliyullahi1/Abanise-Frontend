@@ -428,30 +428,10 @@ const generateNnumber = async (item) => {
 
 
 <style>
-table {
-  font-family: arial, sans-serif;
-  width: 1000px;
 
 
-}
-
-td,
-th {
-  border: none;
-  text-align: left;
-  padding: 2px;
 
 
-}
-
-.over {
-  overflow: hidden;
-}
-
-tr:nth-child(even) {
-  background-color: white;
-
-}
 
 .shadowss {
   -webkit-box-shadow: 1px 3px 7px 3px rgba(0, 0, 0, 0.4);

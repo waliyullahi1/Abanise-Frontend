@@ -31,7 +31,7 @@
                   <th>Status</th>
                 </tr>
                 <tr  v-for="item in data" :key="item.id">
-                  <td class="cols" >{{ item.refid }}</td>
+                  <td class="cols py-10" >{{ item.refid }}</td>
                   <td class="cols">{{ item.transactionDate }}</td>
                   <td class="cols">{{ item.type }}</td>
                   <td class="cols">{{ item.description }}</td>

@@ -394,16 +394,11 @@ throw new Error(errorData.message);
           { value: 2000, text: "Select data Type", plan: "" },
           {
             value: 3000,
-            text: "Corporate100mb - ₦45 - 7DAYS",
+            text: "Corporate100mb - ₦55 - 7DAYS",
             plan: 157,
 
           },
-          {
-            value: 5000,
-            text: "Corporate300mb - ₦75 - 1Month",
-            plan: 158,
-
-          },
+         
           {
             value: 4000,
             text: "Corporate1GB - ₦290 - 1Month",
