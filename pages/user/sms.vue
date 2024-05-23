@@ -130,7 +130,7 @@
                   <th class=" text-center">Get Code</th>
 
                 </tr>
-                <tr v-for="item in datas" :key="item.id">
+                <tr v-for="item in data" :key="item.id">
                   <td class="">{{ item.Phone_Number }}</td>
                   <td class="">{{ item.Activation_Code }}</td>
                   <td class="">{{ item.transactiondate }}</td>
@@ -238,7 +238,7 @@ const searchCoutry = ref('');
 const appfilter = ref('');
 const isLoadingFinished = ref(true);
 const selectedcountry = ref('');
-const datas = ref([{}, {}, {}]);
+const data = ref([{}, {}, {}]);
 
 
 
