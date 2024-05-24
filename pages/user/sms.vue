@@ -258,7 +258,7 @@ try {
     headers: { "Content-Type": "application/json" },
     withCredentials: true,
   });
-  console.log(response);
+  
   const apps = response.data;
   data.value = apps.reverse()
 
@@ -295,7 +295,7 @@ const shows = async (item) => {
   try {
     const response = await axios.get(`https://api-abanise-five.vercel.app/getRates/apps/${item.countryName}`);
     const apps = response.data;
-    console.log(apps);
+    
     apps.value = null
     if (!apps) {
       notify({
@@ -383,7 +383,7 @@ const filteredApps = computed(() => {
 
     isotpLoadFinished = true
   } catch (error) {
-    console.error(error);
+  
     isotpLoadFinished.value = true
   } 
   
@@ -406,7 +406,6 @@ const autmaticOtp = async () => {
 
    await Promise.all(itemsWithoutActivationCode.map(async (element) => {
     isotpLoadFinished.value = false
-    console.log(element.Phone_Number, element.transactiondate);
     const response = await axios({
       url: "https://api-abanise-five.vercel.app/getRates/otp",
       method: "PUT",
