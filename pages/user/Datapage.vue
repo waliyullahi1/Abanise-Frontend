@@ -471,55 +471,19 @@ throw new Error(errorData.message);
 
           },
 
-          {
-            value: 8000,
-            text: "SME5GB - ₦2500 - 1Month",
-            plan: 18,
-
-          },
-
+        
 
           {
             value: 50000,
-            text: "SME5GB - ₦220 - 14days",
+            text: "500mb - ₦220 - 14days",
             plan: 104,
 
           },
           //ninimobile Corporate data 
 
-          {
-            value: 40000,
-            text: "Corporate500MB - ₦150 - 1 Month",
-            plan: 179,
+        
 
-          },
-          {
-            value: 9000,
-            text: "Corporate1GB - ₦160 - 1 Month",
-            plan: 180,
-
-          },
-
-          {
-            value: 10000,
-            text: "Corporate2GB - ₦320 - 1 Month",
-            plan: 181,
-
-          },
-
-          {
-            value: 20000,
-            text: "Corporate3GB - ₦480 - 1 Month",
-            plan: 182,
-
-          },
-
-          {
-            value: 30000,
-            text: "Corporate5GB - ₦800 - 1 Month",
-            plan: 184,
-
-          },
+        
 
 
         ],
