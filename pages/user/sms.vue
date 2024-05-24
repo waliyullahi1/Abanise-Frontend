@@ -416,7 +416,7 @@ const autmaticOtp = async () => {
     });
 
     isotpLoadFinished.value = true
-    console.log(response.data);
+  
       getnumber()
       
   }));
@@ -488,7 +488,7 @@ const generateNnumber = async (item) => {
 
 setInterval(() => {
   autmaticOtp();
-}, 30000);
+}, 10000);
 
 
 </script>
