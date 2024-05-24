@@ -105,109 +105,114 @@
           </section>
 
           <section class=" mb-20 mt-5">
-            <div class=" w-full py-3 flex justify-between items-center  bg-primary rounded-b-md text-white px-3 mb-5">
+            <div class=" w-full py-3 flex ddd justify-between items-center  bg-primary rounded-b-md text-white px-3 mb-5">
               <p class="text-[14px] font-medium">Your Numbers ()</p>
             </div>
 
-            <p class="text-[13px] bg-red-500 py-2 px-2 text-white">All numbers are not eligible to receive sms for all
+            <p class="text-[13px] bg-red-500 py-2 px-2 text-white" @click="getnumber()">All numbers are not eligible to
+              receive sms for all
               services we request you to change number and wait only 1min to receive code if no code comes change
               number.
               We never charge money for numbers it only charge for sms/codes.</p>
-
-            <div class="w bg-red-900  text-[15px] ul  overflow-scroll h-fit    mb-20   mt-  border-2">
-              <div class=" mt-4 relative w-full h-full">
-                <div class=" flex justify-center hidden items-center absolute bg-opacity-20 h-96 w-full bg-primary">
-                  <img class="w-16 " src="@/assets/image/preload.svg" alt="" srcset="">
+            <button @click="autmaticOtp()">jjjj</button>
+            <div class="w bg-red-900  text-[15px] ul  overflow-scroll h-fit w-full       mb-20   mt-  border-2">
+              <div class=" mt-4 relative w-full  h-full l">
+                <div :class="isotpLoadFinished ? 'hidden' : 'flex'" class=" h-full w-full absolute">
+                  <div class=" flex justify-center    items-center  bg-opacity-20 h-full w-full bg-primary">
+                    <img class="w-16  " src="@/assets/image/preload.svg" alt="" srcset="">
+                  </div>
                 </div>
+                <table class="font-normal bg-white  w-full text-sm">
+                  <tr>
+                    <th class=" text-center">Phone Number </th>
+                    <th class=" text-center"> Activation Code</th>
+                    <th class=" text-center"> Order Time</th>
+                    <th class=" text-center">Country</th>
+                    <th class=" text-center">App</th>
+                    <th class=" text-center">Get Code</th>
+
+                  </tr>
+                  <tr v-for="item in data" :key="item.id">
+                    <td class="text-center">{{ item.Phone_Number }}</td>
+                    <td class="text-center">{{ item.Activation_Code }}</td>
+                    <td class="text-center">{{ item.transactiondate }}</td>
+                    <td class="text-center">{{ item.Country }}</td>
+                    <td class="text-center">{{ item.App }}</td>
+                    <td class="  flex justify-center ">
+                      <button @click="getOtp(item)">
+                        <div class=" w-5 text-primary  hover:text-green-700">
+
+                          <svg viewBox="0 0 16 16" xmlns:dc="http://purl.org/dc/elements/1.1/"
+                            xmlns:cc="http://creativecommons.org/ns#"
+                            xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg"
+                            version="1.1" id="svg6190">
+
+                            <metadata id="metadata6196">
+
+                              <rdf:RDF>
+
+                                <cc:Work>
+
+                                  <dc:format>image/svg+xml</dc:format>
+
+                                  <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+
+                                  <dc:title />
+
+                                  <dc:date>2016</dc:date>
+
+                                  <dc:creator>
+
+                                    <cc:Agent>
+
+                                      <dc:title>Timothée Giet</dc:title>
+
+                                    </cc:Agent>
+
+                                  </dc:creator>
+
+                                  <cc:license rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/" />
+
+                                </cc:Work>
+
+                                <cc:License rdf:about="http://creativecommons.org/licenses/by-sa/4.0/">
+
+                                  <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction" />
+
+                                  <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution" />
+
+                                  <cc:requires rdf:resource="http://creativecommons.org/ns#Notice" />
+
+                                  <cc:requires rdf:resource="http://creativecommons.org/ns#Attribution" />
+
+                                  <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+
+                                  <cc:requires rdf:resource="http://creativecommons.org/ns#ShareAlike" />
+
+                                </cc:License>
+
+                              </rdf:RDF>
+
+                            </metadata>
+
+                            <g transform="translate(5.025 -1037.1)" id="layer1">
+
+                              <path
+                                style="opacity:1;fill:currentColor;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.20000005;stroke-opacity:.55063291"
+                                d="m7.924 1040.15-1.414 1.414-1.414 1.414 1.414 1.414 1.117-1.117a5 5 0 0 1-1.117 5.36 5 5 0 0 1-5.357 1.115l-1.505 1.505a7 7 0 0 0 8.276-1.206 7 7 0 0 0 0-9.9zm-1.622-1.206a7 7 0 0 0-8.277 1.206 7 7 0 0 0 0 9.9l1.414-1.415 1.414-1.414-1.414-1.414-1.117 1.117a5 5 0 0 1 1.117-5.36 5 5 0 0 1 5.357-1.115z"
+                                id="path1139" />
+
+                            </g>
+
+                          </svg>
+                        </div>
+                      </button>
+                    </td>
+                  </tr>
+                </table>
+
               </div>
-              <table class="font-normal bg-white  w-full text-sm">
-                <tr>
-                  <th class=" text-center">Phone Number </th>
-                  <th class=" text-center"> Activation Code</th>
-                  <th class=" text-center"> Order Time</th>
-                  <th class=" text-center">Country</th>
-                  <th class=" text-center">App</th>
-                  <th class=" text-center">Get Code</th>
 
-                </tr>
-                <tr v-for="item in data" :key="item.id">
-                  <td class="">{{ item.Phone_Number }}</td>
-                  <td class="">{{ item.Activation_Code }}</td>
-                  <td class="">{{ item.transactiondate }}</td>
-                  <td class="">{{ item.Country }}</td>
-                  <td class="">{{ item.App }}</td>
-                  <td class="  flex justify-center ">
-                    <button @click="getOtp(item)">
-                      <div class=" w-5 text-primary  hover:text-green-700">
-
-                        <svg viewBox="0 0 16 16" xmlns:dc="http://purl.org/dc/elements/1.1/"
-                          xmlns:cc="http://creativecommons.org/ns#"
-                          xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg"
-                          version="1.1" id="svg6190">
-
-                          <metadata id="metadata6196">
-
-                            <rdf:RDF>
-
-                              <cc:Work>
-
-                                <dc:format>image/svg+xml</dc:format>
-
-                                <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-
-                                <dc:title />
-
-                                <dc:date>2016</dc:date>
-
-                                <dc:creator>
-
-                                  <cc:Agent>
-
-                                    <dc:title>Timothée Giet</dc:title>
-
-                                  </cc:Agent>
-
-                                </dc:creator>
-
-                                <cc:license rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/" />
-
-                              </cc:Work>
-
-                              <cc:License rdf:about="http://creativecommons.org/licenses/by-sa/4.0/">
-
-                                <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction" />
-
-                                <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution" />
-
-                                <cc:requires rdf:resource="http://creativecommons.org/ns#Notice" />
-
-                                <cc:requires rdf:resource="http://creativecommons.org/ns#Attribution" />
-
-                                <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
-
-                                <cc:requires rdf:resource="http://creativecommons.org/ns#ShareAlike" />
-
-                              </cc:License>
-
-                            </rdf:RDF>
-
-                          </metadata>
-
-                          <g transform="translate(5.025 -1037.1)" id="layer1">
-
-                            <path
-                              style="opacity:1;fill:currentColor;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.20000005;stroke-opacity:.55063291"
-                              d="m7.924 1040.15-1.414 1.414-1.414 1.414 1.414 1.414 1.117-1.117a5 5 0 0 1-1.117 5.36 5 5 0 0 1-5.357 1.115l-1.505 1.505a7 7 0 0 0 8.276-1.206 7 7 0 0 0 0-9.9zm-1.622-1.206a7 7 0 0 0-8.277 1.206 7 7 0 0 0 0 9.9l1.414-1.415 1.414-1.414-1.414-1.414-1.117 1.117a5 5 0 0 1 1.117-5.36 5 5 0 0 1 5.357-1.115z"
-                              id="path1139" />
-
-                          </g>
-
-                        </svg>
-                      </div>
-                    </button>
-                  </td>
-                </tr>
-              </table>
             </div>
 
           </section>
@@ -239,7 +244,41 @@ const appfilter = ref('');
 const isLoadingFinished = ref(true);
 const selectedcountry = ref('');
 const data = ref([{}, {}, {}]);
+const isotpLoadFinished = ref(true);
 
+
+const getnumber = async () => {
+
+
+
+try {
+  const response = await axios({
+    url: "https://api-abanise-five.vercel.app/getRates",
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+    withCredentials: true,
+  });
+  console.log(response);
+  const apps = response.data;
+  data.value = apps.reverse()
+
+
+} catch (error) {
+  if (error.response) {
+    notify({
+      title: 'error',
+      text: error.response.data.message,
+    });
+  }
+}
+
+
+
+
+
+
+}
+getnumber()
 
 
 
@@ -256,36 +295,39 @@ const shows = async (item) => {
   try {
     const response = await axios.get(`https://api-abanise-five.vercel.app/getRates/apps/${item.countryName}`);
     const apps = response.data;
+    console.log(apps);
+    apps.value = null
     if (!apps) {
       notify({
 
         title: "Notices",
-        text: 'an error occure',
+        text: 'An error occure',
       });
       return
     } else {
       appfounds = appfounds.filter(element => {
         const matchingApp = apps.find(app => app.app === element.appName);
         if (matchingApp) {
-         
+
           element.price = matchingApp.rate;
           return true;
         }
         return false;
       });
+      appfound.value = appfounds;
     }
 
   } catch (error) {
     notify({
 
       title: "Notices",
-      text: 'an error occure',
+      text: 'An error occure',
     });
     console.error(error);
   }
 
-  appfound.value = appfounds;
- 
+
+
   isLoadingFinished.value = true
 }
 
@@ -298,7 +340,7 @@ const filteredcountry = computed(() => {
     const countryfilter = countryNames.filter(app => app.countryName.toLowerCase().includes(searchCoutry.value.toLowerCase()))
     return countryfilter
   } else {
-   
+
     return countryNames;
   }
 
@@ -320,38 +362,68 @@ const filteredApps = computed(() => {
 
 
 
+  const getOtp = async (item) => {
+   console.log(item.phoneNumber, item.App);
+  isotpLoadFinished.value = false
+  if (!item.Activation_Code || item.Activation_Code === '') {
+    try {
+    const response = await axios({
+      url: "https://api-abanise-five.vercel.app/getRates/otp",
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      withCredentials: true,
+      data: { country: item.Country, app: item.App, phoneNumber: item.Phone_Number, transactiondate: item.transactiondate }
+    });
 
-const getOtp = async (item) => {
-  
-  try {
-    const response = await axios.post(`https://api-abanise-five.vercel.app/getRates/otp`, { country: item.Country, app: item.App, phoneNumber: item.phoneNumberv, transactiondate: item.transactiondate });
     const apps = response.data;
-
+    isotpLoadFinished.value = true
     setTimeout(() => {
       getnumber()
     }, 10);
 
-
+    isotpLoadFinished = true
   } catch (error) {
     console.error(error);
+    isotpLoadFinished.value = true
+  } 
+  
   }
+
+  isotpLoadFinished.value = true
+ 
 }
 
 
 
 
-const getnumber = async () => {
+const autmaticOtp = async () => {
+ 
+  const itemsWithoutActivationCode = data.value.filter(element => {
+    return !element.Activation_Code || element.Activation_Code === '';
+  });
 
-  try {
-    const response = await axios.get('https://api-abanise-five.vercel.app/getRates');
-    const apps = response.data;
-    data.value = apps.reverse()
 
-  } catch (error) {
-    console.error(error);
-  }
+
+   await Promise.all(itemsWithoutActivationCode.map(async (element) => {
+    isotpLoadFinished.value = false
+    console.log(element.Phone_Number, element.transactiondate);
+    const response = await axios({
+      url: "https://api-abanise-five.vercel.app/getRates/otp",
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      withCredentials: true,
+      data: { country: element.Country, app: element.App, phoneNumber: element.Phone_Number, transactiondate: element.transactiondate }
+    });
+
+    isotpLoadFinished.value = true
+    console.log(response.data);
+      getnumber()
+      
+  }));
+
+
 }
-getnumber()
+
 
 
 
@@ -393,7 +465,7 @@ const generateNnumber = async (item) => {
       });
       // The request was made and the server responded with a status code
       // that falls out of the range of 2xx
-      
+
     } else if (error.request) {
       notify({
         title: 'error',
@@ -401,10 +473,10 @@ const generateNnumber = async (item) => {
       });
       isLoadingFinished.value = false
       // The request was made but no response was received
-      
+
     } else {
       isLoadingFinished.value = true
-      
+
     }
 
     isLoadingFinished.value = true
@@ -414,11 +486,10 @@ const generateNnumber = async (item) => {
 }
 
 
+setInterval(() => {
+  autmaticOtp();
+}, 30000);
 
-
-// setTimeout(() => {
-//   getnumber();
-// }, 30000);
 
 </script>
 
@@ -428,11 +499,6 @@ const generateNnumber = async (item) => {
 
 
 <style>
-
-
-
-
-
 .shadowss {
   -webkit-box-shadow: 1px 3px 7px 3px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 1px 3px 7px 3px rgba(0, 0, 0, 0.4);
