@@ -9,7 +9,7 @@
 
         <p class="font-semibold text-[15px] font-sans  text-center ">Enter your credential to get access</p>
        
-        <form class=" " @submit.prevent="submit" action="">
+        <form class=" " @submit.prevent="submit" method="post" action="">
           <div class="">
             <div class="flex input-containers    mt-9 ">
               
@@ -193,15 +193,15 @@ if (!state.form.email || !emailPattern.test(state.form.email)) {
 } else {
   try {
    
-    const online = useOnline()
-    if (!online.value) {
-      notify({
-        title: "No Internet Connection",
-        text: "Please check your internet connection and try again.",
-      });
-      state.loadingState = false;
-      throw new Error("No internet connection");
-    }
+    // const online = useOnline()
+    // if (!online.value) {
+    //   notify({
+    //     title: "No Internet Connection",
+    //     text: "Please check your internet connection and try again.",
+    //   });
+    //   state.loadingState = false;
+    //   throw new Error("No internet connection");
+    // }
     const response = await axios('https://api-abanise-five.vercel.app/login', {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },

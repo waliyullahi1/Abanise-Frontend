@@ -25,7 +25,7 @@
             </p>
           </div>
           <div
-            class="w-full md: md:max-w-md sm:w-2/3 mt-10 lg:max-w-md h-fit  shadows rounded-[1rem] ld text-2xl shadow bg-white"
+            class="w-full md: md:max-w-md sm:w-2/3 mt-10 lg:max-w-md h-fit  shadows rounded-[.5rem] ld text-2xl shadow bg-white"
           >
 
             <form action="" class="flex flex-col gap-5 h-fit p-8 text-xl">
