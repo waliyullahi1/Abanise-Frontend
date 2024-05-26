@@ -202,50 +202,50 @@ if (!state.form.email || !emailPattern.test(state.form.email)) {
       state.loadingState = false;
       throw new Error("No internet connection");
     }
-    const response = await fetch('https://api-abanise-five.vercel.app/login', {
+    const response = await axios('https://api-abanise-five.vercel.app/login', {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
-      body: JSON.stringify({
+      withCredentials: true,
+      data: {
         email: state.form.email,
         pwd: state.form.password,
-      })
+      }
 
     })
 
-    if (!response.ok) {
-      const errorData = await response.json();
-      notify({
-        title: "error",
-        text: errorData.message,
-      });
-      state.erromessage = errorData.message;
-      state.loadingState = false;
-      throw new Error(errorData.message);
 
-    }
-    state.loadingState = true
-    const data = await response.json();
-    state.erromessage = ''
-    state.message = data.success
+      router.push('/user/Dashboard')
+      state.loadingState = false
 
     notify({
       title: "successful",
       text: data.success,
     });
    
-    setTimeout(() => {
-      router.push('/user/Dashboard')
-      state.loadingState = false
-    }, 10);
-  } catch (error) {
-    state.loadingState = false;
-    notify({
-     
-        title: "No Internet Connection",
-        text: "Please check your internet connection and try again.",
-      });
    
+  } catch (error) {
+    if (error.response) {
+      notify({
+        title: 'error',
+        text: error.response.data.message,
+      });
+      // The request was made and the server responded with a status code
+      // that falls out of the range of 2xx
+      state.loadingState = false
+    } else if (error.request) {
+      notify({
+        title: 'error',
+        text: error.request,
+      });
+      isLoadingFinished.value = false
+      state.loadingState = false
+      
+    } else {
+      state.loadingState = false
+
+    }
+
+    state.loadingState = false
   }
 }
 }
