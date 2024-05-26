@@ -193,15 +193,15 @@ if (!state.form.email || !emailPattern.test(state.form.email)) {
 } else {
   try {
    
-    // const online = useOnline()
-    // if (!online.value) {
-    //   notify({
-    //     title: "No Internet Connection",
-    //     text: "Please check your internet connection and try again.",
-    //   });
-    //   state.loadingState = false;
-    //   throw new Error("No internet connection");
-    // }
+    const online = useOnline()
+    if (!online.value) {
+      notify({
+        title: "No Internet Connection",
+        text: "Please check your internet connection and try again.",
+      });
+      state.loadingState = false;
+      throw new Error("No internet connection");
+    }
     const response = await axios('https://api-abanise-five.vercel.app/login', {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
