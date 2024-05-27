@@ -210,7 +210,7 @@ export default {
   
 
       try {
-        const response = await fetch('https://api-abanise-five.vercel.app/refreshtoken',{
+        const response = await fetch('https://api.abaniseedu.com/refreshtoken',{
       method : "GET",
       headers: {'Content-Type':'application/json'},
       credentials:'include',
@@ -366,7 +366,7 @@ export default {
         try {
           const originalAmount = this.form.amount.toFixed(1)
           this.loadingState = true;
-          const response = await fetch("https://api-abanise-five.vercel.app/sub/airtime", {
+          const response = await fetch("https://api.abaniseedu.com/sub/airtime", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             credentials: "include",

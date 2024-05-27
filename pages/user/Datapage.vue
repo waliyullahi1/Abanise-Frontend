@@ -140,7 +140,7 @@ export default {
   
 
   try {
-    const response = await fetch('https://api-abanise-five.vercel.app/refreshtoken',{
+    const response = await fetch('https://api.abaniseedu.com/refreshtoken',{
   method : "GET",
   headers: {'Content-Type':'application/json'},
   credentials:'include',
@@ -604,7 +604,7 @@ throw new Error(errorData.message);
           // console.log(this.form.TransactionCode,'this.form.TransactionCode');
           // console.log(`0${this.form.phone}`,'`0${this.form.phone}`');
           this.loadingState2 = true;
-          const response = await fetch("https://api-abanise-five.vercel.app/sub/data", {
+          const response = await fetch("https://api.abaniseedu.com/sub/data", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             credentials: "include",

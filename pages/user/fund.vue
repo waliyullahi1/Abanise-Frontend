@@ -35,7 +35,7 @@ export default {
  
 
      try {
-       const response = await fetch('https://api-abanise-five.vercel.app/refreshtoken',{
+       const response = await fetch('https://api.abaniseedu.com/refreshtoken',{
      method : "GET",
      headers: {'Content-Type':'application/json'},
      credentials:'include',
@@ -118,7 +118,7 @@ export default {
  created: async function(){
   
  
-    const response = await fetch('https://api-abanise-five.vercel.app/dashboard',{
+    const response = await fetch('https://api.abaniseedu.com/dashboard',{
       method : "GET",
       headers: {'Content-Type':'application/json'},
       credentials:'include',

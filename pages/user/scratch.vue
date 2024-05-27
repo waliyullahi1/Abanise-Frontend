@@ -226,7 +226,7 @@ export default {
   
 
   try {
-    const response = await fetch('https://api-abanise-five.vercel.app/refreshtoken',{
+    const response = await fetch('https://api.abaniseedu.com/refreshtoken',{
   method : "GET",
   headers: {'Content-Type':'application/json'},
   credentials:'include',
@@ -496,7 +496,7 @@ throw new Error(errorData.message);
          this.loadingState2 = true
         
          //sub/airtimecard/sell
-          const response = await fetch("https://api-abanise-five.vercel.app/card/sell", {
+          const response = await fetch("https://api.abaniseedu.com/card/sell", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             credentials: "include",

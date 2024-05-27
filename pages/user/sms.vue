@@ -253,7 +253,7 @@ const getnumber = async () => {
 
 try {
   const response = await axios({
-    url: "https://api-abanise-five.vercel.app/getRates",
+    url: "https://api.abaniseedu.com/getRates",
     method: "GET",
     headers: { "Content-Type": "application/json" },
     withCredentials: true,
@@ -293,7 +293,7 @@ const shows = async (item) => {
 
 
   try {
-    const response = await axios.get(`https://api-abanise-five.vercel.app/getRates/apps/${item.countryName}`);
+    const response = await axios.get(`https://api.abaniseedu.com/getRates/apps/${item.countryName}`);
     const apps = response.data;
     
     apps.value = null
@@ -368,7 +368,7 @@ const filteredApps = computed(() => {
   if (!item.Activation_Code || item.Activation_Code === '') {
     try {
     const response = await axios({
-      url: "https://api-abanise-five.vercel.app/getRates/otp",
+      url: "https://api.abaniseedu.com/getRates/otp",
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       withCredentials: true,
@@ -407,7 +407,7 @@ const autmaticOtp = async () => {
    await Promise.all(itemsWithoutActivationCode.map(async (element) => {
     isotpLoadFinished.value = false
     const response = await axios({
-      url: "https://api-abanise-five.vercel.app/getRates/otp",
+      url: "https://api.abaniseedu.com/getRates/otp",
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       withCredentials: true,
@@ -436,7 +436,7 @@ const generateNnumber = async (item) => {
 
   try {
     const response = await axios({
-      url: "https://api-abanise-five.vercel.app/getRates/generateNumber",
+      url: "https://api.abaniseedu.com/getRates/generateNumber",
       method: "POST",
       headers: { "Content-Type": "application/json" },
       withCredentials: true,

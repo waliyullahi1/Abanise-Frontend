@@ -346,7 +346,7 @@ const submit = async () => {
         state.loadingState = false;
         throw new Error("No internet connection");
       }
-      const response = await fetch('https://api-abanise-five.vercel.app/register', {
+      const response = await fetch('https://api.abaniseedu.com/register', {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
