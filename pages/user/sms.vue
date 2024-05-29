@@ -485,9 +485,9 @@ const generateNnumber = async (item) => {
 }
 
 
-setInterval(() => {
-  autmaticOtp();
-}, 10000);
+// setInterval(() => {
+//   autmaticOtp();
+// }, 10000);
 
 
 </script>

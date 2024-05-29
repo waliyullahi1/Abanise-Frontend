@@ -102,7 +102,7 @@ export default {
 
 
       } catch (error) {
-       
+
         router.push('/login') // Redirect to the login page
       }
     })
@@ -165,7 +165,47 @@ export default {
   },
 
   methods: {
-      
+    async generateVirtualAccountNo() {
+      this.isJsFinishedRun = false
+      if (this.user.accountNo == null || !this.user.accountNo) {
+        const response1 = await fetch('https://api-abanise-five.vercel.app/accout', {
+          method: "GET",
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'include',
+        })
+        if (!response1.ok) {
+          const errorData = await response.json();
+          this.erromessage = errorData.message;
+          throw new Error(errorData.message);
+        }
+
+        const response = await fetch('https://api-abanise-five.vercel.app/dashboard', {
+          method: "GET",
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'include',
+        })
+        if (!response.ok) {
+          const errorData = await response.json();
+          this.erromessage = errorData.message;
+          throw new Error(errorData.message);
+        }
+
+        const data = await response.json();
+        this.user.accountNo = data.foundUser.account_number
+        this.user.accountName = data.foundUser.account_name
+        this.user.wallet = data.foundUser.walletBalance.toLocaleString('en-US', { style: 'currency', currency: 'NGN' })
+        this.user.bankName = data.foundUser.preferred_bank
+        this.isJsFinishedRun = true
+
+      } else {
+        this.isJsFinishedRun = true
+
+      }
+
+    }
+
+
+
 
 
   },
