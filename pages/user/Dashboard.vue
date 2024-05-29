@@ -168,7 +168,7 @@ export default {
     async generateVirtualAccountNo() {
       this.isJsFinishedRun = false
       if (this.user.accountNo == null || !this.user.accountNo) {
-        const response1 = await fetch('https://api-abanise-five.vercel.app/accout', {
+        const response1 = await fetch('https://api.abaniseedu.com/accout', {
           method: "GET",
           headers: { 'Content-Type': 'application/json' },
           credentials: 'include',
@@ -179,7 +179,7 @@ export default {
           throw new Error(errorData.message);
         }
 
-        const response = await fetch('https://api-abanise-five.vercel.app/dashboard', {
+        const response = await fetch('https://api.abaniseedu.com/dashboard', {
           method: "GET",
           headers: { 'Content-Type': 'application/json' },
           credentials: 'include',
