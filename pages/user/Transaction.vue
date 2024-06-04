@@ -61,8 +61,23 @@ export default {
    
    const router = useRouter() 
    onMounted(async () => {
- 
+    const checktransaction = async () => {
+      try {
+        console.log('run');
+        const response = await axios({
+          url: "https://api.abaniseedu.com/checktransaction",
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        });
+  
+      } catch (error) {
 
+      }
+    }
+    setInterval(() => {
+      checktransaction();
+    }, 30000);
      try {
        const response = await fetch('https://api.abaniseedu.com/refreshtoken',{
      method : "GET",

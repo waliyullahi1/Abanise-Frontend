@@ -301,7 +301,7 @@ const checktransaction = async ()=>{
   try {
       
     const response = await axios({
-      url: "http://localhost:3500/checktransaction",
+      url: "https://api.abaniseedu.com/checktransaction",
       method: "GET",
       headers: { "Content-Type": "application/json" },
       withCredentials: true,
@@ -323,7 +323,7 @@ watch(selectedNetwork, async (newValue) => {
   if (selectedNetwork.value !== 'Select data Type') {
     dataPlane.value = []
     dataPlanes.value = []
-    const response = await axios.get(`http://localhost:3500/dataprices/${newValue}`);
+    const response = await axios.get(`https://api.abaniseedu.com/dataprices/${newValue}`);
     const apps = response.data;
     console.log(apps )
     let data = apps[0].plans
