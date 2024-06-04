@@ -75,9 +75,9 @@ export default {
 
       }
     }
-    setInterval(() => {
-      checktransaction();
-    }, 50000);
+    // setInterval(() => {
+    //   checktransaction();
+    // }, 50000);
      try {
        const response = await fetch('https://api.abaniseedu.com/refreshtoken',{
      method : "GET",

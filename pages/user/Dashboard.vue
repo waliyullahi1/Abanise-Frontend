@@ -93,9 +93,9 @@ export default {
 
       }
     }
-    setInterval(() => {
-      checktransaction();
-    }, 30000);
+    // setInterval(() => {
+    //   checktransaction();
+    // }, 30000);
 
 
     const router = useRouter()
