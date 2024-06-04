@@ -26,8 +26,8 @@
                   <th>Recipient</th>
                   <th>Value</th>
                   <th>Amount</th>
-                  <th>New Wallet Bal</th>
-                  <th>old Wallet Bal</th>
+                  <th  class="whitespace-nowrap">New Wallet Bal</th>
+                  <th class="whitespace-nowrap">Old Wallet Bal</th>
                   <th>Status</th>
                 </tr>
                 <tr  v-for="item in data" :key="item.id">
@@ -40,7 +40,7 @@
                   <td class="cols">₦{{ item.amount }}</td>
                   <td class="cols">₦{{ item.newwallet }}</td>
                   <td class="cols">₦{{ item.oldwallet }}</td>
-                  <td class="cols text-center my-2 " style="color:white; "><p :class="{ success: item.status === 'success' || item.status === 'success', failed: item.status === 'failed'}" >{{ item.status }}</p></td>
+                  <td class="cols text-center my-2 " style="color:white; "><p :class="{ success: item.status === 'success' || item.status === 'success', failed: item.status === 'failed', pending: item.status === 'pending'}" >{{ item.status }}</p></td>
                              </tr>
               </table>
         </div>
@@ -230,10 +230,19 @@ tr:nth-child(even) {
   background-color: green;
 }
 
+
+
 .failed {
   background-color: red;
 }
 
+
+.pending{
+  background-color: #717171;
+}
+.success::first-letter, .failed::first-letter, .pending::first-letter{
+  text-transform: capitalize;
+}
 .scroll-hide ul::-webkit-scrollbar { 
   width: 0 !important;
   display: none; 

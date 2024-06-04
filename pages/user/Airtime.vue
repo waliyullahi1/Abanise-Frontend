@@ -210,7 +210,7 @@ export default {
   
 
       try {
-        const response = await fetch('https://api.abaniseedu.com/refreshtoken',{
+        const response = await fetch('http://localhost:3500/refreshtoken',{
       method : "GET",
       headers: {'Content-Type':'application/json'},
       credentials:'include',
@@ -366,7 +366,7 @@ export default {
         try {
           const originalAmount = this.form.amount.toFixed(1)
           this.loadingState = true;
-          const response = await fetch("https://api.abaniseedu.com/sub/airtime", {
+          const response = await fetch("http://localhost:3500/sub/airtime", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             credentials: "include",
@@ -391,10 +391,7 @@ export default {
           const data = await response.json();
           // this.message = data.success;
           this.status = data.success
-          
-
-          
-         
+          console.log(this.status)
            this.transacPrev = false;
          setTimeout(() => {
 
