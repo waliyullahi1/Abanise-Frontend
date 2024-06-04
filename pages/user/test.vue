@@ -188,7 +188,7 @@ const cancelTrans = ()=>{
 
 const prevTrans = ()=> {
   loadingState1.value = true
-  console.log(form.phone.length);
+  
   const regex = /[a-zA-Z]/;
   if (!selectedNetwork.value || selectedNetwork.value === "network") {
     notifcation('notices', 'Select a Network ')
@@ -202,7 +202,7 @@ const prevTrans = ()=> {
        return false;
      } 
       else {
-       console.log('gggggg');
+   
         setTimeout(() => {
           transacPrev.value = true ;
           loadingState1.value = false;
@@ -224,9 +224,9 @@ const prevTrans = ()=> {
 
 
        try {
-        console.log(selectedNetwork.value, findPlane.value.id);
+      
     const response = await axios({
-      url: "http://localhost:3500/dataprices",
+      url: "https://api.abaniseedu.com/dataprices",
       method: "POST",
       headers: { "Content-Type": "application/json" },
       withCredentials: true,
@@ -237,12 +237,12 @@ const prevTrans = ()=> {
         networkName:selectedNetwork.value
       }
     });
-    console.log(response);
+    
     const apps = response.data;
-     console.log(apps.success)
+    
     if ( apps.success === 'success') {
       transacmessage.value = false
-      console.log('loooooog');
+    
           messagetransaction.value = `You have successfully shared ${selectedNetwork.value} data  for this number ${form.phone} `
           transacicon.value= true
           statuss.value = 'success'
@@ -252,7 +252,7 @@ const prevTrans = ()=> {
           } else {
             transacmessage.value = false
             transacPrev.value = false
-            console.log('dddddddddd');
+        
             transacicon.value = false
             statusreport.value = false
             statuss.value = 'Failed'
@@ -263,28 +263,18 @@ const prevTrans = ()=> {
        
    
   } catch (error) {
-    console.log(error);
+   
     if (error.response) {
-      notify({
-        title: 'error',
-        text: error.response.data.message,
-      });
       notifcation('notices', error.response.data.message)
 
     } else if (error.request) {
-      notify({
-        title: 'error',
-        text: error.request,
-      });
-      notifcation('notices', error.request)
+     
+      notifcation('notices', error.message)
       // The request was made but no response was received
 
     } else {
-     notify({
-        title: 'error',
-        text: error.request,
-      });
-      notifcation('notices',error.request)
+     
+      notifcation('notices',error.message)
     }
     transacPrev.value = true ;
         
@@ -306,12 +296,8 @@ const checktransaction = async ()=>{
       headers: { "Content-Type": "application/json" },
       withCredentials: true,
     });
-    console.log(response);
+  
   } catch (error) {
-    console.log(error);
-   
-
-        
   
   }
 }
@@ -325,7 +311,7 @@ watch(selectedNetwork, async (newValue) => {
     dataPlanes.value = []
     const response = await axios.get(`https://api.abaniseedu.com/dataprices/${newValue}`);
     const apps = response.data;
-    console.log(apps )
+
     let data = apps[0].plans
     dataPlanes.value = data
     
@@ -337,11 +323,11 @@ watch(selectedNetwork, async (newValue) => {
 
 
 watch(dataPlane, async (newValue) => {
-console.log('walii', newValue, dataPlane);
+
  findPlane.value = dataPlanes.value.find(app => app.custom_name ===  newValue)
 
 // const gb = findPlane.value.custom_name.split(' ')
-  console.log( findPlane.value);
+  
   form.serviceID1 = findPlane.value.name
   form.amount =findPlane.value.reseller_amount
   form.network =selectedNetwork.value
