@@ -79,20 +79,7 @@ import axios from 'axios'
 
 export default {
   setup() {
-    const checktransaction = async () => {
-      try {
-        console.log('run');
-        const response = await axios({
-          url: "https://api.abaniseedu.com/checktransaction",
-          method: "GET",
-          headers: { "Content-Type": "application/json" },
-          withCredentials: true,
-        });
   
-      } catch (error) {
-
-      }
-    }
     // setInterval(() => {
     //   checktransaction();
     // }, 30000);
@@ -257,6 +244,19 @@ export default {
     this.isJsFinishedRun = true
 
 
+    
+  try {
+
+    const response = await axios({
+      url: "http://localhost:3500/checktransaction",
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+      withCredentials: true,
+    });
+
+  } catch (error) {
+
+  }
 
   },
 

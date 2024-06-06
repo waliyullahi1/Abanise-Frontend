@@ -55,89 +55,35 @@
   </div>
 </template>
 
-<script>
+<!-- <script>
 export default {
   setup() {
    
    const router = useRouter() 
-   onMounted(async () => {
-    const checktransaction = async () => {
-      try {
-        console.log('run');
-        const response = await axios({
-          url: "https://api.abaniseedu.com/checktransaction",
-          method: "GET",
-          headers: { "Content-Type": "application/json" },
-          withCredentials: true,
-        });
-  
-      } catch (error) {
+   const checktransaction = async () => {
+  try {
 
-      }
-    }
-    // setInterval(() => {
-    //   checktransaction();
-    // }, 50000);
-     try {
-       const response = await fetch('https://api.abaniseedu.com/refreshtoken',{
-     method : "GET",
-     headers: {'Content-Type':'application/json'},
-     credentials:'include',
-     
-   })
+    const response = await axios({
+      url: "http://localhost:3500/checktransaction",
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+      withCredentials: true,
+    });
+
+  } catch (error) {
+
+  }
+}
+
+
+//    watch(this.data, async (newValue) => {
+// console.log(newValue);
+
+
+
+// })
+
  
- if (!response.ok) {
-   const errorData = await response.json();
-  this.erromessage = errorData.message;
-  router.push('/login')
-   throw new Error(errorData.message);
-   
- }
-
-     
-     } catch (error) {
-       console.error('There has been a problem with your fetch operation:', error)
-       router.push('/login') // Redirect to the login page
-     }
-   })
-
-   useHead({
-     // Can be static or computed
-     title: 'Airtime, MTN, GLO, 9MOBILE, AIRTEL - abanise.com | Buy WAEC Scratch cards, NECO Scratch cards and NABTEB cards online, Buy Data, Airtime to cash,',
-     meta: [
-       {
-         name: `description`,
-         content: 'Data Bundle - Cheapest Data Bundle Plan in 2023 – MTN | Airtel | Glo | 9Mobile | NairaData Nigeria',
-       },
-       // {
-       //   itemprop: `name,
-       //   content: 'Buy WAEC scratch cards online at WWW.abaniseedu.COM. Buy WAEC Scratch cards, NECO Scratch cards and NABTEB cards online, Buy Cheap Internet Data Plan and Airtime Recharge for Airtel, 9mobile, GLO, MTN. at the best price in Nigeria. Order now at WWW.abaniseedu.COM and get it delivered to you instantly using your prefered method.',
-       // },
-       {
-         name: 'site_name',
-         content: 'abaniseedu.com',
-       },
-       {
-         name: 'type',
-         content: 'website ',
-       },
-       {
-         name: 'site_name',
-         content: 'abaniseedu.com',
-       },
-       {
-         name: 'type',
-         content: 'website ',
-       },
-
-       {
-         name: 'url',
-         content: 'abaniseedu.com',
-       },
-     
-       ],
-    
-   })
    return { };
  },
   data() {
@@ -179,7 +125,7 @@ export default {
 
 created: async function(){
   
-    const response = await fetch('https://api.abaniseedu.com/transaction',{
+    const response = await fetch('http://localhost:3500/transaction',{
       method : "GET",
       headers: {'Content-Type':'application/json'},
       credentials:'include',
@@ -188,6 +134,8 @@ created: async function(){
   
   if (!response.ok) {
     const errorData = await response.json();
+   
+    console.log(errorData);
    this.erromessage = errorData.message;
     throw new Error(errorData.message);
     
@@ -199,13 +147,129 @@ created: async function(){
    this.data = data
 this.isJsFinishedRun=true
  
- 
+
+      try {        console.log('run');
+        const response = await axios({
+          url: "http://localhost:3500/checktransaction",
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        });
+  
+      } catch (error) {
+
+      }
+   
+   
+    
 
 
 },
-};
-</script>
 
+};
+
+
+
+</script> -->
+
+
+
+<script setup>
+import { ref, onMounted } from 'vue'
+import axios from 'axios'
+
+import { useHead } from '@vueuse/head'
+import { useOnline } from '@vueuse/core'
+const { notify } = useNotification();
+
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+
+const data =  ref()
+ const isJsFinishedRun=ref(false)
+ const checkdata = ref()
+
+const fetch = async()=>{
+  try {
+
+const response = await axios({
+  url: "http://localhost:3500/transaction",
+  method: "GET",
+  headers: { "Content-Type": "application/json" },
+  withCredentials: true,
+});
+
+
+data.value = response.data.reverse()
+console.log(data.value);
+isJsFinishedRun.value=true
+ 
+console.log(data.value);
+} catch (error) {
+
+}
+}
+
+fetch()
+
+const checktransaction = async () => {
+  try {
+
+    const response = await axios({
+      url: "http://localhost:3500/checktransaction",
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+      withCredentials: true,
+    });
+
+  } catch (error) {
+
+  }
+}
+
+ checktransaction() 
+
+
+
+useHead({
+     // Can be static or computed
+     title: 'Login in - abanise.com | Buy WAEC Scratch cards, NECO Scratch cards and NABTEB cards online, Buy Data, Airtime to cash,',
+    meta: [
+       {        name: `description`,
+       content: 'Buy WAEC scratch cards online at WWW.abaniseedu.COM. Buy WAEC Scratch cards, NECO Scratch cards and NABTEB cards online, Buy Cheap Internet Data Plan and Airtime Recharge for Airtel, 9mobile, GLO, MTN. at the best price in Nigeria. Order now at WWW.abaniseedu.COM and get it delivered to you instantly using your prefered method.',      },
+       // {
+       //   itemprop: `name,
+       //   content: 'Buy WAEC scratch cards online at WWW.abaniseedu.COM. Buy WAEC Scratch cards, NECO Scratch cards and NABTEB cards online, Buy Cheap Internet Data Plan and Airtime Recharge for Airtel, 9mobile, GLO, MTN. at the best price in Nigeria. Order now at WWW.abaniseedu.COM and get it delivered to you instantly using your prefered method.',
+       // },
+       {
+         name: 'site_name',
+         content: 'abaniseedu.com',
+       },
+       {
+         name: 'type',
+         content: 'website ',
+       },
+       {
+        name: 'site_name',
+        content: 'abaniseedu.com',
+       },
+       {
+        name: 'type',
+         content: 'website ',
+      },
+
+       {
+         name: 'url',
+         content: 'abaniseedu.com',
+       },
+
+      ],
+
+  })
+
+</script>
 <style >
 table {
   font-family: arial, sans-serif;
