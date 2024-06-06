@@ -55,125 +55,6 @@
   </div>
 </template>
 
-<!-- <script>
-export default {
-  setup() {
-   
-   const router = useRouter() 
-   const checktransaction = async () => {
-  try {
-
-    const response = await axios({
-      url: "http://localhost:3500/checktransaction",
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-      withCredentials: true,
-    });
-
-  } catch (error) {
-
-  }
-}
-
-
-//    watch(this.data, async (newValue) => {
-// console.log(newValue);
-
-
-
-// })
-
- 
-   return { };
- },
-  data() {
-    return {
-      data:[],
-      isJsFinishedRun:false,
-      transaction: [
-        
-        {
-          id: 4,
-          date: "23-03-2023",
-          type: "Mtn Airtime  ",
-          des: "buy 70 airtime ",
-          Recipient: "09134678754",
-          value: "Mtn Airtime",
-          amount: "3000",
-          walletBal: "1244",
-          status: "success ",
-        },
-
-
-        {
-          id: 3,
-          date: "23-03-2023",
-          type: "Glo Airtime  ",
-          des: "buy 70 airtime ",
-          Recipient: "09134678754",
-          value: "Glo Airtime",
-          amount: "3000",
-          walletBal: "1244",
-          status: "success ",
-        },
-      ],
-    };
-  },
-  methods: {
-
-  },
-
-created: async function(){
-  
-    const response = await fetch('http://localhost:3500/transaction',{
-      method : "GET",
-      headers: {'Content-Type':'application/json'},
-      credentials:'include',
-      
-    })
-  
-  if (!response.ok) {
-    const errorData = await response.json();
-   
-    console.log(errorData);
-   this.erromessage = errorData.message;
-    throw new Error(errorData.message);
-    
-  }
-  
-  const firstsdata = await response.json();
-  const data =  firstsdata.reverse()
-
-   this.data = data
-this.isJsFinishedRun=true
- 
-
-      try {        console.log('run');
-        const response = await axios({
-          url: "http://localhost:3500/checktransaction",
-          method: "GET",
-          headers: { "Content-Type": "application/json" },
-          withCredentials: true,
-        });
-  
-      } catch (error) {
-
-      }
-   
-   
-    
-
-
-},
-
-};
-
-
-
-</script> -->
-
-
-
 <script setup>
 import { ref, onMounted } from 'vue'
 import axios from 'axios'
@@ -195,7 +76,7 @@ const fetch = async()=>{
   try {
 
 const response = await axios({
-  url: "http://localhost:3500/transaction",
+  url: "https://api.abaniseedu.com/transaction",
   method: "GET",
   headers: { "Content-Type": "application/json" },
   withCredentials: true,
@@ -218,7 +99,7 @@ const checktransaction = async () => {
   try {
 
     const response = await axios({
-      url: "http://localhost:3500/checktransaction",
+      url: "https://api.abaniseedu.com/checktransaction",
       method: "GET",
       headers: { "Content-Type": "application/json" },
       withCredentials: true,
