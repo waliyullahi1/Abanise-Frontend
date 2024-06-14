@@ -14,7 +14,7 @@
                 <p> <span class=" text-green-700 sm:text-[15px] text-[14px] font-medium tracking-[1px]"> <button
                       @click="updatepassword = true ">Update Password</button>
                   </span> | <button type="button"><span   @click="updatetransaction = true "
-                    class=" text-green-700 sm:text-[15px] text-[14px] font-medium tracking-[1px]">Update Transaction
+                    class=" text-green-700 sm:text-[15px] text-[14px] font-medium tracking-[1px]">Update Transaction 
                     pin</span></button> </p>
               </div>
             </div>

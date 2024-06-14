@@ -80,9 +80,20 @@ import axios from 'axios'
 export default {
   setup() {
   
-    // setInterval(() => {
-    //   checktransaction();
-    // }, 30000);
+    const checktransaction = async () => {
+  try {
+
+    const response = await axios({
+      url: "https://api.abaniseedu.com/checktransaction",
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+      withCredentials: true,
+    });
+
+  } catch (error) {
+
+  }
+}
 
 
     const router = useRouter()
@@ -98,6 +109,7 @@ export default {
           credentials: 'include',
 
         })
+        checktransaction()
 
         if (!response.ok) {
           const errorData = await response.json();
@@ -113,7 +125,7 @@ export default {
         router.push('/login') // Redirect to the login page
       }
     })
-
+ 
     useHead({
       // Can be static or computed
       title: 'Airtime, MTN, GLO, 9MOBILE, AIRTEL - abanise.com | Buy WAEC Scratch cards, NECO Scratch cards and NABTEB cards online, Buy Data, Airtime to cash,',

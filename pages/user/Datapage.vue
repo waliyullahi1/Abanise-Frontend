@@ -242,6 +242,8 @@ const next = () => {
     loadingState2.value = false;
 
   }, 200);
+
+  checktransaction()
 }
 
 const prevTrans = () => {
