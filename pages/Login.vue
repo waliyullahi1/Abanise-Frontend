@@ -88,7 +88,23 @@ import { useOnline } from '@vueuse/core'
 const { notify } = useNotification();
 
 import { useRouter } from 'vue-router'
+ const err = async ()=>{
+  try {
+    const response = await axios('https://api.abaniseedu.com/login', {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      withCredentials: true,
+      data: {
+        email: 'state.form.email',
+        pwd: 'uuuuuu',
+      }
 
+    }) 
+  } catch (error) {
+    
+  }
+ 
+ }
 const router = useRouter()
 
 
