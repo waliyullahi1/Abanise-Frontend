@@ -101,7 +101,7 @@ import { useRouter } from 'vue-router'
 
     }) 
   } catch (error) {
-    
+    console.log(error);
   }
  
  }
