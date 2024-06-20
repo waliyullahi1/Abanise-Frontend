@@ -257,19 +257,7 @@ export default {
 
 
     
-  try {
-
-    const response = await axios({
-      url: "http://localhost:3500/checktransaction",
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-      withCredentials: true,
-    });
-
-  } catch (error) {
-
-  }
-
+ 
   },
 
   watch: {
