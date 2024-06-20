@@ -105,6 +105,7 @@ import { useRouter } from 'vue-router'
   }
  
  }
+ err()
 const router = useRouter()
 
 
