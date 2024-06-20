@@ -63,10 +63,24 @@ props: {
    
 
    methods:{
-    next(){
+   async next(){
 
+      try {
+         await fetch("https://api.abaniseedu.com/checktransaction", {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+            credentials: "include",
+           
+          })
+
+          this.$emit("next") 
+      } catch (error) {
+        
+      }
+        
+         
    
-       this.$emit("next")
+      
 
 
   }
