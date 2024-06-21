@@ -288,7 +288,7 @@ const submitted = async () => {
 
       const apps = response.data;
       console.log(apps);
-      if(apps.status.includes('success') || apps.status.includes('pending'))  {
+      if(apps.status === ('success'))  {
         transacmessage.value = false
 
         messagetransaction.value = `You have successfully shared ${selectedNetwork.value} data  for this number ${form.phone} `
