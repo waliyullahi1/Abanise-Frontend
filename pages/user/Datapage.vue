@@ -10,7 +10,7 @@
         <div class="h-fit lg:w-1/3 sm:w-[2rem] sm:block hidden lg:block md:block md:w-1/5 ml-[2rem]"></div>
 
         <div class="w-full 0 py- mb-20 px-5">
-          <h1 @click="checktransaction()" class="text-[19px] text-gray-600 font-medium">
+          <h1  class="text-[19px] text-gray-600 font-medium">
             Data Bundle Vend
           </h1>
           <div class="bg-green-100 w-fit py-2 mt-5 h-fit px-4">
@@ -336,7 +336,7 @@ const submitted = async () => {
 
 
 
-checktransaction()
+
 
 watch(selectedNetwork, async (newValue) => {
 
