@@ -136,6 +136,7 @@ const { notify } = useNotification();
 const transacicon = ref('')
 const statuss = ref('')
 import { useRouter } from 'vue-router'
+import { differenceInCalendarQuarters } from 'date-fns';
 
 const router = useRouter()
 
@@ -287,7 +288,7 @@ const submitted = async () => {
 
       const apps = response.data;
       console.log(apps);
-      if (apps.status === 'success' || apps.status === 'pending') {
+      if (apps.status === includes('success') || apps.status === includes('pending')) {
         transacmessage.value = false
 
         messagetransaction.value = `You have successfully shared ${selectedNetwork.value} data  for this number ${form.phone} `
