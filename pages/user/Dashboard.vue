@@ -80,20 +80,6 @@ import axios from 'axios'
 export default {
   setup() {
   
-    const checktransaction = async () => {
-  try {
-
-    const response = await axios({
-      url: "https://api.abaniseedu.com/checktransaction",
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-      withCredentials: true,
-    });
-
-  } catch (error) {
-
-  }
-}
 
 
     const router = useRouter()
@@ -109,7 +95,7 @@ export default {
           credentials: 'include',
 
         })
-        checktransaction()
+      
 
         if (!response.ok) {
           const errorData = await response.json();

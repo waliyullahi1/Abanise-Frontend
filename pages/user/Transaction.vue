@@ -84,10 +84,10 @@ const response = await axios({
 
 
 data.value = response.data.reverse()
-console.log(data.value);
+
 isJsFinishedRun.value=true
  
-console.log(data.value);
+
 } catch (error) {
 
 }
@@ -95,22 +95,6 @@ console.log(data.value);
 
 fetch()
 
-const checktransaction = async () => {
-  try {
-
-    const response = await axios({
-      url: "https://api.abaniseedu.com/checktransaction",
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-      withCredentials: true,
-    });
-
-  } catch (error) {
-
-  }
-}
-
- checktransaction() 
 
 
 

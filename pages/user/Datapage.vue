@@ -211,26 +211,13 @@ const notifcation = (tittles, texts) => {
 
 }
 
-const checktransaction = async () => {
-  try {
 
-    const response = await axios({
-      url: "https://api.abaniseedu.com/checktransaction",
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-      withCredentials: true,
-    });
-
-  } catch (error) {
-
-  }
-}
 const cancelTrans = () => {
   transacPrev.value = false
   loadingState1.value = false
   loadingState2.value = false
 
-  checktransaction()
+
 }
 
 const next = () => {
@@ -243,7 +230,7 @@ const next = () => {
 
   }, 200);
 
-  checktransaction()
+  
 }
 
 const prevTrans = () => {
