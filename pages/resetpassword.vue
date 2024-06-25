@@ -129,7 +129,7 @@ async submit() {
   
 
    try {
-    const response = await fetch('https://api-abanise-five.vercel.app/resetpassword', {
+    const response = await fetch('https://api.abaniseedu.com/resetpassword', {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
