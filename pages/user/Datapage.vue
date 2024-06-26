@@ -167,6 +167,9 @@ const networkName = [
   { value: "AIRTEL CORPORATE DATA", text: "AIRTEL CORPORATE DATA" },
   { value: "GLO CORPORATE DATA", text: "GLO CORPORATE DATA" },
   { value: "9MOBILE SME DATA", text: "9MOBILE SME DATA" },
+  { value: "MTN NORMAL DATA", text: "MTN NORMAL DATA" },
+  { value: "AIRTEL CORPORATE DATA", text: "AIRTEL CORPORATE DATA" },
+  { value: "AIRTEL SPECIAL OFFERS", text: "AIRTEL SPECIAL OFFERS" },
 ]
 
 
