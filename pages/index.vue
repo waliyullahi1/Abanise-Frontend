@@ -100,8 +100,8 @@
 
                 </div>
                 <div class="md:flex   block w">
-                    <div class=" ck sm:w-1/3 w-full hidden text-center h-fit md:flex flex-col gap-3   px-2 rounded-xl   py-2 ">
-                        <div class=" text-white py-5 gap-3 flexvtext-white flex-col rounded-xl bg-cyan-800">
+                    <div class=" ck md:w-1/3 w-full hidden text-center h-fit md:flex flex-col gap-3   px-2 rounded-xl   py-2 ">
+                        <div class=" text-white py-5 gap-3 flex text-white flex-col rounded-xl bg-cyan-800">
                             <h3 class="border-b-2 pb-5 border-white font-medium text-[18px]  ">WELCOME TO ABANISE</h3>
                             <p class="text- ">
                                 Here you can make an instant online purchase of all examination Cards (WAEC, NECO &
@@ -169,7 +169,7 @@
 
                     </div>  
                     
-                    <div class=" ck sm:w-1/3 w-full text-center h-fit md:hidden flex flex-col gap-3   px-2 rounded-xl   py-2 ">
+                    <div class=" ck md:w-1/3 w-full text-center h-fit md:hidden flex flex-col gap-3   px-2 rounded-xl   py-2 ">
                         <div class=" text-white py-5 gap-3 flexvtext-white flex-col rounded-xl bg-cyan-800">
                             <h3 class="border-b-2 pb-5 border-white font-medium text-[18px]  ">WELCOME TO ABANISE</h3>
                             <p class="text- ">
