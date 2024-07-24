@@ -668,7 +668,7 @@
             this.waecImg = neco
           } else {
             if (splitloc[3] == 3) {
-              this.form.semiprice = Number(1000)
+              this.form.semiprice = Number(1200)
               this.form.price = this.form.semiprice
               this.amount = parseInt(this.form.price) * 100,
                 this.cardName = 'Nabteb',
@@ -681,7 +681,7 @@
               this.showcard= 'Scratchcard'
             } else {
               if (splitloc[3] == 4) {
-                this.form.semiprice = Number(19000)
+                this.form.semiprice = Number(28000)
                 this.form.price = this.form.semiprice * this.form.quantity
                 this.amount = (parseInt(this.form.price) * 100) + 100,
                   this.vcard = true
@@ -695,7 +695,7 @@
                 this.waecImg = gcewaec
               } else
                 if (splitloc[3] == 5) {
-                  this.form.semiprice = Number(18000)
+                  this.form.semiprice = Number(12500)
                   this.form.price = this.form.semiprice * this.form.quantity
                   this.amount = (parseInt(this.form.price) * 100) + 100,
                     this.vcard = true
@@ -709,7 +709,7 @@
                   this.waecImg = neco
                 } else {
                   if (splitloc[3] == 6) {
-                    this.form.semiprice = Number(16500)
+                    this.form.semiprice = Number(20000)
                     this.form.price = this.form.semiprice
                     this.amount = parseInt(this.form.price) * 100,
                       this.vcard = true
@@ -723,7 +723,7 @@
                     this.descrption = 'NABTEB GCE O LEVEL card is a product of National Business and Technical Examinations Board. It is used to register candidates for NABTEB Private Examination.'
                   } else {
                     if (splitloc[3] == 7) {
-                      this.form.semiprice = Number(15000)
+                      this.form.semiprice = Number(4500)
                       this.form.price = this.form.semiprice
                       this.amount = (parseInt(this.form.price) * 100) + 100,
                         this.nysecard = true

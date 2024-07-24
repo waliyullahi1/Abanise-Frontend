@@ -290,7 +290,7 @@ const submitted = async () => {
       });
 
       const apps = response.data;
-      console.log(apps);
+     
       if(apps.success === 'success')  {
         transacmessage.value = false
 

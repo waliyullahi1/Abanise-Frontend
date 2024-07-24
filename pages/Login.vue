@@ -219,24 +219,24 @@ if (!state.form.email || !emailPattern.test(state.form.email)) {
       state.loadingState = false;
       throw new Error("No internet connection");
     }
-    const response = await axios('https://api.abaniseedu.com/login', {
-      method: "POST",
-      headers: { 'Content-Type': 'application/json' },
-      withCredentials: true,
-      data: {
-        email: state.form.email,
-        pwd: state.form.password,
-      }
+    // const response = await axios('https://api.abaniseedu.com/login', {
+    //   method: "POST",
+    //   headers: { 'Content-Type': 'application/json' },
+    //   withCredentials: true,
+    //   data: {
+    //     email: state.form.email,
+    //     pwd: state.form.password,
+    //   }
 
-    })
+    // })
 
 
-      router.push('/user/Dashboard')
-      state.loadingState = false
+      // router.push('/user/Dashboard')
+      // state.loadingState = false
 
     notify({
       title: "successful",
-      text: data.success,
+      text: 'try it again later',
     });
    
    

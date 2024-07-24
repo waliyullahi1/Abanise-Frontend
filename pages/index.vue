@@ -85,7 +85,7 @@
         </section>
 
 
-        <section id="ScratchCards" class="sm:w-[80%] w-[90%]  mb-10 mt-2  mx-auto">
+        <section id="ScratchCards" class="sm:w-[90%] w-[90%]  mb-10 mt-2  mx-auto">
             <marquee behavior="scroll" direction="left" scrollamount=""
                 class=" text-sm md:text-[13px] font-bold w-full font-bo text-primary "><span>IF YOU WANT TO PROCESS YOUR
                     ADDMISSION TO ANY UNIVERSITY OR POLYTECHNIC KINDLY MESSAGE THIS WHATSAPP NUMBER 07068393706 </span>
@@ -99,37 +99,115 @@
                         INSTANTLY </h2>
 
                 </div>
-                <div
-                    class="grid md:grid-cols-2  lg:grid-cols-3 sm:grid-cols-2  grid-cols-1 gap-4 md:gap-5 px-2 sm:px-10 ">
-                    <div v-for="item in item" :key="item.id"
-                        class=" group shadow  rounded-lg border-primary w-full overflow-hidden  h-fit flex flex-col gap-3 ">
-                        <div class="w-full  group-hover:drop-shadow-xl  duration-700  pt-3 px-3 overflow-hidden ">
-                            <div class="overflow-hidden duration-700   "> <img v-bind:src="item.image" class="rounded-lg" /></div>
-
+                <div class="md:flex   block w">
+                    <div class=" ck sm:w-1/3 w-full hidden text-center h-fit md:flex flex-col gap-3   px-2 rounded-xl   py-2 ">
+                        <div class=" text-white py-5 gap-3 flexvtext-white flex-col rounded-xl bg-cyan-800">
+                            <h3 class="border-b-2 pb-5 border-white font-medium text-[18px]  ">WELCOME TO ABANISE</h3>
+                            <p class="text- ">
+                                Here you can make an instant online purchase of all examination Cards (WAEC, NECO &
+                                NABTEB),
+                                using your Bank ATM Card. Delivery is stress free, instant and automatic. Contact our
+                                customer
+                                support center for any assistance.
+                            </p>
+                            <p class=" text-lg font-medium">We value your patronage</p>
                         </div>
-                        <div class=" flex py-3 px-3 flex-col gap-3 border-primary transform duration-300">
-                            <div class=" group-hover:w-full w-1/4 duration-500 h-1 bg-secondary"></div>
-                            <p class="sm:text-[17px] text-[15px] "><span>{{ item.card }}</span> {{ item.header }} <span
-                                    class="sm:text-[17px] text-[15px] font-sebold">({{ item.condition }})</span></p>
-                            <div class="flex  justify-between">
-                                <p class="text-[17px] ">Price</p>
 
-                                <p class="font-semibold font-lg ">₦{{ item.price }}</p>
-                            </div>
-                            <p class="flex justify-between font-font-[17px] ">Availability(status) <span
-                                    class="tex text-green-600 ">{{ item.status }}</span></p>
+                        <div class=" text-left px-4 py-5 border gap-3 flex flex-col  ">
+                            <h3 class="border-b-2 pb-5  font-medium text-[18px]  ">OUR BANK DETAILS</h3>
+                            <ul>
+                                <li>First Bank Plc</li>
+                                <li>Account No: 3076622211</li>
+                                <li>Name:  Waheed Ambali</li>
+                            </ul>
+                           
+                            <ul>
+                                <li>Wema Bank Plc</li>
+                                <li>Account No: 0223489006</li>
+                                <li>Name: Waheed Ambali </li>
+                            </ul>
+
+                            <ul>
+                                <li>GTB Bank Plc</li>
+                                <li>Account No: 0116794902</li>
+                                <li>Name: Waheed Ambali</li>
+                            </ul>
                         </div>
-                        <NuxtLink :class="item.itIsAvalable ? 'block' : 'hidden'" target="_blank"
-                            :to="`/${item.id}/${item.card}/${item.condition}`">
-                            <Primary class="w-full text-center font-[14px] font-sembold">Buy now</Primary>
-                        </NuxtLink>
-                        <NuxtLink :class="item.itIsAvalable ? 'hidden' : 'block'" target="_blank" :to="`/`">
-                            <Primary class="w-full text-center font-[14px]  font-sembold">Not Available</Primary>
-                        </NuxtLink>
-                        <!-- /${item.card}/${item.condition} -->
+
                     </div>
+                    
+                  <div
+                        class="grid md:grid-cols-2 w-full  lg:grid-cols-3 sm:grid-cols-2  grid-cols-1 gap-4 md:gap-5 px-2  ">
+                        <div v-for="item in item" :key="item.id"
+                            class=" group border  rounded-lg  border-gray-500 w-full overflow-hidden  h-fit flex flex-col gap-3 ">
+                            <div class="w-full  group-hover:drop-shadow-xl  duration-700  pt-3 px-3 overflow-hidden ">
+                                <div class="overflow-hidden duration-700  h-36  "> <img v-bind:src="item.image"
+                                        class="ro" />
+                                </div>
 
+                            </div>
+                            <div class=" flex py-1 px-3 flex-col gap-1 border-primary transform duration-300">
+
+                                <p class="sm:text-[15px] font-medium text-[15px] "><span>{{ item.card }}</span></p>
+                                <div class="flex  justify-between">
+                                    <p class="text-[17px] ">Price</p>
+
+                                    <p class="font-semibold font-lg ">₦{{ item.price }}</p>
+                                </div>
+                                <p class="flex justify-between font-font-[17px] ">₦{{ item.price }} <span
+                                        class=" text-yellow-600 font-medium ">{{ item.status }}</span></p>
+                            </div>
+                            <NuxtLink :class="item.itIsAvalable ? 'block' : 'hidden'" target="_blank"
+                                :to="`/${item.id}/${item.card}/${item.condition}`">
+                                <Primary class="w-full text-center font-[14px] font-sembold">Buy now</Primary>
+                            </NuxtLink>
+                            <NuxtLink :class="item.itIsAvalable ? 'hidden' : 'block'" target="_blank" :to="`/`">
+                                <Primary class="w-full text-center font-[14px]  font-sembold">Not Available</Primary>
+                            </NuxtLink>
+                            <!-- /${item.card}/${item.condition} -->
+                        </div>
+
+                    </div>  
+                    
+                    <div class=" ck sm:w-1/3 w-full text-center h-fit md:hidden flex flex-col gap-3   px-2 rounded-xl   py-2 ">
+                        <div class=" text-white py-5 gap-3 flexvtext-white flex-col rounded-xl bg-cyan-800">
+                            <h3 class="border-b-2 pb-5 border-white font-medium text-[18px]  ">WELCOME TO ABANISE</h3>
+                            <p class="text- ">
+                                Here you can make an instant online purchase of all examination Cards (WAEC, NECO &
+                                NABTEB),
+                                using your Bank ATM Card. Delivery is stress free, instant and automatic. Contact our
+                                customer
+                                support center for any assistance.
+                            </p>
+                            <p class=" text-lg font-medium">We value your patronage</p>
+                        </div>
+
+                        <div class=" text-left px-4 py-5 border gap-3 flex flex-col  ">
+                            <h3 class="border-b-2 pb-5  font-medium text-[18px]  ">OUR BANK DETAILS</h3>
+                            <ul>
+                                <li>First Bank Plc</li>
+                                <li>Account No: 3076622211</li>
+                                <li>Name:  Waheed Ambali</li>
+                            </ul>
+                           
+                            <ul>
+                                <li>Wema Bank Plc</li>
+                                <li>Account No: 0223489006</li>
+                                <li>Name: Waheed Ambali </li>
+                            </ul>
+
+                            <ul>
+                                <li>GTB Bank Plc</li>
+                                <li>Account No: 0116794902</li>
+                                <li>Name: Waheed Ambali</li>
+                            </ul>
+                        </div>
+
+                    </div>
+ 
+                    
                 </div>
+
             </div>
         </section>
 
@@ -146,8 +224,10 @@
                         rates
                         on airtime and data bundles (MTN, AIRTEL, GLO). </p>
                     <button
-                        class=" bg-primary text-white sm:w-1/2 w-2/3 rounded-3xl shadowsss  hover:bg-opacity-80 -2xl py-3  "> <NuxtLink to="/Register"> Click
-                        here to Sign Up</NuxtLink></button>
+                        class=" bg-primary text-white sm:w-1/2 w-2/3 rounded-3xl shadowsss  hover:bg-opacity-80 -2xl py-3  ">
+                        <NuxtLink to="/Register"> Click
+                            here to Sign Up</NuxtLink>
+                    </button>
                 </div>
 
                 <div class="grid md:grid-cols-2 grid-cols-2  md:gap-10 gap-3 justify-center ">
@@ -214,7 +294,9 @@
                         <div><img class="bg w-16 sm:w-20  shadowss py-4 px-4 rounded-full "
                                 src="@/assets/image/card1.svg" alt="Select Card type & number of pins"></div>
                         <h2 class="text-2xl  "> <strong>1</strong></h2>
-                        <p class=" sm:text-xl text-secondary text-[16px]  text-center font-semibold "> Select card type & quantity</p>
+                        <p class=" sm:text-xl text-secondary text-[16px]  text-center font-semibold "> Select card type
+                            &
+                            quantity</p>
                         <p class=" sm:text-[15px] text-[13px] text-center">Start by selecting the card you want to
                             purchase from
                             the
@@ -227,7 +309,8 @@
                                 src="@/assets/image/payment.svg" alt="Make Payment"></div>
 
                         <h2 class="text-2xl "> <strong>2</strong></h2>
-                        <p class=" sm:text-xl text-secondary text-[16px]  text-center font-semibold ">Make Payment <br> </p>
+                        <p class=" sm:text-xl text-secondary text-[16px]  text-center font-semibold ">Make Payment <br>
+                        </p>
                         <p class="  sm:text-[15px] text-[13px] text-center">We partnered with Paystack to make your
                             payment
                             process
@@ -241,11 +324,15 @@
                                 src="@/assets/image/receipt.svg" alt="Make Payment"></div>
 
                         <h2 class="text-2xl  "> <strong>3</strong></h2>
-                        <p class=" sm:text-xl text-[16px] text-secondary text-center font-semibold ">Receive Tokens Instantly </p>
-                        <p class="  sm:text-[15px] text-[13px] text-center">Immediately after your payment, if successful,you will be
+                        <p class=" sm:text-xl text-[16px] text-secondary text-center font-semibold ">Receive Tokens
+                            Instantly
+                        </p>
+                        <p class="  sm:text-[15px] text-[13px] text-center">Immediately after your payment, if
+                            successful,you
+                            will be
                             direct to another page automatically to copy you token. </p>
                     </div>
-                   
+
                 </div>
             </div>
         </section>
@@ -254,9 +341,9 @@
 
 
 
-        
+
         <div class="w-full flex justify-center bg-[#f4f6f6] items-center">
-        <Adsbygoogle />
+            <Adsbygoogle />
             <button
                 class="bg-primary justify-center flex font-medium hover:bg-secondary ease-in-out duration-700 text-white rounded-xl text-[15px] gift py-2 px-4 ">
                 <!-- <NuxtLink to="/qiuz"> Click here to collect your year gift</NuxtLink> -->
@@ -303,10 +390,10 @@ import hero2 from '@/assets/image/hero.jpg';
 import hero3 from '@/assets/image/her.jpg';
 import { onMounted, ref } from 'vue';
 import hero1 from '@/assets/image/dash.jpg';
-import waecImg from '@/assets/image/waeccard.jpg';
-import neco from '@/assets/image/neco.jpg';
+import waecImg from '@/assets/image/waec.png';
+import neco from '@/assets/image/nee.jpg';
 import vwaec from '@/assets/image/vgce.jpg'
-import nabteb from '@/assets/image/nabteb1.jpg';
+import nabteb from '@/assets/image/nab.jpg';
 import gcewaec from '@/assets/image/gce.jpg';
 import jamblogo from '@/assets/image/jamblogo.png';
 import necologo from '@/assets/image/necologo.jpg';
@@ -466,45 +553,45 @@ export default {
 
                     image: waecImg,
                     price: '4000.00',
-                    card: 'Waec',
+                    card: 'WAEC Result Checker Cards',
                     header: 'Scratch card ',
                     condition: `result checker`,
                     itIsAvalable: true,
-                    status: 'Yes'
+                    status: 'In Stock'
                 },
 
                 {
                     id: 2,
                     image: neco,
                     price: '1200.00',
-                    card: 'Neco',
+                    card: 'NECO Result Checker Cards',
                     header: 'Scratch card ',
                     condition: 'result checker',
                     itIsAvalable: true,
-                    status: 'Yes'
+                    status: 'In Stock'
                 },
 
                 {
                     id: 3,
                     image: nabteb,
-                    price: '1000.00',
-                    card: 'Nabteb',
+                    price: '1200.00',
+                    card: 'NABTEB Result Checker Cards',
                     header: 'Scratch card ',
                     condition: 'result checker',
                     itIsAvalable: true,
-                    status: 'Yes'
+                    status: 'In Stock'
                 },
 
 
                 {
                     id: 4,
                     image: gcewaec,
-                    price: '19,000.00',
+                    price: '28,000.00',
                     card: 'GCEWAEC',
                     header: 'Pin card ',
                     condition: 'For registration',
-                    itIsAvalable: false,
-                    status: 'No'
+                    itIsAvalable: true,
+                    status: 'In Stock'
                 },
 
                 {
@@ -514,31 +601,31 @@ export default {
                     card: 'GCENeco',
                     header: 'Pin card ',
                     condition: 'For registration',
-                    itIsAvalable: false,
-                    status: 'No'
+                    itIsAvalable: true,
+                    status: 'In Stock'
                 },
 
 
                 {
                     id: 6,
                     image: nabtebgce,
-                    price: '16,500.00',
+                    price: '20,000.00',
                     card: 'GCENabteb',
                     header: 'pin ',
                     condition: 'For registration',
-                    itIsAvalable: false,
-                    status: 'No'
+                    itIsAvalable: true,
+                    status: 'In Stock'
                 },
 
                 {
                     id: 7,
                     image: vwaec,
-                    price: '15000',
+                    price: '4500',
                     card: 'Waec',
                     header: 'Result Verification ',
                     condition: 'Correction of date of birth in NYSE',
-                    itIsAvalable: false,
-                    status: 'No'
+                    itIsAvalable: true,
+                    status: 'In Stock'
                 },
 
 

@@ -334,66 +334,70 @@ const submit = async () => {
     state.loadingState = false;
     return false;
   } else {
-  
-    try {
-
-      const online = useOnline()
-      if (!online.value) {
-        notify({
-          title: "No Internet Connection",
-          text: "Please check your internet connection and try again.",
+    
+    notify({
+           title: "Notices",
+           text: "sorry  try again later.",
         });
-        state.loadingState = false;
-        throw new Error("No internet connection");
-      }
-      const response = await fetch('https://api.abaniseedu.com/register', {
-        method: "POST",
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
-        body: JSON.stringify({
-          firstname: state.form.firstname,
-          lastName: state.form.lastname,
-          transaction: state.form.transactionCode,
-          email: state.form.email,
-          pwd: state.form.password,
-          phone: state.form.phone,
-        })
+    // try {
 
-      })
+    //   const online = useOnline()
+    //   if (!online.value) {
+    //     notify({
+    //       title: "Notices",
+    //       text: "Please check your internet connection and try again.",
+    //     });
+    //     state.loadingState = false;
+    //     throw new Error("No internet connection");
+    //   }
+    //   const response = await fetch('https://api.abaniseedu.com/register', {
+    //     method: "POST",
+    //     headers: { 'Content-Type': 'application/json' },
+    //     credentials: 'include',
+    //     body: JSON.stringify({
+    //       firstname: state.form.firstname,
+    //       lastName: state.form.lastname,
+    //       transaction: state.form.transactionCode,
+    //       email: state.form.email,
+    //       pwd: state.form.password,
+    //       phone: state.form.phone,
+    //     })
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        notify({
-          title: "error",
-          text: errorData.message,
-        });
-        state.erromessage = errorData.message;
-        state.loadingState = false;
-        throw new Error(errorData.message);
+    //   })
 
-      }
-      state.loadingState = true
-      const data = await response.json();
-      state.erromessage = ''
-      state.message = data.success
+    //   if (!response.ok) {
+    //     const errorData = await response.json();
+    //     notify({
+    //       title: "error",
+    //       text: errorData.message,
+    //     });
+    //     state.erromessage = errorData.message;
+    //     state.loadingState = false;
+    //     throw new Error(errorData.message);
 
-      notify({
-          title: "successful",
-          text: data.success,
-        });
+    //   }
+    //   state.loadingState = true
+    //   const data = await response.json();
+    //   state.erromessage = ''
+    //   state.message = data.success
+
+    //   notify({
+    //       title: "successful",
+    //       text: data.success,
+    //     });
      
-      setTimeout(() => {
-        router.push('/Login')
+    //   setTimeout(() => {
+    //     router.push('/Login')
        
-        state.loadingState = false
-      }, 10);
-    } catch (error) {
-      notify({
-          title: "No Internet Connection",
-          text: "Please check your internet connection and try again.",
-        });
+    //     state.loadingState = false
+    //   }, 10);
+    // } catch (error) {
+    //   notify({
+    //       title: "No Internet Connection",
+    //       text: "Please check your internet connection and try again.",
+    //     });
      
-    }
+    // }
   }
 }
 
