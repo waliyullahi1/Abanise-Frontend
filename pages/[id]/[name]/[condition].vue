@@ -354,15 +354,15 @@
 
                 <Input label="Phone Number" :type=Number :error="false" :inputValue="phone" class="mt-4 bg-g-200"
                   placeholder="Your Number"></Input>
-                <p class="text-sm text-center mt-5 ">Makepayment with Paystack </p>
+                <p class="text-sm text-center mt-5 ">Makepayment  with Paystack </p>
 
               </form>
               <div class="bg-primary flex gap-3 text-white py-2 px-4 rounded-xl mt-4 font-bold">
                 <img src="@/assets/image/paystack.png" alt="paystack logo" class="w-5" />
-                <paystack @click=" processPayment()" class="bg-red" buttonClass="'button-class btn btn-primary'"
+                <!-- <paystack @click=" processPayment()" class="bg-red" buttonClass="'button-class btn btn-primary'"
                   buttonText="Pay Online" :publicKey="publicKey" :email=email :amount=amount :reference="reference"
                   :onSuccess="onSuccessfulPayment" :onCanel="onCancelledPayment">
-                </paystack>
+                </paystack> -->
 
               </div>
             </div>
@@ -380,7 +380,7 @@
 
 <script>
 
-import paystack from "vue3-paystack"
+
 import waec from '../assets/image/waec.png'
 import neco from '../assets/image/neco12.jpg'
 import nabteb from '../assets/image/nee.jpg'
@@ -389,7 +389,7 @@ import vwaec from '../assets/image/waecver.jpg'
 import gcewaec from '../assets/image/gce.jpg'
 import { useHead } from '@vueuse/head'
 import { onMounted } from 'vue'
-import { useRuntimeConfig } from '#app'
+
 
 
 
@@ -404,6 +404,7 @@ export default {
   },
   data() {
     return {
+      
       Nabtebre: "",
       Scratchcard: true,
       card: "",
@@ -597,7 +598,7 @@ export default {
 
 
     onSuccessfulPayment: async function (response) {
-      const runtimeConfig = useRuntimeConfig()
+     
 
 
 
@@ -772,8 +773,8 @@ export default {
 
 
   components: {
-
-    paystack
+   
+    // paystack
   },
 
 
