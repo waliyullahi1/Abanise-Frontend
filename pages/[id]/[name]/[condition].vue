@@ -335,7 +335,7 @@
                   <h1 class="text-primary text-center font-bold text-xl ">Scratch card</h1>
                   <h2 class=" sm:text-xl text-[15px]  font-normal text-center  text-secondary ">{{ cardName }} Scratch
                     Card</h2>
-                  <h2 class="text2xl text-black text-center  "> ₦{{ this.forms.semiprice }}</h2>
+                  <h2 class="text2xl text-black text-center  "> ₦{{ forms.semiprice }}</h2>
                 </div>
                 <Input label="Enter Quantity" type="number" @click=" tolink()" placeholder="Enter Quantity"
                   :error="false" v-model:inputValue="forms.quantity" inputValue="`1`" min=1></Input>
@@ -347,8 +347,8 @@
                 <Input label="Total" type="Number" :min="numm" :disabled="disabled" :error="false"
                   v-model:inputValue="forms.total" class="mt-4 hidden  bg-gry-300"></Input>
                 <h2 class=" mt-5"> Total</h2>
-                <div class="py-2 w-full h-10 px-5  bg-gray-300 mt-2  rounded-lg ">{{ this.forms.quantity *
-        this.forms.semiprice }}</div>
+                <div class="py-2 w-full h-10 px-5  bg-gray-300 mt-2  rounded-lg ">{{ forms.quantity *
+        forms.semiprice }}</div>
                 <Input label="Email" @click="tolink()" type="String" placeholder="Your Email" :error="false"
                   class="mt-4  bg-gay-300" v-model:inputValue="email"> </Input>
 
@@ -423,7 +423,7 @@ export default {
       wlabel: '',
       nabteb: '',
       isJsFinishedRun: true,
-
+      waec:'',
       waecImg: 'waec',
       cardlink: '',
       cardName: '',
