@@ -1,0 +1,87 @@
+<template>
+    <div class=""> 
+      <div class="">
+            <div class="flex input-containers ani bg-white    mt-6 ">
+              
+              <input :id="id"  :type="props.type" :disabled="props.disabled" required :max="props.max" :min="props.min" :placeholder="placeholder" :value="props.inputValue" @input="$emit('update:inputValue', $event.target.value)" ref="input"   
+               class="w-full  input-field bg-white h-[2.6rem]  px-10 text-[15px] border font-normal     rounded-[5px] "
+              placeholder=" " >
+              
+              <label for="name" class="input-label    text-slate-600  tex"> <span
+                  class=" py-0 px-1 bg-white  w-fit">{{props.label}}</span> </label>
+
+            </div>
+
+            <!-- <p class="   text-red-700 text-['13rem']">
+             Please enter your email properly</p> -->
+          </div>
+    </div>
+  </template>
+
+<script setup>
+import { ref } from 'vue'
+
+// Define props
+const props = defineProps({
+  extraClass: String,
+  error: Boolean,
+  label: String,
+  type: String,
+  disabled: Boolean,
+  placeholder: String,
+  inputValue: String,
+  min: Number,
+  max: Number,
+})
+
+// Create a reference to the input field
+const inputRef = ref(null)
+
+// Define methods
+const focus = () => {
+  inputRef.value.focus()
+}
+</script>
+
+  
+  <style>
+   .input-containers {
+  position: relative;
+
+}
+
+.input-field {
+  width: 100%;
+
+  background: transparent;
+  outline: none;
+  padding: 0 0 0.5rem 0.5rem;
+}
+
+.input-field:focus+.input-label,
+.input-field:not(:placeholder-shown)+.input-label {
+  transform: translateY(-1.6rem);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: rgb(3, 3, 3);
+
+
+
+}
+
+
+.input-label {
+  position: absolute;
+  bottom: -15px;
+
+  height: fit-content;
+  left: 0;
+  height: fit-content;
+  height: 3rem;
+  pointer-events: none;
+  padding-left: 0.5rem;
+  transform-origin: left;
+  transition: all 0.3s ease;
+} 
+
+  </style>

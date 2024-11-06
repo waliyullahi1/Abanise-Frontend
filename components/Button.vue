@@ -1,6 +1,6 @@
 <template>
   <button
-    type="button"
+    :type=type
     class="
       py-3
       px-4
@@ -15,7 +15,7 @@
       duration-500
       ease-in-out
        rounded-md
-     
+       
       hover:text-white
       active:text-white
       focus:text-white
@@ -75,6 +75,10 @@ export default {
     loading: Boolean,
     color: String,
     disabled: Boolean,
+    type:{
+      default: "Loading",
+      type: String
+    },
     loadingText: {
       default: "Loading",
       type: String

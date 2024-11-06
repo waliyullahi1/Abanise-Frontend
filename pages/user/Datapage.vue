@@ -128,15 +128,15 @@
   </div>
 </template>
 <script setup>
-import { useHead } from '@vueuse/head'
+
 import { ref, watch } from 'vue'
 import axios from 'axios'
-import Login from '../Login.vue';
+
 const { notify } = useNotification();
 const transacicon = ref('')
 const statuss = ref('')
 import { useRouter } from 'vue-router'
-import { differenceInCalendarQuarters } from 'date-fns';
+
 
 const router = useRouter()
 

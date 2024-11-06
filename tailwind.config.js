@@ -10,8 +10,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#164b3b",
-        secondary: "#dc352d",
+        primary: "#000080",
+        secondary: "#0000FF",
       },
       fontFamily: {
         mermaid: "Mermaid Swash Caps",
