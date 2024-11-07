@@ -1,13 +1,13 @@
 <template>
   <div
-    class="flex w-full justify-center bg-black bg-opacity-100 bg-no-repeat bg-cover bg-[url('@/assets/image/school-image.jpg')]  sm:h-screen">
+    class="flex w-full content justify-center bg-black bg-opacity-100 bg-no-repeat bg-cover bg-[url('@/assets/image/school-image.jpg')]  sm:h-screen">
     <div class="flex w-full justify-center items-center h-full  sm:mx-0 bg-black bg-opacity-70">
       <div
         class="md:w-[800px] sm:w-[400px] w-full rounded-none sm:rounded-2xl flex justify-center items-center overflow-hidden  h-fit bg-slate-700 sm:h-[540px]">
         <div class="h-full md:max-w-md hidden md:block bg-[url('@/assets/image/ghost.png')] bg-no-repeat bg-cover justify-around sm:w-full w-full">
           <!-- Sidebar content -->
           <div class="text-[15px] bg-slate-600 bg-opacity-60 py-10 px-5 text-white w-full h-full">
-            <h4 class="text-2xl font-bold title" style="font-weight: bolder;">Success Student starts here</h4>
+            <h4 class="text-2xl font-bold content " >Success Student starts here</h4>
             <h4 class="my-4">Join Abanise tutorials and learn with us</h4>
             <p class="my-4">Access to Free Cbt Training and all jamb pass question</p>
           </div>
@@ -20,7 +20,7 @@
           <div class="text-center h-full justify-between w-full">
             <div class="py-5">
              
-              <h4 class="sm:text-3xl text-2xl text-left py-5 md:hidden block font-bold title" style="font-weight: bolder;">Success student <br> <span class=" text-red-600">starts</span> here</h4>
+              <h4 class="sm:text-3xl text-3xl text-left py-5 md:hidden block font-extrabold  ">Success student <br> <span class=" text-red-600">starts</span> here</h4>
               <h4 class="sm:text-2xl text-xl title font-bold">Sign in to your account</h4>
               <p class="text-base">
                 Already have an account?
@@ -381,13 +381,5 @@ watch(userData.image_form, (newFile) => {
   animation-delay: 0.4s;
 }
 
-.title {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700;
-}
 
-.subtitle {
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 400;
-}
 </style>

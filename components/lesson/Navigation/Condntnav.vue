@@ -1,6 +1,7 @@
 <template>
-    <div class="  gap-1 top-0 right-2 left pt-7 md:pt-0  h-full justify-between  fixed flex flex-col md:flex-row-reverse justify-beween  w-full se">
-      <div class="md:w-[80%] w-[95%] mx-auto  md:h-[4rem] h-[3.5rem] mt-0 md:mt-7  px-5     text-md  rounded-2xl shadows bg-white"  >
+  <div>
+    <div class=" bg-slate-400 px-2 overflow-scrol  gap-1   pt-7 md:pt-0  h-full justify-between fixed   flex flex-col md:flex-row-reverse justify-beween  w-full se">
+      <div class="md:w-[80%] w-[95%] mx-auto  md:h-[4rem] h-fit mt-0 md:mt-7  px-2 py-2     text-md  rounded-2xl shadows bg-white"  >
         <div class=" flex   justify-between overflow-hidden items-center h-full  mx-auto w-[98%]">
            <div class="w-fit gap- flex items-center  gap-3">
             <img src="@/assets/abanisee.png" class="w-[40px]" alt="" />
@@ -24,7 +25,7 @@
           
       </div>
      
-       <div class="md:w-[250px] text-white md:bloc px-5 k  md:pt-7  pt-0 z-40 md:bg-primary  md:translate-x-0 duration-700  shadows text-[14px] h-fit md:h-screen">
+       <div class="md:w-[250px] w-[95%] text-white md:bloc md:px-5 px-0 mx-auto k  md:pt-7  pt-0 z-40 md:bg-primary  md:translate-x-0 duration-700  shadows text-[14px] h-fit md:h-screen">
             
                 <div class=" w-full  md:flex flex-col  hidden gap-2 items-center justify-center">
                     <div class="rounded-full overflow-hidden  w-20  h-20">
@@ -38,20 +39,22 @@
                 </div>
      
       
-            <div class=" md:py-3 py-0 px-2 bg-black md:bg-primary py  mb-2 md:px-0 mx- md:mx-0 rounded-xl overflow-hidden mt-1">
-              <div class=" flex  px-  w-full  flex-col bg-slate-800 gap-">
-                <div class=" md:block gap-3 flex w-full justify-between ">
-                  <NuxtLink v-for="(link, index) in  links"   class="group w-fit "  to="/user/scratch">
-                    <div   class="px-0 py-0 group  md:w-full w-fit  text-white md:py-2 md:px-3 rounded-xl group-hover md:group-hover:shadow-xl group-hover:scale-110  md:group-hover:translate-y-0 ease-in-out  duration-500    md:group-hover:bg-secondary">
-                      <div  class="flex md:flex-row     md:justify-start justify-center  flex-col     items-center      md:group-hover:translate-x-3 ease-in-out  duration-500 group-hover:gap-0 md:group-hover:gap-4 gap-2 md:gap-5">
-                      <img :src="`/lesson/${link.image}.png`" alt="" class=" md:w-5 w-5 h-5 md:h-5" srcset="">
-                      <p class="font-semibold text-sm md:text-md whitespace-nowrap truncate">{{ link.label }}</p>                        
+            <div class=" md:py-3 py-0  backdrl backdrop-blur-3xl bg-slate-100  bg-whit md:bg-primary py  mb-2 md:px-0 mx- md:mx-0 rounded-xl oen mt-1">
+              <div class=" flex h-[98%] overflow-x-clip w-[98%] mx-auto  flex-col bg-slat gap-">
+                <div class=" md:block gap-5 flex w-full justify-between ">
+                  <NuxtLink v-for="(link, index) in  links" 
+                
+                  class="group bg-whie h-fit w-fit  "  to="/user/scratch">
+                    <div   class="px-0 py-1 group bg-whe md:w-full w-fit  text-white md:py-2 md:px-3  group-hover md:group-hover:shadow-xl group-hover:-translate-y-6   md:group-hover:translate-y-0 ease-in-out  duration-500    md:group-hover:bg-secondary">
+                      <div  class="flex md:flex-row      md:justify-start justify-center  flex-col     items-center      md:group-hover:translate-x-3 ease-in-out  duration-500  md:group-hover:gap-4 sm:gap-1 gap-0 md:gap-5">
+                        <div class="md:hidden group:r:absolute block">
+                          <img :src="`/lesson/${link.image}1.png`" alt="" class=" md:w-5 hidden  group-hover:flex w-5 h-5 md:h-5" srcset=""> 
+                          <img :src="`/lesson/${link.image}2.png`" alt="" class=" md:w-5 w-5 h-5 flex  group-hover:hidden md:h-5" srcset=""> 
+                        </div>
+                        <img :src="`/lesson/${link.image}.png`" alt="" class=" md:w-5 hidden md:block w-5 h-5 md:h-5" srcset=""> 
+                      <p class="font-semibold sm:text-sm md:text-white text-black group-hover:text-primary md:group-hover:text-white  text-xs md:text-md whitespace-nowrap truncate">{{ link.label }}</p>                        
                       </div>
-                      <!-- <div  class="flex md:flex-row  flex-col group-hover:traslate-y-9   items-center  group-hover:-translate-y-3 ease-in-out  duration-500 md:group-hover:gap-4 gap-1 md:gap-5">
-                      <img :src="`/lesson/${link.image}.png`" alt="" class=" md:w-5 w-4 h-4 md:h-5" srcset="">
-                        <p class="font-se sm:text-[16px]  text-[11px] tracking-wide flex justify-center ">{{link.label}}</p>
-                        
-                      </div> -->
+                   
                     </div>
                   </NuxtLink>
                 </div>
@@ -63,11 +66,14 @@
               
               </div>
             </div>
+
+  
       
           
           </div>
     </div>
-  </template>
+  </div>
+</template>
   
   <script setup>
 import { ref, reactive, toRaw } from 'vue';
@@ -86,6 +92,26 @@ import { ref, reactive, toRaw } from 'vue';
 ])
   
 
+const hoveredButton = ref(null);
+
+// Calculate scale based on button's proximity to hovered button
+const getScaleStyle = (index) => {
+  if (hoveredButton.value === null) {
+    return { transform: 'scale(1)' };
+  }
+  
+  const distance = Math.abs(index - hoveredButton.value);
+  
+  // Determine scale based on proximity
+  let scale = 1;
+  if (distance === 0) scale = 1.2;        // Hovered button
+  else if (distance === 1) scale = 1.1;   // First neighbors
+  else if (distance === 2) scale = 1;   // Second neighbors
+  else scale = 1.1;                       // Further buttons
+  
+  return { transform: `scale(${scale})` };
+};
+
 
  
   </script>
@@ -93,58 +119,64 @@ import { ref, reactive, toRaw } from 'vue';
 
 
   
-  <style>
-  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+  <style scoped>
+  /* Font imports */
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;700&display=swap');
   p, h4, .content {
-  font-family: 'DM Sans', sans-serif; /* DM Sans for paragraphs and content */
+    font-family: 'DM Sans', sans-serif;
+  }
+  .over {
+  overflow-x: hidden; /* Hide horizontal overflow */
+  overflow-y: visible; /* Show vertical overflow */
 }
-
+  /* Box shadow for button hover effect */
   .shadows {
     box-shadow: -1px 3px 49px -10px rgba(0, 0, 0, 0.29);
-    -webkit-box-shadow: -1px 3px 49px -10px rgba(0, 0, 0, 0.29);
-    -moz-box-shadow: -1px 3px 49px -10px rgba(0, 0, 0, 0.29);
+  }
+  .over{
+     overflow-y: visible;
+      overflow-x: hidden;
+  }
+  
+  /* Define keyframe animation for staggered input effect */
+  @keyframes staggeredSlideIn {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
   }
 
-
-/* Define keyframe for staggered sliding effect */
-@keyframes staggeredSlideIn {
-  from {
-    transform: translateX(100%);
+  
+  .staggered-input {
     opacity: 0;
+    animation: staggeredSlideIn 0.5s forwards;
   }
-
-  to {
-    transform: translateX(0);
-    opacity: 1;
+  
+  .staggered-form .staggered-input.delay-0 {
+    animation-delay: 0s;
   }
-}
-
-.staggered-input {
-  opacity: 0;
-  animation: staggeredSlideIn 0.5s forwards;
-}
-
-.staggered-form .staggered-input.delay-0 {
-  animation-delay: 0s;
-}
-
-.staggered-form .staggered-input.delay-1 {
-  animation-delay: 0.2s;
-}
-
-.staggered-form .staggered-input.delay-2 {
-  animation-delay: 0.4s;
-}
-
-.title {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700;
-}
-
-.subtitle {
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 400;
-}
-
-
+  .staggered-form .staggered-input.delay-1 {
+    animation-delay: 0.2s;
+  }
+  .staggered-form .staggered-input.delay-2 {
+    animation-delay: 0.4s;
+  }
+  
+  .title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+  }
+  
+  .subtitle {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 400;
+  }
   </style>
+
+
+  
+  
