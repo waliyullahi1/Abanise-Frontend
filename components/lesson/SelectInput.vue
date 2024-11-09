@@ -15,7 +15,7 @@
           ref="inputRef"
           required
           :disabled="disabled"
-          class="w-full px-2 h-[2.6rem] focus:shadow-blue-400 shadow-sm focus:border  focus:border-blue-700  mt-1 font-sem rounded-[.2rem] ml- text-[15px] outline-none fy border-gray-300 border py-[.3rem]"
+          class="w-full px-2 h-[2.6rem] focus:shadow-blue-400 shadow-sm focus:border bg-white   focus:border-blue-700  mt-1 font-sem rounded-[.2rem] ml- text-[15px] outline-none fy border-gray-300 border py-[.3rem]"
         >
           <option class=" text-[15px] font-semibold" v-for="(option, index) in field" :key="index" :value="option.value">
             {{ option.text }}

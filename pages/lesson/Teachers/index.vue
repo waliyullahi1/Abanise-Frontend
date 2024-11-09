@@ -1,7 +1,7 @@
 
 <template>
     <div class="bg-[#f4f6f6] text-[poppins]">
-        <LessonNavigationCoordinator></LessonNavigationCoordinator>
+       <LessonNavigationTeacher></LessonNavigationTeacher>
     </div>
   </template>
 

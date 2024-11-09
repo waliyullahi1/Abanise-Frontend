@@ -12,6 +12,7 @@
     <div class="flex items-center justify-center capitalize">
       <div v-if="loading" class="flex items-center text-white">
         <div class="mr-2">
+          
           <!-- Loading Spinner SVG -->
           <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
             <circle
